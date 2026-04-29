@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilcomayo River Basin - Water Quality Analysis Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .dashboard-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #3498db;
+        }
+
+        .dashboard-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .dashboard-header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .navigation {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .nav-title {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .explanation-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .explanation-box h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .explanation-box p {
+            line-height: 1.7;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .explanation-box ul {
+            color: #495057;
+            padding-left: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+
+        .chart-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .metadata {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .edit-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            color: #856404;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h1>Pilcomayo River Basin Water Quality Analysis</h1>
+        <p>Comprehensive spatiotemporal analysis of heavy metal contamination patterns in water systems across the Pilcomayo River Basin.</p>
+    </div>
+
+    <div class="container">
+        <div class="navigation">
+            <div class="nav-title">Analysis Navigation</div>
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showSection('flow-animation')">Flow Animation</button>
+                <button class="nav-btn" onclick="showSection('regulatory-compliance')">Regulatory Compliance</button>
+                <button class="nav-btn" onclick="showSection('contamination-ranking')">Contamination Ranking</button>
+                <button class="nav-btn" onclick="showSection('executive-dashboard')">Executive Dashboard</button>
+                <button class="nav-btn" onclick="showSection('multi-metal')">Multi-Metal Assessment</button>
+                <button class="nav-btn" onclick="showSection('severity-matrix')">Severity Matrix</button>
+                <button class="nav-btn" onclick="showSection('precipitation-transport')">Precipitation Transport</button>
+                <button class="nav-btn" onclick="showSection('river-corridor')">River Corridor Analysis</button>
+                <button class="nav-btn" onclick="showSection('seasonal-dynamics')">Seasonal Dynamics</button>
+                <button class="nav-btn" onclick="showSection('migration-patterns')">Migration Patterns</button>
+                <button class="nav-btn" onclick="showSection('velocity-analysis')">Velocity Analysis</button>
+            </div>
+        </div>
+
+        <div id="flow-animation" class="content-sectionactive">
+            <div class="section-header">Contamination Flow Animation</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>This animated visualization tracks the spatiotemporal migration of arsenic contamination through the Pilcomayo River water system from 2016-2024. Each station is represented as a bubble whose size and color indicate contamination severity.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Migration Patterns:</strong> Watch how contamination moves downstream over time</li>
+                <li><strong>Hotspot Evolution:</strong> Identify persistent and emerging contamination hotspots</li>
+                <li><strong>Regulatory Context:</strong> Color coding shows exceedances of WHO and Bolivian standards</li>
+                <li><strong>Precipitation Impact:</strong> Observe correlation between annual precipitation and contamination intensity</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> To modify this chart, edit the create_contamination_flow_animation() function. Consider adjusting the size_max parameter for bubble scaling.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/contamination_flow_animation_water.html" class="chart-iframe" title="Contamination Flow Animation"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> contamination_flow_animation_water.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="regulatory-compliance" class="content-section">
+            <div class="section-header">Regulatory Compliance Assessment</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Comprehensive assessment of water quality compliance with international and national standards including WHO guidelines and Bolivian Law 1333 Class A water quality criteria.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Compliance Rates:</strong> Percentage of samples meeting regulatory standards</li>
+                <li><strong>Exceedance Patterns:</strong> Temporal and spatial patterns of standard violations</li>
+                <li><strong>Risk Classification:</strong> Station-level risk assessment based on compliance history</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Modify regulatory limits in the REGULATORY_LIMITS dictionary. Adjust compliance thresholds as needed.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/water_quality_regulatory_compliance.html" class="chart-iframe" title="Regulatory Compliance Assessment"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> water_quality_regulatory_compliance.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="contamination-ranking" class="content-section">
+            <div class="section-header">Station Contamination Ranking</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Hierarchical ranking of monitoring stations based on contamination severity, frequency of exceedances, and risk to human health.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Priority Stations:</strong> Identify stations requiring immediate intervention</li>
+                <li><strong>Risk Scoring:</strong> Quantitative risk assessment for each location</li>
+                <li><strong>Resource Allocation:</strong> Data-driven prioritization for remediation efforts</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Adjust ranking criteria weights in the contamination ranking algorithm.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/water_quality_arsenic_contamination_ranking.html" class="chart-iframe" title="Station Contamination Ranking"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> water_quality_arsenic_contamination_ranking.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="executive-dashboard" class="content-section">
+            <div class="section-header">Executive Summary Dashboard</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>High-level executive summary designed for decision-makers, providing key performance indicators and actionable insights.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>KPI Overview:</strong> Critical metrics for water quality status</li>
+                <li><strong>Trend Indicators:</strong> Overall improvement or deterioration patterns</li>
+                <li><strong>Recommendations:</strong> Prioritized action items for management</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Customize KPIs and thresholds for executive reporting requirements.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/water_quality_executive_dashboard.html" class="chart-iframe" title="Executive Summary Dashboard"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> water_quality_executive_dashboard.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="multi-metal" class="content-section">
+            <div class="section-header">Multi-Metal Assessment</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Comprehensive analysis of multiple heavy metals showing co-contamination patterns and cumulative risk assessment.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Co-contamination:</strong> Stations affected by multiple metals simultaneously</li>
+                <li><strong>Metal Correlations:</strong> Relationships between different contaminants</li>
+                <li><strong>Cumulative Risk:</strong> Combined toxicity assessment</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Add or remove metals from analysis by modifying the metal_columns list.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/water_quality_multi_metal_assessment.html" class="chart-iframe" title="Multi-Metal Assessment"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> water_quality_multi_metal_assessment.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="severity-matrix" class="content-section">
+            <div class="section-header">Contamination Severity Matrix</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Matrix visualization showing contamination severity across stations and time periods for pattern recognition.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Spatial Patterns:</strong> Geographic distribution of contamination severity</li>
+                <li><strong>Temporal Trends:</strong> Evolution of contamination over time</li>
+                <li><strong>Risk Zones:</strong> Areas of persistent high contamination</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Adjust color scale thresholds for better visualization of severity categories.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/water_quality_contamination_severity_matrix.html" class="chart-iframe" title="Contamination Severity Matrix"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> water_quality_contamination_severity_matrix.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="precipitation-transport" class="content-section">
+            <div class="section-header">Precipitation-Driven Transport</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Analysis of how precipitation patterns drive contamination transport through the watershed.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Hydrological Controls:</strong> How rainfall affects contaminant mobility</li>
+                <li><strong>Seasonal Patterns:</strong> Wet vs. dry season contamination dynamics</li>
+                <li><strong>Transport Velocity:</strong> Speed of contamination migration during high flow events</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Update precipitation data sources or modify correlation analysis parameters.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/precipitation_contamination_transport_water.html" class="chart-iframe" title="Precipitation-Driven Transport"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> precipitation_contamination_transport_water.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="river-corridor" class="content-section">
+            <div class="section-header">River Corridor Analysis</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Longitudinal analysis of contamination patterns along the river corridor showing upstream-downstream relationships.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Downstream Impact:</strong> How upstream contamination affects downstream water quality</li>
+                <li><strong>Attenuation Rates:</strong> Natural dilution along the river</li>
+                <li><strong>Critical Reaches:</strong> River segments with highest contamination</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Modify distance calculations or add new river segments for analysis.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/river_corridor_contamination_analysis_water.html" class="chart-iframe" title="River Corridor Analysis"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> river_corridor_contamination_analysis_water.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="seasonal-dynamics" class="content-section">
+            <div class="section-header">Seasonal Flow Dynamics</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Seasonal variations in contamination patterns showing how wet and dry seasons affect contaminant concentrations.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Seasonal Cycles:</strong> Regular patterns throughout the year</li>
+                <li><strong>Mobilization Events:</strong> When contaminants are most likely to be released</li>
+                <li><strong>Planning Implications:</strong> Optimal timing for monitoring and remediation</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Adjust seasonal definitions or add additional temporal analysis periods.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/seasonal_flow_dynamics_water.html" class="chart-iframe" title="Seasonal Flow Dynamics"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> seasonal_flow_dynamics_water.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="migration-patterns" class="content-section">
+            <div class="section-header">Upstream-Downstream Migration</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Analysis of contamination migration patterns from upstream sources to downstream receptors.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Migration Velocity:</strong> Speed of contamination movement through the system</li>
+                <li><strong>Lag Effects:</strong> Time delays between upstream releases and downstream impacts</li>
+                <li><strong>Intervention Points:</strong> Optimal locations for contamination control measures</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Modify migration tracking algorithms or update river position classifications.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/upstream_downstream_migration_patterns_water.html" class="chart-iframe" title="Upstream-Downstream Migration"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> upstream_downstream_migration_patterns_water.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+
+        <div id="velocity-analysis" class="content-section">
+            <div class="section-header">Contamination Velocity Analysis</div>
+            <div class="explanation-box">
+                
+            <h3>What This Analysis Shows</h3>
+            <p>Quantitative analysis of contamination propagation velocity through the river system.</p>
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Transport Rates:</strong> How quickly contamination moves downstream</li>
+                <li><strong>Emergency Planning:</strong> Predicted arrival times at critical locations</li>
+                <li><strong>Early Warning:</strong> Time available for response measures</li>
+            </ul>
+            
+            </div>
+            <div class="edit-note">
+                <strong>Editing Note:</strong> Update velocity calculation methods or add new transport models.
+            </div>
+            <div class="chart-container">
+                <iframe src="water_analysis/contamination_velocity_analysis_water.html" class="chart-iframe" title="Contamination Velocity Analysis"></iframe>
+            </div>
+            <div class="metadata">
+                <strong>Data Source:</strong> contamination_velocity_analysis_water.html | <strong>Analysis Type:</strong> Water Quality Assessment
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                const buttons = Array.from(document.querySelectorAll('.nav-btn'));
+                const activeButton = document.querySelector('.nav-btn.active');
+                const currentIndex = buttons.indexOf(activeButton);
+                
+                let nextIndex;
+                if (e.key === 'ArrowRight') {
+                    nextIndex = (currentIndex + 1) % buttons.length;
+                } else {
+                    nextIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+                }
+                
+                buttons[nextIndex].click();
+            }
+        });
+    </script>
+</body>
+</html>

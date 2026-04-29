@@ -1,0 +1,25 @@
+Event Id,Event Station,Station Label,Metal,Before Median,After Median,Enrichment Factor,N Before,N After,Pval,Is Event Station
+1,Tarapaya,Tarapaya (event),Lead,,296.0,,0,1,,True
+1,Tarapaya,Tarapaya (event),Arsenic,,253.0,,0,1,,True
+1,Tarapaya,Tarapaya (event),Cadmium,,41.0,,0,1,,True
+1,Tarapaya,Tarapaya (event),Zinc,,10203.0,,0,1,,True
+1,Tarapaya,Tarapaya (event),Iron,,23913.0,,0,1,,True
+1,Tarapaya,Tarapaya (event),Manganese,,1625.0,,0,1,,True
+2,Potosí - Naciente río La Ribera,Naciente (event),Lead,,27.0,,0,1,,True
+2,Potosí - Naciente río La Ribera,Naciente (event),Arsenic,,10.0,,0,1,,True
+2,Potosí - Naciente río La Ribera,Naciente (event),Cadmium,,10.0,,0,1,,True
+2,Potosí - Naciente río La Ribera,Naciente (event),Zinc,,105.0,,0,1,,True
+2,Potosí - Naciente río La Ribera,Naciente (event),Iron,,1532.0,,0,1,,True
+2,Potosí - Naciente río La Ribera,Naciente (event),Manganese,,280.0,,0,1,,True
+2,Potosí - Naciente río La Ribera,Tarapaya,Lead,41.0,119.0,2.902439024390244,1,2,,False
+2,Potosí - Naciente río La Ribera,Tarapaya,Arsenic,144.0,148.5,1.03125,1,2,,False
+2,Potosí - Naciente río La Ribera,Tarapaya,Cadmium,11.0,18.5,1.6818181818181819,1,2,,False
+2,Potosí - Naciente río La Ribera,Tarapaya,Zinc,3512.0,2973.0,0.8465261958997722,1,2,,False
+2,Potosí - Naciente río La Ribera,Tarapaya,Iron,16587.0,16045.0,0.9673238078012901,1,2,,False
+2,Potosí - Naciente río La Ribera,Tarapaya,Manganese,1234.0,577.5,0.4679902755267423,1,2,,False
+3,La Quiaca,La Quiaca (event),Lead,2.0,,,1,0,,True
+3,La Quiaca,La Quiaca (event),Arsenic,32.0,,,1,0,,True
+3,La Quiaca,La Quiaca (event),Cadmium,0.25,,,1,0,,True
+3,La Quiaca,La Quiaca (event),Zinc,64.0,,,1,0,,True
+3,La Quiaca,La Quiaca (event),Iron,807.0,,,1,0,,True
+3,La Quiaca,La Quiaca (event),Manganese,143.0,,,1,0,,True

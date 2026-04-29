@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — River Remedy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header>
+  <div class="logo-section">
+    <div class="logo-icon">〰</div>
+    <div class="logo-text">River<span class="water">Remedy</span></div>
+  </div>
+  <nav class="nav-controls">
+    <button class="lang-toggle">ES / EN</button>
+    <a href="index.html" class="btn-primary">← Back to Home</a>
+  </nav>
+</header>
+
+<section class="page-section light" style="margin-top: 70px; min-height: 100vh;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div class="section-header">
+      <h1 data-i18n="contact.title">Get In Touch</h1>
+      <div class="accent-bar"></div>
+      <p data-i18n="contact.intro">Have questions about the research or interested in remediation partnerships?</p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="cards-grid mb-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📧</div>
+          <div>
+            <h3 class="card-title">Email</h3>
+          </div>
+        </div>
+        <p class="card-text">
+          <a href="mailto:research@riverremedy.org" style="color: var(--water-deep); text-decoration: none; font-weight: 600;">research@riverremedy.org</a>
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏫</div>
+          <div>
+            <h3 class="card-title">Institution</h3>
+          </div>
+        </div>
+        <p class="card-text">UCSB Bren School of Environmental Science & Management, Santa Barbara, California</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🌐</div>
+          <div>
+            <h3 class="card-title">Online</h3>
+          </div>
+        </div>
+        <p class="card-text">
+          <a href="https://github.com/katerinabischel/River_Remedy" target="_blank" style="color: var(--water-deep); text-decoration: none; font-weight: 600;">GitHub Repository →</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="card">
+      <h2 data-i18n="contact.formTitle">Send us a message</h2>
+      <form class="mt-2" id="contact-form">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Your Name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="organization">Organization</label>
+          <input type="text" id="organization" name="organization" placeholder="Your Organization">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a topic...</option>
+            <option value="research">Research Question</option>
+            <option value="remediation">Remediation Partnership</option>
+            <option value="data">Data Request</option>
+            <option value="community">Community Engagement</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required placeholder="Your message..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;" data-i18n="contact.submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mt-2">
+      <h3 style="margin-bottom: 1.5rem; color: var(--text-dark); font-size: 1.3rem; font-weight: 700;">Frequently Asked Questions</h3>
+
+      <div class="card mb-2">
+        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">How can I access the raw data?</h4>
+        <p class="card-text">All data is publicly available in our GitHub repository. Water and sediment chemistry samples from 2016–2024 are documented with QA/QC protocols.</p>
+      </div>
+
+      <div class="card mb-2">
+        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">Are remediation technologies ready for deployment?</h4>
+        <p class="card-text">Phase 1 (monitoring) is immediately deployable. Phases 2–3 require pilot testing and community engagement. We support organizations interested in implementation.</p>
+      </div>
+
+      <div class="card mb-2">
+        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">How do I cite this research?</h4>
+        <p class="card-text">The peer-reviewed publication is available in the resources section. Please reference the full citation and link to our GitHub for reproducible analysis.</p>
+      </div>
+
+      <div class="card mb-2">
+        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">Can universities collaborate on extensions?</h4>
+        <p class="card-text">Yes! We welcome academic partnerships for air quality monitoring, health impact assessments, and ecosystem recovery studies. Contact us directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>River Remedy</h3>
+      <p>A groundbreaking study of heavy metal contamination in the Pilcomayo River Basin, combining field research, geochemical analysis, and community engagement.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://katerinabischel.github.io/riverremedy/" target="_blank">Full Dataset</a></li>
+        <li><a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Partnerships</h3>
+      <ul>
+        <li>UCSB Bren School</li>
+        <li>Tomás Frías University</li>
+        <li>Bolivian Government</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 River Remedy. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const button = this.querySelector('button[type="submit"]');
+  const originalText = button.textContent;
+
+  button.textContent = 'Sending...';
+  button.disabled = true;
+
+  setTimeout(() => {
+    button.textContent = 'Message sent!';
+    this.reset();
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.disabled = false;
+    }, 2000);
+  }, 1000);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+Station,n_measurements,mean_DO,median_DO,min_DO,max_DO,std_DO,Station_DO_Status,has_anoxic_events,n_anoxic_events
+Agropil,3,6.83,6.92,5.44,8.14,1.35,Generally Oxic,False,0
+Bañado Las Garzas,0,,,,,,,False,0
+Cadete Pando,2,1.23,1.23,0.25,2.2,1.38,Chronically Anoxic,True,1
+Canutillos 3,1,6.24,6.24,6.24,6.24,,Generally Oxic,False,0
+Chuquiago,10,7.22,6.96,6.13,8.52,0.87,Generally Oxic,False,0
+Clorinda,8,5.56,5.56,3.67,7.06,1.25,Generally Oxic,False,0
+Colavi - Canutillos,26,6.81,6.78,5.7,8.06,0.6,Generally Oxic,False,0
+Cotagaita,10,7.04,6.98,5.88,8.3,0.69,Generally Oxic,False,0
+El Potrillo,9,7.18,7.8,3.11,9.61,2.14,Generally Oxic,False,0
+El Puente,26,7.65,7.98,0.81,11.21,1.87,Generally Oxic,True,1
+El Solitario,4,7.9,8.6,5.36,9.02,1.73,Generally Oxic,False,0
+General Bruguez,10,8.34,8.62,2.62,13.62,3.33,Generally Oxic,False,0
+General Díaz,4,6.06,6.98,2.06,8.2,2.87,Generally Oxic,False,0
+Hacienda 9 de junio,3,7.25,8.1,4.8,8.85,2.15,Generally Oxic,False,0
+La Angostura,8,6.98,6.2,4.66,10.27,1.87,Generally Oxic,False,0
+La Quiaca,9,3.82,3.4,2.31,6.18,1.27,Frequently Hypoxic,False,0
+Liviara,8,7.81,8.08,6.53,8.86,0.88,Generally Oxic,False,0
+Marca Borrada,1,7.62,7.62,7.62,7.62,,Generally Oxic,False,0
+María Cristina,9,7.96,7.99,5.12,9.55,1.28,Generally Oxic,False,0
+Meyer Sitio 01,4,7.66,8.29,5.17,8.9,1.71,Generally Oxic,False,0
+Misión La Paz - SNIH,28,7.09,7.28,3.75,9.71,1.48,Generally Oxic,False,0
+Montelindo en Hacienda Sta Ana,1,5.37,5.37,5.37,5.37,,Generally Oxic,False,0
+Montelindo en ruta PY09,9,4.63,5.1,0.41,7.15,2.15,Generally Oxic,True,1
+Negro Ruta PY09,7,4.92,5.23,2.49,7.0,1.63,Generally Oxic,False,0
+Palca Grande,26,7.28,7.3,5.48,8.51,0.79,Generally Oxic,False,0
+Pilcomayo - Agua arriba confluencia Pilcomayo - Tacobamba,25,7.29,7.18,5.85,8.75,0.81,Generally Oxic,False,0
+Potosí - Naciente río La Ribera,10,5.36,5.74,2.84,6.81,1.27,Generally Oxic,False,0
+Puente Aruma - Automática,10,8.14,8.46,5.88,9.53,1.13,Generally Oxic,False,0
+Puente Loyola,10,4.79,4.73,1.9,10.86,2.61,Generally Oxic,True,1
+Puente Mendez,10,7.58,7.22,6.62,8.93,0.85,Generally Oxic,False,0
+Ruta 11,9,7.19,6.09,4.48,12.98,2.76,Generally Oxic,False,0
+Ruta 28-Vertedero,9,3.83,3.09,0.02,7.21,2.63,Frequently Hypoxic,True,2
+Ruta 95,7,7.35,6.86,5.58,10.72,1.8,Generally Oxic,False,0
+Salida Laguna Salada,9,6.54,6.95,2.58,9.36,2.24,Generally Oxic,False,0
+San Antonio - Potosí,10,6.56,6.75,4.67,8.62,1.21,Generally Oxic,False,0
+San Josecito,10,16.29,8.03,7.22,90.2,25.98,Generally Oxic,False,0
+Tacobamba - Agua arriba confluencia Pilcomayo - Tacobamba,25,6.21,6.21,5.51,6.94,0.42,Generally Oxic,False,0
+Talula - Automática,8,7.52,7.26,6.98,8.29,0.52,Generally Oxic,False,0
+Tarapaya,25,6.14,6.17,3.36,8.66,1.08,Generally Oxic,False,0
+Tinfunke,2,3.46,3.46,3.09,3.82,0.52,Frequently Hypoxic,False,0
+Tumusla,10,7.24,7.55,5.42,8.47,0.9,Generally Oxic,False,0
+Verde Ruta PY09,3,7.48,5.58,2.69,14.16,5.97,Generally Oxic,False,0
+Villa Hayes,10,3.33,3.38,1.25,7.24,1.89,Frequently Hypoxic,True,3
+Villamontes,25,8.23,8.33,6.97,9.56,0.71,Generally Oxic,False,0
+Viña Quemada,9,7.52,7.16,5.71,9.48,1.38,Generally Oxic,False,0
+Yocalla,5,6.93,6.84,5.39,8.41,1.08,Generally Oxic,False,0

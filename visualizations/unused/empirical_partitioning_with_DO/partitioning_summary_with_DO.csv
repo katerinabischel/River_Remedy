@@ -1,0 +1,5 @@
+Metal,Partitioning_Ratio_L_per_kg_count,Partitioning_Ratio_L_per_kg_median,Partitioning_Ratio_L_per_kg_mean,Partitioning_Ratio_L_per_kg_std,Partitioning_Ratio_L_per_kg_min,Partitioning_Ratio_L_per_kg_max,Partitioning_Ratio_L_per_kg_<lambda_0>,Partitioning_Ratio_L_per_kg_<lambda_1>,pH_mean,Clay_%_mean,Organic_Matter_%_mean,DO_mg_per_L_mean,DO_mg_per_L_median,DO_mg_per_L_count
+Arsenic,846,919.0,3917.82,17218.86,3.86,308000.0,337.05,2170.5,7.74,4.0,1.22,7.53,7.36,846
+Cadmium,844,160.0,2856.4,14527.62,0.5,112400.0,29.0,480.0,7.74,4.01,1.22,7.53,7.36,844
+Lead,846,1666.67,10516.13,46696.37,3.36,796000.0,324.1,6345.83,7.74,4.0,1.22,7.53,7.36,846
+Zinc,846,651.91,9669.15,69219.13,2.58,1528000.0,191.76,3435.77,7.74,4.0,1.22,7.53,7.36,846

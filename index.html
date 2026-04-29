@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>River Remedy — Pilcomayo Basin Contamination Study</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- HEADER & NAVIGATION                                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="logo-section">
+    <div class="logo-icon">〰</div>
+    <div class="logo-text">River<span class="water">Remedy</span></div>
+  </div>
+  <nav class="nav-controls">
+    <button class="lang-toggle" data-i18n="nav.overview">ES / EN</button>
+    <a href="https://katerinabischel.github.io/riverremedy/index.html" target="_blank" class="btn-primary" data-i18n="nav.fullReport">
+      ↓ Full Report (PDF)
+    </a>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- HERO SECTION                                                    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="page-section light">
+  <div class="hero animate-fade">
+    <div class="hero-content">
+      <h1 data-i18n="hero.title">Restoring the <span class="highlight">Pilcomayo River</span></h1>
+      <p data-i18n="hero.subtitle">A groundbreaking 8-year study of heavy metal contamination in South America's most critical transnational watershed, affecting 1.5 million people across Bolivia, Paraguay, and Argentina.</p>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number" data-i18n="hero.stat1">1.5M</div>
+          <div class="stat-label" data-i18n="hero.stat1label">People Affected</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-i18n="hero.stat2">450+</div>
+          <div class="stat-label" data-i18n="hero.stat2label">Years of Mining</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-i18n="hero.stat3">14+</div>
+          <div class="stat-label" data-i18n="hero.stat3label">Heavy Metals Tracked</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="ripple-animation"></div>
+      <div class="ripple-animation"></div>
+      <div class="ripple-animation"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- THE CONTAMINATION CRISIS                                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="page-section accent">
+  <div class="section-header">
+    <h2 data-i18n="contamination.title">The Contamination Crisis</h2>
+    <div class="accent-bar"></div>
+    <span class="badge badge-red" data-i18n="contamination.badge">Environmental Justice</span>
+    <p data-i18n="contamination.intro">For over 450 years, mining operations in the Potosí region have released toxic heavy metals—arsenic, lead, cadmium, zinc, and mercury—into the Pilcomayo River, contaminating drinking water, agricultural soil, and aquatic ecosystems across three nations.</p>
+  </div>
+
+  <div class="cards-grid" id="impacts-grid">
+    <!-- Populated by JavaScript -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ANALYSIS & FINDINGS                                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="page-section light">
+  <div class="section-header">
+    <h2 data-i18n="analysis.title">What We Discovered</h2>
+    <div class="accent-bar"></div>
+    <p data-i18n="analysis.intro">Using 1,436 water and sediment samples from 46 monitoring stations (2016–2024), we mapped contamination dynamics that reveal a critical seasonal pattern.</p>
+  </div>
+
+  <div class="timeline" id="findings-timeline">
+    <!-- Populated by JavaScript -->
+  </div>
+
+  <!-- Visualization embedding -->
+  <div class="viz-container mt-2">
+    <div class="viz-header">
+      <h3>📊 Spatiotemporal Contamination Model</h3>
+      <p>Interactive 3D visualization of metal concentration gradients across 800 km and 8 years of monitoring</p>
+    </div>
+    <div class="viz-body">
+      <iframe src="visualizations/station_map_PERFECT.html" style="width:100%;height:500px;border:none;border-radius:10px;"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- REMEDIATION STRATEGY                                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="page-section dark">
+  <div class="section-header">
+    <h2 class="dark" data-i18n="remediation.title">Remediation Strategy</h2>
+    <div class="accent-bar"></div>
+    <p data-i18n="remediation.intro">We recommend a phased, cost-effective approach targeting the three highest-priority contamination hotspots.</p>
+  </div>
+
+  <div class="cards-grid" id="phases-grid">
+    <!-- Populated by JavaScript -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- OUR TEAM                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="page-section accent">
+  <div class="section-header">
+    <h2 data-i18n="team.title">Our Team</h2>
+    <div class="accent-bar"></div>
+    <p data-i18n="team.intro">An interdisciplinary group of environmental scientists, hydrologists, and data analysts at UCSB Bren School.</p>
+  </div>
+
+  <div class="cards-grid" id="team-grid">
+    <!-- Populated by JavaScript -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CONTACT FORM                                                    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="page-section light" id="contact">
+  <div class="section-header" style="max-width: 600px; margin: 0 auto;">
+    <h2 data-i18n="contact.title">Get In Touch</h2>
+    <div class="accent-bar"></div>
+    <p data-i18n="contact.intro">Have questions about the research or interested in remediation partnerships?</p>
+  </div>
+
+  <div class="card" style="max-width: 600px; margin: 2rem auto;">
+    <h3 data-i18n="contact.formTitle">Send us a message</h3>
+    <form class="mt-2" id="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required data-i18n="contact.namePlaceholder" placeholder="Your Name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required data-i18n="contact.emailPlaceholder" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required data-i18n="contact.messagePlaceholder" placeholder="Your message..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;" data-i18n="contact.submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- FOOTER                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>River Remedy</h3>
+      <p data-i18n="footer.aboutDesc">A groundbreaking study of heavy metal contamination in the Pilcomayo River Basin, combining field research, geochemical analysis, and community engagement.</p>
+    </div>
+    <div class="footer-section">
+      <h3 data-i18n="footer.resources">Resources</h3>
+      <ul>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://katerinabischel.github.io/riverremedy/" target="_blank">Full Dataset</a></li>
+        <li><a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub Repository</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Partnerships</h3>
+      <ul>
+        <li>UCSB Bren School</li>
+        <li>Tomás Frías University</li>
+        <li>Bolivian Government</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="footer.rights">© 2024 River Remedy. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SCRIPTS                                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<script src="js/main.js"></script>
+<script>
+// Populate dynamic content
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait for translations to load
+  setTimeout(() => {
+    populateImpacts();
+    populateFindings();
+    populatePhases();
+    populateTeam();
+  }, 100);
+});
+
+function populateImpacts() {
+  const impacts = translations[currentLang].contamination.impacts;
+  const grid = document.getElementById('impacts-grid');
+  grid.innerHTML = impacts.map(impact => `
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">${impact.icon}</div>
+        <div>
+          <h3 class="card-title">${impact.title}</h3>
+        </div>
+      </div>
+      <p class="card-text">${impact.desc}</p>
+    </div>
+  `).join('');
+}
+
+function populateFindings() {
+  const findings = translations[currentLang].analysis.findings;
+  const timeline = document.getElementById('findings-timeline');
+  timeline.innerHTML = findings.map((f, i) => `
+    <div class="timeline-item ${i === 0 ? 'red' : i === 2 ? 'green' : ''}">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">${f.year}</div>
+      <div class="timeline-title">${f.title}</div>
+      <div class="timeline-desc">${f.desc}</div>
+    </div>
+  `).join('');
+}
+
+function populatePhases() {
+  const phases = translations[currentLang].remediation.phases;
+  const grid = document.getElementById('phases-grid');
+  grid.innerHTML = phases.map(phase => `
+    <div class="card dark">
+      <div style="color: #7ec8e3; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">${phase.phase}</div>
+      <h3 class="card-title" style="color: white;">${phase.title}</h3>
+      <p class="card-text">${phase.desc}</p>
+      <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div style="font-size: 0.85rem; color: #7ec8e3; font-weight: 700;">Estimated Cost</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: white; margin-top: 0.3rem;">${phase.cost}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function populateTeam() {
+  const members = translations[currentLang].team.members;
+  const grid = document.getElementById('team-grid');
+  grid.innerHTML = members.map(member => `
+    <div class="card">
+      <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--water-deep), var(--water-mid)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">${member.initials}</div>
+      <h3 class="card-title">${member.name}</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0.5rem 0;">${member.role}</p>
+      <span class="badge badge-blue" style="margin-top: 0.5rem;">${member.affil}</span>
+    </div>
+  `).join('');
+}
+
+// Form handling
+document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const button = this.querySelector('button[type="submit"]');
+  const originalText = button.textContent;
+
+  button.textContent = translations[currentLang].contact.sending;
+  button.disabled = true;
+
+  // Simulate sending (replace with actual backend call)
+  setTimeout(() => {
+    button.textContent = translations[currentLang].contact.sent;
+    this.reset();
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.disabled = false;
+    }, 2000);
+  }, 1000);
+});
+</script>
+</body>
+</html>

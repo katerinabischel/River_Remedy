@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilcomayo Basin | Water Quality Intelligence Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --secondary: #1A1F3A;
+            --accent: #00D4FF;
+            --accent-warm: #FF6B35;
+            --surface: #151A2E;
+            --surface-light: #1E2542;
+            --text-primary: #FFFFFF;
+            --text-secondary: #8B92B0;
+            --text-muted: #6B7280;
+            --border: #2D3748;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+            --blur: blur(20px);
+            --shadow-soft: 0 4px 32px rgba(0, 212, 255, 0.1);
+            --shadow-hard: 0 8px 48px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background Animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(1deg) scale(1.02); }
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: rgba(21, 26, 46, 0.8);
+            backdrop-filter: var(--blur);
+            border-right: 1px solid var(--border);
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            width: 280px;
+            overflow-y: auto;
+            z-index: 100;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            padding: 0 2rem 2rem 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-section {
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 1rem 1.5rem;
+            margin: 0.25rem 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .nav-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .nav-item.active {
+            background: var(--gradient-accent);
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+            width: calc(100% - 280px);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .content-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .content-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            line-height: 1.7;
+        }
+
+        /* Analysis Sections */
+        .analysis-section {
+            display: none;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+        }
+
+        .analysis-section.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            min-height: 0;
+        }
+
+        .analysis-info {
+            background: rgba(30, 37, 66, 0.6);
+            backdrop-filter: var(--blur);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .analysis-info h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .analysis-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+            color: var(--text-primary);
+        }
+
+        .analysis-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .analysis-info ul {
+            color: var(--text-secondary);
+            padding-left: 1rem;
+            line-height: 1.7;
+        }
+
+        .analysis-info li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .analysis-info li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 600;
+            position: absolute;
+            left: -1rem;
+        }
+
+        .chart-panel {
+            background: rgba(30, 37, 66, 0.4);
+            backdrop-filter: var(--blur);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow-hard);
+            position: relative;
+            min-width: 0;
+            width: 100%;
+        }
+
+        .chart-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .chart-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chart-controls {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .chart-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .chart-btn.minimize { background: var(--warning); }
+        .chart-btn.maximize { background: var(--success); }
+        .chart-btn.close { background: var(--error); }
+
+        .chart-container {
+            height: 600px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .chart-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+
+        .chart-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+            background: var(--primary);
+        }
+
+        .chart-fullscreen .chart-container {
+            height: calc(100vh - 60px);
+        }
+
+        /* Technical Specs */
+        .tech-specs {
+            background: rgba(21, 26, 46, 0.6);
+            backdrop-filter: var(--blur);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .tech-specs h4 {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .spec-item {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .spec-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Loading States */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-direction: column;
+            color: var(--text-secondary);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .analysis-info {
+                order: 2;
+            }
+            
+            .chart-panel {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                order: 2;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                order: 1;
+                padding: 1rem;
+            }
+            
+            .analysis-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 0.5rem;
+            }
+            
+            .analysis-info {
+                padding: 1rem;
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--surface);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-warm);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Pilcomayo Basin</h1>
+                <p>Water Quality Intelligence</p>
+            </div>
+            
+            <div class="nav-section">
+                <button class="nav-item active" onclick="showAnalysis('flow-animation')">
+                    Flow Animation
+                </button>
+                <button class="nav-item" onclick="showAnalysis('regulatory-compliance')">
+                    Regulatory Compliance
+                </button>
+                <button class="nav-item" onclick="showAnalysis('contamination-ranking')">
+                    Contamination Ranking
+                </button>
+                <button class="nav-item" onclick="showAnalysis('executive-dashboard')">
+                    Executive Dashboard
+                </button>
+                <button class="nav-item" onclick="showAnalysis('multi-metal')">
+                    Multi-Metal Assessment
+                </button>
+                <button class="nav-item" onclick="showAnalysis('severity-matrix')">
+                    Severity Matrix
+                </button>
+                <button class="nav-item" onclick="showAnalysis('precipitation-transport')">
+                    Precipitation Transport
+                </button>
+                <button class="nav-item" onclick="showAnalysis('river-corridor')">
+                    River Corridor Analysis
+                </button>
+                <button class="nav-item" onclick="showAnalysis('seasonal-dynamics')">
+                    Seasonal Dynamics
+                </button>
+                <button class="nav-item" onclick="showAnalysis('migration-patterns')">
+                    Migration Patterns
+                </button>
+                <button class="nav-item" onclick="showAnalysis('velocity-analysis')">
+                    Velocity Analysis
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 class="content-title">Water Quality Intelligence Platform</h1>
+                <p class="content-subtitle">
+                    Advanced spatiotemporal analysis of heavy metal contamination patterns across the Pilcomayo River Basin.
+                    Navigate through cutting-edge analytical perspectives to understand contamination dynamics, regulatory compliance, and environmental risk assessment.
+                </p>
+            </header>
+
+            <section id="flow-animation" class="analysis-sectionactive">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Spatiotemporal Flow Dynamics</h2>
+                        <p>Interactive visualization tracking arsenic contamination migration through the river system with temporal evolution and precipitation correlation analysis.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Real-time contamination migration patterns</li><li>Hotspot evolution and persistence mapping</li><li>Regulatory threshold exceedance analysis</li><li>Hydrological impact correlation studies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Spatiotemporal Flow Dynamics</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('flow-animation')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('flow-animation')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/contamination_flow_animation_water.html" class="chart-iframe" title="Spatiotemporal Flow Dynamics"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Algorithm:</span> Spatiotemporal clustering with temporal lag analysis</div><div class="spec-item"><span class="spec-label">Resolution:</span> Station-level, annual aggregation</div><div class="spec-item"><span class="spec-label">Standards:</span> WHO Guidelines, Bolivian Law 1333</div><div class="spec-item"><span class="spec-label">Visualization:</span> Animated scatter mapping with bubble sizing</div>
+                    </div>
+                </div>
+            </section>
+            <section id="regulatory-compliance" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Regulatory Compliance Matrix</h2>
+                        <p>Comprehensive assessment framework evaluating water quality against international and national regulatory standards with risk stratification.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Multi-standard compliance rate analysis</li><li>Temporal violation pattern identification</li><li>Station-level risk classification</li><li>Regulatory gap assessment and recommendations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Regulatory Compliance Matrix</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('regulatory-compliance')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('regulatory-compliance')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/water_quality_regulatory_compliance.html" class="chart-iframe" title="Regulatory Compliance Matrix"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Standards:</span> WHO, EPA, Bolivian Law 1333</div><div class="spec-item"><span class="spec-label">Metrics:</span> Compliance rate, exceedance frequency</div><div class="spec-item"><span class="spec-label">Risk Model:</span> Multi-criteria decision analysis</div><div class="spec-item"><span class="spec-label">Reporting:</span> Executive summary with action items</div>
+                    </div>
+                </div>
+            </section>
+            <section id="contamination-ranking" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Priority Risk Assessment</h2>
+                        <p>Data-driven station prioritization using advanced risk scoring algorithms for optimal resource allocation and intervention planning.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Quantitative risk scoring methodology</li><li>Priority station identification system</li><li>Trend-based severity classification</li><li>Resource allocation optimization framework</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Priority Risk Assessment</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('contamination-ranking')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('contamination-ranking')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/water_quality_arsenic_contamination_ranking.html" class="chart-iframe" title="Priority Risk Assessment"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Algorithm:</span> Weighted risk scoring with temporal trends</div><div class="spec-item"><span class="spec-label">Parameters:</span> Mean, max, frequency, trend analysis</div><div class="spec-item"><span class="spec-label">Output:</span> Ranked priority list with confidence intervals</div><div class="spec-item"><span class="spec-label">Update Frequency:</span> Monthly recalculation</div>
+                    </div>
+                </div>
+            </section>
+            <section id="executive-dashboard" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Executive Intelligence Summary</h2>
+                        <p>Strategic decision-support dashboard providing key performance indicators, trend analysis, and actionable intelligence for senior management.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>KPI monitoring and threshold alerts</li><li>Strategic trend identification</li><li>Cost-benefit analysis framework</li><li>Evidence-based recommendation engine</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Executive Intelligence Summary</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('executive-dashboard')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('executive-dashboard')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/water_quality_executive_dashboard.html" class="chart-iframe" title="Executive Intelligence Summary"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">KPIs:</span> Custom executive metrics</div><div class="spec-item"><span class="spec-label">Forecasting:</span> Predictive trend analysis</div><div class="spec-item"><span class="spec-label">Alerts:</span> Threshold-based notification system</div><div class="spec-item"><span class="spec-label">ROI:</span> Cost-benefit calculation engine</div>
+                    </div>
+                </div>
+            </section>
+            <section id="multi-metal" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Multi-Contaminant Assessment</h2>
+                        <p>Advanced correlation analysis of multiple heavy metals revealing co-contamination patterns and cumulative environmental risk assessment.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Co-contamination pattern identification</li><li>Inter-metal correlation analysis</li><li>Cumulative toxicity risk assessment</li><li>Source fingerprinting and attribution</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Multi-Contaminant Assessment</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('multi-metal')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('multi-metal')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/water_quality_multi_metal_assessment.html" class="chart-iframe" title="Multi-Contaminant Assessment"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Metals:</span> As, Pb, Hg, Cd, Cr, Cu, Zn</div><div class="spec-item"><span class="spec-label">Statistics:</span> Pearson correlation, PCA analysis</div><div class="spec-item"><span class="spec-label">Risk Model:</span> Hazard index calculation</div><div class="spec-item"><span class="spec-label">Clustering:</span> K-means contamination grouping</div>
+                    </div>
+                </div>
+            </section>
+            <section id="severity-matrix" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Contamination Severity Matrix</h2>
+                        <p>High-resolution heatmap visualization enabling rapid pattern recognition across spatial and temporal dimensions with severity classification.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Spatial contamination distribution mapping</li><li>Temporal evolution pattern analysis</li><li>Persistent contamination zone identification</li><li>Improvement area recognition and tracking</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Contamination Severity Matrix</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('severity-matrix')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('severity-matrix')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/water_quality_contamination_severity_matrix.html" class="chart-iframe" title="Contamination Severity Matrix"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Visualization:</span> Interactive heatmap with clustering</div><div class="spec-item"><span class="spec-label">Classification:</span> 5-tier severity ranking system</div><div class="spec-item"><span class="spec-label">Interpolation:</span> Spatial kriging for gap filling</div><div class="spec-item"><span class="spec-label">Temporal Resolution:</span> Monthly to annual aggregation</div>
+                    </div>
+                </div>
+            </section>
+            <section id="precipitation-transport" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Hydrological Transport Dynamics</h2>
+                        <p>Mechanistic analysis of precipitation-driven contamination transport with predictive modeling for seasonal mobilization patterns.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Hydrological control mechanism analysis</li><li>Seasonal mobilization pattern quantification</li><li>Transport velocity during precipitation events</li><li>Predictive contamination forecasting models</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Hydrological Transport Dynamics</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('precipitation-transport')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('precipitation-transport')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/precipitation_contamination_transport_water.html" class="chart-iframe" title="Hydrological Transport Dynamics"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Model:</span> Precipitation-transport correlation</div><div class="spec-item"><span class="spec-label">Data:</span> Meteorological station integration</div><div class="spec-item"><span class="spec-label">Prediction:</span> Machine learning forecast models</div><div class="spec-item"><span class="spec-label">Validation:</span> Cross-correlation analysis</div>
+                    </div>
+                </div>
+            </section>
+            <section id="river-corridor" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Longitudinal Corridor Analysis</h2>
+                        <p>Systematic analysis of contamination patterns along the river corridor revealing attenuation rates and critical contamination reaches.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Upstream-downstream impact quantification</li><li>Natural attenuation rate calculation</li><li>Critical contamination reach identification</li><li>Buffer zone effectiveness assessment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Longitudinal Corridor Analysis</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('river-corridor')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('river-corridor')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/river_corridor_contamination_analysis_water.html" class="chart-iframe" title="Longitudinal Corridor Analysis"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Method:</span> Distance-decay modeling</div><div class="spec-item"><span class="spec-label">Parameters:</span> River kilometer vs concentration</div><div class="spec-item"><span class="spec-label">Statistics:</span> Regression analysis with confidence bands</div><div class="spec-item"><span class="spec-label">Segmentation:</span> Automated breakpoint detection</div>
+                    </div>
+                </div>
+            </section>
+            <section id="seasonal-dynamics" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Seasonal Variability Analysis</h2>
+                        <p>Comprehensive seasonal analysis revealing wet/dry season contamination dynamics and optimal monitoring/intervention timing.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Seasonal contamination cycle quantification</li><li>Mobilization event timing identification</li><li>Concentration factor during low-flow periods</li><li>Optimal intervention timing recommendations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Seasonal Variability Analysis</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('seasonal-dynamics')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('seasonal-dynamics')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/seasonal_flow_dynamics_water.html" class="chart-iframe" title="Seasonal Variability Analysis"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Seasonality:</span> Wet (Dec-Mar) vs Dry (Apr-Nov)</div><div class="spec-item"><span class="spec-label">Statistics:</span> ANOVA with post-hoc analysis</div><div class="spec-item"><span class="spec-label">Forecasting:</span> Seasonal decomposition models</div><div class="spec-item"><span class="spec-label">Planning:</span> Optimal timing algorithms</div>
+                    </div>
+                </div>
+            </section>
+            <section id="migration-patterns" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Contamination Migration Analysis</h2>
+                        <p>Advanced tracking of contamination propagation through the river system with lag effect analysis and intervention point optimization.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Migration velocity quantification</li><li>Source-receptor pathway mapping</li><li>Temporal lag effect characterization</li><li>Strategic intervention point identification</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Contamination Migration Analysis</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('migration-patterns')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('migration-patterns')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/upstream_downstream_migration_patterns_water.html" class="chart-iframe" title="Contamination Migration Analysis"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Tracking:</span> Spatiotemporal trajectory analysis</div><div class="spec-item"><span class="spec-label">Lag Analysis:</span> Cross-correlation with time delays</div><div class="spec-item"><span class="spec-label">Velocity:</span> Distance-time regression modeling</div><div class="spec-item"><span class="spec-label">Optimization:</span> Cost-effectiveness analysis</div>
+                    </div>
+                </div>
+            </section>
+            <section id="velocity-analysis" class="analysis-section">
+                <div class="analysis-grid">
+                    <div class="analysis-info">
+                        <h2>Transport Velocity Modeling</h2>
+                        <p>Quantitative modeling of contamination propagation velocity for emergency response planning and early warning system development.</p>
+                        
+                        <h3>Key Intelligence</h3>
+                        <ul>
+                            <li>Contamination transport rate quantification</li><li>Flow-dependent velocity relationships</li><li>Emergency response time calculation</li><li>Early warning system threshold development</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <span class="chart-title">Transport Velocity Modeling</span>
+                            <div class="chart-controls">
+                                <button class="chart-btn minimize" onclick="toggleChart('velocity-analysis')"></button>
+                                <button class="chart-btn maximize" onclick="fullscreenChart('velocity-analysis')"></button>
+                                <button class="chart-btn close"></button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <iframe src="water_analysis/contamination_velocity_analysis_water.html" class="chart-iframe" title="Transport Velocity Modeling"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-specs">
+                    <h4>Technical Specifications</h4>
+                    <div class="specs-grid">
+                        <div class="spec-item"><span class="spec-label">Model:</span> Advection-dispersion equations</div><div class="spec-item"><span class="spec-label">Parameters:</span> Flow rate, distance, concentration</div><div class="spec-item"><span class="spec-label">Prediction:</span> Monte Carlo simulation</div><div class="spec-item"><span class="spec-label">Application:</span> Emergency response planning</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function showAnalysis(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.analysis-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked nav item
+            event.target.classList.add('active');
+        }
+
+        function toggleChart(sectionId) {
+            const chartContainer = document.querySelector(`#${sectionId} .chart-container`);
+            chartContainer.style.display = chartContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function fullscreenChart(sectionId) {
+            const chartPanel = document.querySelector(`#${sectionId} .chart-panel`);
+            chartPanel.classList.toggle('chart-fullscreen');
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.chart-fullscreen').forEach(panel => {
+                    panel.classList.remove('chart-fullscreen');
+                });
+            }
+            
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                const navItems = Array.from(document.querySelectorAll('.nav-item'));
+                const activeItem = document.querySelector('.nav-item.active');
+                const currentIndex = navItems.indexOf(activeItem);
+                
+                let nextIndex;
+                if (e.key === 'ArrowRight') {
+                    nextIndex = (currentIndex + 1) % navItems.length;
+                } else {
+                    nextIndex = (currentIndex - 1 + navItems.length) % navItems.length;
+                }
+                
+                navItems[nextIndex].click();
+            }
+        });
+
+        // Auto-save scroll position
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        });
+
+        window.addEventListener('load', function() {
+            const scrollPosition = sessionStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition));
+            }
+        });
+    </script>
+</body>
+</html>

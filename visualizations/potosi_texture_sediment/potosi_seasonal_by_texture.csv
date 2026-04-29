@@ -1,0 +1,33 @@
+Metal,Texture,Season,n,median_mg_kg
+Arsenic,Sand,Wet,47,17.3
+Arsenic,Sand,Dry,88,22.1
+Arsenic,Sandy Loam,Wet,114,14.2
+Arsenic,Sandy Loam,Dry,69,17.3
+Arsenic,Sandy Clay Loam,Wet,8,20.0
+Arsenic,Loam,Wet,6,17.5
+Arsenic,Silty Loam,Wet,17,14.0
+Arsenic,Silty Loam,Dry,14,88.35
+Cadmium,Sand,Wet,47,0.22
+Cadmium,Sand,Dry,88,0.42
+Cadmium,Sandy Loam,Wet,114,0.21
+Cadmium,Sandy Loam,Dry,69,0.54
+Cadmium,Sandy Clay Loam,Wet,8,5.0
+Cadmium,Loam,Wet,6,5.0
+Cadmium,Silty Loam,Wet,17,0.5
+Cadmium,Silty Loam,Dry,14,6.7
+Lead,Sand,Wet,47,20.6
+Lead,Sand,Dry,88,22.3
+Lead,Sandy Loam,Wet,114,20.7
+Lead,Sandy Loam,Dry,69,18.8
+Lead,Sandy Clay Loam,Wet,8,24.5
+Lead,Loam,Wet,6,24.5
+Lead,Silty Loam,Wet,17,11.0
+Lead,Silty Loam,Dry,14,38.52
+Mercury,Sand,Wet,47,0.11
+Mercury,Sand,Dry,51,0.21
+Mercury,Sandy Loam,Wet,96,0.0
+Mercury,Sandy Loam,Dry,60,0.29
+Mercury,Sandy Clay Loam,Wet,8,2.5
+Mercury,Loam,Wet,6,2.5
+Mercury,Silty Loam,Wet,17,0.0
+Mercury,Silty Loam,Dry,14,0.5

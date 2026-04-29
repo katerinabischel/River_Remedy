@@ -1,0 +1,5 @@
+Metal,Symbol,log_Kow,log_Koc,Kd_min_L_per_kg,Kd_max_L_per_kg,pKa_primary,Mobility_Category,Sorption_Mechanism,Sediment_Guideline_mg_per_kg,Toxicity
+Arsenic,As,-0.5,1.5,1,100,9.2,"HIGH at pH 6-9 (anionic, not sorbed well)","Specific adsorption to Fe/Al oxides, weak to organic matter",20,"Carcinogenic, accumulates in food chain"
+Cadmium,Cd,0.0,2.5,50,500,10.1,"MODERATE-HIGH at pH < 7, LOW at pH > 8","Ion exchange on clays, complexation with organic matter, precipitation as CdS under reducing conditions",3,"Nephrotoxic, carcinogenic (Group 1)"
+Lead,Pb,0.0,3.5,500,10000,7.7,LOW - strongly sorbs to sediments,"Strong specific adsorption to Fe/Mn oxides, complexation with organic matter, precipitation as PbCO3 or PbS",50,"Neurotoxic (especially children), bioaccumulative"
+Zinc,Zn,0.0,2.8,100,2000,9.0,"MODERATE at pH 5-7, LOW at pH > 8","Ion exchange on clays, specific adsorption to Fe/Mn oxides, strong complexation with organic matter",200,Essential micronutrient but toxic at high doses

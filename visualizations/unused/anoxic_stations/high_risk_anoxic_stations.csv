@@ -1,0 +1,6 @@
+Station,n_measurements,mean_DO,median_DO,min_DO,max_DO,std_DO,Station_DO_Status,has_anoxic_events,n_anoxic_events
+Cadete Pando,2,1.23,1.23,0.25,2.2,1.38,Chronically Anoxic,True,1
+La Quiaca,9,3.82,3.4,2.31,6.18,1.27,Frequently Hypoxic,False,0
+Ruta 28-Vertedero,9,3.83,3.09,0.02,7.21,2.63,Frequently Hypoxic,True,2
+Tinfunke,2,3.46,3.46,3.09,3.82,0.52,Frequently Hypoxic,False,0
+Villa Hayes,10,3.33,3.38,1.25,7.24,1.89,Frequently Hypoxic,True,3

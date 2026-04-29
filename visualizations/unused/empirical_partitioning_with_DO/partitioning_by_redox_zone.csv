@@ -1,0 +1,15 @@
+,,Partitioning_Ratio_L_per_kg,Partitioning_Ratio_L_per_kg,Partitioning_Ratio_L_per_kg,DO_mg_per_L,DO_mg_per_L
+,,count,median,mean,mean,median
+Metal,Redox_Zone,,,,,
+Arsenic,Anoxic (<2 mg/L),2,4.22,4.22,0.81,0.81
+Arsenic,Low DO (2-4 mg/L),6,166.59,346.99,3.56,3.75
+Arsenic,Oxic (>4 mg/L),838,930.0,3952.73,7.57,7.38
+Cadmium,Anoxic (<2 mg/L),2,7.53,7.53,0.81,0.81
+Cadmium,Low DO (2-4 mg/L),6,76.58,218.23,3.56,3.75
+Cadmium,Oxic (>4 mg/L),836,161.25,2882.15,7.57,7.38
+Lead,Anoxic (<2 mg/L),2,5.25,5.25,0.81,0.81
+Lead,Low DO (2-4 mg/L),6,33.41,210.84,3.56,3.75
+Lead,Oxic (>4 mg/L),838,1668.79,10615.0,7.57,7.38
+Zinc,Anoxic (<2 mg/L),2,2.76,2.76,0.81,0.81
+Zinc,Low DO (2-4 mg/L),6,2660.0,2072.24,3.56,3.75
+Zinc,Oxic (>4 mg/L),838,649.2,9746.61,7.57,7.38

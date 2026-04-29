@@ -1,0 +1,21 @@
+Metal,Texture,n,median_mg_kg,mean_mg_kg,q25,q75
+Arsenic,Sand,135,19.8,73.41,13.1,72.55
+Arsenic,Sandy Loam,183,15.0,56.97,9.78,44.65
+Arsenic,Sandy Clay Loam,10,18.5,79.1,11.0,28.5
+Arsenic,Loam,6,17.5,32.67,7.5,57.5
+Arsenic,Silty Loam,31,20.7,73.62,11.2,93.75
+Cadmium,Sand,135,0.34,1.71,0.16,0.8
+Cadmium,Sandy Loam,183,0.3,1.94,0.15,1.28
+Cadmium,Sandy Clay Loam,10,5.0,5.0,5.0,5.0
+Cadmium,Loam,6,5.0,5.0,5.0,5.0
+Cadmium,Silty Loam,31,0.5,3.87,0.29,5.5
+Lead,Sand,135,22.0,61.88,18.0,30.3
+Lead,Sandy Loam,183,20.3,44.65,15.2,36.35
+Lead,Sandy Clay Loam,10,19.5,65.6,13.5,30.5
+Lead,Loam,6,24.5,21.83,13.75,30.75
+Lead,Silty Loam,31,23.0,123.22,10.5,34.61
+Mercury,Sand,98,0.14,0.35,0.05,0.32
+Mercury,Sandy Loam,156,0.05,0.26,0.0,0.44
+Mercury,Sandy Clay Loam,10,2.5,2.1,2.5,2.5
+Mercury,Loam,6,2.5,2.5,2.5,2.5
+Mercury,Silty Loam,31,0.05,0.38,0.0,0.5

@@ -1,0 +1,49 @@
+Event_Station,Event_Date,Event_Concentration,Downstream_Station,Metal,Before_Median,Before_n,After_Median,After_n,Change_Factor,Mann_Whitney_p,Significant,Sen_Slope,Increasing
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Villamontes,Arsenic,10.0,5,64.0,3,6.4,0.7857142857142857,False,-0.2222222222222222,False
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Misión La Paz - SNIH,Arsenic,32.5,4,31.0,3,0.9538461538461539,0.7212766990291557,False,0.007936507936507936,True
+Potosí - Naciente río La Ribera,2017-10-04,10.0,El Puente,Arsenic,6.0,5,21.0,3,3.5,0.1744942454633539,False,0.0873015873015873,True
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Palca Grande,Arsenic,10.0,5,10.0,3,1.0,0.5411928987419992,False,0.12598425196850394,True
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Colavi - Canutillos,Arsenic,6.5,6,209.0,2,32.15384615384615,0.06513295836533664,False,,
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Tarapaya,Arsenic,185.0,5,148.5,2,0.8027027027027027,0.8571428571428571,False,,
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Tacobamba - Agua arriba confluencia Pilcomayo - Tacobamba,Arsenic,10.0,6,132.5,2,13.25,0.06513295836533664,False,,
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Pilcomayo - Agua arriba confluencia Pilcomayo - Tacobamba,Arsenic,71.0,6,66.0,2,0.9295774647887324,0.8571428571428571,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Villamontes,Cadmium,0.5,5,1.0,3,2.0,0.3563733518637908,False,0.07142857142857142,True
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Misión La Paz - SNIH,Cadmium,0.5,4,1.0,3,2.0,0.19474217283959172,False,0.07142857142857142,True
+Potosí - Naciente río La Ribera,2017-10-04,1.0,El Puente,Cadmium,0.5,5,6.0,3,12.0,0.016804604239087036,True,0.07142857142857142,True
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Palca Grande,Cadmium,0.5,5,7.0,3,14.0,0.016804604239087036,True,0.07086614173228346,True
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Colavi - Canutillos,Cadmium,3.25,6,23.0,2,7.076923076923077,0.06351681785992272,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Tarapaya,Cadmium,18.0,5,18.5,2,1.0277777777777777,0.5714285714285714,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Tacobamba - Agua arriba confluencia Pilcomayo - Tacobamba,Cadmium,0.5,6,13.5,2,27.0,0.05078604537182736,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Pilcomayo - Agua arriba confluencia Pilcomayo - Tacobamba,Cadmium,3.5,6,5.5,2,1.5714285714285714,1.0,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Villamontes,Lead,8.0,5,145.0,3,18.125,0.7857142857142857,False,-0.07142857142857142,False
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Misión La Paz - SNIH,Lead,63.5,4,81.0,3,1.2755905511811023,0.8571428571428571,False,0.36507936507936506,True
+Potosí - Naciente río La Ribera,2017-10-04,1.0,El Puente,Lead,3.0,5,104.0,3,34.666666666666664,0.7642282177641773,False,0.8174603174603174,True
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Palca Grande,Lead,3.0,5,1.0,3,0.3333333333333333,0.5461676346267483,False,0.5039370078740157,True
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Colavi - Canutillos,Lead,2.5,6,62.5,2,25.0,0.07142857142857142,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Tarapaya,Lead,296.0,5,119.0,2,0.40202702702702703,0.38095238095238093,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Tacobamba - Agua arriba confluencia Pilcomayo - Tacobamba,Lead,4.5,6,149.5,2,33.22222222222222,0.06513295836533664,False,,
+Potosí - Naciente río La Ribera,2017-10-04,1.0,Pilcomayo - Agua arriba confluencia Pilcomayo - Tacobamba,Lead,94.0,6,48.0,2,0.5106382978723404,0.42857142857142855,False,,
+Potosí - Naciente río La Ribera,2017-10-04,66.0,Villamontes,Zinc,55.0,5,552.0,3,10.036363636363637,0.5714285714285714,False,1.4365079365079365,True
+Potosí - Naciente río La Ribera,2017-10-04,66.0,Misión La Paz - SNIH,Zinc,237.0,4,271.0,3,1.1434599156118144,1.0,False,2.3253968253968256,True
+Potosí - Naciente río La Ribera,2017-10-04,66.0,El Puente,Zinc,43.0,5,473.0,3,11.0,0.5485954657999336,False,4.380952380952381,True
+Potosí - Naciente río La Ribera,2017-10-04,66.0,Palca Grande,Zinc,25.0,5,519.0,3,20.76,0.5485954657999336,False,4.0078740157480315,True
+Potosí - Naciente río La Ribera,2017-10-04,66.0,Colavi - Canutillos,Zinc,695.5,6,6189.0,2,8.89863407620417,0.2857142857142857,False,,
+Potosí - Naciente río La Ribera,2017-10-04,66.0,Tarapaya,Zinc,4741.0,5,2973.0,2,0.6270828939042397,0.5714285714285714,False,,
+Potosí - Naciente río La Ribera,2017-10-04,66.0,Tacobamba - Agua arriba confluencia Pilcomayo - Tacobamba,Zinc,89.0,6,1051.0,2,11.808988764044944,0.07142857142857142,False,,
+Potosí - Naciente río La Ribera,2017-10-04,66.0,Pilcomayo - Agua arriba confluencia Pilcomayo - Tacobamba,Zinc,1077.0,6,422.0,2,0.3918291550603528,0.2857142857142857,False,,
+Potosí - Naciente río La Ribera,2017-10-04,183.0,Villamontes,Iron,5096.0,5,153930.0,3,30.206043956043956,0.39285714285714285,False,-422.1666666666667,False
+Potosí - Naciente río La Ribera,2017-10-04,183.0,Misión La Paz - SNIH,Iron,72437.5,4,85633.0,3,1.1821639344262296,1.0,False,309.3492063492063,True
+Potosí - Naciente río La Ribera,2017-10-04,183.0,El Puente,Iron,1443.0,5,46464.0,3,32.1995841995842,0.7857142857142857,False,360.73015873015873,True
+Potosí - Naciente río La Ribera,2017-10-04,183.0,Palca Grande,Iron,2990.0,5,5587.0,3,1.868561872909699,0.5714285714285714,False,514.8661417322835,True
+Potosí - Naciente río La Ribera,2017-10-04,183.0,Colavi - Canutillos,Iron,9425.0,6,34397.5,2,3.649602122015915,0.14285714285714285,False,,
+Potosí - Naciente río La Ribera,2017-10-04,183.0,Tarapaya,Iron,23913.0,5,16045.0,2,0.6709739472253586,0.5714285714285714,False,,
+Potosí - Naciente río La Ribera,2017-10-04,183.0,Tacobamba - Agua arriba confluencia Pilcomayo - Tacobamba,Iron,3559.0,6,114178.0,2,32.08148356279854,0.2857142857142857,False,,
+Potosí - Naciente río La Ribera,2017-10-04,183.0,Pilcomayo - Agua arriba confluencia Pilcomayo - Tacobamba,Iron,6952.0,6,47847.0,2,6.882479861910242,0.6428571428571428,False,,
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Villamontes,Manganese,110.0,5,3098.0,3,28.163636363636364,0.39285714285714285,False,-8.333333333333334,False
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Misión La Paz - SNIH,Manganese,1324.0,4,2463.0,3,1.8602719033232629,0.8571428571428571,False,2.8492063492063493,True
+Potosí - Naciente río La Ribera,2017-10-04,10.0,El Puente,Manganese,50.0,5,1241.0,3,24.82,0.23024335057740708,False,8.119047619047619,True
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Palca Grande,Manganese,194.0,5,1203.0,3,6.201030927835052,0.5714285714285714,False,8.440944881889763,True
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Colavi - Canutillos,Manganese,2812.5,6,3205.5,2,1.1397333333333333,1.0,False,,
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Tarapaya,Manganese,1976.0,5,577.5,2,0.2922570850202429,0.09523809523809523,False,,
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Tacobamba - Agua arriba confluencia Pilcomayo - Tacobamba,Manganese,341.0,6,2547.5,2,7.470674486803519,0.2857142857142857,False,,
+Potosí - Naciente río La Ribera,2017-10-04,10.0,Pilcomayo - Agua arriba confluencia Pilcomayo - Tacobamba,Manganese,477.0,6,1019.0,2,2.1362683438155137,0.6428571428571428,False,,
