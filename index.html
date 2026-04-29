@@ -4,286 +4,534 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>River Remedy — Pilcomayo Basin Contamination Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/main.css">
+  <style>
+    :root {
+      --water-blue: #e0f2fe;
+      --deep-stream: #0369a1;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --border-soft: #e2e8f0;
+      --text-dark: #0f172a;
+      --forest-bg: linear-gradient(135deg, #0a1710 0%, #0f2018 100%);
+
+      /* Bolivia colors for accents */
+      --bol-red: #D52B1E;
+      --bol-yellow: #D4A017;
+      --bol-green: #007A5E;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: #f8fafc;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* SIDEBAR NAVIGATION */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    nav {
+      width: 280px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border-right: 1px solid var(--border-soft);
+      position: fixed;
+      height: 100vh;
+      padding: 2.5rem 1rem;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    nav h1 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      color: var(--deep-stream);
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+    }
+
+    .nav-menu {
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #475569;
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--water-blue);
+      color: var(--deep-stream);
+    }
+
+    .nav-link.active {
+      background: rgba(3, 105, 161, 0.1);
+      color: var(--deep-stream);
+      font-weight: 600;
+    }
+
+    /* Dropdown styling */
+    .dropdown-container {
+      display: none;
+      list-style: none;
+      padding-left: 1.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .dropdown-container a {
+      text-decoration: none;
+      color: #64748b;
+      font-size: 0.82rem;
+      padding: 0.5rem 1rem;
+      display: block;
+      border-left: 1px solid var(--border-soft);
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .dropdown-container a:hover {
+      color: var(--deep-stream);
+      border-left: 2px solid var(--deep-stream);
+    }
+
+    .active-dropdown {
+      display: block;
+    }
+
+    .rotate-icon {
+      transform: rotate(180deg);
+      transition: 0.3s;
+    }
+
+    .lang-selector {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .lang-toggle {
+      background: transparent;
+      border: none;
+      color: var(--deep-stream);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-left: 1rem;
+      transition: 0.2s;
+    }
+
+    .lang-toggle:hover {
+      opacity: 0.7;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* MAIN CONTENT */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    main {
+      margin-left: 280px;
+      flex: 1;
+      padding: 3rem;
+      max-width: 1450px;
+      width: 100%;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    header h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    header p {
+      color: #64748b;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border-soft);
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--deep-stream);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--water-blue);
+      border-color: var(--deep-stream);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* TILES & CARDS */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tile {
+      background: white;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .tile h3 {
+      font-family: 'Lora', serif;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--deep-stream);
+    }
+
+    .viz-container {
+      height: 480px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* RESEARCH CARDS */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .research-card {
+      background: white;
+      border: 1px solid var(--border-soft);
+      border-left: 4px solid var(--deep-stream);
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .research-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(3, 105, 161, 0.15);
+    }
+
+    .research-card h4 {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--deep-stream);
+      margin-bottom: 0.5rem;
+    }
+
+    .research-card p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 0.5rem;
+    }
+
+    .key-finding {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 3px solid #f59e0b;
+      padding: 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      font-weight: 500;
+      color: #92400e;
+    }
+
+    .critical-finding {
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+      border-left: 3px solid #dc2626;
+      padding: 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      font-weight: 500;
+      color: #991b1b;
+    }
+
+    .stat-highlight {
+      display: inline-block;
+      background: var(--water-blue);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: var(--deep-stream);
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      margin: 2rem 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--deep-stream);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* STATS */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .stat-tiles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-tile {
+      background: white;
+      border: 1px solid var(--border-soft);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deep-stream);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* RESPONSIVE */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    @media (max-width: 768px) {
+      nav {
+        transform: translateX(-280px);
+      }
+
+      main {
+        margin-left: 0;
+        padding: 1.5rem;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-tiles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tile {
+        grid-column: span 1 !important;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- HEADER & NAVIGATION                                             -->
+<!-- SIDEBAR NAVIGATION -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<header>
-  <div class="logo-section">
-    <div class="logo-icon">〰</div>
-    <div class="logo-text">River<span class="water">Remedy</span></div>
-  </div>
-  <nav class="nav-controls">
-    <button class="lang-toggle" data-i18n="nav.overview">ES / EN</button>
-    <a href="https://katerinabischel.github.io/riverremedy/index.html" target="_blank" class="btn-primary" data-i18n="nav.fullReport">
-      ↓ Full Report (PDF)
-    </a>
-  </nav>
-</header>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- HERO SECTION                                                    -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<section class="page-section light">
-  <div class="hero animate-fade">
-    <div class="hero-content">
-      <h1 data-i18n="hero.title">Restoring the <span class="highlight">Pilcomayo River</span></h1>
-      <p data-i18n="hero.subtitle">A groundbreaking 8-year study of heavy metal contamination in South America's most critical transnational watershed, affecting 1.5 million people across Bolivia, Paraguay, and Argentina.</p>
+<nav>
+  <h1>River Remedy</h1>
+  <ul class="nav-menu">
+    <li class="nav-item">
+      <a class="nav-link active" onclick="navigateTo('overview')">
+        <span><i class="fas fa-home"></i> Overview</span>
+      </a>
+    </li>
 
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number" data-i18n="hero.stat1">1.5M</div>
-          <div class="stat-label" data-i18n="hero.stat1label">People Affected</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-i18n="hero.stat2">450+</div>
-          <div class="stat-label" data-i18n="hero.stat2label">Years of Mining</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-i18n="hero.stat3">14+</div>
-          <div class="stat-label" data-i18n="hero.stat3label">Heavy Metals Tracked</div>
-        </div>
+    <li class="nav-item">
+      <div class="nav-link dropdown-btn">
+        <span><i class="fas fa-flask"></i> Analyses</span>
+        <i class="fas fa-chevron-down"></i>
       </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="ripple-animation"></div>
-      <div class="ripple-animation"></div>
-      <div class="ripple-animation"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- THE CONTAMINATION CRISIS                                        -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<section class="page-section accent">
-  <div class="section-header">
-    <h2 data-i18n="contamination.title">The Contamination Crisis</h2>
-    <div class="accent-bar"></div>
-    <span class="badge badge-red" data-i18n="contamination.badge">Environmental Justice</span>
-    <p data-i18n="contamination.intro">For over 450 years, mining operations in the Potosí region have released toxic heavy metals—arsenic, lead, cadmium, zinc, and mercury—into the Pilcomayo River, contaminating drinking water, agricultural soil, and aquatic ecosystems across three nations.</p>
-  </div>
-
-  <div class="cards-grid" id="impacts-grid">
-    <!-- Populated by JavaScript -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- ANALYSIS & FINDINGS                                             -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<section class="page-section light">
-  <div class="section-header">
-    <h2 data-i18n="analysis.title">What We Discovered</h2>
-    <div class="accent-bar"></div>
-    <p data-i18n="analysis.intro">Using 1,436 water and sediment samples from 46 monitoring stations (2016–2024), we mapped contamination dynamics that reveal a critical seasonal pattern.</p>
-  </div>
-
-  <div class="timeline" id="findings-timeline">
-    <!-- Populated by JavaScript -->
-  </div>
-
-  <!-- Visualization embedding -->
-  <div class="viz-container mt-2">
-    <div class="viz-header">
-      <h3>📊 Spatiotemporal Contamination Model</h3>
-      <p>Interactive 3D visualization of metal concentration gradients across 800 km and 8 years of monitoring</p>
-    </div>
-    <div class="viz-body">
-      <iframe src="visualizations/station_map_PERFECT.html" style="width:100%;height:500px;border:none;border-radius:10px;"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- REMEDIATION STRATEGY                                            -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<section class="page-section dark">
-  <div class="section-header">
-    <h2 class="dark" data-i18n="remediation.title">Remediation Strategy</h2>
-    <div class="accent-bar"></div>
-    <p data-i18n="remediation.intro">We recommend a phased, cost-effective approach targeting the three highest-priority contamination hotspots.</p>
-  </div>
-
-  <div class="cards-grid" id="phases-grid">
-    <!-- Populated by JavaScript -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- OUR TEAM                                                        -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<section class="page-section accent">
-  <div class="section-header">
-    <h2 data-i18n="team.title">Our Team</h2>
-    <div class="accent-bar"></div>
-    <p data-i18n="team.intro">An interdisciplinary group of environmental scientists, hydrologists, and data analysts at UCSB Bren School.</p>
-  </div>
-
-  <div class="cards-grid" id="team-grid">
-    <!-- Populated by JavaScript -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- CONTACT FORM                                                    -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<section class="page-section light" id="contact">
-  <div class="section-header" style="max-width: 600px; margin: 0 auto;">
-    <h2 data-i18n="contact.title">Get In Touch</h2>
-    <div class="accent-bar"></div>
-    <p data-i18n="contact.intro">Have questions about the research or interested in remediation partnerships?</p>
-  </div>
-
-  <div class="card" style="max-width: 600px; margin: 2rem auto;">
-    <h3 data-i18n="contact.formTitle">Send us a message</h3>
-    <form class="mt-2" id="contact-form">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required data-i18n="contact.namePlaceholder" placeholder="Your Name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required data-i18n="contact.emailPlaceholder" placeholder="your@email.com">
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required data-i18n="contact.messagePlaceholder" placeholder="Your message..."></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width: 100%;" data-i18n="contact.submit">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- FOOTER                                                          -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>River Remedy</h3>
-      <p data-i18n="footer.aboutDesc">A groundbreaking study of heavy metal contamination in the Pilcomayo River Basin, combining field research, geochemical analysis, and community engagement.</p>
-    </div>
-    <div class="footer-section">
-      <h3 data-i18n="footer.resources">Resources</h3>
-      <ul>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="https://katerinabischel.github.io/riverremedy/" target="_blank">Full Dataset</a></li>
-        <li><a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub Repository</a></li>
+      <ul class="dropdown-container">
+        <li><a onclick="navigateTo('partitioning')">Sediment-Water Partitioning</a></li>
+        <li><a onclick="navigateTo('hypoxic')">Hypoxic Events & Mobilization</a></li>
+        <li><a onclick="navigateTo('texture')">Sediment Texture Analysis</a></li>
+        <li><a onclick="navigateTo('migration')">Spatiotemporal Migration</a></li>
+        <li><a onclick="navigateTo('3d')">3D Contamination Models</a></li>
       </ul>
-    </div>
-    <div class="footer-section">
-      <h3>Partnerships</h3>
-      <ul>
-        <li>UCSB Bren School</li>
-        <li>Tomás Frías University</li>
-        <li>Bolivian Government</li>
+    </li>
+
+    <li class="nav-item">
+      <div class="nav-link dropdown-btn">
+        <span><i class="fas fa-wrench"></i> Remediation</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="dropdown-container">
+        <li><a onclick="navigateTo('strategy')">Strategy & Cost Analysis</a></li>
+        <li><a onclick="navigateTo('solutions')">Treatment Solutions</a></li>
       </ul>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" onclick="navigateTo('team')">
+        <span><i class="fas fa-users"></i> Team</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" onclick="navigateTo('contact')">
+        <span><i class="fas fa-envelope"></i> Contact</span>
+      </a>
+    </li>
+
+    <div class="lang-selector">
+      <button class="lang-toggle" onclick="toggleLanguage()">
+        <i class="fas fa-globe"></i>
+        <span id="langLabel">EN / ES</span>
+      </button>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p data-i18n="footer.rights">© 2024 River Remedy. All rights reserved.</p>
-  </div>
-</footer>
+  </ul>
+</nav>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SCRIPTS                                                         -->
+<!-- MAIN CONTENT -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
+
+<main id="content">
+  <!-- Content will be populated here -->
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SCRIPTS -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
 <script src="js/main.js"></script>
 <script>
-// Populate dynamic content
-document.addEventListener('DOMContentLoaded', function() {
-  // Wait for translations to load
-  setTimeout(() => {
-    populateImpacts();
-    populateFindings();
-    populatePhases();
-    populateTeam();
-  }, 100);
+// Setup dropdown toggles
+document.querySelectorAll('.dropdown-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const container = this.nextElementSibling;
+    const icon = this.querySelector('.fa-chevron-down');
+    container.classList.toggle('active-dropdown');
+    icon.classList.toggle('rotate-icon');
+  });
 });
 
-function populateImpacts() {
-  const impacts = translations[currentLang].contamination.impacts;
-  const grid = document.getElementById('impacts-grid');
-  grid.innerHTML = impacts.map(impact => `
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon">${impact.icon}</div>
-        <div>
-          <h3 class="card-title">${impact.title}</h3>
-        </div>
-      </div>
-      <p class="card-text">${impact.desc}</p>
-    </div>
-  `).join('');
+let currentPage = 'overview';
+
+// Navigation function
+function navigateTo(page) {
+  const lang = currentLang || 'en';
+  const content = translations[lang].pages[page];
+
+  if (content) {
+    document.getElementById('content').innerHTML = content;
+    currentPage = page;
+
+    // Update active nav item
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+
+    // Find the nav link that corresponds to this page and mark it active
+    const allLinks = document.querySelectorAll('.nav-link, .dropdown-container a');
+    allLinks.forEach(link => {
+      const href = link.getAttribute('onclick');
+      if (href && href.includes(`'${page}'`)) {
+        if (link.classList.contains('nav-link')) {
+          link.classList.add('active');
+        } else {
+          link.closest('.nav-item').querySelector('.nav-link').classList.add('active');
+        }
+      }
+    });
+
+    // Initialize dropdowns on page load
+    document.querySelectorAll('.dropdown-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const container = this.nextElementSibling;
+        const icon = this.querySelector('.fa-chevron-down');
+        container.classList.toggle('active-dropdown');
+        icon.classList.toggle('rotate-icon');
+      });
+    });
+  }
 }
 
-function populateFindings() {
-  const findings = translations[currentLang].analysis.findings;
-  const timeline = document.getElementById('findings-timeline');
-  timeline.innerHTML = findings.map((f, i) => `
-    <div class="timeline-item ${i === 0 ? 'red' : i === 2 ? 'green' : ''}">
-      <div class="timeline-dot"></div>
-      <div class="timeline-year">${f.year}</div>
-      <div class="timeline-title">${f.title}</div>
-      <div class="timeline-desc">${f.desc}</div>
-    </div>
-  `).join('');
+function toggleLanguage() {
+  const newLang = currentLang === 'en' ? 'es' : 'en';
+  currentLang = newLang;
+  localStorage.setItem('riverRemedy_lang', newLang);
+  document.getElementById('langLabel').textContent = newLang === 'en' ? 'EN / ES' : 'ES / EN';
+
+  // Reload current page in new language
+  navigateTo(currentPage);
 }
 
-function populatePhases() {
-  const phases = translations[currentLang].remediation.phases;
-  const grid = document.getElementById('phases-grid');
-  grid.innerHTML = phases.map(phase => `
-    <div class="card dark">
-      <div style="color: #7ec8e3; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">${phase.phase}</div>
-      <h3 class="card-title" style="color: white;">${phase.title}</h3>
-      <p class="card-text">${phase.desc}</p>
-      <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
-        <div style="font-size: 0.85rem; color: #7ec8e3; font-weight: 700;">Estimated Cost</div>
-        <div style="font-size: 1.3rem; font-weight: 700; color: white; margin-top: 0.3rem;">${phase.cost}</div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function populateTeam() {
-  const members = translations[currentLang].team.members;
-  const grid = document.getElementById('team-grid');
-  grid.innerHTML = members.map(member => `
-    <div class="card">
-      <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--water-deep), var(--water-mid)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">${member.initials}</div>
-      <h3 class="card-title">${member.name}</h3>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0.5rem 0;">${member.role}</p>
-      <span class="badge badge-blue" style="margin-top: 0.5rem;">${member.affil}</span>
-    </div>
-  `).join('');
-}
-
-// Form handling
-document.getElementById('contact-form')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const button = this.querySelector('button[type="submit"]');
-  const originalText = button.textContent;
-
-  button.textContent = translations[currentLang].contact.sending;
-  button.disabled = true;
-
-  // Simulate sending (replace with actual backend call)
-  setTimeout(() => {
-    button.textContent = translations[currentLang].contact.sent;
-    this.reset();
-    setTimeout(() => {
-      button.textContent = originalText;
-      button.disabled = false;
-    }, 2000);
-  }, 1000);
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLang = localStorage.getItem('riverRemedy_lang') || 'en';
+  currentLang = savedLang;
+  document.getElementById('langLabel').textContent = savedLang === 'en' ? 'EN / ES' : 'ES / EN';
+  navigateTo('overview');
 });
 </script>
+
 </body>
 </html>
