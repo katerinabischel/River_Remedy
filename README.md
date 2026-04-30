@@ -2,7 +2,7 @@
 
 Static site documenting the **River Remedy** project — a UCSB Bren School Group Project on heavy-metal contamination in the Pilcomayo River Basin, using monitoring data from the Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo (2016–2024).
 
-**Live site:** _to be deployed_  
+**Live site:** [River_Remedy](https://katerinabischel.github.io/River_Remedy/index.html)
 **Final report (PDF):** [bren.ucsb.edu](https://bren.ucsb.edu/sites/default/files/2026-04/GP%20River%20Remedy%20Final%20Report%20compressed.pdf)  
 **Site author:** Katerina Bischel · [katerina.bischel@gmail.com](mailto:katerina.bischel@gmail.com) · [katerinabischell.github.io/my_site](https://katerinabischell.github.io/my_site/)
 
