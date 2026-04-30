@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "River Remedy: Heavy-Metal Contamination Analysis of the Pilcomayo River Basin (2016–2024)"
+version: "1.0.0"
+authors:
+  - family-names: "Bischel"
+    given-names: "Katerina"
+    affiliation: "University of California, Santa Barbara, Bren School of Environmental Science & Management"
+    orcid: "https://orcid.org/0009-0005-4168-9726"
+url: "https://github.com/katerinabischel/River_Remedy"
+repository-code: "https://github.com/katerinabischel/River_Remedy"
+license: CC-BY-4.0
+keywords:
+  - "heavy metals"
+  - "Pilcomayo River"
+  - "Bolivia"
+  - "sediment-water partitioning"
+  - "mining contamination"
+  - "environmental remediation"
+  - "arsenic"
+  - "lead"
+abstract: >-
+  The River Remedy project documents heavy-metal contamination dynamics
+  in the Pilcomayo River Basin, drawing on eight years (2016–2024) of
+  water and sediment monitoring data from the Comisión Trinacional para
+  el Desarrollo de la Cuenca del Río Pilcomayo. The site presents six
+  analytical chapters covering sediment-water partitioning, hypoxic-event
+  metal mobilization, seasonal water-sediment exchange, sediment texture
+  and source dominance, 3D spatial visualization, and an evidence-based
+  remediation strategy synthesis. The site is authored by Katerina Bischel
+  as a UCSB Bren School Group Project deliverable. Underlying monitoring
+  data is held by the Comisión Trinacional and is not included in this
+  archive.

@@ -1,5 +1,9 @@
 # River Remedy
 
+<!-- DOI badge — replace PLACEHOLDER with concept DOI after Zenodo mints it.
+     Pattern: https://zenodo.org/badge/DOI/<concept-DOI>.svg → https://doi.org/<concept-DOI> -->
+[![DOI](https://zenodo.org/badge/DOI/PLACEHOLDER.svg)](https://doi.org/PLACEHOLDER)
+
 Static site documenting the **River Remedy** project — a UCSB Bren School Group Project on heavy-metal contamination in the Pilcomayo River Basin, using monitoring data from the Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo (2016–2024).
 
 **Live site:** [River_Remedy](https://katerinabischel.github.io/River_Remedy/index.html)
@@ -51,7 +55,11 @@ Then open `http://localhost:8000` in a browser.
 
 ## Citation
 
-A peer-reviewed publication is in preparation. In the interim, please cite this repository and acknowledge the 2016–2024 data partnership with the Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo.
+A peer-reviewed publication is in preparation. In the interim, please cite this archive:
+
+> Bischel, K. (2026). *River Remedy: Heavy-Metal Contamination Analysis of the Pilcomayo River Basin (2016–2024)* (Version v1.0.0) [Software]. Zenodo. https://doi.org/PLACEHOLDER
+
+Acknowledge the 2016–2024 data partnership with the Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo ([pilcomayo.net](https://www.pilcomayo.net)).
 
 ## Acknowledgments
 
@@ -59,4 +67,6 @@ The River Remedy project was guided by mentors at UCSB Bren School (Arturo Kelle
 
 ## License
 
-_To be added._ The site is currently shared for review and academic citation. License terms for code and visualizations will be specified before public release.
+This work is licensed under a [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You are free to share and adapt the material with attribution to Katerina Bischel and the River Remedy project.
+
+See [`LICENSE`](LICENSE) for the full license text.
