@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Contamination Models — River Remedy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sb-stripe"></div>
+  <div class="sb-brand">
+    <svg class="sb-logo" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="15" cy="15" r="13" stroke="#7ec8e3" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="15" cy="15" r="9" stroke="#7ec8e3" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="15" cy="15" r="5" stroke="#7ec8e3" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="15" cy="15" r="2" fill="#7ec8e3"/>
+    </svg>
+    <div class="sb-wordmark">River <span>Remedy</span><small>Pilcomayo · Bolivia</small></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Overview" data-es="Vista General">Overview</div>
+    <a href="index.html" class="sb-link"><span class="sb-icon">◉</span> <span data-en="Home" data-es="Inicio">Home</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Context" data-es="Contexto">Context</div>
+    <a href="history.html" class="sb-link"><span class="sb-icon">⊞</span> <span data-en="History &amp; Impacts" data-es="Historia e Impactos">History &amp; Impacts</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Science" data-es="La Ciencia">The Science</div>
+    <a href="partitioning.html" class="sb-link"><span class="sb-icon">◈</span> <span data-en="Sediment Partitioning" data-es="Partición Sedimento-Agua">Sediment Partitioning</span></a>
+    <a href="hypoxic.html" class="sb-link"><span class="sb-icon">◷</span> <span data-en="Hypoxic Events" data-es="Eventos Hipóxicos">Hypoxic Events</span></a>
+    <a href="spatiotemporal.html" class="sb-link"><span class="sb-icon">⌇</span> <span data-en="Spatiotemporal Migration" data-es="Migración Espaciotemporal">Spatiotemporal Migration</span></a>
+    <a href="texture.html" class="sb-link"><span class="sb-icon">⊟</span> <span data-en="Sediment Texture" data-es="Textura del Sedimento">Sediment Texture</span></a>
+    <a href="3d-models.html" class="sb-link active"><span class="sb-icon">◎</span> <span data-en="3D Models" data-es="Modelos 3D">3D Models</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Response" data-es="La Respuesta">The Response</div>
+    <a href="remediation.html" class="sb-link"><span class="sb-icon">↗</span> <span data-en="Remediation Strategy" data-es="Estrategia de Remediación">Remediation Strategy</span></a>
+    <a href="tech-application.html" class="sb-link"><span class="sb-icon">⊕</span> <span data-en="Geophysical Tech" data-es="Tecnología Geofísica">Geophysical Tech</span></a>
+  </div>
+  <div class="sb-divider"></div>
+  <div class="sb-bottom">
+    <a href="https://bren.ucsb.edu/sites/default/files/2026-04/GP%20River%20Remedy%20Final%20Report%20compressed.pdf"
+       class="sb-report-cta"
+       target="_blank"
+       rel="noopener">
+      <span class="sb-report-cta-icon">↗</span>
+      <span data-en="Read the Final Report (PDF)"
+            data-es="Leer el Informe Final (PDF)">Read the Final Report (PDF)</span>
+    </a>
+    <a href="contact.html" class="sb-link"><span class="sb-icon">→</span> <span data-en="Contact" data-es="Contacto">Contact</span></a>
+  </div>
+</aside>
+
+<main class="main">
+
+  <!-- ═══════════════════════════════════════════════════════
+       §1 HERO
+       Step Zero corrections applied:
+         - units: μg/L only (not mg/kg or μg/L)
+         - corridor: 820 km (report 3.4.1; 850 km = full network span)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="page-hero hero-deep">
+    <div class="hero-eyebrow"
+         data-en="Spatiotemporal 3D Surfaces"
+         data-es="Superficies 3D Espaciotemporales">Spatiotemporal 3D Surfaces</div>
+    <h1 class="hero-title"
+        data-en="Contamination in <em>Three Dimensions</em>"
+        data-es="Contaminación en <em>Tres Dimensiones</em>">Contamination in <em>Three Dimensions</em></h1>
+    <p class="hero-sub"
+       data-en="These interactive surfaces map water-column metal concentration (μg/L) across approximately 820 km of the Pilcomayo River Basin and eight years of monitoring campaigns (2016–2024). Space, time, and intensity rendered together in a single view."
+       data-es="Estas superficies interactivas representan la concentración de metales en la columna de agua (μg/L) a lo largo de aproximadamente 820 km de la cuenca del río Pilcomayo y ocho años de campañas de monitoreo (2016–2024). Espacio, tiempo e intensidad representados juntos en una sola vista.">These interactive surfaces map water-column metal concentration (μg/L) across approximately 820 km of the Pilcomayo River Basin and eight years of monitoring campaigns (2016–2024). Space, time, and intensity rendered together in a single view.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">As · Cd · Pb · Zn</span>
+      <span class="hero-tag"
+            data-en="820 km Corridor"
+            data-es="Corredor de 820 km">820 km Corridor</span>
+      <span class="hero-tag"
+            data-en="8 Years"
+            data-es="8 Años">8 Years</span>
+      <span class="hero-tag"
+            data-en="Interactive 3D"
+            data-es="3D Interactivo">Interactive 3D</span>
+    </div>
+  </section>
+
+  <div class="wave"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#f7fbf8" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,48 1440,16 L1440,48 Z"/></svg></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §2 HOW TO READ THESE SURFACES
+       Replaces the old single-callout interaction guide.
+       Covers: what's plotted, the concurrent-snapshot caveat
+       (critical), distance assignment, interpolation, and
+       mouse interaction.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt compact">
+    <div class="section-eyebrow"
+         data-en="Methodology &amp; Interpretive Caveats"
+         data-es="Metodología y Advertencias de Interpretación">Methodology &amp; Interpretive Caveats</div>
+    <h2 class="section-title"
+        data-en="How to Read These Surfaces"
+        data-es="Cómo Interpretar Estas Superficies">How to Read These Surfaces</h2>
+    <p class="section-lead"
+       data-en="Each surface plots the same three dimensions: downstream distance from Potosí (Y axis, km), monitoring campaign date (X axis, 2016–2024), and water-column metal concentration in μg/L (Z, vertical height). Three caveats govern interpretation."
+       data-es="Cada superficie representa las mismas tres dimensiones: distancia aguas abajo de Potosí (eje Y, km), fecha de campaña de monitoreo (eje X, 2016–2024) y concentración de metal en la columna de agua en μg/L (eje Z, altura vertical). Tres advertencias rigen la interpretación.">Each surface plots the same three dimensions: downstream distance from Potosí (Y axis, km), monitoring campaign date (X axis, 2016–2024), and water-column metal concentration in μg/L (Z, vertical height). Three caveats govern interpretation.</p>
+
+    <div class="callout alert">
+      <div class="callout-icon">⚠</div>
+      <div class="callout-body">
+        <strong data-en="Concurrent snapshots — not parcel tracking"
+                data-es="Instantáneas concurrentes, no seguimiento de parcelas">Concurrent snapshots — not parcel tracking</strong>
+        <span data-en="These models represent concurrent spatial measurements across the monitoring network rather than tracking of individual water parcels downstream. A ridge that appears to shift downstream over time is not the same pulse of contamination moving through the basin — it reflects changing concentration levels measured simultaneously at different stations. Interpreting apparent downstream movement as transport is a misreading of this data type."
+              data-es="Estos modelos representan mediciones espaciales concurrentes a través de la red de monitoreo, no el seguimiento de parcelas individuales de agua aguas abajo. Una cresta que parece desplazarse aguas abajo con el tiempo no es el mismo pulso de contaminación moviéndose por la cuenca — refleja niveles de concentración cambiantes medidos simultáneamente en diferentes estaciones. Interpretar el aparente movimiento aguas abajo como transporte es una lectura errónea de este tipo de datos.">These models represent concurrent spatial measurements across the monitoring network rather than tracking of individual water parcels downstream. A ridge that appears to shift downstream over time is not the same pulse of contamination moving through the basin — it reflects changing concentration levels measured simultaneously at different stations. Interpreting apparent downstream movement as transport is a misreading of this data type.</span>
+      </div>
+    </div>
+
+    <div class="callout method">
+      <div class="callout-icon">◈</div>
+      <div class="callout-body">
+        <strong data-en="Distance assignment is non-trivial"
+                data-es="La asignación de distancias no es trivial">Distance assignment is non-trivial</strong>
+        <span data-en="River distances were assigned to each monitoring station based on manually classified hydrological position within the basin, correcting for the complex tributary structure of the upper Pilcomayo. Simple straight-line or single-channel distances from Potosí would misrepresent station positions — particularly in the upper basin where the main channel divides and reconnects across the Bolivian Chaco."
+              data-es="Las distancias fluviales se asignaron a cada estación de monitoreo en función de la posición hidrológica clasificada manualmente dentro de la cuenca, corrigiendo la compleja estructura de afluentes del Pilcomayo superior. Las distancias en línea recta o de un solo canal desde Potosí representarían erróneamente las posiciones de las estaciones, especialmente en la cuenca alta donde el canal principal se divide y reconecta a través del Chaco boliviano.">River distances were assigned to each monitoring station based on manually classified hydrological position within the basin, correcting for the complex tributary structure of the upper Pilcomayo. Simple straight-line or single-channel distances from Potosí would misrepresent station positions — particularly in the upper basin where the main channel divides and reconnects across the Bolivian Chaco.</span>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">◎</div>
+      <div class="callout-body">
+        <strong data-en="Interpolation &amp; interaction"
+                data-es="Interpolación e interacción">Interpolation &amp; interaction</strong>
+        <span data-en="Values between sampling stations and campaigns are linearly interpolated across a 50×50 spatiotemporal grid with nearest-neighbor edge fill — the smooth surface you see is an interpolation, not a continuous measurement. To interact: Rotate — click and drag · Zoom — scroll wheel · Pan — right-click and drag · Hover — point values appear as a tooltip."
+              data-es="Los valores entre estaciones de muestreo y campañas se interpolan linealmente en una cuadrícula espaciotemporal de 50×50 con relleno de vecino más cercano en los bordes — la superficie suave que se ve es una interpolación, no una medición continua. Para interactuar: Rotar — clic y arrastrar · Zoom — rueda de desplazamiento · Mover — clic derecho y arrastrar · Pasar el cursor — los valores de punto aparecen como información emergente.">Values between sampling stations and campaigns are linearly interpolated across a 50×50 spatiotemporal grid with nearest-neighbor edge fill — the smooth surface you see is an interpolation, not a continuous measurement. To interact: <strong>Rotate</strong> — click and drag · <strong>Zoom</strong> — scroll wheel · <strong>Pan</strong> — right-click and drag · <strong>Hover</strong> — point values appear as a tooltip.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §3 WHAT TO LOOK FOR — four-card mech-card primer
+       Primes reader on predicted visual signature of each
+       metal before they engage with the surfaces. Links to
+       partitioning.html metal-story sections.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow"
+         data-en="Predicted Visual Signatures"
+         data-es="Firmas Visuales Previstas">Predicted Visual Signatures</div>
+    <h2 class="section-title"
+        data-en="What Each Surface Should Reveal"
+        data-es="Lo Que Cada Superficie Debería Revelar">What Each Surface Should Reveal</h2>
+    <p class="section-lead"
+       data-en="Each surface is a predicted-vs-observed experiment. The partitioning hierarchy established on the Sediment Partitioning page — Pb most sediment-bound, Cd most mobile, As and Zn intermediate — should produce distinct visual signatures across the four surfaces. Here is what to look for in each one."
+       data-es="Cada superficie es un experimento de predicción frente a observación. La jerarquía de partición establecida en la página de Partición Sedimento-Agua — Pb más ligado al sedimento, Cd más móvil, As y Zn intermedios — debería producir firmas visuales distintas en las cuatro superficies. Esto es lo que se debe buscar en cada una.">Each surface is a predicted-vs-observed experiment. The partitioning hierarchy established on the Sediment Partitioning page — Pb most sediment-bound, Cd most mobile, As and Zn intermediate — should produce distinct visual signatures across the four surfaces. Here is what to look for in each one.</p>
+
+    <div class="grid-4">
+      <div class="mech-card pb">
+        <div class="mech-metal">
+          <span class="metal-tag metal-pb">Pb</span> Lead
+        </div>
+        <div class="mech-kd">1,667 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control"
+             data-en="<strong>Expected surface:</strong> narrow, steep source-proximal peak that drops away sharply downstream. The high Kd means Pb is rapidly removed from the water column by sediment adsorption, leaving the surface nearly flat beyond the headwater zone. Elevated values should appear only as sharp wet-season spikes or during hypoxic mobilization events — not as a persistent plume."
+             data-es="<strong>Superficie esperada:</strong> pico estrecho y pronunciado próximo a la fuente que cae abruptamente aguas abajo. El alto Kd significa que el Pb es eliminado rápidamente de la columna de agua por adsorción en sedimentos, dejando la superficie casi plana más allá de la zona de nacientes. Los valores elevados deberían aparecer solo como picos agudos en la temporada húmeda o durante eventos de movilización hipóxica, no como una pluma persistente."><strong>Expected surface:</strong> narrow, steep source-proximal peak that drops away sharply downstream. The high Kd means Pb is rapidly removed from the water column by sediment adsorption, leaving the surface nearly flat beyond the headwater zone. Elevated values should appear only as sharp wet-season spikes or during hypoxic mobilization events — not as a persistent plume.</div>
+        <a href="partitioning.html#metal-story-pb" class="mech-story-link"
+           data-en="→ Pb partitioning story"
+           data-es="→ Historia de partición del Pb">→ Pb partitioning story</a>
+      </div>
+
+      <div class="mech-card as">
+        <div class="mech-metal">
+          <span class="metal-tag metal-as">As</span> Arsenic
+        </div>
+        <div class="mech-kd">908 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control"
+             data-en="<strong>Expected surface:</strong> strong source-proximal peak with a gradual — rather than abrupt — downstream decay, because Fe/Al-oxide buffering distributes arsenic across multiple reaches before final removal. The report documents more than an order-of-magnitude decline from headwater to distal stations. Wet-season ridges should be visible, though less extreme than Cd."
+             data-es="<strong>Superficie esperada:</strong> pico fuerte próximo a la fuente con una decaída gradual — más que abrupta — aguas abajo, porque el amortiguamiento de óxidos de Fe/Al distribuye el arsénico en múltiples tramos antes de su eliminación final. El informe documenta una disminución de más de un orden de magnitud desde las nacientes hasta las estaciones distales. Los crestas de la temporada húmeda deberían ser visibles, aunque menos extremas que las del Cd."><strong>Expected surface:</strong> strong source-proximal peak with a gradual — rather than abrupt — downstream decay, because Fe/Al-oxide buffering distributes arsenic across multiple reaches before final removal. The report documents more than an order-of-magnitude decline from headwater to distal stations. Wet-season ridges should be visible, though less extreme than Cd.</div>
+        <a href="partitioning.html#metal-story-as" class="mech-story-link"
+           data-en="→ As partitioning story"
+           data-es="→ Historia de partición del As">→ As partitioning story</a>
+      </div>
+
+      <div class="mech-card cd">
+        <div class="mech-metal">
+          <span class="metal-tag metal-cd">Cd</span> Cadmium
+        </div>
+        <div class="mech-kd">200 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control"
+             data-en="<strong>Expected surface:</strong> flatter spatial gradient than Pb or As, because the lower Kd allows Cd to persist in the water column further downstream. The most visually distinctive feature should be in the time dimension: strong wet-season ridges driven by the acid-soluble Ca/P pathway, which releases Cd into solution with wet-season runoff acidity and elevated discharge."
+             data-es="<strong>Superficie esperada:</strong> gradiente espacial más plano que el Pb o As, porque el Kd más bajo permite que el Cd persista en la columna de agua más aguas abajo. La característica más visualmente distintiva debería estar en la dimensión temporal: fuertes crestas en la temporada húmeda impulsadas por la vía Ca/P soluble en ácido, que libera Cd en solución con la acidez del escurrimiento de la temporada húmeda y el caudal elevado."><strong>Expected surface:</strong> flatter spatial gradient than Pb or As, because the lower Kd allows Cd to persist in the water column further downstream. The most visually distinctive feature should be in the time dimension: strong wet-season ridges driven by the acid-soluble Ca/P pathway, which releases Cd into solution with wet-season runoff acidity and elevated discharge.</div>
+        <a href="partitioning.html#metal-story-cd" class="mech-story-link"
+           data-en="→ Cd partitioning story"
+           data-es="→ Historia de partición del Cd">→ Cd partitioning story</a>
+      </div>
+
+      <div class="mech-card zn">
+        <div class="mech-metal">
+          <span class="metal-tag metal-zn">Zn</span> Zinc
+        </div>
+        <div class="mech-kd">664 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control"
+             data-en="<strong>Expected surface:</strong> the most spatially homogeneous of the four. Seven verified binding mechanisms working simultaneously — across Fe/Mn oxides, carbonates, organic matter, sulfides, and co-precipitation pathways — give Zn a resilient, distributed sediment affinity that buffers against the sharp peaks and troughs visible in the other metals."
+             data-es="<strong>Superficie esperada:</strong> la más espacialmente homogénea de las cuatro. Siete mecanismos de unión verificados que trabajan simultáneamente — a través de óxidos de Fe/Mn, carbonatos, materia orgánica, sulfuros y vías de co-precipitación — le dan al Zn una afinidad sedimentaria resiliente y distribuida que amortigua los picos y valles marcados visibles en los otros metales."><strong>Expected surface:</strong> the most spatially homogeneous of the four. Seven verified binding mechanisms working simultaneously — across Fe/Mn oxides, carbonates, organic matter, sulfides, and co-precipitation pathways — give Zn a resilient, distributed sediment affinity that buffers against the sharp peaks and troughs visible in the other metals.</div>
+        <a href="partitioning.html#metal-story-zn" class="mech-story-link"
+           data-en="→ Zn partitioning story"
+           data-es="→ Historia de partición del Zn">→ Zn partitioning story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §4 ARSENIC & LEAD — source-proximal pair
+       Step Zero corrections:
+         - "Sediment concentration" → "Water-column concentration" (As caption)
+         - Lead caption rewritten around water-column signal
+         - 50–70% / 300–600 km claim removed; replaced with
+           report's "more than an order of magnitude" (4.4.1)
+         - Section lead corrected to water-column framing
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow"
+         data-en="Fe/Al Oxide–Controlled Metals"
+         data-es="Metales Controlados por Óxidos de Fe/Al">Fe/Al Oxide–Controlled Metals</div>
+    <h2 class="section-title"
+        data-en="Arsenic &amp; Lead: A Tale of Two Water-Column Signals"
+        data-es="Arsénico y Plomo: Dos Señales en la Columna de Agua">Arsenic &amp; Lead: A Tale of Two Water-Column Signals</h2>
+    <p class="section-lead"
+       data-en="Both metals are controlled by Fe and Al oxide phases, but their water-column surfaces are strikingly different. Arsenic shows a persistent, graduated source-to-distal gradient — the report documents water-column concentrations more than an order of magnitude higher at the Potosí headwaters than at distal stations near the Argentina/Paraguay border. Lead, by contrast, is so strongly sequestered by its high Kd (1,667 L/kg) that its water-column surface is largely suppressed under baseline conditions. The water-column signal for Pb concentrates into sharp, transient spikes during wet-season runoff pulses. This is the inverse of the sediment story documented on the Sediment Texture page, where Pb appears persistently elevated near the source — the two pages are telling complementary halves of the same contamination picture."
+       data-es="Ambos metales están controlados por fases de óxidos de Fe y Al, pero sus superficies en la columna de agua son sorprendentemente diferentes. El arsénico muestra un gradiente persistente y graduado desde la fuente hasta las estaciones distales — el informe documenta concentraciones en la columna de agua más de un orden de magnitud más altas en las nacientes de Potosí que en las estaciones distales cerca de la frontera Argentina/Paraguay. El plomo, por el contrario, está tan fuertemente secuestrado por su alto Kd (1.667 L/kg) que su superficie en la columna de agua está ampliamente suprimida bajo condiciones de referencia. La señal en la columna de agua para Pb se concentra en picos transitorios y agudos durante los pulsos de escurrimiento de la temporada húmeda. Esto es lo inverso a la historia del sedimento documentada en la página de Textura del Sedimento, donde el Pb aparece persistentemente elevado cerca de la fuente — las dos páginas están contando mitades complementarias del mismo panorama de contaminación.">Both metals are controlled by Fe and Al oxide phases, but their water-column surfaces are strikingly different. Arsenic shows a persistent, graduated source-to-distal gradient — the report documents water-column concentrations more than an order of magnitude higher at the Potosí headwaters than at distal stations near the Argentina/Paraguay border. Lead, by contrast, is so strongly sequestered by its high Kd (1,667 L/kg) that its water-column surface is largely suppressed under baseline conditions. The water-column signal for Pb concentrates into sharp, transient spikes during wet-season runoff pulses. This is the inverse of the sediment story documented on the Sediment Texture page, where Pb appears persistently elevated near the source — the two pages are telling complementary halves of the same contamination picture.</p>
+
+    <div class="grid-2">
+      <div>
+        <div class="mt-2 mb-4">
+          <span class="metal-tag metal-as">As</span>
+          <span class="text-muted text-xs" style="margin-left:6px;"
+                data-en="Arsenic · Kd 908 L/kg"
+                data-es="Arsénico · Kd 908 L/kg">Arsenic · Kd 908 L/kg</span>
+        </div>
+        <div class="viz-wrap h-600 viz-expandable">
+          <iframe src="visualizations/3d/arsenic_3d_surface_corrected.html" scrolling="no" title="Arsenic 3D surface model"></iframe>
+          <button type="button" class="viz-expand-btn"
+                  data-iframe-src="visualizations/3d/arsenic_3d_surface_corrected.html"
+                  data-iframe-title="Arsenic — 3D Surface">
+            <span class="viz-expand-icon" aria-hidden="true">⤢</span>
+            <span class="sr-only" data-en="Expand to fullscreen" data-es="Ampliar a pantalla completa">Expand to fullscreen</span>
+          </button>
+        </div>
+        <p class="viz-caption">
+          <strong data-en="What you are looking at:"
+                  data-es="Qué está viendo:">What you are looking at:</strong>
+          <span data-en=" Water-column arsenic concentration (μg/L) at every monitoring station across every sampling campaign. The Y axis is downstream distance from Potosí (km); the X axis is time (2016–2024); the Z axis (vertical height) is concentration. The tall ridge along the near edge (km ≈ 0–50) is the Potosí source zone. Moving along the Y axis, the surface should fall sharply — the report documents a decline of more than an order of magnitude from headwater stations to distal stations near the Argentina/Paraguay border."
+                data-es=" Concentración de arsénico en la columna de agua (μg/L) en cada estación de monitoreo a lo largo de cada campaña de muestreo. El eje Y es la distancia aguas abajo desde Potosí (km); el eje X es el tiempo (2016–2024); el eje Z (altura vertical) es la concentración. La cresta alta a lo largo del borde cercano (km ≈ 0–50) es la zona fuente de Potosí. Al moverse a lo largo del eje Y, la superficie debe caer marcadamente — el informe documenta una disminución de más de un orden de magnitud desde las estaciones de nacientes hasta las estaciones distales cerca de la frontera Argentina/Paraguay."> Water-column arsenic concentration (μg/L) at every monitoring station across every sampling campaign. The Y axis is downstream distance from Potosí (km); the X axis is time (2016–2024); the Z axis (vertical height) is concentration. The tall ridge along the near edge (km ≈ 0–50) is the Potosí source zone. Moving along the Y axis, the surface should fall sharply — the report documents a decline of more than an order of magnitude from headwater stations to distal stations near the Argentina/Paraguay border.</span>
+          <br><span class="text-muted text-xs"
+                    data-en="Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values."
+                    data-es="Matriz: columna de agua · Unidades: μg/L · Interpolación: cuadrícula lineal 50×50 · Rotar para comparar; pasar el cursor para valores de punto.">Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values.</span>
+          <a href="visualizations/3d/arsenic_3d_surface_corrected.html" target="_blank" rel="noopener" class="mech-story-link" style="display:inline;margin-left:8px;"
+             data-en="↗ Open fullscreen"
+             data-es="↗ Abrir pantalla completa">↗ Open fullscreen</a>
+        </p>
+      </div>
+      <div>
+        <div class="mt-2 mb-4">
+          <span class="metal-tag metal-pb">Pb</span>
+          <span class="text-muted text-xs" style="margin-left:6px;"
+                data-en="Lead · Kd 1,667 L/kg"
+                data-es="Plomo · Kd 1.667 L/kg">Lead · Kd 1,667 L/kg</span>
+        </div>
+        <div class="viz-wrap h-600 viz-expandable">
+          <iframe src="visualizations/3d/lead_3d_surface_corrected.html" scrolling="no" title="Lead 3D surface model"></iframe>
+          <button type="button" class="viz-expand-btn"
+                  data-iframe-src="visualizations/3d/lead_3d_surface_corrected.html"
+                  data-iframe-title="Lead — 3D Surface">
+            <span class="viz-expand-icon" aria-hidden="true">⤢</span>
+            <span class="sr-only" data-en="Expand to fullscreen" data-es="Ampliar a pantalla completa">Expand to fullscreen</span>
+          </button>
+        </div>
+        <p class="viz-caption">
+          <strong data-en="What you are looking at:"
+                  data-es="Qué está viendo:">What you are looking at:</strong>
+          <span data-en=" Water-column lead concentration (μg/L) across space and time. Because Pb's Kd (1,667 L/kg) is the highest of the four tracked metals, most lead is sequestered into sediment almost immediately after entering the water column. The surface is therefore expected to be relatively flat and low under baseline dry-season conditions, with concentrated peaks appearing in the time dimension as wet-season runoff pulses mobilize Pb from disturbed sediment. Acute hypoxic events produce the sharpest spikes; see the Hypoxic Events page for the three documented events."
+                data-es=" Concentración de plomo en la columna de agua (μg/L) a través del espacio y el tiempo. Debido a que el Kd del Pb (1.667 L/kg) es el más alto de los cuatro metales rastreados, la mayor parte del plomo queda secuestrada en el sedimento casi inmediatamente después de ingresar a la columna de agua. Por lo tanto, se espera que la superficie sea relativamente plana y baja en condiciones de referencia de la temporada seca, con picos concentrados que aparecen en la dimensión temporal a medida que los pulsos de escurrimiento de la temporada húmeda movilizan el Pb desde sedimentos perturbados. Los eventos hipóxicos agudos producen los picos más marcados; consulte la página de Eventos Hipóxicos para los tres eventos documentados."> Water-column lead concentration (μg/L) across space and time. Because Pb's Kd (1,667 L/kg) is the highest of the four tracked metals, most lead is sequestered into sediment almost immediately after entering the water column. The surface is therefore expected to be relatively flat and low under baseline dry-season conditions, with concentrated peaks appearing in the time dimension as wet-season runoff pulses mobilize Pb from disturbed sediment. Acute hypoxic events produce the sharpest spikes; see the <a href="hypoxic.html">Hypoxic Events</a> page for the three documented events.</span>
+          <br><span class="text-muted text-xs"
+                    data-en="Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values."
+                    data-es="Matriz: columna de agua · Unidades: μg/L · Interpolación: cuadrícula lineal 50×50 · Rotar para comparar; pasar el cursor para valores de punto.">Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values.</span>
+          <a href="visualizations/3d/lead_3d_surface_corrected.html" target="_blank" rel="noopener" class="mech-story-link" style="display:inline;margin-left:8px;"
+             data-en="↗ Open fullscreen"
+             data-es="↗ Abrir pantalla completa">↗ Open fullscreen</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §5 CADMIUM & ZINC — mobility pair
+       Step Zero corrections:
+         - Cd Kd corrected: 160 → 200 L/kg
+         - Section lead anchored to partitioning mechanisms
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt">
+    <div class="section-eyebrow"
+         data-en="Ca/P and Multi-Site Binding"
+         data-es="Unión Ca/P y Multi-Sitio">Ca/P and Multi-Site Binding</div>
+    <h2 class="section-title"
+        data-en="Cadmium &amp; Zinc: Mobility Written in the Time Dimension"
+        data-es="Cadmio y Zinc: Movilidad Escrita en la Dimensión Temporal">Cadmium &amp; Zinc: Mobility Written in the Time Dimension</h2>
+    <p class="section-lead"
+       data-en="Cadmium (lowest Kd of the four metals at 200 L/kg) and zinc (intermediate at 664 L/kg) both show flatter spatial gradients than lead or arsenic — their weaker sediment binding allows them to travel further downstream in the water column before being removed. The more interesting contrast is in the time dimension: cadmium shows the strongest wet-season pulse signature of any of the four metals, driven by its Ca/P binding pathway, which is acid-sensitive and responds sharply to the elevated discharge and acidity of wet-season runoff. Zinc, by contrast, is the most spatially homogeneous surface — its seven simultaneous binding mechanisms distribute it across the basin without the pronounced peaks that characterize the other metals."
+       data-es="El cadmio (el Kd más bajo de los cuatro metales, con 200 L/kg) y el zinc (intermedio con 664 L/kg) muestran gradientes espaciales más planos que el plomo o el arsénico — su unión más débil a los sedimentos les permite viajar más lejos aguas abajo en la columna de agua antes de ser eliminados. El contraste más interesante está en la dimensión temporal: el cadmio muestra la firma de pulso de temporada húmeda más fuerte de los cuatro metales, impulsada por su vía de unión Ca/P, que es sensible a los ácidos y responde marcadamente a la descarga elevada y la acidez del escurrimiento de la temporada húmeda. El zinc, por el contrario, es la superficie más espacialmente homogénea — sus siete mecanismos de unión simultáneos lo distribuyen por la cuenca sin los picos pronunciados que caracterizan a los otros metales.">Cadmium (lowest Kd of the four metals at 200 L/kg) and zinc (intermediate at 664 L/kg) both show flatter spatial gradients than lead or arsenic — their weaker sediment binding allows them to travel further downstream in the water column before being removed. The more interesting contrast is in the time dimension: cadmium shows the strongest wet-season pulse signature of any of the four metals, driven by its Ca/P binding pathway, which is acid-sensitive and responds sharply to the elevated discharge and acidity of wet-season runoff. Zinc, by contrast, is the most spatially homogeneous surface — its seven simultaneous binding mechanisms distribute it across the basin without the pronounced peaks that characterize the other metals.</p>
+
+    <div class="grid-2">
+      <div>
+        <div class="mt-2 mb-4">
+          <span class="metal-tag metal-cd">Cd</span>
+          <span class="text-muted text-xs" style="margin-left:6px;"
+                data-en="Cadmium · Kd 200 L/kg"
+                data-es="Cadmio · Kd 200 L/kg">Cadmium · Kd 200 L/kg</span>
+        </div>
+        <div class="viz-wrap h-600 viz-expandable">
+          <iframe src="visualizations/3d/cadmium_3d_surface_corrected.html" scrolling="no" title="Cadmium 3D surface model"></iframe>
+          <button type="button" class="viz-expand-btn"
+                  data-iframe-src="visualizations/3d/cadmium_3d_surface_corrected.html"
+                  data-iframe-title="Cadmium — 3D Surface">
+            <span class="viz-expand-icon" aria-hidden="true">⤢</span>
+            <span class="sr-only" data-en="Expand to fullscreen" data-es="Ampliar a pantalla completa">Expand to fullscreen</span>
+          </button>
+        </div>
+        <p class="viz-caption">
+          <strong data-en="What you are looking at:"
+                  data-es="Qué está viendo:">What you are looking at:</strong>
+          <span data-en=" Water-column cadmium concentration (μg/L) across the basin and monitoring period. With the lowest Kd of the four tracked metals (200 L/kg), cadmium remains in the water column longer than any other metal measured here. Focus especially on the time (X) axis: the wet-season ridges (Nov–Apr) should be the most visually pronounced of all four surfaces, reflecting the acid-soluble Ca/P pathway releasing Cd with each wet-season runoff cycle."
+                data-es=" Concentración de cadmio en la columna de agua (μg/L) a través de la cuenca y el período de monitoreo. Con el Kd más bajo de los cuatro metales rastreados (200 L/kg), el cadmio permanece en la columna de agua más tiempo que cualquier otro metal medido aquí. Enfóquese especialmente en el eje temporal (X): las crestas de la temporada húmeda (nov–abr) deberían ser las más visualmente pronunciadas de las cuatro superficies, reflejando la vía Ca/P soluble en ácido que libera Cd con cada ciclo de escurrimiento de la temporada húmeda."> Water-column cadmium concentration (μg/L) across the basin and monitoring period. With the lowest Kd of the four tracked metals (200 L/kg), cadmium remains in the water column longer than any other metal measured here. Focus especially on the time (X) axis: the wet-season ridges (Nov–Apr) should be the most visually pronounced of all four surfaces, reflecting the acid-soluble Ca/P pathway releasing Cd with each wet-season runoff cycle.</span>
+          <br><span class="text-muted text-xs"
+                    data-en="Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values."
+                    data-es="Matriz: columna de agua · Unidades: μg/L · Interpolación: cuadrícula lineal 50×50 · Rotar para comparar; pasar el cursor para valores de punto.">Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values.</span>
+          <a href="visualizations/3d/cadmium_3d_surface_corrected.html" target="_blank" rel="noopener" class="mech-story-link" style="display:inline;margin-left:8px;"
+             data-en="↗ Open fullscreen"
+             data-es="↗ Abrir pantalla completa">↗ Open fullscreen</a>
+        </p>
+      </div>
+      <div>
+        <div class="mt-2 mb-4">
+          <span class="metal-tag metal-zn">Zn</span>
+          <span class="text-muted text-xs" style="margin-left:6px;"
+                data-en="Zinc · Kd 664 L/kg"
+                data-es="Zinc · Kd 664 L/kg">Zinc · Kd 664 L/kg</span>
+        </div>
+        <div class="viz-wrap h-600 viz-expandable">
+          <iframe src="visualizations/3d/zinc_3d_surface_corrected.html" scrolling="no" title="Zinc 3D surface model"></iframe>
+          <button type="button" class="viz-expand-btn"
+                  data-iframe-src="visualizations/3d/zinc_3d_surface_corrected.html"
+                  data-iframe-title="Zinc — 3D Surface">
+            <span class="viz-expand-icon" aria-hidden="true">⤢</span>
+            <span class="sr-only" data-en="Expand to fullscreen" data-es="Ampliar a pantalla completa">Expand to fullscreen</span>
+          </button>
+        </div>
+        <p class="viz-caption">
+          <strong data-en="What you are looking at:"
+                  data-es="Qué está viendo:">What you are looking at:</strong>
+          <span data-en=" Water-column zinc concentration (μg/L). Of the four surfaces, zinc should present the flattest, most spatially uniform landscape — the visual signature of seven simultaneous binding mechanisms that distribute zinc across sediment phases throughout the basin. There is no single dominant pathway to disrupt, so neither source proximity nor wet-season runoff produces the dramatic peaks that distinguish lead, arsenic, and cadmium."
+                data-es=" Concentración de zinc en la columna de agua (μg/L). De las cuatro superficies, el zinc debería presentar el paisaje más plano y espacialmente uniforme — la firma visual de siete mecanismos de unión simultáneos que distribuyen el zinc a través de fases de sedimento en toda la cuenca. No hay una única vía dominante que interrumpir, por lo que ni la proximidad a la fuente ni el escurrimiento de la temporada húmeda producen los picos dramáticos que distinguen al plomo, arsénico y cadmio."> Water-column zinc concentration (μg/L). Of the four surfaces, zinc should present the flattest, most spatially uniform landscape — the visual signature of seven simultaneous binding mechanisms that distribute zinc across sediment phases throughout the basin. There is no single dominant pathway to disrupt, so neither source proximity nor wet-season runoff produces the dramatic peaks that distinguish lead, arsenic, and cadmium.</span>
+          <br><span class="text-muted text-xs"
+                    data-en="Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values."
+                    data-es="Matriz: columna de agua · Unidades: μg/L · Interpolación: cuadrícula lineal 50×50 · Rotar para comparar; pasar el cursor para valores de punto.">Matrix: water column · Units: μg/L · Interpolation: 50×50 linear grid · Rotate to compare; hover for point values.</span>
+          <a href="visualizations/3d/zinc_3d_surface_corrected.html" target="_blank" rel="noopener" class="mech-story-link" style="display:inline;margin-left:8px;"
+             data-en="↗ Open fullscreen"
+             data-es="↗ Abrir pantalla completa">↗ Open fullscreen</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §6 PATTERNS ACROSS ALL FOUR METALS
+       Step Zero corrections:
+         - Source Saturation: removed sediment mg/kg values
+           (284/296 mg/kg belong on texture.html); replaced
+           with water-column values from report 4.4.1
+         - Downstream Dilution: removed 50–70%/300–600 km
+           (not in report); replaced with "order of magnitude"
+           framing constrained to As; qualitative for others
+         - Transboundary: removed colormap description;
+           replaced with report's quantitative finding
+         - Seasonal: corrected Nov–Mar → Nov–Apr (report 3.4.2)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow"
+         data-en="What the Models Show"
+         data-es="Lo Que Muestran los Modelos">What the Models Show</div>
+    <h2 class="section-title"
+        data-en="Patterns Across All Four Metals"
+        data-es="Patrones en los Cuatro Metales">Patterns Across All Four Metals</h2>
+
+    <div class="grid-2">
+      <div class="card card-accent red">
+        <div class="card-label"
+             data-en="Source Zone"
+             data-es="Zona Fuente">Source Zone</div>
+        <div class="card-title"
+             data-en="Water-Column Saturation at Potosí"
+             data-es="Saturación en la Columna de Agua en Potosí">Water-Column Saturation at Potosí</div>
+        <div class="card-body"
+             data-en="All four metals show elevated water-column concentrations within the first 0–50 km of the Potosí headwaters. For arsenic, the report documents wet-season medians of approximately 47.5 μg/L at source-proximal stations, dropping to approximately 15.0 μg/L in the dry season. Lead, despite its strong sediment affinity, reaches water-column concentrations of approximately 292 μg/L during wet-season pulses at downstream stations. The complementary sediment story — where arsenic and lead concentrations at San Antonio–Potosí stations are documented at the mg/kg scale — belongs on the Sediment Texture page."
+             data-es="Los cuatro metales muestran concentraciones elevadas en la columna de agua dentro de los primeros 0–50 km de las nacientes de Potosí. Para el arsénico, el informe documenta medianas de temporada húmeda de aproximadamente 47,5 μg/L en estaciones próximas a la fuente, cayendo a aproximadamente 15,0 μg/L en la temporada seca. El plomo, a pesar de su fuerte afinidad con el sedimento, alcanza concentraciones en la columna de agua de aproximadamente 292 μg/L durante los pulsos de la temporada húmeda en estaciones aguas abajo. La historia complementaria del sedimento — donde las concentraciones de arsénico y plomo en las estaciones de San Antonio–Potosí se documentan en la escala mg/kg — pertenece a la página de Textura del Sedimento.">All four metals show elevated water-column concentrations within the first 0–50 km of the Potosí headwaters. For arsenic, the report documents wet-season medians of approximately 47.5 μg/L at source-proximal stations, dropping to approximately 15.0 μg/L in the dry season. Lead reaches water-column concentrations of approximately 292 μg/L during wet-season pulses at downstream stations. The complementary sediment story — concentrations at the mg/kg scale at San Antonio–Potosí — belongs on the <a href="texture.html">Sediment Texture</a> page.</div>
+      </div>
+
+      <div class="card card-accent yellow">
+        <div class="card-label"
+             data-en="Spatial Gradient"
+             data-es="Gradiente Espacial">Spatial Gradient</div>
+        <div class="card-title"
+             data-en="Downstream Dilution and Sedimentation"
+             data-es="Dilución y Sedimentación Aguas Abajo">Downstream Dilution and Sedimentation</div>
+        <div class="card-body"
+             data-en="For arsenic — the best-quantified case — the report documents a decline of more than an order of magnitude in water-column concentration from source-proximal stations at Potosí to distal stations at the Argentina/Paraguay border. The gradient is steepest for lead and arsenic (controlled by high-affinity Fe/Al oxides); gentler for cadmium and zinc, whose lower or more distributed binding allows persistence further downstream. The binding-mechanism explanation for each gradient's shape is documented on the Sediment Partitioning page."
+             data-es="Para el arsénico — el caso mejor cuantificado — el informe documenta una disminución de más de un orden de magnitud en la concentración de la columna de agua desde estaciones próximas a la fuente en Potosí hasta estaciones distales en la frontera Argentina/Paraguay. El gradiente es más pronunciado para el plomo y el arsénico (controlados por óxidos de Fe/Al de alta afinidad); más suave para el cadmio y el zinc, cuya unión más baja o más distribuida permite la persistencia más aguas abajo. La explicación del mecanismo de unión para la forma de cada gradiente está documentada en la página de Partición Sedimento-Agua.">For arsenic — the best-quantified case — the report documents a decline of more than an order of magnitude in water-column concentration from source-proximal stations at Potosí to distal stations at the Argentina/Paraguay border. The gradient is steepest for lead and arsenic; gentler for cadmium and zinc. The binding-mechanism explanation for each gradient's shape is on the <a href="partitioning.html">Sediment Partitioning</a> page.</div>
+      </div>
+
+      <div class="card card-accent blue">
+        <div class="card-label"
+             data-en="Transboundary"
+             data-es="Transfronterizo">Transboundary</div>
+        <div class="card-title"
+             data-en="Transboundary Persistence"
+             data-es="Persistencia Transfronteriza">Transboundary Persistence</div>
+        <div class="card-body"
+             data-en="Persistent non-zero concentrations at downstream stations confirm that contamination reaches transboundary waters throughout the monitoring record. This is the data justification for the trinational scope of the Comisión Trinacional and the River Remedy project itself: the contamination problem is not contained within Bolivia's borders, and any monitoring or remediation framework that stops at the national boundary is structurally incomplete."
+             data-es="Las concentraciones persistentes distintas de cero en las estaciones aguas abajo confirman que la contaminación llega a las aguas transfronterizas a lo largo de todo el registro de monitoreo. Esta es la justificación de datos para el alcance trinacional de la Comisión Trinacional y el propio proyecto River Remedy: el problema de contaminación no está contenido dentro de las fronteras de Bolivia, y cualquier marco de monitoreo o remediación que se detenga en el límite nacional está estructuralmente incompleto.">Persistent non-zero concentrations at downstream stations confirm that contamination reaches transboundary waters throughout the monitoring record. This is the data justification for the trinational scope of the Comisión Trinacional and the River Remedy project itself: a monitoring or remediation framework that stops at the national boundary is structurally incomplete.</div>
+      </div>
+
+      <div class="card card-accent green">
+        <div class="card-label"
+             data-en="Temporal Signal"
+             data-es="Señal Temporal">Temporal Signal</div>
+        <div class="card-title"
+             data-en="Seasonal Wet-Season Pulse (Nov–Apr)"
+             data-es="Pulso Estacional de Temporada Húmeda (Nov–Abr)">Seasonal Wet-Season Pulse (Nov–Apr)</div>
+        <div class="card-body"
+             data-en="Wet-season concentration spikes (November–April) are visible as ridges in the time dimension of each surface. These ridges are the visual evidence for the 3× to 30× wet-season-to-dry-season water-column concentration ratios quantified in detail on the Spatiotemporal Migration page. The amplitude varies by metal and location — cadmium shows the strongest seasonal pulse (acid-soluble Ca/P pathway); lead and arsenic show pulses tied to wet-season discharge and sediment disturbance; zinc shows the most muted seasonal contrast."
+             data-es="Los picos de concentración de la temporada húmeda (noviembre–abril) son visibles como crestas en la dimensión temporal de cada superficie. Estas crestas son la evidencia visual de las relaciones de concentración en la columna de agua de 3× a 30× entre la temporada húmeda y la seca cuantificadas en detalle en la página de Migración Espaciotemporal. La amplitud varía según el metal y la ubicación — el cadmio muestra el pulso estacional más fuerte (vía Ca/P soluble en ácido); el plomo y el arsénico muestran pulsos vinculados a la descarga de la temporada húmeda y la perturbación de sedimentos; el zinc muestra el contraste estacional más suave.">Wet-season concentration spikes (November–April) are visible as ridges in the time dimension of each surface. These ridges are the visual evidence for the 3× to 30× wet/dry water-column ratios quantified on the <a href="spatiotemporal.html">Spatiotemporal Migration</a> page. The amplitude varies by metal — cadmium shows the strongest pulse; zinc the most muted contrast.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §7 WHAT THESE MODELS CAN'T SHOW
+       Honest methodological limits. Makes the page
+       trustworthy to scientific reviewers.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt">
+    <div class="section-eyebrow"
+         data-en="Methodological Limits"
+         data-es="Límites Metodológicos">Methodological Limits</div>
+    <h2 class="section-title"
+        data-en="What These Surfaces Can't Show"
+        data-es="Lo Que Estas Superficies No Pueden Mostrar">What These Surfaces Can't Show</h2>
+    <p class="section-lead"
+       data-en="These surfaces are powerful orientation tools, but they are also abstractions. Five things fall outside what they can represent."
+       data-es="Estas superficies son herramientas de orientación poderosas, pero también son abstracciones. Cinco cosas quedan fuera de lo que pueden representar.">These surfaces are powerful orientation tools, but they are also abstractions. Five things fall outside what they can represent.</p>
+
+    <div class="callout method">
+      <div class="callout-icon">⊟</div>
+      <div class="callout-body">
+        <strong data-en="The sediment reservoir is invisible here"
+                data-es="El reservorio de sedimentos es invisible aquí">The sediment reservoir is invisible here</strong>
+        <span data-en="These surfaces are water-column only. The sediment-bound fraction — which holds the majority of total metal mass in the basin — does not appear. The spatial gradient of sediment contamination (including the 35× source-to-distal arsenic gradient documented in sediment cores) is the subject of the Sediment Texture page. The binding-mechanism framework that connects the two matrices is on the Sediment Partitioning page."
+              data-es="Estas superficies son solo de la columna de agua. La fracción ligada al sedimento — que contiene la mayoría de la masa total de metales en la cuenca — no aparece. El gradiente espacial de la contaminación de sedimentos (incluyendo el gradiente de arsénico de 35× desde la fuente hasta las estaciones distales documentado en núcleos de sedimento) es el tema de la página de Textura del Sedimento. El marco del mecanismo de unión que conecta las dos matrices está en la página de Partición Sedimento-Agua.">These surfaces are water-column only. The sediment-bound fraction — which holds the majority of total metal mass in the basin — does not appear. The spatial gradient of sediment contamination is the subject of the <a href="texture.html">Sediment Texture</a> page; the binding framework connecting the two matrices is on the <a href="partitioning.html">Sediment Partitioning</a> page.</span>
+      </div>
+    </div>
+
+    <div class="callout method">
+      <div class="callout-icon">≋</div>
+      <div class="callout-body">
+        <strong data-en="Values between stations are interpolated, not measured"
+                data-es="Los valores entre estaciones son interpolados, no medidos">Values between stations are interpolated, not measured</strong>
+        <span data-en="The smooth surface between monitoring stations is a linear interpolation across a 50×50 grid — a mathematical estimate, not a physical observation. Processes occurring between stations (tributary inputs, point-source discharges, localized sedimentation) are not captured. The model is a spatial summary of the monitoring network, not a continuous characterization of the river."
+              data-es="La superficie suave entre las estaciones de monitoreo es una interpolación lineal en una cuadrícula de 50×50 — una estimación matemática, no una observación física. Los procesos que ocurren entre estaciones (aportes de afluentes, descargas de fuentes puntuales, sedimentación localizada) no se capturan. El modelo es un resumen espacial de la red de monitoreo, no una caracterización continua del río.">The smooth surface between monitoring stations is a linear interpolation across a 50×50 grid — a mathematical estimate, not a physical observation. Processes occurring between stations (tributary inputs, point-source discharges, localized sedimentation) are not captured.</span>
+      </div>
+    </div>
+
+    <div class="callout method">
+      <div class="callout-icon">◎</div>
+      <div class="callout-body">
+        <strong data-en="Apparent downstream movement is not transport"
+                data-es="El aparente movimiento aguas abajo no es transporte">Apparent downstream movement is not transport</strong>
+        <span data-en="As noted in §2 above, any apparent shift in a ridge along the downstream (Y) axis over time reflects changing concentration levels at fixed stations — not a contamination plume moving through the basin. The surfaces encode concurrent spatial snapshots, not a Lagrangian tracking of individual water parcels."
+              data-es="Como se señaló en §2 anteriormente, cualquier desplazamiento aparente de una cresta a lo largo del eje aguas abajo (Y) con el tiempo refleja niveles de concentración cambiantes en estaciones fijas — no una pluma de contaminación moviéndose por la cuenca. Las superficies codifican instantáneas espaciales concurrentes, no un seguimiento lagrangiano de parcelas individuales de agua.">As noted in §2 above, any apparent shift in a ridge over time reflects changing concentration levels at fixed stations — not a plume moving through the basin. The surfaces encode concurrent spatial snapshots, not Lagrangian transport.</span>
+      </div>
+    </div>
+
+    <div class="callout method">
+      <div class="callout-icon">◷</div>
+      <div class="callout-body">
+        <strong data-en="Acute hypoxic events are smoothed over"
+                data-es="Los eventos hipóxicos agudos se suavizan">Acute hypoxic events are smoothed over</strong>
+        <span data-en="The three documented hypoxic mobilization events in the Pilcomayo record (detailed on the Hypoxic Events page) involved sharp, short-duration concentration spikes — particularly for lead — that are likely compressed or averaged out at the temporal resolution of these surfaces. If a spike spans a single sampling campaign, it may appear as a modest ridge rather than the extreme pulse that field data reveal."
+              data-es="Los tres eventos de movilización hipóxica documentados en el registro del Pilcomayo (detallados en la página de Eventos Hipóxicos) involucraron picos de concentración agudos y de corta duración — particularmente para el plomo — que probablemente se comprimieron o promediaron a la resolución temporal de estas superficies. Si un pico abarca una sola campaña de muestreo, puede aparecer como una cresta modesta en lugar del pulso extremo que revelan los datos de campo.">The three documented hypoxic mobilization events (detailed on the <a href="hypoxic.html">Hypoxic Events</a> page) involved sharp, short-duration concentration spikes that are likely compressed or averaged at the temporal resolution of these surfaces.</span>
+      </div>
+    </div>
+
+    <div class="callout method">
+      <div class="callout-icon">⊕</div>
+      <div class="callout-body">
+        <strong data-en="Mercury and the 2024 emerging contamination event are not mapped here"
+                data-es="El mercurio y el evento de contaminación emergente de 2024 no están mapeados aquí">Mercury and the 2024 emerging contamination event are not mapped here</strong>
+        <span data-en="The 2024 emerging contamination event documented on the Sediment Texture page involves a mercury (Hg) and cadmium co-spike at specific stations. Mercury is not among the four metals modeled in these surfaces and therefore does not appear. Whether the 2024 cadmium spike is visually distinguishable in the Cd surface depends on the specific sampling campaigns included in the iframe dataset — this has not been independently verified."
+              data-es="El evento de contaminación emergente de 2024 documentado en la página de Textura del Sedimento involucra un co-pico de mercurio (Hg) y cadmio en estaciones específicas. El mercurio no está entre los cuatro metales modelados en estas superficies y por lo tanto no aparece. Si el pico de cadmio de 2024 es visualmente distinguible en la superficie de Cd depende de las campañas de muestreo específicas incluidas en el conjunto de datos del iframe — esto no ha sido verificado de forma independiente."><!-- DATA-CHECK: whether the 2024 Cd spike is visually distinguishable in cadmium_3d_surface_corrected.html — requires verification against the iframe dataset's campaign list -->
+        The 2024 emerging contamination event (<a href="texture.html">Sediment Texture</a>) involves a mercury and cadmium co-spike. Mercury is not among the four modeled metals and does not appear. Whether the 2024 Cd spike is distinguishable in the Cd surface has not been independently verified against the iframe dataset.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §8 SYNTHESIS & FORWARD LINKS
+       Three cross-link-cards using the partitioning.html
+       vocabulary. Closes the page with navigation forward.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow"
+         data-en="Where to Go Next"
+         data-es="A Dónde Ir Después">Where to Go Next</div>
+    <h2 class="section-title"
+        data-en="The Spatial Picture, Complete"
+        data-es="El Panorama Espacial, Completo">The Spatial Picture, Complete</h2>
+    <p class="section-lead"
+       data-en="These four surfaces are the spatial synthesis of the site — the point where partitioning chemistry, seasonal cycling, and source dominance all become simultaneously visible. Each sister page developed one dimension of this picture in depth."
+       data-es="Estas cuatro superficies son la síntesis espacial del sitio — el punto donde la química de partición, el ciclo estacional y el dominio de la fuente se vuelven todos simultáneamente visibles. Cada página hermana desarrolló en profundidad una dimensión de este panorama.">These four surfaces are the spatial synthesis of the site — the point where partitioning chemistry, seasonal cycling, and source dominance all become simultaneously visible. Each sister page developed one dimension of this picture in depth.</p>
+
+    <div class="grid-3" style="margin-top:8px;">
+      <a href="partitioning.html" class="cross-link-card">
+        <div class="cross-link-card-icon">◈</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label"
+               data-en="The Mechanism"
+               data-es="El Mecanismo">The Mechanism</div>
+          <div class="cross-link-card-title"
+               data-en="Sediment-Water Partitioning"
+               data-es="Partición Sedimento-Agua">Sediment-Water Partitioning</div>
+          <div class="cross-link-card-desc"
+               data-en="The binding mechanisms that determine each metal's Kd — and produce the visual signatures visible in these surfaces. The Kd hierarchy (Pb 1,667 · As 908 · Zn 664 · Cd 200 L/kg) is the chemical explanation for why the four surfaces look different from each other."
+               data-es="Los mecanismos de unión que determinan el Kd de cada metal — y producen las firmas visuales visibles en estas superficies. La jerarquía de Kd (Pb 1.667 · As 908 · Zn 664 · Cd 200 L/kg) es la explicación química de por qué las cuatro superficies se ven diferentes entre sí.">The binding mechanisms that determine each metal's Kd — and produce the visual signatures visible in these surfaces. The Kd hierarchy is the chemical explanation for why the four surfaces look different from each other.</div>
+        </div>
+      </a>
+
+      <a href="spatiotemporal.html" class="cross-link-card">
+        <div class="cross-link-card-icon">⌇</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label"
+               data-en="The Seasonal Cycle"
+               data-es="El Ciclo Estacional">The Seasonal Cycle</div>
+          <div class="cross-link-card-title"
+               data-en="Spatiotemporal Migration"
+               data-es="Migración Espaciotemporal">Spatiotemporal Migration</div>
+          <div class="cross-link-card-desc"
+               data-en="The wet-season ridges visible in the time dimension of these surfaces quantified in detail: 3× to 30× wet-season-to-dry-season water-column concentration ratios, metal-by-metal seasonal personalities, and the sediment-water exchange cycle that drives them."
+               data-es="Las crestas de la temporada húmeda visibles en la dimensión temporal de estas superficies cuantificadas en detalle: relaciones de concentración en la columna de agua de 3× a 30× entre la temporada húmeda y la seca, las personalidades estacionales metal por metal y el ciclo de intercambio sedimento-agua que las impulsa.">The wet-season ridges visible in the time dimension of these surfaces, quantified: 3× to 30× wet/dry water-column concentration ratios, metal-by-metal seasonal personalities, and the sediment-water exchange cycle.</div>
+        </div>
+      </a>
+
+      <a href="remediation.html" class="cross-link-card">
+        <div class="cross-link-card-icon">↗</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label"
+               data-en="The Response"
+               data-es="La Respuesta">The Response</div>
+          <div class="cross-link-card-title"
+               data-en="Remediation Strategy"
+               data-es="Estrategia de Remediación">Remediation Strategy</div>
+          <div class="cross-link-card-desc"
+               data-en="The policy implications of the spatial gradients: the order-of-magnitude source dominance visible in the arsenic surface justifies intervening at Potosí rather than mid-basin; the transboundary persistence confirmed here requires trinational monitoring coordination."
+               data-es="Las implicaciones políticas de los gradientes espaciales: el dominio de la fuente de orden de magnitud visible en la superficie de arsénico justifica intervenir en Potosí en lugar de en la mitad de la cuenca; la persistencia transfronteriza confirmada aquí requiere coordinación de monitoreo trinacional.">The policy implications of the spatial gradients: source dominance justifies intervening at Potosí; transboundary persistence requires trinational monitoring coordination.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <span class="footer-brand">River <em style="color:var(--water-300);font-style:normal;">Remedy</em></span>
+    <div class="footer-links">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub</a>
+    </div>
+    <span class="footer-note" data-en="© 2024 UCSB Bren School · Trinational Commission Data" data-es="© 2024 UCSB Bren School · Datos de la Comisión Trinacional">© 2024 UCSB Bren School · Trinational Commission Data</span>
+  </footer>
+</main>
+
+<div class="iframe-modal" id="iframe-modal" role="dialog" aria-modal="true" aria-labelledby="iframe-modal-title" hidden>
+  <div class="iframe-modal-backdrop" data-iframe-modal-close></div>
+  <div class="iframe-modal-content">
+    <div class="iframe-modal-header">
+      <div class="iframe-modal-header-text">
+        <h3 class="iframe-modal-title" id="iframe-modal-title"></h3>
+        <p class="iframe-modal-hint" aria-hidden="true">
+          <span data-en="Left-click drag to rotate" data-es="Clic izquierdo para rotar">Left-click drag to rotate</span>
+          <span class="iframe-modal-hint-sep">·</span>
+          <span data-en="Right-click drag to pan" data-es="Clic derecho para desplazar">Right-click drag to pan</span>
+          <span class="iframe-modal-hint-sep">·</span>
+          <span data-en="Scroll to zoom" data-es="Rueda del ratón para acercar">Scroll to zoom</span>
+        </p>
+      </div>
+      <button type="button" class="iframe-modal-close" data-iframe-modal-close>
+        <span aria-hidden="true">✕</span>
+        <span class="sr-only" data-en="Close fullscreen view" data-es="Cerrar vista de pantalla completa">Close fullscreen view</span>
+      </button>
+    </div>
+    <iframe class="iframe-modal-frame" src="" title=""></iframe>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">✕</button>
+  <img src="" alt="">
+</div>
+<script src="js/main.js"></script>
+<script src="js/lang.js"></script>
+</body>
+</html>

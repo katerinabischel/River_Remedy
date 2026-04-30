@@ -1,537 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>River Remedy — Pilcomayo Basin Contamination Study</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --water-blue: #e0f2fe;
-      --deep-stream: #0369a1;
-      --glass-bg: rgba(255, 255, 255, 0.85);
-      --border-soft: #e2e8f0;
-      --text-dark: #0f172a;
-      --forest-bg: linear-gradient(135deg, #0a1710 0%, #0f2018 100%);
-
-      /* Bolivia colors for accents */
-      --bol-red: #D52B1E;
-      --bol-yellow: #D4A017;
-      --bol-green: #007A5E;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-dark);
-      background-color: #f8fafc;
-      display: flex;
-      min-height: 100vh;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* SIDEBAR NAVIGATION */
-    /* ═══════════════════════════════════════════════════════════════ */
-
-    nav {
-      width: 280px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border-right: 1px solid var(--border-soft);
-      position: fixed;
-      height: 100vh;
-      padding: 2.5rem 1rem;
-      z-index: 1000;
-      overflow-y: auto;
-    }
-
-    nav h1 {
-      font-family: 'Lora', serif;
-      font-size: 1.5rem;
-      color: var(--deep-stream);
-      margin-bottom: 2rem;
-      padding-left: 1rem;
-    }
-
-    .nav-menu {
-      list-style: none;
-    }
-
-    .nav-item {
-      margin-bottom: 0.5rem;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: #475569;
-      font-size: 0.9rem;
-      padding: 0.8rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .nav-link:hover {
-      background: var(--water-blue);
-      color: var(--deep-stream);
-    }
-
-    .nav-link.active {
-      background: rgba(3, 105, 161, 0.1);
-      color: var(--deep-stream);
-      font-weight: 600;
-    }
-
-    /* Dropdown styling */
-    .dropdown-container {
-      display: none;
-      list-style: none;
-      padding-left: 1.5rem;
-      margin-top: 0.3rem;
-    }
-
-    .dropdown-container a {
-      text-decoration: none;
-      color: #64748b;
-      font-size: 0.82rem;
-      padding: 0.5rem 1rem;
-      display: block;
-      border-left: 1px solid var(--border-soft);
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    .dropdown-container a:hover {
-      color: var(--deep-stream);
-      border-left: 2px solid var(--deep-stream);
-    }
-
-    .active-dropdown {
-      display: block;
-    }
-
-    .rotate-icon {
-      transform: rotate(180deg);
-      transition: 0.3s;
-    }
-
-    .lang-selector {
-      margin-top: auto;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-soft);
-    }
-
-    .lang-toggle {
-      background: transparent;
-      border: none;
-      color: var(--deep-stream);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding-left: 1rem;
-      transition: 0.2s;
-    }
-
-    .lang-toggle:hover {
-      opacity: 0.7;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* MAIN CONTENT */
-    /* ═══════════════════════════════════════════════════════════════ */
-
-    main {
-      margin-left: 280px;
-      flex: 1;
-      padding: 3rem;
-      max-width: 1450px;
-      width: 100%;
-    }
-
-    header {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid var(--border-soft);
-      padding-bottom: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    header h2 {
-      font-family: 'Lora', serif;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    header p {
-      color: #64748b;
-      font-size: 0.95rem;
-      font-style: italic;
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid var(--border-soft);
-      padding: 0.7rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--deep-stream);
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-secondary:hover {
-      background: var(--water-blue);
-      border-color: var(--deep-stream);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* TILES & CARDS */
-    /* ═══════════════════════════════════════════════════════════════ */
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tile {
-      background: white;
-      border: 1px solid var(--border-soft);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
-
-    .tile h3 {
-      font-family: 'Lora', serif;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      color: var(--deep-stream);
-    }
-
-    .viz-container {
-      height: 480px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border-soft);
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* RESEARCH CARDS */
-    /* ═══════════════════════════════════════════════════════════════ */
-
-    .research-card {
-      background: white;
-      border: 1px solid var(--border-soft);
-      border-left: 4px solid var(--deep-stream);
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin-bottom: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .research-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(3, 105, 161, 0.15);
-    }
-
-    .research-card h4 {
-      font-family: 'Lora', serif;
-      font-size: 1.1rem;
-      color: var(--deep-stream);
-      margin-bottom: 0.5rem;
-    }
-
-    .research-card p {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #475569;
-      margin-bottom: 0.5rem;
-    }
-
-    .key-finding {
-      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-      border-left: 3px solid #f59e0b;
-      padding: 0.6rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      font-weight: 500;
-      color: #92400e;
-    }
-
-    .critical-finding {
-      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-      border-left: 3px solid #dc2626;
-      padding: 0.6rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      font-weight: 500;
-      color: #991b1b;
-    }
-
-    .stat-highlight {
-      display: inline-block;
-      background: var(--water-blue);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-      color: var(--deep-stream);
-    }
-
-    .section-title {
-      font-family: 'Lora', serif;
-      font-size: 1.4rem;
-      color: var(--text-dark);
-      margin: 2rem 0 1rem 0;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--deep-stream);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* STATS */
-    /* ═══════════════════════════════════════════════════════════════ */
-
-    .stat-tiles {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .stat-tile {
-      background: white;
-      border: 1px solid var(--border-soft);
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .stat-value {
-      font-family: 'Lora', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--deep-stream);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 0.85rem;
-      color: #64748b;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════ */
-    /* RESPONSIVE */
-    /* ═══════════════════════════════════════════════════════════════ */
-
-    @media (max-width: 768px) {
-      nav {
-        transform: translateX(-280px);
-      }
-
-      main {
-        margin-left: 0;
-        padding: 1.5rem;
-      }
-
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stat-tiles {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .tile {
-        grid-column: span 1 !important;
-      }
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — River Remedy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SIDEBAR NAVIGATION -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
+<aside class="sidebar">
+  <div class="sb-stripe"></div>
+  <div class="sb-brand">
+    <svg class="sb-logo" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="15" cy="15" r="13" stroke="#7ec8e3" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="15" cy="15" r="9" stroke="#7ec8e3" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="15" cy="15" r="5" stroke="#7ec8e3" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="15" cy="15" r="2" fill="#7ec8e3"/>
+    </svg>
+    <div class="sb-wordmark">River <span>Remedy</span><small>Pilcomayo · Bolivia</small></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Overview" data-es="Vista General">Overview</div>
+    <a href="index.html" class="sb-link"><span class="sb-icon">◉</span> <span data-en="Home" data-es="Inicio">Home</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Context" data-es="Contexto">Context</div>
+    <a href="history.html" class="sb-link"><span class="sb-icon">⊞</span> <span data-en="History &amp; Impacts" data-es="Historia e Impactos">History &amp; Impacts</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Science" data-es="La Ciencia">The Science</div>
+    <a href="partitioning.html" class="sb-link"><span class="sb-icon">◈</span> <span data-en="Sediment Partitioning" data-es="Partición Sedimento-Agua">Sediment Partitioning</span></a>
+    <a href="hypoxic.html" class="sb-link"><span class="sb-icon">◷</span> <span data-en="Hypoxic Events" data-es="Eventos Hipóxicos">Hypoxic Events</span></a>
+    <a href="spatiotemporal.html" class="sb-link"><span class="sb-icon">⌇</span> <span data-en="Spatiotemporal Migration" data-es="Migración Espaciotemporal">Spatiotemporal Migration</span></a>
+    <a href="texture.html" class="sb-link"><span class="sb-icon">⊟</span> <span data-en="Sediment Texture" data-es="Textura del Sedimento">Sediment Texture</span></a>
+    <a href="3d-models.html" class="sb-link"><span class="sb-icon">◎</span> <span data-en="3D Models" data-es="Modelos 3D">3D Models</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Response" data-es="La Respuesta">The Response</div>
+    <a href="remediation.html" class="sb-link"><span class="sb-icon">↗</span> <span data-en="Remediation Strategy" data-es="Estrategia de Remediación">Remediation Strategy</span></a>
+    <a href="tech-application.html" class="sb-link"><span class="sb-icon">⊕</span> <span data-en="Geophysical Tech" data-es="Tecnología Geofísica">Geophysical Tech</span></a>
+  </div>
+  <div class="sb-divider"></div>
+  <div class="sb-bottom">
+    <a href="https://bren.ucsb.edu/sites/default/files/2026-04/GP%20River%20Remedy%20Final%20Report%20compressed.pdf"
+       class="sb-report-cta"
+       target="_blank"
+       rel="noopener">
+      <span class="sb-report-cta-icon">↗</span>
+      <span data-en="Read the Final Report (PDF)"
+            data-es="Leer el Informe Final (PDF)">Read the Final Report (PDF)</span>
+    </a>
+    <a href="contact.html" class="sb-link"><span class="sb-icon">→</span> <span data-en="Contact" data-es="Contacto">Contact</span></a>
+  </div>
+</aside>
 
-<nav>
-  <h1>River Remedy</h1>
-  <ul class="nav-menu">
-    <li class="nav-item">
-      <a class="nav-link active" onclick="navigateTo('overview')">
-        <span><i class="fas fa-home"></i> Overview</span>
-      </a>
-    </li>
+<main class="main">
 
-    <li class="nav-item">
-      <div class="nav-link dropdown-btn">
-        <span><i class="fas fa-flask"></i> Analyses</span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <ul class="dropdown-container">
-        <li><a onclick="navigateTo('partitioning')">Sediment-Water Partitioning</a></li>
-        <li><a onclick="navigateTo('hypoxic')">Hypoxic Events & Mobilization</a></li>
-        <li><a onclick="navigateTo('texture')">Sediment Texture Analysis</a></li>
-        <li><a onclick="navigateTo('migration')">Spatiotemporal Migration</a></li>
-        <li><a onclick="navigateTo('3d')">3D Contamination Models</a></li>
-      </ul>
-    </li>
-
-    <li class="nav-item">
-      <div class="nav-link dropdown-btn">
-        <span><i class="fas fa-wrench"></i> Remediation</span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <ul class="dropdown-container">
-        <li><a onclick="navigateTo('strategy')">Strategy & Cost Analysis</a></li>
-        <li><a onclick="navigateTo('solutions')">Treatment Solutions</a></li>
-      </ul>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" onclick="navigateTo('team')">
-        <span><i class="fas fa-users"></i> Team</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" onclick="navigateTo('contact')">
-        <span><i class="fas fa-envelope"></i> Contact</span>
-      </a>
-    </li>
-
-    <div class="lang-selector">
-      <button class="lang-toggle" onclick="toggleLanguage()">
-        <i class="fas fa-globe"></i>
-        <span id="langLabel">EN / ES</span>
-      </button>
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="hero-eyebrow"
+         data-en="Pilcomayo Basin Contamination Study"
+         data-es="Estudio de Contaminación de la Cuenca del Pilcomayo">Pilcomayo Basin Contamination Study</div>
+    <h1 class="hero-title"
+        data-en="<em>1.5 Million People.</em> One Industrial River."
+        data-es="<em>1,5 Millones de Personas.</em> Un Río Industrial."><em>1.5 Million People.</em> One Industrial River.</h1>
+    <p class="hero-sub"
+       data-en="For eight years, we tracked heavy metal contamination across 850 km of the Pilcomayo River — from Bolivia's silver-mining highlands to the floodplains of Paraguay. This is what we found."
+       data-es="Durante ocho años, rastreamos la contaminación por metales pesados a lo largo de 850 km del río Pilcomayo — desde las tierras altas mineras de Bolivia hasta las llanuras de inundación de Paraguay. Esto es lo que encontramos.">For eight years, we tracked heavy metal contamination across 850 km of the Pilcomayo River — from Bolivia's silver-mining highlands to the floodplains of Paraguay. This is what we found.</p>
+    <div class="hero-tags">
+      <span class="hero-tag"
+            data-en="46 Monitoring Stations"
+            data-es="46 Estaciones de Monitoreo">46 Monitoring Stations</span>
+      <span class="hero-tag"
+            data-en="1,436 Samples"
+            data-es="1.436 Muestras">1,436 Samples</span>
+      <span class="hero-tag"
+            data-en="8 Years"
+            data-es="8 Años">8 Years</span>
+      <span class="hero-tag"
+            data-en="Bolivia · Argentina · Paraguay"
+            data-es="Bolivia · Argentina · Paraguay">Bolivia · Argentina · Paraguay</span>
     </div>
-  </ul>
-</nav>
+    <div class="hero-actions">
+      <a href="https://bren.ucsb.edu/sites/default/files/2026-04/GP%20River%20Remedy%20Final%20Report%20compressed.pdf"
+         class="btn-hero-report"
+         target="_blank"
+         rel="noopener"
+         data-en="↗&nbsp;&nbsp;Read the Final Report (PDF)"
+         data-es="↗&nbsp;&nbsp;Leer el Informe Final (PDF)">↗&nbsp;&nbsp;Read the Final Report (PDF)</a>
+    </div>
+  </div>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- MAIN CONTENT -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="wave"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#f7fbf8" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,48 1440,16 L1440,48 Z"/></svg></div>
 
-<main id="content">
-  <!-- Content will be populated here -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:2.5rem;padding:1.25rem 2rem;border-bottom:1px solid var(--border);background:var(--surface);">
+    <img src="images/logo_1.png" alt="Institution logo" style="height:48px;object-fit:contain;opacity:0.85;">
+    <img src="images/logo_2.png" alt="Institution logo" style="height:48px;object-fit:contain;opacity:0.85;">
+    <img src="images/logo_3.png" alt="Institution logo" style="height:48px;object-fit:contain;opacity:0.85;">
+  </div>
+
+  <!-- SECTION: THE SCALE OF THE PROBLEM -->
+  <div class="section alt">
+    <div class="section-eyebrow"
+         data-en="Why This River Matters"
+         data-es="Por Qué Este Río Importa">Why This River Matters</div>
+    <h2 class="section-title"
+        data-en="Mining Legacy at Basin Scale"
+        data-es="Legado Minero a Escala de Cuenca">Mining Legacy at Basin Scale</h2>
+    <p class="section-lead"
+       data-en="The Pilcomayo drains 270,000 km² across three nations. Potosí — once the world's largest silver mine — has discharged heavy metals into this watershed for over 400 years. The contamination isn't historic. It's ongoing, seasonal, and expanding."
+       data-es="El Pilcomayo drena 270.000 km² a través de tres naciones. Potosí — alguna vez la mayor mina de plata del mundo — ha descargado metales pesados en esta cuenca hidrográfica durante más de 400 años. La contaminación no es histórica. Es continua, estacional y creciente.">The Pilcomayo drains 270,000 km² across three nations. Potosí — once the world's largest silver mine — has discharged heavy metals into this watershed for over 400 years. The contamination isn't historic. It's ongoing, seasonal, and expanding.</p>
+
+    <div class="grid-4">
+      <div class="stat-card red">
+        <div class="stat-value">1.5M</div>
+        <div class="stat-label">People in the affected basin</div>
+      </div>
+      <div class="stat-card yellow">
+        <div class="stat-value">400+</div>
+        <div class="stat-label">Years of industrial mining</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-value">850 km</div>
+        <div class="stat-label">River corridor monitored</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-value">46</div>
+        <div class="stat-label">Active monitoring stations</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: BASIN-WIDE MONITORING NETWORK -->
+  <div class="section sage">
+    <div class="section-eyebrow"
+         data-en="Spatial Coverage"
+         data-es="Cobertura Espacial">Spatial Coverage</div>
+    <h2 class="section-title"
+        data-en="46 Stations Across Three Nations"
+        data-es="46 Estaciones en Tres Naciones">46 Stations Across Three Nations</h2>
+    <p class="section-lead"
+       data-en="Sampling sites span Bolivia, Argentina, and Paraguay — from the headwaters of Potosí (where pH drops to 3–4) to the transboundary floodplains."
+       data-es="Los sitios de muestreo abarcan Bolivia, Argentina y Paraguay — desde los nacientes de Potosí (donde el pH baja a 3–4) hasta las llanuras transfronterizas.">Sampling sites span Bolivia, Argentina, and Paraguay — from the headwaters of Potosí (where pH drops to 3–4) to the transboundary floodplains.</p>
+
+    <div class="viz-wrap h-600 map-interactive">
+      <div class="map-activate-overlay">
+        <span class="map-activate-hint">Click to interact &nbsp;·&nbsp; Scroll to continue reading</span>
+      </div>
+      <iframe src="visualizations/station_map_PERFECT.html" title="Interactive station map"></iframe>
+    </div>
+    <div class="viz-caption"
+         data-en="Interactive map. Click stations for metadata. Color-coded by contamination intensity. Data: Trinational Commission 2016–2024."
+         data-es="Mapa interactivo. Haga clic en las estaciones para ver metadatos. Codificado por intensidad de contaminación. Datos: Comisión Trinacional 2016–2024.">Interactive map. Click stations for metadata. Color-coded by contamination intensity. Data: Trinational Commission 2016–2024.</div>
+    <div class="viz-caption" style="margin-top:6px;"
+         data-en="Note: Potosí-region stations (red) reflect elevation and watershed drainage geography — these high-altitude sites sit in the upper Pilcomayo basin and feed the river system downstream."
+         data-es="Nota: Las estaciones de la región Potosí (rojo) reflejan la geografía de elevación y cuenca hidrográfica — estos sitios de alta altitud se ubican en la cuenca alta del Pilcomayo y alimentan el sistema fluvial aguas abajo.">Note: Potosí-region stations (red) reflect elevation and watershed drainage geography — these high-altitude sites sit in the upper Pilcomayo basin and feed the river system downstream.</div>
+  </div>
+
+  <div class="wave"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,48 1440,16 L1440,48 Z"/></svg></div>
+
+  <!-- SECTION: WHAT WE FOUND -->
+  <div class="section alt">
+    <div class="section-eyebrow"
+         data-en="Research Findings"
+         data-es="Hallazgos de la Investigación">Research Findings</div>
+    <h2 class="section-title"
+        data-en="Six Interconnected Analyses"
+        data-es="Seis Análisis Interconectados">Six Interconnected Analyses</h2>
+    <p class="section-lead"
+       data-en="Each analysis answered a different question about how metals enter, move through, and accumulate in the Pilcomayo system. Together they tell a complete story."
+       data-es="Cada análisis respondió una pregunta diferente sobre cómo los metales ingresan, se desplazan y se acumulan en el sistema Pilcomayo. Juntos cuentan una historia completa.">Each analysis answered a different question about how metals enter, move through, and accumulate in the Pilcomayo system. Together they tell a complete story.</p>
+
+    <div class="grid-auto">
+
+      <div class="card card-accent green">
+        <div class="card-label">Sediment-Water Partitioning</div>
+        <div class="card-title">Kd Distribution Coefficients</div>
+        <div class="card-body">
+          265 matched sample pairs (per metal; 264 for Cd) quantify how strongly each metal binds to sediment. Lead holds 10× tighter than cadmium — a critical difference for remediation.
+          <a href="partitioning.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+        </div>
+      </div>
+
+      <div class="card card-accent red">
+        <div class="card-label">Hypoxic Events</div>
+        <div class="card-title">Oxygen Crash & Metal Release</div>
+        <div class="card-body">
+          Three oxygen-crash events (DO &lt; 4 mg/L) caused metals locked in sediment to re-dissolve into the water column. Lead spiked 3× during the best-documented event.
+          <a href="hypoxic.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+        </div>
+      </div>
+
+      <div class="card card-accent blue">
+        <div class="card-label">Spatiotemporal Migration</div>
+        <div class="card-title">Seasonal Metal Hand-off</div>
+        <div class="card-body">
+          Eight years of quarterly sampling reveal a predictable seasonal hand-off: wet-season rainfall flushes metals into the water column; dry-season settling traps them in sediment.
+          <a href="spatiotemporal.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+        </div>
+      </div>
+
+      <div class="card card-accent yellow">
+        <div class="card-label">Sediment Texture</div>
+        <div class="card-title">Grain Size vs. Mining Source</div>
+        <div class="card-body">
+          Grain size does not control contamination in the Potosí headwaters. Mining-source dominance is so extreme that it overrides the texture hierarchy entirely.
+          <a href="texture.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+        </div>
+      </div>
+
+      <div class="card card-accent forest">
+        <div class="card-label">3D Contamination Models</div>
+        <div class="card-title">Interactive 3D Surfaces</div>
+        <div class="card-body">
+          Interactive three-dimensional surfaces map As, Cd, Pb, and Zn across the 850 km corridor over 8 years — revealing dilution gradients and transboundary persistence.
+          <a href="3d-models.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+        </div>
+      </div>
+
+      <div class="card card-accent orange">
+        <div class="card-label"
+             data-en="Remediation Strategy"
+             data-es="Estrategia de Remediación">Remediation Strategy</div>
+        <div class="card-title"
+             data-en="Intervention Strategy Synthesis"
+             data-es="Síntesis de la Estrategia de Intervención">Intervention Strategy Synthesis</div>
+        <div class="card-body"
+             data-en="Evidence-based intervention modalities synthesized from the project's four analytical chapters — characterizing in-situ stabilization, phytoremediation, and ex-situ treatment by their controlling chemistry, spatial scope, and evidence base."
+             data-es="Modalidades de intervención basadas en evidencia sintetizadas a partir de los cuatro capítulos analíticos del proyecto — caracterizando la estabilización in situ, la fitorremediación y el tratamiento ex situ por su química controladora, alcance espacial y base de evidencia.">Evidence-based intervention modalities synthesized from the project's four analytical chapters — characterizing in-situ stabilization, phytoremediation, and ex-situ treatment by their controlling chemistry, spatial scope, and evidence base.
+          <a href="remediation.html" class="btn btn-ghost btn-sm mt-4"
+             data-en="Read analysis →"
+             data-es="Leer análisis →">Read analysis →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: THE SEASONAL STORY -->
+  <div class="section dark" style="padding-bottom:0;">
+    <div class="section-eyebrow"
+         data-en="Core Mechanism"
+         data-es="Mecanismo Central">Core Mechanism</div>
+    <h2 class="section-title"
+        data-en="The Inverse Hand-off"
+        data-es="El Ciclo Inverso">The Inverse Hand-off</h2>
+    <p class="section-lead"
+       data-en="The Pilcomayo operates on a seasonal metal cycle. During the wet season (Nov–Mar), rainfall mobilizes metals from Potosí's tailings into the water column — spiking dissolved concentrations across the basin. As the dry season arrives (Apr–Oct), flow drops, pH rises, and metals settle into riverbed sediments. Then the cycle begins again."
+       data-es="El Pilcomayo opera en un ciclo estacional de metales. Durante la temporada lluviosa (nov–mar), las lluvias movilizan metales de los relaves de Potosí hacia la columna de agua — disparando las concentraciones disueltas en toda la cuenca. Al llegar la temporada seca (abr–oct), el caudal disminuye, el pH sube y los metales se depositan en los sedimentos del lecho fluvial. Luego el ciclo comienza de nuevo.">The Pilcomayo operates on a seasonal metal cycle. During the wet season (Nov–Mar), rainfall mobilizes metals from Potosí's tailings into the water column — spiking dissolved concentrations across the basin. As the dry season arrives (Apr–Oct), flow drops, pH rises, and metals settle into riverbed sediments. Then the cycle begins again.</p>
+
+    <div class="grid-2">
+      <div class="callout alert">
+        <div class="callout-icon">⛈</div>
+        <div class="callout-body">
+          <strong data-en="Wet Season Pulse" data-es="Pulso de Temporada Lluviosa">Wet Season Pulse</strong><br>
+          <span data-en="Rainfall mobilizes tailings. Wet-to-dry water-column concentration ratios reach 3×–30× depending on metal and region — peak amplification at distal stations for high-Kd metals like Pb and Cd."
+                data-es="Las lluvias movilizan los relaves. Las relaciones de concentración en columna de agua húmedo-a-seco alcanzan 3×–30× dependiendo del metal y la región — amplificación máxima en estaciones distales para metales de alto Kd como Pb y Cd.">Rainfall mobilizes tailings. Wet-to-dry water-column concentration ratios reach 3×–30× depending on metal and region — peak amplification at distal stations for high-Kd metals like Pb and Cd.</span>
+        </div>
+      </div>
+      <div class="callout success">
+        <div class="callout-icon">🌱</div>
+        <div class="callout-body">
+          <strong>Dry Season Settling</strong><br>
+          Reduced flow allows sedimentation. Metals bind to Fe/Al oxides in sediment. Risk shifts to benthic organisms and future resuspension events.
+        </div>
+      </div>
+    </div>
+    <div class="wave"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#f7fbf8" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,48 1440,16 L1440,48 Z"/></svg></div>
+  </div>
+
+  <!-- SECTION: KEY FINDINGS -->
+  <div class="section compact" style="background:var(--surface);">
+    <div class="section-eyebrow"
+         data-en="Key Findings at a Glance"
+         data-es="Hallazgos Clave de un Vistazo">Key Findings at a Glance</div>
+    <div class="grid-3">
+      <div class="stat-card yellow">
+        <div class="stat-label"
+             data-en="Median Kd — Lead"
+             data-es="Kd Mediana — Plomo">Median Kd — Lead</div>
+        <div class="stat-value">1,667</div>
+        <div class="stat-context"
+             data-en="L/kg — highest sediment retention of all metals tracked"
+             data-es="L/kg — mayor retención en sedimento de todos los metales monitoreados">L/kg — highest sediment retention of all metals tracked</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-label"
+             data-en="Event 2 Enrichment"
+             data-es="Enriquecimiento Evento 2">Event 2 Enrichment</div>
+        <div class="stat-value">3.0×</div>
+        <div class="stat-context"
+             data-en="Lead increase in water column during the 2017 Naciente hypoxic event"
+             data-es="Aumento de plomo en la columna de agua durante el evento hipóxico de Naciente 2017">Lead increase in water column during the 2017 Naciente hypoxic event</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-label"
+             data-en="Cadmium Mobility"
+             data-es="Movilidad del Cadmio">Cadmium Mobility</div>
+        <div class="stat-value">1.6×</div>
+        <div class="stat-context"
+             data-en="Cadmium water-column enrichment during hypoxic events — driven by acid-mediated dissolution of Ca/P binding phases (Tarapaya, Oct 2017)"
+             data-es="Enriquecimiento de cadmio en columna de agua durante eventos hipóxicos — impulsado por la disolución ácida de las fases de unión Ca/P (Tarapaya, oct 2017)">Cadmium water-column enrichment during hypoxic events — driven by acid-mediated dissolution of Ca/P binding phases (Tarapaya, Oct 2017)</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-brand">River <em style="color:var(--water-300);font-style:normal;">Remedy</em></span>
+    <div class="footer-links">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub</a>
+    </div>
+    <span class="footer-note" data-en="© 2024 UCSB Bren School · Trinational Commission Data" data-es="© 2024 UCSB Bren School · Datos de la Comisión Trinacional">© 2024 UCSB Bren School · Trinational Commission Data</span>
+  </footer>
 </main>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SCRIPTS -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">✕</button>
+  <img src="" alt="">
+</div>
 
 <script src="js/main.js"></script>
-<script>
-// Setup dropdown toggles
-document.querySelectorAll('.dropdown-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const container = this.nextElementSibling;
-    const icon = this.querySelector('.fa-chevron-down');
-    container.classList.toggle('active-dropdown');
-    icon.classList.toggle('rotate-icon');
-  });
-});
-
-let currentPage = 'overview';
-
-// Navigation function
-function navigateTo(page) {
-  const lang = currentLang || 'en';
-  const content = translations[lang].pages[page];
-
-  if (content) {
-    document.getElementById('content').innerHTML = content;
-    currentPage = page;
-
-    // Update active nav item
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('active');
-    });
-
-    // Find the nav link that corresponds to this page and mark it active
-    const allLinks = document.querySelectorAll('.nav-link, .dropdown-container a');
-    allLinks.forEach(link => {
-      const href = link.getAttribute('onclick');
-      if (href && href.includes(`'${page}'`)) {
-        if (link.classList.contains('nav-link')) {
-          link.classList.add('active');
-        } else {
-          link.closest('.nav-item').querySelector('.nav-link').classList.add('active');
-        }
-      }
-    });
-
-    // Initialize dropdowns on page load
-    document.querySelectorAll('.dropdown-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const container = this.nextElementSibling;
-        const icon = this.querySelector('.fa-chevron-down');
-        container.classList.toggle('active-dropdown');
-        icon.classList.toggle('rotate-icon');
-      });
-    });
-  }
-}
-
-function toggleLanguage() {
-  const newLang = currentLang === 'en' ? 'es' : 'en';
-  currentLang = newLang;
-  localStorage.setItem('riverRemedy_lang', newLang);
-  document.getElementById('langLabel').textContent = newLang === 'en' ? 'EN / ES' : 'ES / EN';
-
-  // Reload current page in new language
-  navigateTo(currentPage);
-}
-
-// Initialize on load
-document.addEventListener('DOMContentLoaded', function() {
-  const savedLang = localStorage.getItem('riverRemedy_lang') || 'en';
-  currentLang = savedLang;
-  document.getElementById('langLabel').textContent = savedLang === 'en' ? 'EN / ES' : 'ES / EN';
-  navigateTo('overview');
-});
-</script>
-
+<script src="js/lang.js"></script>
 </body>
 </html>

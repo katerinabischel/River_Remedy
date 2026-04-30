@@ -1,0 +1,48 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code working directory
+.claude/
+
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Node / build tools (if ever introduced)
+node_modules/
+dist/
+build/
+*.log
+
+# Local env
+.env
+.env.local
+
+# Backups
+*.bak
+*.orig
+*.tmp
+
+# Project-specific exclusions
+# Report drafts — not site source
+raw_from_main_report.docx
+*.docx
+*.pdf
+
+# Claude Code prompts (working files, not site source)
+claude_code_prompt_*.md
+*_prompt.md

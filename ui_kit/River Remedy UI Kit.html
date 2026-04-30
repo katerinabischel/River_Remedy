@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>River Remedy — Website UI Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Bolivia */
+  --bol-red:    #D52B1E;
+  --bol-yellow: #D4A017;
+  --bol-green:  #007A5E;
+  --bol-orange: #E8821A;
+
+  /* Forest */
+  --forest-900: #0a1710;
+  --forest-800: #0f2018;
+  --forest-700: #132416;
+  --forest-600: #1e3d2a;
+  --forest-500: #2d6a4f;
+  --forest-400: #4fa06a;
+  --forest-300: #76bb8a;
+  --forest-200: #a8d5b5;
+  --forest-100: #d1ead8;
+  --forest-50:  #edf7f0;
+
+  /* Water */
+  --water-900: #0c4a6e;
+  --water-700: #075985;
+  --water-500: #0ea5e9;
+  --water-300: #7ec8e3;
+  --water-100: #dbeafe;
+  --water-50:  #eff8ff;
+
+  /* Sage / neutral */
+  --sage-50:  #f5faf6;
+  --sage-100: #eaf4ec;
+  --sage-200: #d1ead8;
+  --sage-300: #a8d5b5;
+
+  /* Pastels — Bolivia tinted */
+  --pastel-red:    #fff0ef;
+  --pastel-yellow: #fffbeb;
+  --pastel-green:  #edf7f0;
+  --pastel-orange: #fff7ed;
+  --pastel-blue:   #eff8ff;
+
+  /* Text */
+  --ink:      #0f2018;
+  --ink-mid:  #132416;
+  --ink-soft: #4a6352;
+
+  --bg: #f7fbf8;
+  --surface: #ffffff;
+  --border: #d8eade;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --radius: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--sage-300); border-radius: 3px; }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 232px;
+  background: var(--forest-800);
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.sb-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, var(--bol-red) 33.3%, var(--bol-yellow) 33.3% 66.6%, var(--bol-green) 66.6%);
+}
+
+.sb-brand {
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sb-logo-svg { width: 30px; height: 30px; flex-shrink: 0; }
+
+.sb-wordmark {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.sb-wordmark span { color: var(--water-300); }
+.sb-wordmark small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.sb-section { padding: 10px 0 4px; }
+.sb-section-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 8px 22px 6px;
+}
+
+.sb-nav-link {
+  display: block;
+  padding: 7px 22px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+}
+.sb-nav-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  border-left-color: var(--water-300);
+}
+
+/* ── MAIN ── */
+.main {
+  margin-left: 232px;
+  flex: 1;
+  min-width: 0;
+  max-width: 1280px;
+}
+
+.kit-header {
+  background: linear-gradient(135deg, var(--forest-700) 0%, var(--forest-600) 100%);
+  color: #fff;
+  padding: 56px 56px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kit-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(170deg,
+      transparent, transparent 60px,
+      rgba(126,200,227,0.05) 60px, rgba(126,200,227,0.05) 61px);
+  pointer-events: none;
+}
+
+.kit-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--water-300);
+  margin-bottom: 18px;
+}
+.kit-eyebrow::before {
+  content: '';
+  width: 24px; height: 2px;
+  background: linear-gradient(90deg, var(--bol-red), var(--bol-yellow), var(--bol-green));
+  border-radius: 1px;
+}
+
+.kit-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+.kit-title em { color: var(--water-300); font-style: italic; }
+
+.kit-subtitle {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.wave-divider {
+  width: 100%;
+  display: block;
+  line-height: 0;
+}
+.wave-divider svg { display: block; width: 100%; }
+
+.section {
+  padding: 56px 56px 32px;
+}
+.section.alt { background: var(--surface); }
+
+.section-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.section-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+/* ── COLOR PALETTE ── */
+.palette-group {
+  margin-bottom: 32px;
+}
+
+.palette-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.palette-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.palette-purpose {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.swatch {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+  transition: transform 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+}
+.swatch:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,106,79,0.1); }
+
+.swatch-color {
+  height: 70px;
+  position: relative;
+}
+.swatch-color::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: 6px; left: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  background: rgba(0,0,0,0.18);
+  padding: 2px 6px;
+  border-radius: 4px;
+  backdrop-filter: blur(2px);
+}
+.swatch-color.light::after {
+  color: rgba(0,0,0,0.6);
+  background: rgba(255,255,255,0.5);
+}
+
+.swatch-meta {
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.swatch-hex { color: var(--ink); font-weight: 500; }
+
+/* Featured Bolivia row */
+.bolivia-feature {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.bo-card {
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.bo-card-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.bo-card-hex {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.85;
+}
+.bo-card-role {
+  position: absolute;
+  bottom: 12px; right: 14px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* ── TYPOGRAPHY ── */
+.type-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.type-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.type-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.type-label strong { color: var(--ink); display: block; font-size: 13px; margin-bottom: 4px; font-family: var(--font-body); font-weight: 700; }
+
+.type-h1   { font-family: var(--font-display); font-size: 46px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); }
+.type-h1 em { color: var(--forest-500); font-style: italic; }
+.type-h2   { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1.15; color: var(--ink); }
+.type-h3   { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+.type-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bol-red); }
+.type-body { font-size: 14px; line-height: 1.7; color: var(--ink-mid); }
+.type-small { font-size: 12px; color: var(--ink-soft); line-height: 1.5; }
+.type-mono { font-family: var(--font-mono); font-size: 12px; color: var(--ink); background: var(--sage-50); padding: 2px 8px; border-radius: 4px; }
+
+/* ── COMPONENTS ── */
+.comp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.comp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.comp-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.comp-label::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--bol-green);
+}
+
+.comp-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.comp-row:last-child { margin-bottom: 0; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.btn-primary { background: var(--forest-500); color: #fff; }
+.btn-primary:hover { background: var(--forest-600); transform: translateY(-1px); }
+
+.btn-outline { background: transparent; color: var(--forest-500); border: 1.5px solid var(--forest-200); }
+.btn-outline:hover { border-color: var(--forest-500); background: var(--forest-50); }
+
+.btn-ghost { background: var(--forest-50); color: var(--forest-500); }
+.btn-ghost:hover { background: var(--forest-100); }
+
+.btn-red { background: var(--bol-red); color: #fff; }
+.btn-red:hover { filter: brightness(0.92); }
+
+.btn-yellow { background: var(--bol-yellow); color: #fff; }
+.btn-yellow:hover { filter: brightness(0.92); }
+
+.btn-sm { font-size: 11px; padding: 6px 12px; }
+.btn-lg { font-size: 14px; padding: 12px 26px; }
+
+/* Tags / Pills */
+.eyebrow-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+.tag-red    { background: var(--pastel-red);    color: var(--bol-red); }
+.tag-yellow { background: var(--pastel-yellow); color: #92720e; }
+.tag-green  { background: var(--pastel-green);  color: var(--bol-green); }
+.tag-orange { background: var(--pastel-orange); color: #c2410c; }
+.tag-blue   { background: var(--pastel-blue);   color: var(--water-700); }
+
+.status-pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+/* Input */
+.input-field {
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  width: 220px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input-field:focus {
+  outline: none;
+  border-color: var(--forest-400);
+  box-shadow: 0 0 0 3px var(--forest-100);
+}
+
+.input-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 5px;
+  display: block;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.toggle-group {
+  display: inline-flex;
+  background: var(--sage-50);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+}
+.toggle-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.toggle-btn.active {
+  background: var(--forest-500);
+  color: #fff;
+}
+
+/* Stat cards */
+.stat-card-demo {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+}
+.stat-card-demo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.stat-card-demo.red::before    { background: var(--bol-red); }
+.stat-card-demo.yellow::before { background: var(--bol-yellow); }
+.stat-card-demo.green::before  { background: var(--bol-green); }
+.stat-card-demo.blue::before   { background: var(--water-500); }
+
+.sc-value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-card-demo.red .sc-value    { color: var(--bol-red); }
+.stat-card-demo.yellow .sc-value { color: var(--bol-yellow); }
+.stat-card-demo.green .sc-value  { color: var(--bol-green); }
+.stat-card-demo.blue .sc-value   { color: var(--water-700); }
+.sc-label { font-size: 11px; color: var(--ink-soft); line-height: 1.4; }
+
+/* Finding callouts */
+.callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border-left: 3px solid;
+  font-size: 13px;
+  line-height: 1.55;
+  align-items: flex-start;
+}
+.callout.alert {
+  background: var(--pastel-red);
+  border-color: var(--bol-red);
+  color: #7f1d1d;
+}
+.callout.finding {
+  background: var(--pastel-yellow);
+  border-color: var(--bol-yellow);
+  color: #713f12;
+}
+.callout.success {
+  background: var(--pastel-green);
+  border-color: var(--bol-green);
+  color: #1e4d38;
+}
+.callout.info {
+  background: var(--pastel-blue);
+  border-color: var(--water-500);
+  color: var(--water-900);
+}
+.callout-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  line-height: 1.1;
+}
+.callout-body strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* ── SPACING ── */
+.spacing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.spacing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: center;
+}
+.spacing-block {
+  background: var(--forest-200);
+  border-radius: 4px;
+  margin: 0 auto 8px;
+}
+.spacing-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.spacing-px {
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+
+/* ── RADII / SHADOWS ── */
+.token-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.token-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.token-preview {
+  height: 56px;
+  background: var(--forest-50);
+  border: 1px solid var(--forest-200);
+  margin-bottom: 10px;
+}
+.token-name { font-family: var(--font-mono); font-size: 11px; font-weight: 600; }
+.token-val  { font-size: 10px; color: var(--ink-soft); margin-top: 2px; }
+
+.shadow-preview {
+  height: 56px;
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #f0f5f1;
+}
+
+/* ── LOGO / BRAND SHOWCASE ── */
+.logo-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.logo-tile {
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+.logo-tile.dark {
+  background: var(--forest-800);
+  border-color: var(--forest-700);
+  color: #fff;
+}
+.logo-tile.light {
+  background: #fff;
+}
+
+.lt-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.logo-tile.dark .lt-label { color: rgba(255,255,255,0.4); }
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mark-text {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ── WAVE SHOWCASE ── */
+.wave-demo-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.wave-demo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.wave-demo-top { padding: 18px; background: var(--surface); }
+.wave-demo-bottom { padding: 18px; background: var(--sage-50); }
+.wave-demo-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-soft);
+  letter-spacing: 0.05em;
+}
+
+/* ── ICONOGRAPHY ── */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+}
+.icon-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 12px;
+  text-align: center;
+}
+.icon-symbol {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: var(--forest-500);
+  line-height: 1;
+}
+.icon-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+
+/* ── DATA-VIZ PALETTE ── */
+.viz-palette {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+.viz-swatch {
+  height: 64px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8px 10px;
+  color: rgba(255,255,255,0.95);
+}
+.viz-swatch.light { color: rgba(0,0,0,0.65); }
+.viz-name { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; }
+.viz-hex { font-family: var(--font-mono); font-size: 9px; opacity: 0.85; }
+
+/* Footer */
+.kit-footer {
+  padding: 28px 56px 40px;
+  background: var(--forest-800);
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  border-top: 4px solid;
+  border-image: linear-gradient(90deg, var(--bol-red) 33.3%, var(--bol-yellow) 33.3% 66.6%, var(--bol-green) 66.6%) 1;
+}
+.kit-footer strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .bolivia-feature { grid-template-columns: repeat(2, 1fr); }
+  .comp-grid { grid-template-columns: 1fr; }
+  .token-row { grid-template-columns: repeat(2, 1fr); }
+  .logo-showcase { grid-template-columns: 1fr; }
+  .viz-palette { grid-template-columns: repeat(4, 1fr); }
+  .type-row { grid-template-columns: 1fr; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── SIDEBAR (TOC) ─── -->
+<aside class="sidebar">
+  <div class="sb-stripe"></div>
+  <div class="sb-brand">
+    <svg class="sb-logo-svg" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="18" r="17" stroke="rgba(126,200,227,0.4)" stroke-width="1"/>
+      <circle cx="18" cy="18" r="12" stroke="rgba(126,200,227,0.5)" stroke-width="1.2"/>
+      <circle cx="18" cy="18" r="7" fill="rgba(14,165,233,0.3)" stroke="#7ec8e3" stroke-width="1.5"/>
+      <circle cx="18" cy="18" r="3" fill="#7ec8e3"/>
+      <path d="M2 22 Q10 19 18 22 Q26 25 34 22" stroke="rgba(126,200,227,0.4)" stroke-width="1" fill="none"/>
+      <path d="M2 26 Q10 23 18 26 Q26 29 34 26" stroke="rgba(126,200,227,0.25)" stroke-width="1" fill="none"/>
+    </svg>
+    <div class="sb-wordmark">River<span>Remedy</span><small>UI Kit · v1</small></div>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">Foundations</div>
+    <a class="sb-nav-link" href="#brand">Brand</a>
+    <a class="sb-nav-link" href="#colors">Colors</a>
+    <a class="sb-nav-link" href="#typography">Typography</a>
+    <a class="sb-nav-link" href="#spacing">Spacing</a>
+    <a class="sb-nav-link" href="#radii">Radii & Shadows</a>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">Components</div>
+    <a class="sb-nav-link" href="#buttons">Buttons</a>
+    <a class="sb-nav-link" href="#tags">Tags & Pills</a>
+    <a class="sb-nav-link" href="#inputs">Inputs</a>
+    <a class="sb-nav-link" href="#callouts">Callouts</a>
+    <a class="sb-nav-link" href="#stats">Stat Cards</a>
+    <a class="sb-nav-link" href="#waves">Wave Dividers</a>
+    <a class="sb-nav-link" href="#icons">Iconography</a>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">Data Viz</div>
+    <a class="sb-nav-link" href="#viz">Chart Palette</a>
+  </div>
+</aside>
+
+<!-- ─── MAIN ─── -->
+<div class="main">
+
+  <!-- Header -->
+  <header class="kit-header">
+    <div class="kit-eyebrow">Design System · v1.0 · April 2026</div>
+    <h1 class="kit-title">River Remedy<br><em>Website UI Kit</em></h1>
+    <p class="kit-subtitle">
+      The visual language that powers the Pilcomayo basin contamination analysis: Bolivia-flag accents, flowing water motifs, editorial typography, and pastel-tinted research surfaces. Every token, component, and pattern documented here is wired into <strong style="color:#fff">River Remedy.html</strong>.
+    </p>
+  </header>
+
+  <!-- Wave from header -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#1e3d2a"/>
+      <path d="M0,40 C360,16 720,52 1080,32 C1260,22 1380,42 1440,36 L1440,60 L0,60 Z" fill="#f7fbf8"/>
+    </svg>
+  </div>
+
+  <!-- ─── BRAND ─── -->
+  <section class="section" id="brand">
+    <span class="section-tag tag-green">01 — Brand</span>
+    <h2 class="section-title">Logo & Wordmark</h2>
+    <p class="section-desc">The River Remedy mark pairs a concentric ripple — water expanding from a single source — with the Playfair Display wordmark. The "Remedy" half is set in water-blue to anchor the flowing-water theme. Always reserve clear space equal to the ripple diameter on all sides.</p>
+
+    <div class="logo-showcase">
+      <div class="logo-tile dark">
+        <div class="lt-label">Reverse · On forest-800</div>
+        <div class="brand-mark">
+          <svg width="56" height="56" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="17" stroke="rgba(126,200,227,0.4)" stroke-width="1"/>
+            <circle cx="18" cy="18" r="12" stroke="rgba(126,200,227,0.5)" stroke-width="1.2"/>
+            <circle cx="18" cy="18" r="7" fill="rgba(14,165,233,0.3)" stroke="#7ec8e3" stroke-width="1.5"/>
+            <circle cx="18" cy="18" r="3" fill="#7ec8e3"/>
+            <path d="M2 22 Q10 19 18 22 Q26 25 34 22" stroke="rgba(126,200,227,0.4)" stroke-width="1" fill="none"/>
+            <path d="M2 26 Q10 23 18 26 Q26 29 34 26" stroke="rgba(126,200,227,0.25)" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="brand-mark-text">River<span style="color:#7ec8e3">Remedy</span></div>
+        </div>
+        <div class="lt-label" style="opacity:0.4">Sidebar · Footer · Hero overlay</div>
+      </div>
+      <div class="logo-tile light">
+        <div class="lt-label">Primary · On light surface</div>
+        <div class="brand-mark">
+          <svg width="56" height="56" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="17" stroke="#a8d5b5" stroke-width="1"/>
+            <circle cx="18" cy="18" r="12" stroke="#76bb8a" stroke-width="1.2"/>
+            <circle cx="18" cy="18" r="7" fill="#dbeafe" stroke="#0ea5e9" stroke-width="1.5"/>
+            <circle cx="18" cy="18" r="3" fill="#0ea5e9"/>
+            <path d="M2 22 Q10 19 18 22 Q26 25 34 22" stroke="#a8d5b5" stroke-width="1" fill="none"/>
+            <path d="M2 26 Q10 23 18 26 Q26 29 34 26" stroke="#76bb8a" stroke-width="1" fill="none" opacity="0.6"/>
+          </svg>
+          <div class="brand-mark-text" style="color:#0f2018">River<span style="color:#075985">Remedy</span></div>
+        </div>
+        <div class="lt-label">Reports · Print · Light surfaces</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COLORS ─── -->
+  <section class="section alt" id="colors">
+    <span class="section-tag tag-red">02 — Colors</span>
+    <h2 class="section-title">Color System</h2>
+    <p class="section-desc">A Bolivia-anchored palette: red, yellow, green, and orange as primary identity colors, supported by deep forest neutrals, water blues, and pastel-tinted pastel surfaces. Bolivia colors carry semantic weight — red for alerts and risk, yellow for findings and partial states, green for outcomes and success, orange for legacy/historical context.</p>
+
+    <!-- Bolivia featured -->
+    <div class="palette-group">
+      <div class="palette-heading">
+        <h3 class="palette-name">Bolivia Identity</h3>
+        <span class="palette-purpose">Brand identity · Section accents · Status semantics</span>
+      </div>
+      <div class="bolivia-feature">
+        <div class="bo-card" style="background:#D52B1E">
+          <div class="bo-card-name">Bolivia Red</div>
+          <div class="bo-card-hex">#D52B1E</div>
+          <div class="bo-card-role">Alerts · Risk</div>
+        </div>
+        <div class="bo-card" style="background:#D4A017">
+          <div class="bo-card-name">Bolivia Yellow</div>
+          <div class="bo-card-hex">#D4A017</div>
+          <div class="bo-card-role">Findings</div>
+        </div>
+        <div class="bo-card" style="background:#007A5E">
+          <div class="bo-card-name">Bolivia Green</div>
+          <div class="bo-card-hex">#007A5E</div>
+          <div class="bo-card-role">Outcomes</div>
+        </div>
+        <div class="bo-card" style="background:#E8821A">
+          <div class="bo-card-name">Bolivia Orange</div>
+          <div class="bo-card-hex">#E8821A</div>
+          <div class="bo-card-role">Legacy · History</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forest -->
+    <div class="palette-group">
+      <div class="palette-heading">
+        <h3 class="palette-name">Forest</h3>
+        <span class="palette-purpose">Sidebar · Headings · Primary CTAs</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#0a1710" data-name="900"></div><div class="swatch-meta"><span class="swatch-hex">#0a1710</span><span>--forest-900</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0f2018" data-name="800"></div><div class="swatch-meta"><span class="swatch-hex">#0f2018</span><span>--forest-800</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#132416" data-name="700"></div><div class="swatch-meta"><span class="swatch-hex">#132416</span><span>--forest-700</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#1e3d2a" data-name="600"></div><div class="swatch-meta"><span class="swatch-hex">#1e3d2a</span><span>--forest-600</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2d6a4f" data-name="500"></div><div class="swatch-meta"><span class="swatch-hex">#2d6a4f</span><span>--forest-500</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#4fa06a" data-name="400"></div><div class="swatch-meta"><span class="swatch-hex">#4fa06a</span><span>--forest-400</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#76bb8a" data-name="300"></div><div class="swatch-meta"><span class="swatch-hex">#76bb8a</span><span>--forest-300</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#a8d5b5" data-name="200"></div><div class="swatch-meta"><span class="swatch-hex">#a8d5b5</span><span>--forest-200</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#d1ead8" data-name="100"></div><div class="swatch-meta"><span class="swatch-hex">#d1ead8</span><span>--forest-100</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#edf7f0" data-name="50"></div><div class="swatch-meta"><span class="swatch-hex">#edf7f0</span><span>--forest-50</span></div></div>
+      </div>
+    </div>
+
+    <!-- Water -->
+    <div class="palette-group">
+      <div class="palette-heading">
+        <h3 class="palette-name">Water</h3>
+        <span class="palette-purpose">Hero ripples · Hyperlinks · Data layer</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#0c4a6e" data-name="900"></div><div class="swatch-meta"><span class="swatch-hex">#0c4a6e</span><span>--water-900</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#075985" data-name="700"></div><div class="swatch-meta"><span class="swatch-hex">#075985</span><span>--water-700</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0ea5e9" data-name="500"></div><div class="swatch-meta"><span class="swatch-hex">#0ea5e9</span><span>--water-500</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#7ec8e3" data-name="300"></div><div class="swatch-meta"><span class="swatch-hex">#7ec8e3</span><span>--water-300</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#dbeafe" data-name="100"></div><div class="swatch-meta"><span class="swatch-hex">#dbeafe</span><span>--water-100</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#eff8ff" data-name="50"></div><div class="swatch-meta"><span class="swatch-hex">#eff8ff</span><span>--water-50</span></div></div>
+      </div>
+    </div>
+
+    <!-- Pastel surfaces -->
+    <div class="palette-group">
+      <div class="palette-heading">
+        <h3 class="palette-name">Pastel Surfaces</h3>
+        <span class="palette-purpose">Callouts · Tag backgrounds · Soft section fills</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color light" style="background:#fff0ef" data-name="Red"></div><div class="swatch-meta"><span class="swatch-hex">#fff0ef</span><span>--pastel-red</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#fffbeb" data-name="Yellow"></div><div class="swatch-meta"><span class="swatch-hex">#fffbeb</span><span>--pastel-yellow</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#edf7f0" data-name="Green"></div><div class="swatch-meta"><span class="swatch-hex">#edf7f0</span><span>--pastel-green</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#fff7ed" data-name="Orange"></div><div class="swatch-meta"><span class="swatch-hex">#fff7ed</span><span>--pastel-orange</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#eff8ff" data-name="Blue"></div><div class="swatch-meta"><span class="swatch-hex">#eff8ff</span><span>--pastel-blue</span></div></div>
+      </div>
+    </div>
+
+    <!-- Neutrals -->
+    <div class="palette-group">
+      <div class="palette-heading">
+        <h3 class="palette-name">Neutral · Sage</h3>
+        <span class="palette-purpose">Page background · Borders · Subtle dividers</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color light" style="background:#f7fbf8" data-name="bg"></div><div class="swatch-meta"><span class="swatch-hex">#f7fbf8</span><span>--bg</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#f5faf6" data-name="50"></div><div class="swatch-meta"><span class="swatch-hex">#f5faf6</span><span>--sage-50</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#eaf4ec" data-name="100"></div><div class="swatch-meta"><span class="swatch-hex">#eaf4ec</span><span>--sage-100</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#d8eade" data-name="border"></div><div class="swatch-meta"><span class="swatch-hex">#d8eade</span><span>--border</span></div></div>
+        <div class="swatch"><div class="swatch-color light" style="background:#a8d5b5" data-name="300"></div><div class="swatch-meta"><span class="swatch-hex">#a8d5b5</span><span>--sage-300</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#4a6352" data-name="ink-soft"></div><div class="swatch-meta"><span class="swatch-hex">#4a6352</span><span>--ink-soft</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0f2018" data-name="ink"></div><div class="swatch-meta"><span class="swatch-hex">#0f2018</span><span>--ink</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 36" preserveAspectRatio="none" height="36">
+      <path d="M0,18 C360,36 720,0 1080,18 C1260,9 1380,28 1440,18 L1440,36 L0,36 Z" fill="#f7fbf8"/>
+    </svg>
+  </div>
+
+  <!-- ─── TYPOGRAPHY ─── -->
+  <section class="section" id="typography">
+    <span class="section-tag tag-yellow">03 — Typography</span>
+    <h2 class="section-title">Type System</h2>
+    <p class="section-desc">Two typefaces carry the entire system. <strong>Playfair Display</strong> handles all headings — its Times-adjacent silhouettes give the work academic gravity, and italic serves as a soft accent for poetic phrases ("Pilcomayo River"). <strong>Inter</strong> handles every other surface for clarity at small sizes and high screen density.</p>
+
+    <div class="type-grid">
+      <div class="type-row">
+        <div class="type-label">
+          <strong>Display H1</strong>
+          Playfair Display · 700 · 46px<br>1.1 line · -0.02em
+        </div>
+        <div class="type-h1">Restoring the <em>Pilcomayo</em></div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">
+          <strong>Section H2</strong>
+          Playfair Display · 700 · 32px<br>1.15 line · -0.01em
+        </div>
+        <div class="type-h2">Contamination Migration Maps</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">
+          <strong>Card H3</strong>
+          Playfair Display · 600 · 22px<br>1.2 line
+        </div>
+        <div class="type-h3">Sediment Partitioning Drives Mobility</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">
+          <strong>Eyebrow</strong>
+          Inter · 700 · 10px<br>0.14em tracking · Uppercase
+        </div>
+        <div class="type-eyebrow">Phase 01 — Immediate Action</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">
+          <strong>Body</strong>
+          Inter · 400 · 14px<br>1.7 line height
+        </div>
+        <div class="type-body">A multi-year spatiotemporal analysis of heavy metal contamination dynamics, sediment-water partitioning, and geochemically-targeted remediation strategies across Bolivia, Paraguay, and Argentina.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">
+          <strong>Small / Caption</strong>
+          Inter · 500 · 12px<br>1.5 line · ink-soft
+        </div>
+        <div class="type-small">Wet season average concentrations · 2022–2024 · n = 4,182 samples</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">
+          <strong>Mono / Code</strong>
+          JetBrains Mono · 12px<br>For tokens, hex, K_d values
+        </div>
+        <div><span class="type-mono">--forest-500: #2d6a4f;</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BUTTONS ─── -->
+  <section class="section alt" id="buttons">
+    <span class="section-tag tag-green">04 — Components</span>
+    <h2 class="section-title">Buttons</h2>
+    <p class="section-desc">Forest-green is the default action color. Outline variants step back for secondary CTAs. Bolivia red and yellow buttons are reserved for high-impact moments — destructive actions, urgent calls-out — never as defaults.</p>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-label">Primary · Forest</div>
+        <div class="comp-row">
+          <button class="btn btn-primary">Explore Migration Maps →</button>
+          <button class="btn btn-primary btn-sm">Compact</button>
+          <button class="btn btn-primary btn-lg">Large CTA</button>
+        </div>
+        <div class="comp-row">
+          <button class="btn btn-outline">View Action Plan</button>
+          <button class="btn btn-ghost">↓ Download Report</button>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-label">Bolivia Accents</div>
+        <div class="comp-row">
+          <button class="btn btn-red">Critical Alert</button>
+          <button class="btn btn-yellow">Mark Finding</button>
+        </div>
+        <div class="comp-row">
+          <button class="btn btn-primary" style="background:#007A5E">Bolivia Green</button>
+          <button class="btn btn-primary" style="background:#E8821A">Bolivia Orange</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAGS ─── -->
+  <section class="section" id="tags">
+    <span class="section-tag tag-blue">05 — Components</span>
+    <h2 class="section-title">Tags & Pills</h2>
+    <p class="section-desc">Pastel-backed tags categorize content lightly. Status pills mark state in tables and cards. Both inherit the Bolivia color semantics — never break the mapping.</p>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-label">Eyebrow Tags</div>
+        <div class="comp-row">
+          <span class="eyebrow-tag tag-red">Heavy Metals</span>
+          <span class="eyebrow-tag tag-yellow">Findings</span>
+          <span class="eyebrow-tag tag-green">Outcomes</span>
+          <span class="eyebrow-tag tag-orange">Legacy</span>
+          <span class="eyebrow-tag tag-blue">Hydrology</span>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-label">Status Pills</div>
+        <div class="comp-row">
+          <span class="status-pill" style="background:#fff0ef;color:#D52B1E">Critical</span>
+          <span class="status-pill" style="background:#fffbeb;color:#92720e">In Review</span>
+          <span class="status-pill" style="background:#edf7f0;color:#007A5E">Approved</span>
+          <span class="status-pill" style="background:#fff7ed;color:#c2410c">Legacy</span>
+          <span class="status-pill" style="background:#eff8ff;color:#075985">Public</span>
+        </div>
+        <div class="comp-row" style="margin-top:14px">
+          <span class="status-pill" style="background:#D52B1E;color:#fff">High Risk</span>
+          <span class="status-pill" style="background:#D4A017;color:#fff">Medium</span>
+          <span class="status-pill" style="background:#007A5E;color:#fff">Low Risk</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── INPUTS ─── -->
+  <section class="section alt" id="inputs">
+    <span class="section-tag tag-blue">06 — Components</span>
+    <h2 class="section-title">Inputs & Toggles</h2>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-label">Text Input</div>
+        <div>
+          <label class="input-label">Search Stations</label>
+          <input class="input-field" type="text" placeholder="e.g. Hotspot A · Pb"/>
+        </div>
+        <div style="margin-top:14px">
+          <label class="input-label">Filter Period</label>
+          <input class="input-field" type="text" value="2022–2024 · Wet Season"/>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-label">Toggle Group</div>
+        <div class="comp-row">
+          <div class="toggle-group">
+            <button class="toggle-btn active">All Metals</button>
+            <button class="toggle-btn">Pb</button>
+            <button class="toggle-btn">As</button>
+            <button class="toggle-btn">Cd</button>
+          </div>
+        </div>
+        <div class="comp-row" style="margin-top:14px">
+          <div class="toggle-group">
+            <button class="toggle-btn active">EN</button>
+            <button class="toggle-btn">ES</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CALLOUTS ─── -->
+  <section class="section" id="callouts">
+    <span class="section-tag tag-red">07 — Components</span>
+    <h2 class="section-title">Callouts</h2>
+    <p class="section-desc">Four semantic callout treatments — alert, finding, success, info — with a left-border accent and pastel fill. Used inline in narrative sections to surface key context without breaking flow.</p>
+
+    <div style="display:grid;gap:12px">
+      <div class="callout alert">
+        <div class="callout-icon">⚠</div>
+        <div class="callout-body">
+          <strong>Critical — WHO Threshold Exceeded</strong>
+          Lead concentrations at Hotspot A and C exceed WHO drinking water guidelines by 4.2× during peak wet-season flow events.
+        </div>
+      </div>
+      <div class="callout finding">
+        <div class="callout-icon">◈</div>
+        <div class="callout-body">
+          <strong>Finding — Sediment Partitioning</strong>
+          Mean K_d coefficient of 0.82 indicates strong sediment-binding for Pb, increasing downstream transport during high-flow periods.
+        </div>
+      </div>
+      <div class="callout success">
+        <div class="callout-icon">✓</div>
+        <div class="callout-body">
+          <strong>Outcome — Targeted Remediation Feasible</strong>
+          Geochemical modeling identifies three high-priority intervention zones with projected 40–65% metal load reduction.
+        </div>
+      </div>
+      <div class="callout info">
+        <div class="callout-icon">ⓘ</div>
+        <div class="callout-body">
+          <strong>Methodology Note</strong>
+          Spatiotemporal kriging interpolation applied across 20 monitoring stations · pilcomayo.net 2008–2024 dataset.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STAT CARDS ─── -->
+  <section class="section alt" id="stats">
+    <span class="section-tag tag-green">08 — Components</span>
+    <h2 class="section-title">Stat Cards</h2>
+    <p class="section-desc">Top-edge accent stripe carries the Bolivia color semantic. Value uses Playfair Display for editorial weight, label uses Inter for clarity. Hover lifts via shadow.</p>
+
+    <div class="comp-row" style="gap:14px">
+      <div class="stat-card-demo red">
+        <div class="sc-value">4.2×</div>
+        <div class="sc-label">WHO Lead limit exceeded at peak stations</div>
+      </div>
+      <div class="stat-card-demo yellow">
+        <div class="sc-value">68%</div>
+        <div class="sc-label">Sediment-bound metals mobilized in floods</div>
+      </div>
+      <div class="stat-card-demo green">
+        <div class="sc-value">340 km</div>
+        <div class="sc-label">River corridor studied source-to-plains</div>
+      </div>
+      <div class="stat-card-demo blue">
+        <div class="sc-value">$1.2M</div>
+        <div class="sc-label">Cost of priority remediation phases</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WAVE DIVIDERS ─── -->
+  <section class="section" id="waves">
+    <span class="section-tag tag-blue">09 — Patterns</span>
+    <h2 class="section-title">Wave Dividers</h2>
+    <p class="section-desc">Subtle SVG waves separate every content section — the literal manifestation of the flowing-water aesthetic. Always render between two solid section colors so the wave sits cleanly. Three rhythm variants: gentle, layered, and offset.</p>
+
+    <div class="wave-demo-row">
+      <div class="wave-demo">
+        <div class="wave-demo-top"><span class="wave-demo-label">// gentle — single wave</span></div>
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" height="48" style="display:block;width:100%">
+          <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#f5faf6"/>
+        </svg>
+        <div class="wave-demo-bottom"><span class="wave-demo-label">// surface · sage-50</span></div>
+      </div>
+      <div class="wave-demo">
+        <div class="wave-demo-top"><span class="wave-demo-label">// layered — overlapping curves</span></div>
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" height="48" style="display:block;width:100%">
+          <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#eaf4ec" opacity="0.8"/>
+          <path d="M0,32 C360,12 720,44 1080,28 C1260,20 1380,36 1440,32 L1440,48 L0,48 Z" fill="#f5faf6"/>
+        </svg>
+        <div class="wave-demo-bottom"><span class="wave-demo-label">// surface · sage-50</span></div>
+      </div>
+      <div class="wave-demo">
+        <div class="wave-demo-top"><span class="wave-demo-label">// offset — flipped peaks</span></div>
+        <svg viewBox="0 0 1440 36" preserveAspectRatio="none" height="36" style="display:block;width:100%">
+          <path d="M0,18 C180,0 360,36 540,18 C720,0 900,36 1080,18 C1260,0 1380,28 1440,18 L1440,36 L0,36 Z" fill="#fff"/>
+        </svg>
+        <div class="wave-demo-bottom" style="background:#fff"><span class="wave-demo-label">// surface · #fff</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ICONOGRAPHY ─── -->
+  <section class="section alt" id="icons">
+    <span class="section-tag tag-yellow">10 — Patterns</span>
+    <h2 class="section-title">Iconography</h2>
+    <p class="section-desc">Geometric Unicode glyphs serve as lightweight nav and category icons — readable at small sizes, theme-neutral, and zero asset overhead. For hi-fi launch, swap to Phosphor or Lucide outline icons at 1.5px stroke.</p>
+
+    <div class="icon-grid">
+      <div class="icon-tile"><div class="icon-symbol">◉</div><div class="icon-name">dashboard</div></div>
+      <div class="icon-tile"><div class="icon-symbol">⌇</div><div class="icon-name">migration</div></div>
+      <div class="icon-tile"><div class="icon-symbol">◈</div><div class="icon-name">action</div></div>
+      <div class="icon-tile"><div class="icon-symbol">◷</div><div class="icon-name">history</div></div>
+      <div class="icon-tile"><div class="icon-symbol">⊞</div><div class="icon-name">data</div></div>
+      <div class="icon-tile"><div class="icon-symbol">◎</div><div class="icon-name">team</div></div>
+      <div class="icon-tile"><div class="icon-symbol">⚠</div><div class="icon-name">alert</div></div>
+      <div class="icon-tile"><div class="icon-symbol">✓</div><div class="icon-name">success</div></div>
+      <div class="icon-tile"><div class="icon-symbol">ⓘ</div><div class="icon-name">info</div></div>
+      <div class="icon-tile"><div class="icon-symbol">↓</div><div class="icon-name">download</div></div>
+      <div class="icon-tile"><div class="icon-symbol">↗</div><div class="icon-name">share</div></div>
+      <div class="icon-tile"><div class="icon-symbol">→</div><div class="icon-name">forward</div></div>
+    </div>
+  </section>
+
+  <!-- ─── SPACING ─── -->
+  <section class="section" id="spacing">
+    <span class="section-tag tag-green">11 — Foundations</span>
+    <h2 class="section-title">Spacing Scale</h2>
+    <p class="section-desc">A 4px base unit. Use mostly the named scale tokens — gap-3 (12px) and gap-4 (16px) carry most card and form layouts; section padding uses sp-12 (48px) on the long axis.</p>
+
+    <div class="spacing-grid">
+      <div class="spacing-card"><div class="spacing-block" style="width:4px;height:4px"></div><div class="spacing-name">sp-1</div><div class="spacing-px">4px</div></div>
+      <div class="spacing-card"><div class="spacing-block" style="width:8px;height:8px"></div><div class="spacing-name">sp-2</div><div class="spacing-px">8px</div></div>
+      <div class="spacing-card"><div class="spacing-block" style="width:12px;height:12px"></div><div class="spacing-name">sp-3</div><div class="spacing-px">12px</div></div>
+      <div class="spacing-card"><div class="spacing-block" style="width:16px;height:16px"></div><div class="spacing-name">sp-4</div><div class="spacing-px">16px</div></div>
+      <div class="spacing-card"><div class="spacing-block" style="width:24px;height:24px"></div><div class="spacing-name">sp-6</div><div class="spacing-px">24px</div></div>
+      <div class="spacing-card"><div class="spacing-block" style="width:32px;height:32px"></div><div class="spacing-name">sp-8</div><div class="spacing-px">32px</div></div>
+      <div class="spacing-card"><div class="spacing-block" style="width:48px;height:48px"></div><div class="spacing-name">sp-12</div><div class="spacing-px">48px</div></div>
+      <div class="spacing-card"><div class="spacing-block" style="width:64px;height:64px"></div><div class="spacing-name">sp-16</div><div class="spacing-px">64px</div></div>
+    </div>
+  </section>
+
+  <!-- ─── RADII / SHADOWS ─── -->
+  <section class="section alt" id="radii">
+    <span class="section-tag tag-orange">12 — Foundations</span>
+    <h2 class="section-title">Radii & Shadows</h2>
+    <p class="section-desc">Cards default to 10px radius; pills go full-round. Shadows are sage-tinted (rgba forest-500) so they feel native to the river palette rather than gray-modal.</p>
+
+    <h3 class="palette-name" style="margin:0 0 12px">Radii</h3>
+    <div class="token-row" style="margin-bottom:24px">
+      <div class="token-card"><div class="token-preview" style="border-radius:4px"></div><div class="token-name">--r-sm</div><div class="token-val">4px</div></div>
+      <div class="token-card"><div class="token-preview" style="border-radius:8px"></div><div class="token-name">--r-md</div><div class="token-val">8px</div></div>
+      <div class="token-card"><div class="token-preview" style="border-radius:10px"></div><div class="token-name">--radius</div><div class="token-val">10px · default</div></div>
+      <div class="token-card"><div class="token-preview" style="border-radius:16px"></div><div class="token-name">--r-lg</div><div class="token-val">16px</div></div>
+      <div class="token-card"><div class="token-preview" style="border-radius:9999px"></div><div class="token-name">--r-full</div><div class="token-val">pill</div></div>
+    </div>
+
+    <h3 class="palette-name" style="margin:0 0 12px">Shadows</h3>
+    <div class="token-row">
+      <div class="token-card"><div class="shadow-preview" style="box-shadow:0 1px 2px rgba(15,32,24,0.04)"></div><div class="token-name">--sh-xs</div><div class="token-val">subtle</div></div>
+      <div class="token-card"><div class="shadow-preview" style="box-shadow:0 1px 4px rgba(45,106,79,0.06)"></div><div class="token-name">--sh-sm</div><div class="token-val">card resting</div></div>
+      <div class="token-card"><div class="shadow-preview" style="box-shadow:0 4px 12px rgba(45,106,79,0.12)"></div><div class="token-name">--sh-md</div><div class="token-val">card hover</div></div>
+      <div class="token-card"><div class="shadow-preview" style="box-shadow:0 8px 24px rgba(45,106,79,0.16)"></div><div class="token-name">--sh-lg</div><div class="token-val">overlay</div></div>
+      <div class="token-card"><div class="shadow-preview" style="box-shadow:0 16px 40px rgba(45,106,79,0.22)"></div><div class="token-name">--sh-xl</div><div class="token-val">modal</div></div>
+    </div>
+  </section>
+
+  <!-- ─── DATA VIZ PALETTE ─── -->
+  <section class="section" id="viz">
+    <span class="section-tag tag-red">13 — Data Viz</span>
+    <h2 class="section-title">Chart Palette</h2>
+    <p class="section-desc">Categorical palette for bar charts, line series, and map overlays. Bolivia red anchors the highest-priority metal (Pb), water blues handle hydrological context, forest greens read as outcomes — never use red and green adjacent in continuous scales.</p>
+
+    <h3 class="palette-name" style="margin:0 0 12px">Categorical (qualitative)</h3>
+    <div class="viz-palette" style="margin-bottom:24px">
+      <div class="viz-swatch" style="background:#D52B1E"><div class="viz-name">Pb · Lead</div><div class="viz-hex">#D52B1E</div></div>
+      <div class="viz-swatch" style="background:#E8821A"><div class="viz-name">As · Arsenic</div><div class="viz-hex">#E8821A</div></div>
+      <div class="viz-swatch" style="background:#D4A017"><div class="viz-name">Cd · Cadmium</div><div class="viz-hex">#D4A017</div></div>
+      <div class="viz-swatch" style="background:#007A5E"><div class="viz-name">Zn · Zinc</div><div class="viz-hex">#007A5E</div></div>
+      <div class="viz-swatch" style="background:#075985"><div class="viz-name">Hg · Mercury</div><div class="viz-hex">#075985</div></div>
+      <div class="viz-swatch" style="background:#0ea5e9"><div class="viz-name">Flow rate</div><div class="viz-hex">#0ea5e9</div></div>
+      <div class="viz-swatch light" style="background:#a8d5b5"><div class="viz-name">Baseline</div><div class="viz-hex">#a8d5b5</div></div>
+    </div>
+
+    <h3 class="palette-name" style="margin:0 0 12px">Sequential — concentration intensity</h3>
+    <div class="viz-palette" style="grid-template-columns:repeat(7,1fr)">
+      <div class="viz-swatch light" style="background:#fffbeb"><div class="viz-name">0–1</div><div class="viz-hex">#fffbeb</div></div>
+      <div class="viz-swatch light" style="background:#fef08a"><div class="viz-name">1–2</div><div class="viz-hex">#fef08a</div></div>
+      <div class="viz-swatch light" style="background:#facc15"><div class="viz-name">2–3</div><div class="viz-hex">#facc15</div></div>
+      <div class="viz-swatch" style="background:#E8821A"><div class="viz-name">3–4</div><div class="viz-hex">#E8821A</div></div>
+      <div class="viz-swatch" style="background:#D52B1E"><div class="viz-name">4–5×</div><div class="viz-hex">#D52B1E</div></div>
+      <div class="viz-swatch" style="background:#9b1c1c"><div class="viz-name">5–7×</div><div class="viz-hex">#9b1c1c</div></div>
+      <div class="viz-swatch" style="background:#5c0f0f"><div class="viz-name">7×+</div><div class="viz-hex">#5c0f0f</div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="kit-footer">
+    <span><strong>River Remedy</strong> · Website UI Kit v1.0 · April 2026</span>
+    <span>Pilcomayo Basin Contamination Analysis · UCSB Bren School</span>
+  </footer>
+
+</div>
+
+</body>
+</html>

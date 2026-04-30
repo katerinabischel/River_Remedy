@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sediment-Water Partitioning — River Remedy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sb-stripe"></div>
+  <div class="sb-brand">
+    <svg class="sb-logo" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="15" cy="15" r="13" stroke="#7ec8e3" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="15" cy="15" r="9" stroke="#7ec8e3" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="15" cy="15" r="5" stroke="#7ec8e3" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="15" cy="15" r="2" fill="#7ec8e3"/>
+    </svg>
+    <div class="sb-wordmark">River <span>Remedy</span><small>Pilcomayo · Bolivia</small></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Overview" data-es="Vista General">Overview</div>
+    <a href="index.html" class="sb-link"><span class="sb-icon">◉</span> <span data-en="Home" data-es="Inicio">Home</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Context" data-es="Contexto">Context</div>
+    <a href="history.html" class="sb-link"><span class="sb-icon">⊞</span> <span data-en="History &amp; Impacts" data-es="Historia e Impactos">History &amp; Impacts</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Science" data-es="La Ciencia">The Science</div>
+    <a href="partitioning.html" class="sb-link active"><span class="sb-icon">◈</span> <span data-en="Sediment Partitioning" data-es="Partición Sedimento-Agua">Sediment Partitioning</span></a>
+    <a href="hypoxic.html" class="sb-link"><span class="sb-icon">◷</span> <span data-en="Hypoxic Events" data-es="Eventos Hipóxicos">Hypoxic Events</span></a>
+    <a href="spatiotemporal.html" class="sb-link"><span class="sb-icon">⌇</span> <span data-en="Spatiotemporal Migration" data-es="Migración Espaciotemporal">Spatiotemporal Migration</span></a>
+    <a href="texture.html" class="sb-link"><span class="sb-icon">⊟</span> <span data-en="Sediment Texture" data-es="Textura del Sedimento">Sediment Texture</span></a>
+    <a href="3d-models.html" class="sb-link"><span class="sb-icon">◎</span> <span data-en="3D Models" data-es="Modelos 3D">3D Models</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Response" data-es="La Respuesta">The Response</div>
+    <a href="remediation.html" class="sb-link"><span class="sb-icon">↗</span> <span data-en="Remediation Strategy" data-es="Estrategia de Remediación">Remediation Strategy</span></a>
+    <a href="tech-application.html" class="sb-link"><span class="sb-icon">⊕</span> <span data-en="Geophysical Tech" data-es="Tecnología Geofísica">Geophysical Tech</span></a>
+  </div>
+  <div class="sb-divider"></div>
+  <div class="sb-bottom">
+    <a href="https://bren.ucsb.edu/sites/default/files/2026-04/GP%20River%20Remedy%20Final%20Report%20compressed.pdf"
+       class="sb-report-cta"
+       target="_blank"
+       rel="noopener">
+      <span class="sb-report-cta-icon">↗</span>
+      <span data-en="Read the Final Report (PDF)"
+            data-es="Leer el Informe Final (PDF)">Read the Final Report (PDF)</span>
+    </a>
+    <a href="contact.html" class="sb-link"><span class="sb-icon">→</span> <span data-en="Contact" data-es="Contacto">Contact</span></a>
+  </div>
+</aside>
+
+<main class="main">
+
+  <!-- ═══════════════════════════════════════════════════════
+       §1 HERO — Stakes-first reframe
+       ═══════════════════════════════════════════════════════ -->
+  <section class="page-hero hero-water">
+    <div class="hero-eyebrow" data-en="Sediment-Water Partitioning · 265 Sample Pairs · 27 Stations · 2016–2024" data-es="Partición Sedimento-Agua · 265 Pares de Muestras · 27 Estaciones · 2016–2024">Sediment-Water Partitioning · 265 Sample Pairs · 27 Stations · 2016–2024</div>
+    <h1 class="hero-title">Where a Metal Sits <em>Defines the Risk Downstream</em></h1>
+    <p class="hero-sub">A metal dissolved in the water column is an immediate hazard for the communities who drink, fish, and farm along 800 km of the Pilcomayo. A metal locked in riverbed sediment is a slower, generational threat — deferred, not gone. The partition coefficient Kd is the number that separates those two fates. Across this basin, Kd varies 10× across the four priority metals, a hierarchy with direct consequences for where contamination risk concentrates and which interventions can work.</p>
+    <div class="hero-tags">
+      <span class="hero-tag" data-en="265 Sample Pairs (per metal)" data-es="265 Pares de Muestras (por metal)">265 Sample Pairs (per metal)</span>
+      <span class="hero-tag">27 Stations</span>
+      <span class="hero-tag">Pb · As · Cd · Zn</span>
+      <span class="hero-tag">2016–2024</span>
+    </div>
+  </section>
+
+  <div class="wave"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#f7fbf8" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,48 1440,16 L1440,48 Z"/></svg></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §2 VISUAL ANCHOR — The mobility spectrum (NEW)
+       Inline SVG: four metals on a log-scale water-mobile ↔
+       sediment-bound bar. Colors from ui_kit/ data-viz palette:
+         Pb #D52B1E · As #E8821A · Cd #D4A017 · Zn #007A5E
+       Log scale: 100 – 10,000 L/kg (track x=40–760, w=720)
+       x = 40 + (log10(Kd) – 2.0) / 2.0 × 720
+         Cd (200):  x ≈ 148   Zn (664):  x ≈ 336
+         As (908):  x ≈ 385   Pb (1667): x ≈ 480
+       Zn label: above track.  As label: below track (avoids
+       label collision with Zn at 49 px horizontal separation).
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt">
+    <div class="section-eyebrow">The Mobility Spectrum</div>
+    <h2 class="section-title">From Water-Mobile to Sediment-Bound: Where Each Metal Lives</h2>
+    <p class="section-lead">The four priority metals do not behave uniformly. Their median partition coefficients span nearly an order of magnitude — cadmium is roughly 8× more mobile than lead. This single diagram is the orientation frame for everything that follows: every mechanism, every control, every remediation decision maps back to where a metal sits on this spectrum.</p>
+
+    <div class="spectrum-wrap" role="img" aria-label="Kd mobility spectrum: Cd 200 L/kg (most mobile), Zn 664, As 908, Pb 1667 L/kg (most sediment-bound)">
+      <svg viewBox="0 0 800 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;display:block;margin:0 auto;">
+        <defs>
+          <linearGradient id="kd-spectrum-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#dbeafe"/>
+            <stop offset="42%"  stop-color="#a8d5b5"/>
+            <stop offset="100%" stop-color="#2d6a4f"/>
+          </linearGradient>
+        </defs>
+
+        <!-- GRADIENT TRACK -->
+        <rect x="40" y="93" width="720" height="12" rx="6" ry="6" fill="url(#kd-spectrum-gradient)"/>
+
+        <!-- TICK MARKS AND SCALE LABELS -->
+        <!-- 100 L/kg at x=40 -->
+        <line x1="40"  y1="107" x2="40"  y2="117" stroke="#4a6352" stroke-width="1.5"/>
+        <text x="40"  y="131" font-family="'JetBrains Mono',monospace" font-size="10" fill="#4a6352" text-anchor="middle">100</text>
+        <!-- 1,000 L/kg at x=400 — tick mark only; label omitted (As dot at x=385 marks the 10³ position) -->
+        <line x1="400" y1="107" x2="400" y2="117" stroke="#4a6352" stroke-width="1.5"/>
+        <!-- 10,000 L/kg at x=760 -->
+        <line x1="760" y1="107" x2="760" y2="117" stroke="#4a6352" stroke-width="1.5"/>
+        <text x="760" y="131" font-family="'JetBrains Mono',monospace" font-size="10" fill="#4a6352" text-anchor="middle">10,000</text>
+
+        <!-- AXIS DESCRIPTOR -->
+        <text x="400" y="155" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#4a6352" text-anchor="middle" font-style="italic">median Kd (L/kg) · log scale · 265 paired samples per metal</text>
+
+        <!-- END-POLE LABELS -->
+        <text x="40"  y="163" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="600" fill="#075985" text-anchor="start">← water-mobile</text>
+        <text x="760" y="163" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="600" fill="#2d6a4f" text-anchor="end">sediment-bound →</text>
+
+        <!-- ── METAL DOTS ── -->
+        <!-- Cd  x=148  #D4A017 -->
+        <circle cx="148" cy="99" r="9" fill="#D4A017" stroke="#fff" stroke-width="2"/>
+        <!-- Zn  x=336  #007A5E -->
+        <circle cx="336" cy="99" r="9" fill="#007A5E" stroke="#fff" stroke-width="2"/>
+        <!-- As  x=385  #E8821A -->
+        <circle cx="385" cy="99" r="9" fill="#E8821A" stroke="#fff" stroke-width="2"/>
+        <!-- Pb  x=480  #D52B1E -->
+        <circle cx="480" cy="99" r="9" fill="#D52B1E" stroke="#fff" stroke-width="2"/>
+
+        <!-- ── CONNECTING LINES (dashed) ── -->
+        <!-- Cd ABOVE — lower tier (name y=43, kd y=60, line y=68–92) -->
+        <line x1="148" y1="68" x2="148" y2="92" stroke="#D4A017" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Zn ABOVE — upper tier (name y=24, kd y=41, line y=49–92) -->
+        <line x1="336" y1="49" x2="336" y2="92" stroke="#007A5E" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- As BELOW — (name y=126, kd y=142, line y=108–120) -->
+        <line x1="385" y1="108" x2="385" y2="120" stroke="#E8821A" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Pb ABOVE — lower tier (name y=43, kd y=60, line y=68–92) -->
+        <line x1="480" y1="68" x2="480" y2="92" stroke="#D52B1E" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- ── LABELS ── -->
+        <!-- Cd: lower above-tier -->
+        <text x="148" y="43" font-family="'Inter',-apple-system,sans-serif" font-size="12" font-weight="700" fill="#D4A017" text-anchor="middle">Cd · Cadmium</text>
+        <text x="148" y="60" font-family="'JetBrains Mono',monospace" font-size="10" fill="#92720e" text-anchor="middle">200 L/kg</text>
+
+        <!-- Zn: upper above-tier -->
+        <text x="336" y="24" font-family="'Inter',-apple-system,sans-serif" font-size="12" font-weight="700" fill="#007A5E" text-anchor="middle">Zn · Zinc</text>
+        <text x="336" y="41" font-family="'JetBrains Mono',monospace" font-size="10" fill="#007A5E" text-anchor="middle">664 L/kg</text>
+
+        <!-- As: below-tier -->
+        <text x="385" y="126" font-family="'Inter',-apple-system,sans-serif" font-size="12" font-weight="700" fill="#E8821A" text-anchor="middle">As · Arsenic</text>
+        <text x="385" y="142" font-family="'JetBrains Mono',monospace" font-size="10" fill="#c2410c" text-anchor="middle">908 L/kg</text>
+
+        <!-- Pb: lower above-tier -->
+        <text x="480" y="43" font-family="'Inter',-apple-system,sans-serif" font-size="12" font-weight="700" fill="#D52B1E" text-anchor="middle">Pb · Lead</text>
+        <text x="480" y="60" font-family="'JetBrains Mono',monospace" font-size="10" fill="#991b1b" text-anchor="middle">1,667 L/kg</text>
+      </svg>
+    </div>
+    <p class="text-sm text-muted" style="margin-top:6px;max-width:640px;">Come back to this diagram as you read each metal's story. Every ρ value and remediation lever discussed below maps to a position on this spectrum.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §3 CONCEPT PRIMER — What Kd is
+       Plain-language → equation → inline SVG schematic →
+       single compressed methodology callout.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow" data-en="The Science" data-es="La Ciencia">The Science</div>
+    <h2 class="section-title">One Ratio, Two Risks</h2>
+    <p class="section-lead">Kd is the ratio of how much metal is in the sediment versus how much is dissolved in the water at the same location and time. A high Kd means the metal strongly prefers the solid phase — it accumulates in the riverbed, creating a long-term legacy reservoir that can remobilize during floods or chemical disturbances. A low Kd means the metal stays dissolved — it travels with the water, exposing communities far downstream right now.</p>
+
+    <div class="grid-2" style="align-items:center;gap:32px;margin-bottom:20px;">
+      <div>
+        <div class="kd-formula">
+          <p class="kd-equation"><i>K</i><sub>d</sub> = <i>C</i><sub>sed</sub> / <i>C</i><sub>water</sub></p>
+          <dl class="kd-where">
+            <dt><i>K</i><sub>d</sub></dt><dd>partition coefficient [L/kg]</dd>
+            <dt><i>C</i><sub>sed</sub></dt><dd>metal concentration in sediment [mg/kg dry weight]</dd>
+            <dt><i>C</i><sub>water</sub></dt><dd>metal concentration in water [µg/L]</dd>
+          </dl>
+        </div>
+      </div>
+      <div>
+        <!-- Inline schematic: water column ↔ Kd ↔ sediment -->
+        <svg viewBox="0 0 360 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic: dissolved metals in water column on left, Kd arrow in middle, metals bound in sediment on right" style="width:100%;max-width:360px;display:block;">
+          <!-- Water panel -->
+          <rect x="4" y="4" width="88" height="82" rx="6" fill="#eff8ff" stroke="#7ec8e3" stroke-width="1.5"/>
+          <text x="48" y="22" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="700" fill="#075985" text-anchor="middle">Water Column</text>
+          <!-- few dissolved metal dots -->
+          <circle cx="22" cy="50" r="4" fill="#0ea5e9" opacity="0.75"/>
+          <circle cx="55" cy="42" r="4" fill="#D4A017" opacity="0.75"/>
+          <circle cx="38" cy="65" r="4" fill="#E8821A" opacity="0.75"/>
+          <text x="48" y="80" font-family="'Inter',-apple-system,sans-serif" font-size="8" fill="#075985" text-anchor="middle" font-style="italic">dissolved</text>
+
+          <!-- Double-headed arrow -->
+          <line x1="100" y1="45" x2="256" y2="45" stroke="#4a6352" stroke-width="2"/>
+          <polygon points="100,40 88,45 100,50" fill="#4a6352"/>
+          <polygon points="256,40 268,45 256,50" fill="#4a6352"/>
+          <text x="178" y="36" font-family="'Inter',-apple-system,sans-serif" font-size="14" font-weight="700" fill="#0f2018" text-anchor="middle">Kd</text>
+          <text x="178" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="8" fill="#4a6352" text-anchor="middle">high Kd → stays in sediment</text>
+          <text x="178" y="74" font-family="'Inter',-apple-system,sans-serif" font-size="8" fill="#4a6352" text-anchor="middle">low Kd → stays in water</text>
+
+          <!-- Sediment panel -->
+          <rect x="268" y="4" width="88" height="82" rx="6" fill="#fff7ed" stroke="#E8821A" stroke-width="1.5"/>
+          <text x="312" y="22" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="700" fill="#c2410c" text-anchor="middle">Sediment</text>
+          <!-- many bound metal dots -->
+          <circle cx="284" cy="40" r="4" fill="#D52B1E" opacity="0.85"/>
+          <circle cx="300" cy="55" r="4" fill="#E8821A" opacity="0.85"/>
+          <circle cx="318" cy="44" r="4" fill="#D4A017" opacity="0.85"/>
+          <circle cx="333" cy="60" r="4" fill="#007A5E" opacity="0.85"/>
+          <circle cx="295" cy="68" r="4" fill="#D52B1E" opacity="0.75"/>
+          <circle cx="320" cy="32" r="4" fill="#E8821A" opacity="0.75"/>
+          <text x="312" y="80" font-family="'Inter',-apple-system,sans-serif" font-size="8" fill="#c2410c" text-anchor="middle" font-style="italic">bound</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="callout method">
+      <div class="callout-icon">⚗</div>
+      <div class="callout-body">265 matched pairs (264 for Cd) from 27 stations across the 2016–2024 monitoring record. Each pair required simultaneous sediment and water samples above detection limits at the same station and campaign. Where multiple grain-size fractions were analyzed, sediment concentrations were aggregated to the station-campaign median before calculating Kd — ensuring each pair represents one independent sampling event.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §4 HIERARCHY AT A GLANCE
+       Stripped-down mech-cards (Kd + one-sentence personality
+       + real anchor link to §5 metal-story subsection).
+       Summary statistics table as supporting evidence below.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow" data-en="Key Finding" data-es="Hallazgo Clave">Key Finding</div>
+    <h2 class="section-title" data-en="Lead Binds 10× More Strongly Than Cadmium" data-es="El Plomo Se Une 10 Veces Más Fuertemente que el Cadmio">Lead Binds 10× More Strongly Than Cadmium</h2>
+    <p class="section-lead" data-en="The four metals span an order of magnitude in sediment affinity. This hierarchy directly determines which metals dominate water-column risk (low Kd = mobile) vs. sediment-bound legacy risk (high Kd = persistent)." data-es="Los cuatro metales abarcan un orden de magnitud en afinidad por el sedimento. Esta jerarquía determina directamente qué metales dominan el riesgo en la columna de agua (Kd bajo = móvil) vs. el riesgo de legado en sedimento (Kd alto = persistente).">The four metals span an order of magnitude in sediment affinity. This hierarchy directly determines which metals dominate water-column risk (low Kd = mobile) vs. sediment-bound legacy risk (high Kd = persistent).</p>
+
+    <div class="grid-4">
+      <div class="mech-card pb">
+        <div class="mech-metal">Lead (Pb)</div>
+        <div class="mech-kd">1,667 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control">Retained by Mn oxides and phosphate — the largest sediment reservoir in the basin, yet the most vulnerable to oxygen loss.<br><a href="#metal-story-pb" class="mech-story-link">→ Full story</a></div>
+      </div>
+      <div class="mech-card as">
+        <div class="mech-metal">Arsenic (As)</div>
+        <div class="mech-kd">908 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control">Bound across Fe, Mn, and Al oxides — with a counterintuitive pH-Al paradox that complicates any treatment relying on pH adjustment.<br><a href="#metal-story-as" class="mech-story-link">→ Full story</a></div>
+      </div>
+      <div class="mech-card zn">
+        <div class="mech-metal">Zinc (Zn)</div>
+        <div class="mech-kd">664 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control">Seven verified binding mechanisms working simultaneously — the most geochemically resilient metal in the system, resistant to single-pathway disruption.<br><a href="#metal-story-zn" class="mech-story-link">→ Full story</a></div>
+      </div>
+      <div class="mech-card cd">
+        <div class="mech-metal">Cadmium (Cd)</div>
+        <div class="mech-kd">200 <span class="mech-kd-unit">L/kg</span></div>
+        <div class="mech-control">Ca/P minerals — not Fe oxides — are the primary host phase; an anomaly that explains why Cd is the most mobile and the most acid-sensitive metal here.<br><a href="#metal-story-cd" class="mech-story-link">→ Full story</a></div>
+      </div>
+    </div>
+
+    <!-- Summary statistics table — supporting evidence -->
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 10px;">Kd Summary Statistics by Metal</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Metal</th>
+          <th>n (pairs)</th>
+          <th>Median Kd (L/kg)</th>
+          <th>Mean Kd (L/kg)</th>
+          <th>Range (L/kg)</th>
+          <th>Std Dev</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="metal-tag metal-pb">Lead (Pb)</span></td>
+          <td class="num">265</td>
+          <td class="num"><strong>1,667</strong></td>
+          <td class="num">11,294</td>
+          <td class="num">5.25 – 548,000</td>
+          <td class="num">47,612</td>
+        </tr>
+        <tr>
+          <td><span class="metal-tag metal-as">Arsenic (As)</span></td>
+          <td class="num">265</td>
+          <td class="num"><strong>908</strong></td>
+          <td class="num">4,244</td>
+          <td class="num">4.22 – 175,100</td>
+          <td class="num">15,423</td>
+        </tr>
+        <tr>
+          <td><span class="metal-tag metal-zn">Zinc (Zn)</span></td>
+          <td class="num">265</td>
+          <td class="num"><strong>664</strong></td>
+          <td class="num">12,260</td>
+          <td class="num">2.76 – 1,321,000</td>
+          <td class="num">84,643</td>
+        </tr>
+        <tr>
+          <td><span class="metal-tag metal-cd">Cadmium (Cd)</span></td>
+          <td class="num">264</td>
+          <td class="num"><strong>200</strong></td>
+          <td class="num">3,179</td>
+          <td class="num">1.36 – 100,000</td>
+          <td class="num">15,117</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-xs text-muted" style="margin-top:6px;">Wide ranges and high standard deviations — particularly for Pb and Zn — reflect the basin's dramatic geochemical gradient from acid mine-drainage headwaters (pH 3–5) to near-neutral downstream reaches (pH 7–8.5). Median values are more representative than means for these multi-order-of-magnitude distributions.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §5 FOUR METAL STORIES
+       One subsection per metal, id anchors match §4 mech-card links.
+       Order: As → Cd → Pb → Zn (ascending mobility, descending Kd).
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">Metal by Metal</div>
+    <h2 class="section-title">Four Metals, Four Stories</h2>
+    <p class="section-lead">Each metal follows its own geochemical logic. The mechanisms verified here are not assumptions drawn from textbooks — they are the specific pathways that statistical analysis of 265 paired samples confirmed are operating in this basin, at the pH and mineral composition conditions that actually exist in the Pilcomayo.</p>
+
+    <!-- ─── ARSENIC ─── -->
+    <div class="metal-story" id="metal-story-as">
+      <div class="metal-story-header">
+        <span class="metal-story-title"><span class="metal-tag metal-as">As</span> Arsenic — The Textbook Case with a Paradox</span>
+        <span class="metal-story-kd">median Kd 908 L/kg</span>
+      </div>
+      <p>Arsenic is bound across three oxide phases simultaneously — iron, manganese, and aluminum — making it one of the most geochemically anchored metals in the system at near-neutral pH. The textbook prediction holds: Fe(III) and Al(III) oxides adsorb arsenate [As(V)] through strong inner-sphere surface complexes, and the data confirm it (Fe ρ = +0.268, p &lt; 0.0001; Al ρ = +0.212, p = 0.014).</p>
+      <p>The paradox is in the pH signal. Arsenic shows a <em>negative</em> pH correlation (ρ = −0.216, p = 0.0004), meaning retention is higher at <em>low</em> pH — the opposite of Cd, Pb, and most cations. This is chemically consistent: arsenate is an anion, and Fe/Al oxide surfaces carry a net positive charge below their point of zero charge (pH ~8), so acid conditions enhance arsenate adsorption. Retention collapses only when the oxide minerals themselves dissolve under extreme acidity (pH &lt; 3.5), or when reducing conditions convert As(V) to the more weakly binding As(III). Both threats are real in the Potosí headwaters.</p>
+
+      <div class="callout success">
+        <div class="callout-icon">◈</div>
+        <div class="callout-body"><strong>Verified binding mechanisms:</strong> Fe oxides ρ = +0.268 · Mn oxides ρ = +0.225 · Al oxides ρ = +0.212 · Phosphate ρ = +0.181. Organic matter is not a significant control (ρ = −0.013). Maintaining Fe(III)/Al(III) oxide stability — which means keeping DO adequate and pH above 4 — is sufficient to protect As retention in this system.</div>
+      </div>
+
+      <div class="grid-2" style="margin-top:20px;">
+        <div>
+          <div class="viz-img-wrap">
+            <img src="visualizations/mechanistic_verification/Fe_partitioning_relationships.png" alt="Sediment Fe content vs Kd for all four metals">
+          </div>
+          <p class="viz-caption">Sediment Fe content vs. Kd for all four metals. Arsenic (ρ = +0.268, p &lt; 0.0001, n = 265) and Zinc (ρ = +0.301) show strong positive trends confirming Fe-oxide sorption. Cadmium shows a flat-to-negative trend — it does not bind to Fe oxides. Lead shows no systematic relationship (ρ = +0.059, p = 0.338, not significant).</p>
+        </div>
+        <div>
+          <div class="viz-img-wrap">
+            <img src="visualizations/mechanistic_verification/Al_arsenic_specific.png" alt="Al-oxide vs As Kd with pH color-coding">
+          </div>
+          <p class="viz-caption">Al oxide content vs. As Kd (ρ = +0.212, p = 0.014, n = 135), with pH color-coded. High As retention concentrates at pH 3–5 with variable Al content — confirming that arsenate binds more strongly to positively charged Al-hydroxide surfaces at low pH. Retention collapses above pH 7 regardless of Al content, illustrating the anion-adsorption paradox.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CADMIUM ─── -->
+    <div class="metal-story" id="metal-story-cd">
+      <div class="metal-story-header">
+        <span class="metal-story-title"><span class="metal-tag metal-cd">Cd</span> Cadmium — The Rebel That Ignores Iron</span>
+        <span class="metal-story-kd">median Kd 200 L/kg</span>
+      </div>
+      <p>Cadmium's binding chemistry defies the standard geochemical script for divalent cations. Where iron oxides are the dominant sorbent for most trace metals, Cd shows a statistically significant <em>negative</em> correlation with Fe content (ρ = −0.132, p = 0.031) — the more Fe in the sediment, the <em>less</em> Cd is retained. Manganese oxides show no relationship (ρ = −0.028, not significant). Cd is not using oxide surfaces at all.</p>
+      <p>Instead, Cd is controlled by calcium and phosphate minerals: Ca ρ = +0.318 (p = 0.0002, n = 135), P ρ = +0.355 (p &lt; 0.0001). These are relatively soluble mineral phases that dissolve as pH drops. This explains both Cd's low median Kd (200 L/kg — the most mobile metal in the system) and its extreme sensitivity to acidification. Clay shows a strong negative correlation (ρ = −0.404, p &lt; 0.0001), interpreted as sorption site saturation in clay-rich downstream sediments: metals from mining upstream have already occupied available exchange sites.</p>
+
+      <div class="callout alert">
+        <div class="callout-icon">⚠</div>
+        <div class="callout-body"><strong>Iron-oxide negative finding:</strong> Cd Fe ρ = −0.132 (p = 0.031). Standard geochemical models that predict Cd sorption onto Fe oxide surfaces do not apply in this system. Any treatment approach that targets Fe oxide precipitation to immobilize Cd will be ineffective here. Ca/P mineral stability — not oxide chemistry — is the relevant control for Cd remediation design.</div>
+      </div>
+
+      <div class="grid-2" style="margin-top:20px;">
+        <div>
+          <div class="viz-img-wrap">
+            <img src="visualizations/empirical_partitioning_corrected/corrected_partitioning_vs_pH.png" alt="Kd vs pH scatter for all four metals">
+          </div>
+          <p class="viz-caption">Kd vs. pH for all four metals across 265 sampling events. Cadmium (pH ρ = −0.197, p = 0.0013) shows a clear negative trend — as pH drops, Ca/P minerals that host Cd dissolve and Cd mobilizes into the water column. The basin's bimodal pH distribution (mining zone pH 3–5 vs. downstream pH 7–8.5) is the dominant spatial driver of Cd contamination risk.</p>
+        </div>
+        <div>
+          <div class="viz-img-wrap">
+            <img src="visualizations/empirical_partitioning_corrected/corrected_clay_effect.png" alt="Clay content vs Kd for all four metals">
+          </div>
+          <p class="viz-caption">Clay content (%) vs. Kd for all four metals. Cadmium shows the strongest relationship in the dataset (ρ = −0.404, p &lt; 0.0001, n = 255): clay-rich downstream sediments have accumulated decades of mining-derived Cd, saturating available sorption sites and suppressing Kd. Zinc shows the opposite (ρ = +0.270) — active cation exchange on clay surfaces — underscoring that the two metals operate through fundamentally different mechanisms.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── LEAD ─── -->
+    <div class="metal-story" id="metal-story-pb">
+      <div class="metal-story-header">
+        <span class="metal-story-title"><span class="metal-tag metal-pb">Pb</span> Lead — The Deceptively Fragile Giant</span>
+        <span class="metal-story-kd">median Kd 1,667 L/kg</span>
+      </div>
+      <p>Lead has the highest median Kd in the system — 1,667 L/kg — nearly 10× more tightly held than cadmium. At first glance, that looks reassuring. It is not. Pb's high sediment affinity comes with a critical vulnerability: the binding mechanisms that hold it are narrow and oxygen-dependent in ways that make Pb the metal most at risk from a single environmental disturbance.</p>
+      <p>Neither iron oxides (ρ = +0.059, p = 0.338 — not significant) nor aluminum oxides (ρ = +0.157, p = 0.069 — not significant) are verified controls for Pb in this system. The only confirmed binding pathways are manganese oxides (ρ = +0.176, p = 0.004) and phosphate minerals (ρ = +0.179, p = 0.038). Manganese(IV) oxides are the most redox-sensitive of the sediment mineral phases — they reductively dissolve the moment dissolved oxygen drops near zero. Pb also shows the strongest DO correlation of any metal in the system (ρ = +0.251, p &lt; 0.0001). High Kd today, under current oxic conditions, does not guarantee Pb stays bound when flood-driven or hypoxic disturbances hit.</p>
+
+      <div class="callout finding">
+        <div class="callout-icon">◎</div>
+        <div class="callout-body"><strong>Redox vulnerability:</strong> Pb is held primarily by Mn oxides — the first phase to dissolve under oxygen depletion. At DO &lt; 2 mg/L, Mn(IV) reduces to soluble Mn(II), releasing bound Pb into the water column. With the strongest DO correlation in the dataset (ρ = +0.251), Pb's sediment reservoir is only as stable as the current oxic conditions. Three acute mobilization events in the dataset confirm this: see the Hypoxic Events analysis for documented Pb release during low-DO episodes.</div>
+      </div>
+
+      <div class="grid-2" style="margin-top:20px;">
+        <div>
+          <div class="viz-img-wrap">
+            <img src="visualizations/mechanistic_verification/Mn_partitioning_relationships.png" alt="Manganese content vs Kd for all four metals">
+          </div>
+          <p class="viz-caption">Sediment Mn content vs. Kd for all four metals. Lead shows a weak but significant positive trend (ρ = +0.176, p = 0.004, n = 265) — Mn oxides are the only verified oxide retention mechanism for Pb in this system. Arsenic (ρ = +0.225) and Zinc (ρ = +0.263) show stronger Mn relationships. Cadmium shows no Mn correlation (ρ = −0.028, not significant), consistent with its Ca/P-only retention pathway.</p>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <a href="hypoxic.html" class="cross-link-card" style="width:100%;">
+            <div class="cross-link-card-icon">◷</div>
+            <div class="cross-link-card-body">
+              <div class="cross-link-card-label">Linked Analysis</div>
+              <div class="cross-link-card-title">Hypoxic Events</div>
+              <div class="cross-link-card-desc">When DO falls below 2 mg/L, Mn oxide dissolution releases Pb into the water column. Three documented acute mobilization events in the Pilcomayo record show exactly this mechanism in action.</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ZINC ─── -->
+    <div class="metal-story" id="metal-story-zn">
+      <div class="metal-story-header">
+        <span class="metal-story-title"><span class="metal-tag metal-zn">Zn</span> Zinc — The Resilient Survivor</span>
+        <span class="metal-story-kd">median Kd 664 L/kg</span>
+      </div>
+      <p>Zinc is the geochemically resilient outlier. Seven distinct binding mechanisms are statistically verified — the broadest mineral binding network of any metal in this system. Fe oxides (ρ = +0.301), Al oxides (ρ = +0.285), phosphate (ρ = +0.273), clay surfaces (ρ = +0.270), Mn oxides (ρ = +0.263), calcium minerals (ρ = +0.226), and even organic matter (ρ = +0.134, p = 0.032) all contribute. No other metal has a positive organic matter signal.</p>
+      <p>Zinc also shows a positive pH correlation (ρ = +0.124, p = 0.044) — unlike As, Pb, and Cd, higher pH slightly improves Zn retention. This is consistent with Zn²⁺ acting as a classical cation: deprotonation of surface hydroxyl groups at higher pH creates more negatively charged binding sites. The redundancy of binding pathways means Zn is resistant to single-pathway disruption: losing Fe oxide capacity (e.g., under reducing conditions) does not eliminate retention, because clay, Al, and phosphate pathways remain active. Zn is unlikely to cause acute water-column contamination spikes — its risk is chronic accumulation in sediment near the source.</p>
+
+      <div class="callout info">
+        <div class="callout-icon">ℹ</div>
+        <div class="callout-body"><strong>Seven verified binding mechanisms:</strong> Fe oxides ρ = +0.301 · Al oxides ρ = +0.285 · Phosphate ρ = +0.273 · Clay ρ = +0.270 · Mn oxides ρ = +0.263 · Ca minerals ρ = +0.226 · Organic matter ρ = +0.134. The multi-pathway architecture provides resilience: remediation strategies that disrupt a single mineral phase will have limited effect on Zn mobility.</div>
+      </div>
+
+      <div class="grid-2" style="margin-top:20px;">
+        <div>
+          <div class="viz-img-wrap">
+            <img src="visualizations/mechanistic_verification/OM_partitioning_relationships.png" alt="Organic matter content vs Kd for all four metals">
+          </div>
+          <p class="viz-caption">Organic matter (%) vs. Kd for all four metals. Zinc is the only metal with a positive OM signal (ρ = +0.134, p = 0.032, n = 258) — all other metals show flat or negative trends. OM throughout the basin is low (median ~0.9%), limiting OM's overall importance. Lead shows a weak negative trend (ρ = −0.174, p = 0.005) because OM-rich zones coincide with low-pH mining areas where all retention fails regardless of mechanism.</p>
+        </div>
+        <div>
+          <div class="viz-img-wrap">
+            <img src="visualizations/empirical_partitioning_corrected/corrected_metal_comparison.png" alt="Box plots of Kd distributions per metal">
+          </div>
+          <p class="viz-caption">Kd distributions per metal across all stations (log scale). Zinc's wide interquartile range reflects its multi-mechanism binding: stations with high Fe, Al, clay, and phosphate all push Zn Kd upward through different pathways. Lead's extreme right tail (max 548,000 L/kg) reflects Mn oxide hotspots that create localized very-high-retention microenvironments near the mining headwaters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §6 UNIVERSAL CONTROLS — pH and DO
+       The two environmental variables that override metal-specific
+       mechanisms: pH controls binding-surface availability;
+       DO controls redox state of those same surfaces.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow">Environmental Drivers</div>
+    <h2 class="section-title">pH and Dissolved Oxygen: The Overriding Controls</h2>
+    <p class="section-lead">Every metal-specific binding mechanism described above operates inside a larger environmental frame. pH determines whether the binding-surface minerals even exist — acids dissolve Fe/Al oxides and Ca/P phases alike. Dissolved oxygen determines whether those surfaces stay in their stable, metal-retaining oxidation states. These two variables explain more Kd variance than any single metal-specific pathway.</p>
+
+    <div class="callout alert">
+      <div class="callout-icon">⚠</div>
+      <div class="callout-body"><strong>Critical Zone</strong> — At pH &lt; 4 (common near Potosí mine drainage), Kd values drop 60–80% below neutral-pH values. Fe/Al oxide surfaces that bind As and Zn dissolve; Ca/P minerals that retain Cd break down. Metals that appear safely locked in sediment at pH 7 can become water-column threats within hours of a storm-driven acid pulse.</div>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px;">
+      <div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;">pH Effects on Kd — Spearman ρ</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Metal</th><th>ρ</th><th>p-value</th><th>Direction</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="metal-tag metal-pb">Pb</span></td><td class="num">−0.249</td><td class="num">&lt;0.0001</td><td>Strongest negative — low pH severely reduces Pb binding</td></tr>
+            <tr><td><span class="metal-tag metal-as">As</span></td><td class="num">−0.216</td><td class="num">0.0004</td><td>Negative — acidity reduces As retention via oxide charge</td></tr>
+            <tr><td><span class="metal-tag metal-cd">Cd</span></td><td class="num">−0.197</td><td class="num">0.0013</td><td>Negative — acid dissolves Ca/P minerals retaining Cd</td></tr>
+            <tr><td><span class="metal-tag metal-zn">Zn</span></td><td class="num">+0.124</td><td class="num">0.044</td><td>Positive — higher pH creates more surface binding sites for Zn²⁺</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;">Dissolved Oxygen Effects on Kd — Spearman ρ</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Metal</th><th>ρ</th><th>p-value</th><th>Mechanism</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="metal-tag metal-pb">Pb</span></td><td class="num">+0.251</td><td class="num">&lt;0.0001</td><td>Strongest — high DO maintains Mn oxides that bind Pb</td></tr>
+            <tr><td><span class="metal-tag metal-as">As</span></td><td class="num">+0.206</td><td class="num">0.0008</td><td>Direct redox: high DO → As(V) → stronger Fe/Al binding</td></tr>
+            <tr><td><span class="metal-tag metal-zn">Zn</span></td><td class="num">+0.155</td><td class="num">0.011</td><td>High DO preserves Fe/Al/Mn oxides for Zn</td></tr>
+            <tr><td><span class="metal-tag metal-cd">Cd</span></td><td class="num">+0.132</td><td class="num">0.033</td><td>Weakest — DO indirectly benefits Cd via Ca/P stability</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;">All four metals show statistically significant positive DO correlations — higher oxygen means more metal stays in sediment. The mechanism is not direct: DO maintains Fe(III)/Mn(IV)/Al(III) oxidation states that form the mineral surfaces where sorption actually happens. When DO falls, those surfaces reduce and dissolve, releasing bound metals. Despite the significant correlations, basin-wide DO is already adequate — aeration would not improve outcomes.</p>
+
+    <div class="grid-3" style="margin-bottom:20px;margin-top:20px;">
+      <div class="stat-card blue">
+        <div class="stat-value">7.2</div>
+        <div class="stat-label">Median DO (mg/L) — basin-wide</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-value">260</div>
+        <div class="stat-label">Oxic events (DO &gt; 4 mg/L) — 98.5% of 264 total</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Anoxic event (DO &lt; 2 mg/L) in entire 2016–2024 record</div>
+      </div>
+    </div>
+
+    <table class="data-table" style="margin-bottom:20px;">
+      <thead>
+        <tr><th>Redox Zone</th><th>DO Range (mg/L)</th><th>Events (n=264)</th><th>% of Total</th><th>Metal Behavior</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Anoxic</strong></td>
+          <td class="num">&lt; 2</td>
+          <td class="num">1</td>
+          <td class="num">0.4%</td>
+          <td>Fe/Mn oxides dissolve — metals mobilize into water column</td>
+        </tr>
+        <tr>
+          <td><strong>Low-DO</strong></td>
+          <td class="num">2–4</td>
+          <td class="num">3</td>
+          <td class="num">1.1%</td>
+          <td>Transitional — marginal oxide stability, partial metal retention</td>
+        </tr>
+        <tr>
+          <td><strong>Oxic</strong></td>
+          <td class="num">&gt; 4</td>
+          <td class="num">260</td>
+          <td class="num">98.5%</td>
+          <td>Fe/Mn/Al oxides stable — metals retained in sediment</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div class="callout-body"><strong>Spatial DO context</strong> — All three basin regions maintain high DO: Potosí mining zone median 6.7 mg/L, Bolivia non-mining median 7.7 mg/L, Argentina/Paraguay median 7.8 mg/L. The lower Potosí median reflects acid mine drainage chemistry, not biological oxygen depletion. Only 4 of 264 events fell below 4 mg/L — 3 of these coincided with acute metal mobilization episodes documented on the Hypoxic Events page.</div>
+    </div>
+
+    <div class="callout finding" style="margin-top:16px;">
+      <div class="callout-icon">◎</div>
+      <div class="callout-body"><strong>Remediation implication</strong> — Basin-wide aeration would not meaningfully improve metal retention because DO is already adequate. Raising mining-zone pH from 3–5 to 6–7 is the high-leverage intervention. Any sediment disturbance during remediation must avoid creating anoxic microenvironments — a DO drop below 2 mg/L will trigger rapid metal release from all binding phases simultaneously.</div>
+    </div>
+
+    <div class="grid-2" style="margin-top:28px;">
+      <div>
+        <div class="viz-img-wrap">
+          <img src="visualizations/empirical_partitioning_corrected/corrected_correlation_heatmap.png" alt="Spearman correlation heatmap: Kd vs pH, clay, and organic matter for all four metals">
+        </div>
+        <p class="viz-caption">Spearman ρ heatmap: Kd vs. pH, clay, and organic matter across all four metals. pH signal is negative for As/Cd/Pb (acidity disrupts binding) and positive for Zn (cation-exchange site creation). Cadmium's clay correlation (ρ = −0.404) is the strongest signal in the empirical dataset — a sorption-site-saturation fingerprint unique to Cd. Organic matter shows only a weak Zn signal (ρ = +0.134); all other OM correlations are non-significant.</p>
+      </div>
+      <div>
+        <div class="viz-img-wrap">
+          <img src="visualizations/mechanistic_verification/mechanistic_correlation_heatmap.png" alt="Spearman correlation matrix between geochemical parameters and Kd values — mechanistic phase data">
+        </div>
+        <p class="viz-caption">Spearman ρ matrix for mechanistic phase variables (Fe, Mn, Al, Ca, P, S) vs. Kd for each metal. Circle size encodes |ρ|; red = positive, blue = negative. Fe, Mn, Al columns light up for As and Zn; Ca and P columns are the dominant signal for Cd; Mn and P are the only verified controls for Pb. Cadmium's negative Fe cell (ρ = −0.132, p = 0.031) is the most diagnostically important value in the matrix.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §7 REMEDIATION SYNTHESIS
+       Forward-looking: what the mechanism map means for
+       intervention design. mechanistic_comparison_bars.png
+       as the synthesis visual. Two cross-link-cards forward
+       to remediation.html and hypoxic.html.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt">
+    <div class="section-eyebrow">Synthesis</div>
+    <h2 class="section-title">From Mechanisms to Interventions</h2>
+    <p class="section-lead">Understanding which minerals hold each metal — and which environmental conditions maintain them — converts abstract geochemistry into a targeting map for remediation. The binding mechanisms verified here define both the leverage points (where intervention can work) and the failure modes (what must not happen during treatment).</p>
+
+    <p>The single highest-leverage action across all four metals is pH amendment in the mining headwaters. Raising the Potosí zone from pH 3–5 to 6–7 would restore Fe/Al oxide surface charge for As and Zn, stabilize Ca/P minerals for Cd, and reduce H⁺ competition at Pb binding sites — simultaneously, without targeting individual metals. No other single intervention has this cross-metal reach.</p>
+    <p>For Pb specifically, protecting Mn oxide stability means protecting Pb's primary sediment reservoir from oxygen depletion. This has direct implications for any physical remediation that involves sediment disturbance — dredging or capping in oxic zones must be planned to avoid anoxic microenvironments, which would release Pb as rapidly as it was immobilized. For Cd, the negative Fe correlation is a warning against Fe-dosing treatment approaches: adding Fe minerals to improve Cd retention is not supported by this system's chemistry, and could actively worsen Cd mobility by competing with the Ca/P phases that actually work.</p>
+
+    <div class="grid-2" style="margin-top:24px;margin-bottom:28px;">
+      <div style="grid-column:1/-1;">
+        <div class="viz-img-wrap">
+          <img src="visualizations/mechanistic_verification/mechanistic_comparison_bars.png" alt="Significant Spearman rho values per metal, sorted by magnitude">
+        </div>
+        <p class="viz-caption">All statistically significant Spearman ρ values (p &lt; 0.05) per metal, sorted by |ρ|. The visual immediately reveals the binding fingerprint of each metal: As and Zn have broad, positive oxide signals; Cd is dominated by Ca and P (with a uniquely negative Fe bar); Pb has only two confirmed controls — Mn oxides and phosphate — far fewer than the other metals despite its highest Kd. Bars reaching left (negative ρ) identify binding-suppression signals: Cd/Fe is the most diagnostically important. n = 265 for all metals (264 for Cd); mechanistic variables use n = 135 where subset data were available.</p>
+      </div>
+    </div>
+
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 16px;">Continue Reading</p>
+    <div class="grid-2" style="gap:16px;">
+      <a href="remediation.html" class="cross-link-card">
+        <div class="cross-link-card-icon">↗</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label">Next: The Response</div>
+          <div class="cross-link-card-title">Remediation Strategy</div>
+          <div class="cross-link-card-desc">How the partitioning findings translate into a prioritized intervention framework — pH amendment, targeted sediment stabilization, and the rationale for treating the headwaters before the floodplain.</div>
+        </div>
+      </a>
+      <a href="hypoxic.html" class="cross-link-card">
+        <div class="cross-link-card-icon">◷</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label">Related Analysis</div>
+          <div class="cross-link-card-title">Hypoxic Events</div>
+          <div class="cross-link-card-desc">The three documented acute mobilization events in the Pilcomayo record, and what they confirm about Pb's redox vulnerability and the DO threshold that triggers basin-wide metal release.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <span class="footer-brand">River <em style="color:var(--water-300);font-style:normal;">Remedy</em></span>
+    <div class="footer-links">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub</a>
+    </div>
+    <span class="footer-note" data-en="© 2024 UCSB Bren School · Trinational Commission Data" data-es="© 2024 UCSB Bren School · Datos de la Comisión Trinacional">© 2024 UCSB Bren School · Trinational Commission Data</span>
+  </footer>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">✕</button>
+  <img src="" alt="">
+</div>
+<script src="js/main.js"></script>
+<script src="js/lang.js"></script>
+</body>
+</html>

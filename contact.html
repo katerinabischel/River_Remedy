@@ -1,184 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — River Remedy</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — River Remedy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<header>
-  <div class="logo-section">
-    <div class="logo-icon">〰</div>
-    <div class="logo-text">River<span class="water">Remedy</span></div>
+<aside class="sidebar">
+  <div class="sb-stripe"></div>
+  <div class="sb-brand">
+    <svg class="sb-logo" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="15" cy="15" r="13" stroke="#7ec8e3" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="15" cy="15" r="9" stroke="#7ec8e3" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="15" cy="15" r="5" stroke="#7ec8e3" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="15" cy="15" r="2" fill="#7ec8e3"/>
+    </svg>
+    <div class="sb-wordmark">River <span>Remedy</span><small>Pilcomayo · Bolivia</small></div>
   </div>
-  <nav class="nav-controls">
-    <button class="lang-toggle">ES / EN</button>
-    <a href="index.html" class="btn-primary">← Back to Home</a>
-  </nav>
-</header>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Overview" data-es="Vista General">Overview</div>
+    <a href="index.html" class="sb-link"><span class="sb-icon">◉</span> <span data-en="Home" data-es="Inicio">Home</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Context" data-es="Contexto">Context</div>
+    <a href="history.html" class="sb-link"><span class="sb-icon">⊞</span> <span data-en="History &amp; Impacts" data-es="Historia e Impactos">History &amp; Impacts</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Science" data-es="La Ciencia">The Science</div>
+    <a href="partitioning.html" class="sb-link"><span class="sb-icon">◈</span> <span data-en="Sediment Partitioning" data-es="Partición Sedimento-Agua">Sediment Partitioning</span></a>
+    <a href="hypoxic.html" class="sb-link"><span class="sb-icon">◷</span> <span data-en="Hypoxic Events" data-es="Eventos Hipóxicos">Hypoxic Events</span></a>
+    <a href="spatiotemporal.html" class="sb-link"><span class="sb-icon">⌇</span> <span data-en="Spatiotemporal Migration" data-es="Migración Espaciotemporal">Spatiotemporal Migration</span></a>
+    <a href="texture.html" class="sb-link"><span class="sb-icon">⊟</span> <span data-en="Sediment Texture" data-es="Textura del Sedimento">Sediment Texture</span></a>
+    <a href="3d-models.html" class="sb-link"><span class="sb-icon">◎</span> <span data-en="3D Models" data-es="Modelos 3D">3D Models</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Response" data-es="La Respuesta">The Response</div>
+    <a href="remediation.html" class="sb-link"><span class="sb-icon">↗</span> <span data-en="Remediation Strategy" data-es="Estrategia de Remediación">Remediation Strategy</span></a>
+    <a href="tech-application.html" class="sb-link"><span class="sb-icon">⊕</span> <span data-en="Geophysical Tech" data-es="Tecnología Geofísica">Geophysical Tech</span></a>
+  </div>
+  <div class="sb-divider"></div>
+  <div class="sb-bottom">
+    <a href="https://bren.ucsb.edu/sites/default/files/2026-04/GP%20River%20Remedy%20Final%20Report%20compressed.pdf"
+       class="sb-report-cta"
+       target="_blank"
+       rel="noopener">
+      <span class="sb-report-cta-icon">↗</span>
+      <span data-en="Read the Final Report (PDF)"
+            data-es="Leer el Informe Final (PDF)">Read the Final Report (PDF)</span>
+    </a>
+    <a href="contact.html" class="sb-link active"><span class="sb-icon">→</span> <span data-en="Contact" data-es="Contacto">Contact</span></a>
+  </div>
+</aside>
 
-<section class="page-section light" style="margin-top: 70px; min-height: 100vh;">
-  <div style="max-width: 700px; margin: 0 auto;">
-    <div class="section-header">
-      <h1 data-i18n="contact.title">Get In Touch</h1>
-      <div class="accent-bar"></div>
-      <p data-i18n="contact.intro">Have questions about the research or interested in remediation partnerships?</p>
-    </div>
+<main class="main">
 
-    <!-- Contact Information -->
-    <div class="cards-grid mb-2">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">📧</div>
-          <div>
-            <h3 class="card-title">Email</h3>
-          </div>
-        </div>
-        <p class="card-text">
-          <a href="mailto:research@riverremedy.org" style="color: var(--water-deep); text-decoration: none; font-weight: 600;">research@riverremedy.org</a>
-        </p>
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="hero-eyebrow" data-en="River Remedy Project" data-es="Proyecto River Remedy">River Remedy Project</div>
+    <h1 class="hero-title" data-en="Get In Touch" data-es="Contáctenos">Get In Touch</h1>
+    <p class="hero-sub" data-en="Project credits, research team, mentors and partners, data source attribution, and contact information for the Pilcomayo basin contamination study." data-es="Créditos del proyecto, equipo de investigación, mentores y socios, atribución de la fuente de datos, e información de contacto para el estudio de contaminación de la cuenca del Pilcomayo.">Project credits, research team, mentors and partners, data source attribution, and contact information for the Pilcomayo basin contamination study.</p>
+  </div>
+
+  <div class="wave"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#f7fbf8" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,48 1440,16 L1440,48 Z"/></svg></div>
+
+  <!-- SECTION A.3: SITE AUTHOR -->
+  <div class="section sage">
+    <div class="section-eyebrow" data-en="Site Author" data-es="Autora del Sitio">Site Author</div>
+    <h2 class="section-title" data-en="Site by Katerina Bischel" data-es="Sitio por Katerina Bischel">Site by Katerina Bischel</h2>
+
+    <div class="grid-2 author-block">
+      <div class="author-photo">
+        <img src="images/katerina_bischel.PNG" alt="Katerina Bischel">
       </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">🏫</div>
-          <div>
-            <h3 class="card-title">Institution</h3>
-          </div>
-        </div>
-        <p class="card-text">UCSB Bren School of Environmental Science & Management, Santa Barbara, California</p>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">🌐</div>
-          <div>
-            <h3 class="card-title">Online</h3>
-          </div>
-        </div>
-        <p class="card-text">
-          <a href="https://github.com/katerinabischel/River_Remedy" target="_blank" style="color: var(--water-deep); text-decoration: none; font-weight: 600;">GitHub Repository →</a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Contact Form -->
-    <div class="card">
-      <h2 data-i18n="contact.formTitle">Send us a message</h2>
-      <form class="mt-2" id="contact-form">
-        <div class="form-group">
-          <label for="name">Name *</label>
-          <input type="text" id="name" name="name" required placeholder="Your Name">
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" required placeholder="your@email.com">
-        </div>
-
-        <div class="form-group">
-          <label for="organization">Organization</label>
-          <input type="text" id="organization" name="organization" placeholder="Your Organization">
-        </div>
-
-        <div class="form-group">
-          <label for="subject">Subject *</label>
-          <select id="subject" name="subject" required>
-            <option value="">Select a topic...</option>
-            <option value="research">Research Question</option>
-            <option value="remediation">Remediation Partnership</option>
-            <option value="data">Data Request</option>
-            <option value="community">Community Engagement</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" required placeholder="Your message..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;" data-i18n="contact.submit">Send Message</button>
-      </form>
-    </div>
-
-    <!-- FAQ -->
-    <div class="mt-2">
-      <h3 style="margin-bottom: 1.5rem; color: var(--text-dark); font-size: 1.3rem; font-weight: 700;">Frequently Asked Questions</h3>
-
-      <div class="card mb-2">
-        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">How can I access the raw data?</h4>
-        <p class="card-text">All data is publicly available in our GitHub repository. Water and sediment chemistry samples from 2016–2024 are documented with QA/QC protocols.</p>
-      </div>
-
-      <div class="card mb-2">
-        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">Are remediation technologies ready for deployment?</h4>
-        <p class="card-text">Phase 1 (monitoring) is immediately deployable. Phases 2–3 require pilot testing and community engagement. We support organizations interested in implementation.</p>
-      </div>
-
-      <div class="card mb-2">
-        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">How do I cite this research?</h4>
-        <p class="card-text">The peer-reviewed publication is available in the resources section. Please reference the full citation and link to our GitHub for reproducible analysis.</p>
-      </div>
-
-      <div class="card mb-2">
-        <h4 style="color: var(--water-deep); font-weight: 700; margin-bottom: 0.5rem;">Can universities collaborate on extensions?</h4>
-        <p class="card-text">Yes! We welcome academic partnerships for air quality monitoring, health impact assessments, and ecosystem recovery studies. Contact us directly.</p>
+      <div class="author-info">
+        <h3 class="author-name">Katerina Bischel</h3>
+        <p class="author-role" data-en="Site author and site analysis developer · River Remedy" data-es="Autora del sitio y desarrolladora principal · River Remedy">Site author and lead developer · River Remedy</p>
+        <ul class="author-links">
+          <li><strong data-en="Email" data-es="Correo">Email</strong>: <a href="mailto:katerina.bischel@gmail.com">katerina.bischel@gmail.com</a></li>
+          <li><strong data-en="Personal Site" data-es="Sitio Personal">Personal Site</strong>: <a href="https://katerinabischell.github.io/my_site/" target="_blank" rel="noopener">katerinabischell.github.io/my_site</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</section>
 
-<footer>
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>River Remedy</h3>
-      <p>A groundbreaking study of heavy metal contamination in the Pilcomayo River Basin, combining field research, geochemical analysis, and community engagement.</p>
-    </div>
-    <div class="footer-section">
-      <h3>Resources</h3>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="https://katerinabischel.github.io/riverremedy/" target="_blank">Full Dataset</a></li>
-        <li><a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h3>Partnerships</h3>
-      <ul>
-        <li>UCSB Bren School</li>
-        <li>Tomás Frías University</li>
-        <li>Bolivian Government</li>
-      </ul>
+  <!-- SECTION A.4: FACULTY MENTORS & ADVISORS -->
+  <div class="section alt">
+    <div class="section-eyebrow" data-en="Acknowledgments" data-es="Agradecimientos">Acknowledgments</div>
+    <h2 class="section-title" data-en="Faculty Mentors &amp; Advisors" data-es="Mentores y Asesores">Faculty Mentors &amp; Advisors</h2>
+    <p class="section-lead" data-en="The River Remedy project was guided by mentors across UCSB, AMTSK, and PEMA. Their expertise across environmental geochemistry, mineral processing, hydrology, and environmental management shaped both the analytical work and the recommendations on this site." data-es="El proyecto River Remedy fue guiado por mentores de UCSB, AMTSK y PEMA. Su experiencia en geoquímica ambiental, procesamiento de minerales, hidrología y gestión ambiental dio forma tanto al trabajo analítico como a las recomendaciones de este sitio.">The River Remedy project was guided by mentors across UCSB, AMTSK, and PEMA. Their expertise across environmental geochemistry, mineral processing, hydrology, and environmental management shaped both the analytical work and the recommendations on this site.</p>
+
+    <div class="mentor-grid-5">
+
+      <div class="card card-accent green mentor-card">
+        <div class="mentor-photo">
+          <img src="images/arturo_keller.png" alt="Arturo Keller">
+        </div>
+        <div class="card-label" data-en="UCSB Bren School" data-es="UCSB Bren School">UCSB Bren School</div>
+        <div class="card-title" data-en="Arturo Keller" data-es="Arturo Keller">Arturo Keller</div>
+        <div class="card-body">
+          <a href="mailto:artokeller@ucsb.edu">artokeller@ucsb.edu</a>
+        </div>
+      </div>
+
+      <div class="card card-accent blue mentor-card">
+        <div class="mentor-photo">
+          <img src="images/muhammed_khan.png" alt="Muhammed Khan">
+        </div>
+        <div class="card-label" data-en="AMTSK" data-es="AMTSK">AMTSK</div>
+        <div class="card-title" data-en="Muhammed Khan" data-es="Muhammed Khan">Muhammed Khan</div>
+        <div class="card-body">
+          <a href="mailto:khangazi4@gmail.com">khangazi4@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="card card-accent yellow mentor-card">
+        <div class="mentor-photo">
+          <img src="images/jeff_thoreson.png" alt="Jeff Thoreson">
+        </div>
+        <div class="card-label" data-en="AMTSK" data-es="AMTSK">AMTSK</div>
+        <div class="card-title" data-en="Jeff Thoreson" data-es="Jeff Thoreson">Jeff Thoreson</div>
+        <div class="card-body">
+          <a href="mailto:jthoreson@greenpowertech.us">jthoreson@greenpowertech.us</a>
+        </div>
+      </div>
+
+      <div class="card card-accent red mentor-card">
+        <div class="mentor-photo">
+          <img src="images/hugo_loaiciga.png" alt="Hugo Loaiciga">
+        </div>
+        <div class="card-label" data-en="UCSB" data-es="UCSB">UCSB</div>
+        <div class="card-title" data-en="Hugo Loaiciga" data-es="Hugo Loaiciga">Hugo Loaiciga</div>
+        <div class="card-body">
+          <a href="mailto:hloaiciga@ucsb.edu">hloaiciga@ucsb.edu</a>
+        </div>
+      </div>
+
+      <div class="card card-accent forest mentor-card mentor-org">
+        <div class="mentor-photo mentor-logo">
+          <img src="images/logo_3.png" alt="PEMA — Professional Environmental Management Association">
+        </div>
+        <div class="card-label" data-en="PEMA" data-es="PEMA">PEMA</div>
+        <div class="card-title" data-en="Professional Environmental Management Association" data-es="Asociación Profesional de Gestión Ambiental">Professional Environmental Management Association</div>
+        <div class="card-body">
+          <a href="mailto:pemaexecdir@gmail.com">pemaexecdir@gmail.com</a><br>
+          <a href="https://www.pemawest.org/" target="_blank" rel="noopener">pemawest.org</a>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2024 River Remedy. All rights reserved.</p>
+
+  <!-- SECTION A.5: GROUP PHOTO -->
+  <div class="section alt">
+    <div class="section-eyebrow" data-en="The Team" data-es="El Equipo">The Team</div>
+    <h2 class="section-title" data-en="River Remedy" data-es="River Remedy">River Remedy</h2>
+
+    <div class="group-photo">
+      <img src="images/group_photo.png" alt="River Remedy team and mentors">
+    </div>
+    <p class="viz-caption" data-en="River Remedy team. UCSB Bren School Group Project, 2025–2026." data-es="Equipo y mentores de River Remedy. Proyecto Grupal de UCSB Bren School, 2024–2025.">River Remedy team and mentors. UCSB Bren School Group Project, 2024–2025.</p>
   </div>
-</footer>
+
+  <!-- SECTION A.6: PROJECT TEAM -->
+  <div class="section sage">
+    <div class="section-eyebrow" data-en="Contributors" data-es="Colaboradores">Contributors</div>
+    <h2 class="section-title" data-en="The Rest of the Team" data-es="El Resto del Equipo">The Rest of the Team</h2>
+    <p class="section-lead" data-en="The site's analytical chapters and visualizations are Katerina's solo work. The four other UCSB Bren School graduate students on the River Remedy group project authored separate report sections covering air pollution modeling, hazard quotient analysis, and environmental justice — work parallel to but distinct from what's presented on this site." data-es="Los capítulos analíticos y las visualizaciones del sitio son trabajo individual de Katerina. Los otros cuatro estudiantes de posgrado de la Bren School de UCSB en el proyecto grupal River Remedy escribieron secciones separadas del informe sobre modelado de contaminación atmosférica, análisis de cocientes de riesgo, y justicia ambiental — trabajo paralelo pero distinto del presentado en este sitio.">The site's analytical chapters and visualizations are Katerina's solo work. The four other UCSB Bren School graduate students on the River Remedy group project authored separate report sections covering air pollution modeling, hazard quotient analysis, and environmental justice — work parallel to but distinct from what's presented on this site.</p>
+
+    <div class="grid-4">
+
+      <div class="card card-accent blue mentor-card team-card">
+        <div class="mentor-photo">
+          <img src="images/elijah_khan.png" alt="Elijah Khan">
+        </div>
+        <div class="card-label" data-en="UCSB Bren School" data-es="UCSB Bren School">UCSB Bren School</div>
+        <div class="card-title" data-en="Elijah Khan" data-es="Elijah Khan">Elijah Khan</div>
+        <div class="card-body">
+          <p class="team-contribution" data-en="Air pollution modeling" data-es="Modelado de contaminación atmosférica">Air pollution modeling</p>
+          <!-- TODO: Elijah's air pollution modeling site link pending -->
+          <a href="#" class="team-link" target="_blank" rel="noopener" data-en="View work →" data-es="Ver trabajo →">View work →</a>
+          <p class="contact-line"><a href="mailto:ebkhan@ucsb.edu">ebkhan@ucsb.edu</a></p>
+        </div>
+      </div>
+
+      <div class="card card-accent green mentor-card team-card">
+        <div class="mentor-photo">
+          <img src="images/nadav_kempinski.png" alt="Nadav Kempinski">
+        </div>
+        <div class="card-label" data-en="UCSB Bren School" data-es="UCSB Bren School">UCSB Bren School</div>
+        <div class="card-title" data-en="Nadav Kempinski" data-es="Nadav Kempinski">Nadav Kempinski</div>
+        <div class="card-body">
+          <p class="team-contribution" data-en="Hazard quotient analysis (with Jackson Mills)" data-es="Análisis de cocientes de riesgo (con Jackson Mills)">Hazard quotient analysis (with Jackson Mills)</p>
+          <!-- TODO: hazard quotient app link pending (shared with Jackson) -->
+          <a href="#" class="team-link" target="_blank" rel="noopener" data-en="View app →" data-es="Ver aplicación →">View app →</a>
+          <p class="contact-line"><a href="mailto:nadavkempinski@ucsb.edu">nadavkempinski@ucsb.edu</a></p>
+        </div>
+      </div>
+
+      <div class="card card-accent yellow mentor-card team-card">
+        <div class="mentor-photo">
+          <!-- actual filename: abbey_guilliat.png (not abigail_guilliat.png) -->
+          <img src="images/abbey_guilliat.png" alt="Abigail Guilliat">
+        </div>
+        <div class="card-label" data-en="UCSB Bren School" data-es="UCSB Bren School">UCSB Bren School</div>
+        <div class="card-title" data-en="Abigail Guilliat" data-es="Abigail Guilliat">Abigail Guilliat</div>
+        <div class="card-body">
+          <p class="team-contribution" data-en="Environmental justice and social vulnerability" data-es="Justicia ambiental y vulnerabilidad social">Environmental justice and social vulnerability</p>
+          <p class="contact-line"><a href="mailto:abigailguilliat@ucsb.edu">abigailguilliat@ucsb.edu</a></p>
+        </div>
+      </div>
+
+      <div class="card card-accent orange mentor-card team-card">
+        <div class="mentor-photo">
+          <img src="images/jackson_mills.png" alt="Jackson Mills">
+        </div>
+        <div class="card-label" data-en="UCSB Bren School" data-es="UCSB Bren School">UCSB Bren School</div>
+        <div class="card-title" data-en="Jackson Mills" data-es="Jackson Mills">Jackson Mills</div>
+        <div class="card-body">
+          <p class="team-contribution" data-en="Hazard quotient analysis (with Nadav Kempinski)" data-es="Análisis de cocientes de riesgo (con Nadav Kempinski)">Hazard quotient analysis (with Nadav Kempinski)</p>
+          <!-- TODO: hazard quotient app link pending (shared with Nadav) -->
+          <a href="#" class="team-link" target="_blank" rel="noopener" data-en="View app →" data-es="Ver aplicación →">View app →</a>
+          <p class="contact-line"><a href="mailto:jrmills@ucsb.edu">jrmills@ucsb.edu</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION A.7: AFFILIATED INSTITUTIONS -->
+  <div class="section alt">
+    <div class="section-eyebrow" data-en="Partner Institutions" data-es="Instituciones Asociadas">Partner Institutions</div>
+    <h2 class="section-title" data-en="Affiliated Organizations" data-es="Organizaciones Afiliadas">Affiliated Organizations</h2>
+
+    <div class="grid-3">
+
+      <div class="card institution-card">
+        <div class="institution-logo">
+          <img src="images/logo_1.png" alt="Bren School of Environmental Science and Management, UCSB">
+        </div>
+        <div class="card-title" data-en="Bren School" data-es="Bren School">Bren School</div>
+        <div class="card-body">
+          <p data-en="Donald Bren School of Environmental Science &amp; Management, University of California, Santa Barbara" data-es="Donald Bren School of Environmental Science &amp; Management, Universidad de California, Santa Barbara">Donald Bren School of Environmental Science &amp; Management, University of California, Santa Barbara</p>
+          <a href="https://bren.ucsb.edu" target="_blank" rel="noopener">bren.ucsb.edu</a>
+        </div>
+      </div>
+
+      <div class="card institution-card">
+        <div class="institution-logo">
+          <img src="images/logo_2.png" alt="AMTSK — Advance Mineral South Korea">
+        </div>
+        <div class="card-title" data-en="AMTSK" data-es="AMTSK">AMTSK</div>
+        <div class="card-body">
+          <p data-en="Advance Mineral South Korea" data-es="Advance Mineral Corea del Sur">Advance Mineral South Korea</p>
+          <a href="https://www.advance-mineralskorea.com" target="_blank" rel="noopener">advance-mineralskorea.com</a>
+        </div>
+      </div>
+
+      <div class="card institution-card">
+        <div class="institution-logo">
+          <img src="images/logo_3.png" alt="PEMA — Professional Environmental Management Association">
+        </div>
+        <div class="card-title" data-en="PEMA" data-es="PEMA">PEMA</div>
+        <div class="card-body">
+          <p data-en="Professional Environmental Management Association" data-es="Asociación Profesional de Gestión Ambiental">Professional Environmental Management Association</p>
+          <a href="https://www.pemawest.org/" target="_blank" rel="noopener">pemawest.org</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION A.8: DATA SOURCE -->
+  <div class="section sage">
+    <div class="section-eyebrow" data-en="Data Source" data-es="Fuente de Datos">Data Source</div>
+    <h2 class="section-title" data-en="Trinational Commission" data-es="Comisión Trinacional">Trinational Commission</h2>
+
+    <div class="callout info data-source-callout">
+      <div class="callout-icon">ⓘ</div>
+      <div class="callout-body">
+        <strong data-en="Water and sediment monitoring data, 2016–2024" data-es="Datos de monitoreo de agua y sedimentos, 2016–2024">Water and sediment monitoring data, 2016–2024</strong>
+        <p data-en="All quantitative analyses on this site draw on monitoring data provided by the Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo. The Commission is the authoritative custodian of basin-wide water quality and sediment data spanning Bolivia, Argentina, and Paraguay." data-es="Todos los análisis cuantitativos de este sitio se basan en datos de monitoreo proporcionados por la Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo. La Comisión es la custodia autoritativa de los datos de calidad de agua y sedimentos a escala de cuenca a través de Bolivia, Argentina y Paraguay.">All quantitative analyses on this site draw on monitoring data provided by the Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo. The Commission is the authoritative custodian of basin-wide water quality and sediment data spanning Bolivia, Argentina, and Paraguay.</p>
+        <p data-en="Researchers seeking access to raw data should contact the Commission directly. The River Remedy GitHub repository contains site source, visualizations, and methodology documentation only — not the underlying monitoring dataset." data-es="Los investigadores que busquen acceso a datos brutos deben contactar directamente a la Comisión. El repositorio de GitHub de River Remedy contiene únicamente código del sitio, visualizaciones y documentación metodológica — no el conjunto de datos de monitoreo subyacente.">Researchers seeking access to raw data should contact the Commission directly. The River Remedy GitHub repository contains site source, visualizations, and methodology documentation only — not the underlying monitoring dataset.</p>
+        <p><a href="https://www.pilcomayo.net" target="_blank" rel="noopener">pilcomayo.net →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION A.9: CONTACT FORM -->
+  <div class="section alt">
+    <div class="section-eyebrow" data-en="Direct Contact" data-es="Contacto Directo">Direct Contact</div>
+    <h2 class="section-title" data-en="Contact Form" data-es="Formulario de Contacto">Contact Form</h2>
+
+    <style>
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .contact-form label {
+        font-size: 11px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .contact-form input,
+      .contact-form select,
+      .contact-form textarea {
+        padding: 10px 14px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 13px;
+        width: 100%;
+        margin-bottom: 14px;
+        background: #fff;
+        color: inherit;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+      .contact-form input:focus,
+      .contact-form select:focus,
+      .contact-form textarea:focus {
+        outline: 2px solid var(--water-300);
+        outline-offset: 1px;
+        border-color: var(--water-300);
+      }
+      .contact-form textarea {
+        resize: vertical;
+      }
+      .contact-form .submit-btn {
+        width: 100%;
+      }
+      #form-success {
+        display: none;
+      }
+    </style>
+
+    <form class="contact-form" id="contact-form" novalidate>
+      <div>
+        <label for="name" data-en="Name" data-es="Nombre">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
+      <div>
+        <label for="email" data-en="Email" data-es="Correo electrónico">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div>
+        <label for="subject" data-en="Subject" data-es="Asunto">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="" data-en="Select a topic..." data-es="Seleccione un tema...">Select a topic...</option>
+          <option value="general" data-en="General Inquiry" data-es="Consulta General">General Inquiry</option>
+          <option value="data" data-en="Data Access" data-es="Acceso a Datos">Data Access</option>
+          <option value="remediation" data-en="Remediation" data-es="Remediación">Remediation</option>
+          <option value="collaboration" data-en="Collaboration" data-es="Colaboración">Collaboration</option>
+          <option value="media" data-en="Media" data-es="Medios">Media</option>
+        </select>
+      </div>
+      <div>
+        <label for="message" data-en="Message" data-es="Mensaje">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg submit-btn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+    </form>
+
+    <div class="callout success" id="form-success" style="max-width:600px;margin:1.5rem auto 0;">
+      <div class="callout-icon">✓</div>
+      <div class="callout-body" data-en="Your email client should now be open with your message ready to send. Review and click send to deliver your message to katerina.bischel@gmail.com." data-es="Su cliente de correo electrónico debería estar abierto ahora con su mensaje listo para enviar. Revise y haga clic en enviar para entregar su mensaje a katerina.bischel@gmail.com.">Your email client should now be open with your message ready to send. Review and click send to deliver your message to katerina.bischel@gmail.com.</div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-brand">River <em style="color:var(--water-300);font-style:normal;">Remedy</em></span>
+    <div class="footer-links">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub</a>
+    </div>
+    <span class="footer-note" data-en="© 2024 UCSB Bren School · Trinational Commission Data" data-es="© 2024 UCSB Bren School · Datos de la Comisión Trinacional">© 2024 UCSB Bren School · Trinational Commission Data</span>
+  </footer>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">✕</button>
+  <img src="" alt="">
+</div>
 
 <script src="js/main.js"></script>
+<script src="js/lang.js"></script>
 <script>
-document.getElementById('contact-form')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const button = this.querySelector('button[type="submit"]');
-  const originalText = button.textContent;
-
-  button.textContent = 'Sending...';
-  button.disabled = true;
-
-  setTimeout(() => {
-    button.textContent = 'Message sent!';
-    this.reset();
-    setTimeout(() => {
-      button.textContent = originalText;
-      button.disabled = false;
-    }, 2000);
-  }, 1000);
-});
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const fromEmail = document.getElementById('email').value.trim();
+    const subjectMap = {
+      general: 'General Inquiry',
+      data: 'Data Access',
+      remediation: 'Remediation',
+      collaboration: 'Collaboration',
+      media: 'Media'
+    };
+    const subjectKey = document.getElementById('subject').value;
+    const subjectText = subjectMap[subjectKey] || 'Contact';
+    const messageBody = document.getElementById('message').value.trim();
+    const subject = encodeURIComponent('[River Remedy] ' + subjectText);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + fromEmail + '\n\n' +
+      messageBody
+    );
+    const mailto = 'mailto:katerina.bischel@gmail.com?subject=' + subject + '&body=' + body;
+    window.location.href = mailto;
+    document.getElementById('form-success').style.display = 'flex';
+  });
 </script>
 </body>
 </html>

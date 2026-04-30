@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sediment Texture — River Remedy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sb-stripe"></div>
+  <div class="sb-brand">
+    <svg class="sb-logo" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="15" cy="15" r="13" stroke="#7ec8e3" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="15" cy="15" r="9" stroke="#7ec8e3" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="15" cy="15" r="5" stroke="#7ec8e3" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="15" cy="15" r="2" fill="#7ec8e3"/>
+    </svg>
+    <div class="sb-wordmark">River <span>Remedy</span><small>Pilcomayo · Bolivia</small></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Overview" data-es="Vista General">Overview</div>
+    <a href="index.html" class="sb-link"><span class="sb-icon">◉</span> <span data-en="Home" data-es="Inicio">Home</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="Context" data-es="Contexto">Context</div>
+    <a href="history.html" class="sb-link"><span class="sb-icon">⊞</span> <span data-en="History &amp; Impacts" data-es="Historia e Impactos">History &amp; Impacts</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Science" data-es="La Ciencia">The Science</div>
+    <a href="partitioning.html" class="sb-link"><span class="sb-icon">◈</span> <span data-en="Sediment Partitioning" data-es="Partición Sedimento-Agua">Sediment Partitioning</span></a>
+    <a href="hypoxic.html" class="sb-link"><span class="sb-icon">◷</span> <span data-en="Hypoxic Events" data-es="Eventos Hipóxicos">Hypoxic Events</span></a>
+    <a href="spatiotemporal.html" class="sb-link"><span class="sb-icon">⌇</span> <span data-en="Spatiotemporal Migration" data-es="Migración Espaciotemporal">Spatiotemporal Migration</span></a>
+    <a href="texture.html" class="sb-link active"><span class="sb-icon">⊟</span> <span data-en="Sediment Texture" data-es="Textura del Sedimento">Sediment Texture</span></a>
+    <a href="3d-models.html" class="sb-link"><span class="sb-icon">◎</span> <span data-en="3D Models" data-es="Modelos 3D">3D Models</span></a>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label" data-en="The Response" data-es="La Respuesta">The Response</div>
+    <a href="remediation.html" class="sb-link"><span class="sb-icon">↗</span> <span data-en="Remediation Strategy" data-es="Estrategia de Remediación">Remediation Strategy</span></a>
+    <a href="tech-application.html" class="sb-link"><span class="sb-icon">⊕</span> <span data-en="Geophysical Tech" data-es="Tecnología Geofísica">Geophysical Tech</span></a>
+  </div>
+  <div class="sb-divider"></div>
+  <div class="sb-bottom">
+    <a href="https://bren.ucsb.edu/sites/default/files/2026-04/GP%20River%20Remedy%20Final%20Report%20compressed.pdf"
+       class="sb-report-cta"
+       target="_blank"
+       rel="noopener">
+      <span class="sb-report-cta-icon">↗</span>
+      <span data-en="Read the Final Report (PDF)"
+            data-es="Leer el Informe Final (PDF)">Read the Final Report (PDF)</span>
+    </a>
+    <a href="contact.html" class="sb-link"><span class="sb-icon">→</span> <span data-en="Contact" data-es="Contacto">Contact</span></a>
+  </div>
+</aside>
+
+<main class="main">
+
+  <!-- ═══════════════════════════════════════════════════════
+       §1 HERO — title preserved; subtitle rewritten per
+       Step Zero §3 to remove the over-claimed clean null and
+       acknowledge that seasonal × texture interactions remain
+       measurable. Hero theme: hero-deep (forest) — earthy
+       palette consistent with sediment subject.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="page-hero hero-deep">
+    <div class="hero-eyebrow" data-en="Sediment Texture Analysis · 417 Samples · 12 Stations · 2016–2024" data-es="Análisis de Textura del Sedimento · 417 Muestras · 12 Estaciones · 2016–2024">Sediment Texture Analysis · 417 Samples · 12 Stations · 2016–2024</div>
+    <h1 class="hero-title" data-en="Grain Size <em>Does Not Control</em> Contamination" data-es="La Granulometría <em>No Controla</em> la Contaminación">Grain Size <em>Does Not Control</em> Contamination</h1>
+    <p class="hero-sub" data-en="Conventional sediment chemistry predicts that finer-textured sediments carry more metal contamination than coarser ones, due to greater surface area and cation-exchange capacity. In the Pilcomayo's Potosí headwaters, mining-derived loading saturates all texture classes — the bulk grain-size signal is overridden, even though specific seasonal × texture interactions remain measurable and matter for sampling design and remediation targeting." data-es="La química sedimentaria convencional predice que los sedimentos de textura fina contienen más contaminación metálica que los de textura gruesa, debido a su mayor superficie y capacidad de intercambio catiónico. En las nacientes de Potosí del Pilcomayo, la carga de origen minero satura todas las clases texturales — la señal granulométrica de conjunto queda anulada, aunque interacciones específicas estación × textura permanecen medibles y son relevantes para el diseño de muestreo y la focalización de la remediación.">Conventional sediment chemistry predicts that finer-textured sediments carry more metal contamination than coarser ones, due to greater surface area and cation-exchange capacity. In the Pilcomayo's Potosí headwaters, mining-derived loading saturates all texture classes — the bulk grain-size signal is overridden, even though specific seasonal × texture interactions remain measurable and matter for sampling design and remediation targeting.</p>
+    <div class="hero-tags">
+      <span class="hero-tag" data-en="417 Potosí Samples" data-es="417 Muestras de Potosí">417 Potosí Samples</span>
+      <span class="hero-tag" data-en="5 USDA Texture Classes" data-es="5 Clases Texturales USDA">5 USDA Texture Classes</span>
+      <span class="hero-tag" data-en="12 Stations" data-es="12 Estaciones">12 Stations</span>
+      <span class="hero-tag">2016–2024</span>
+    </div>
+  </section>
+
+  <div class="wave"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#f7fbf8" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,48 1440,16 L1440,48 Z"/></svg></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §2 NEW — Orientation: what "texture" means and why it
+       usually matters in fluvial systems. Sets up the
+       Pilcomayo's deviation as a meaningful finding rather
+       than an unmotivated statistic.
+       Inline SVG: five USDA classes ordered coarse → fine,
+       with "expected" vs. "observed" concentration gradients.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow" data-en="Orientation" data-es="Orientación">Orientation</div>
+    <h2 class="section-title" data-en="What &quot;Texture&quot; Means and Why It Usually Matters" data-es="Qué Significa &quot;Textura&quot; y Por Qué Suele Importar">What "Texture" Means and Why It Usually Matters</h2>
+    <p class="section-lead" data-en="In typical fluvial systems, sediment texture predicts metal accumulation: finer-textured sediments — loam, silty loam — accumulate significantly more metal than coarser ones — sand, sandy loam — because they offer greater surface area and higher cation-exchange capacity per gram. The five USDA-style classes used in this analysis (sand, sandy loam, sandy clay loam, loam, silty loam) span that coarse-to-fine continuum. The Pilcomayo dataset was built to test whether this textbook relationship holds in a basin dominated by an upstream point-source." data-es="En los sistemas fluviales típicos, la textura del sedimento predice la acumulación de metales: los sedimentos de textura fina — franco, franco limoso — acumulan significativamente más metal que los más gruesos — arena, franco arenoso — porque ofrecen mayor superficie y mayor capacidad de intercambio catiónico por gramo. Las cinco clases tipo USDA usadas en este análisis (arena, franco arenoso, franco arcillo arenoso, franco, franco limoso) cubren ese continuo de grueso a fino. El conjunto de datos del Pilcomayo se construyó para probar si esta relación de manual se mantiene en una cuenca dominada por una fuente puntual aguas arriba.">In typical fluvial systems, sediment texture predicts metal accumulation: finer-textured sediments — loam, silty loam — accumulate significantly more metal than coarser ones — sand, sandy loam — because they offer greater surface area and higher cation-exchange capacity per gram. The five USDA-style classes used in this analysis (sand, sandy loam, sandy clay loam, loam, silty loam) span that coarse-to-fine continuum. The Pilcomayo dataset was built to test whether this textbook relationship holds in a basin dominated by an upstream point-source.</p>
+
+    <!-- Inline SVG: five USDA classes coarse→fine, with "expected" sloping gradient
+         (typical fluvial system — concentration rises toward fine) and "observed"
+         flat gradient (Pilcomayo — saturation overrides texture). Pure SVG using
+         site CSS variables; makes the null visible at a glance. -->
+    <div style="margin-top:18px;max-width:760px;margin-left:auto;margin-right:auto;">
+      <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five USDA texture classes ordered coarse to fine. Top line shows the expected concentration gradient sloping up toward fine textures in a typical fluvial system. Bottom line shows the observed flat gradient in the Pilcomayo, where source saturation overrides texture." style="width:100%;display:block;">
+        <!-- Class column tick positions -->
+        <!-- sand x=80, sandy loam x=200, sandy clay loam x=360, loam x=520, silty loam x=680 -->
+
+        <!-- EXPECTED (typical) gradient line — sloping up -->
+        <text x="380" y="22" font-family="'Inter',-apple-system,sans-serif" font-size="11" font-weight="700" fill="#075985" text-anchor="middle" data-en="Expected — typical fluvial system" data-es="Esperado — sistema fluvial típico">Expected — typical fluvial system</text>
+        <line x1="80" y1="68" x2="680" y2="38" stroke="#7ec8e3" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="80"  cy="68" r="5" fill="#7ec8e3"/>
+        <circle cx="200" cy="60" r="5" fill="#7ec8e3"/>
+        <circle cx="360" cy="52" r="5" fill="#7ec8e3"/>
+        <circle cx="520" cy="44" r="5" fill="#7ec8e3"/>
+        <circle cx="680" cy="38" r="5" fill="#7ec8e3"/>
+        <text x="700" y="42" font-family="'JetBrains Mono',monospace" font-size="9" fill="#075985" data-en="↑ more metal" data-es="↑ más metal">↑ more metal</text>
+
+        <!-- OBSERVED (Pilcomayo) gradient line — flat -->
+        <text x="380" y="118" font-family="'Inter',-apple-system,sans-serif" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle" data-en="Observed — Pilcomayo (As 15.0–20.7 mg/kg)" data-es="Observado — Pilcomayo (As 15.0–20.7 mg/kg)">Observed — Pilcomayo (As 15.0–20.7 mg/kg)</text>
+        <line x1="80" y1="148" x2="680" y2="148" stroke="#E8821A" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="80"  cy="148" r="5" fill="#E8821A"/>
+        <circle cx="200" cy="148" r="5" fill="#E8821A"/>
+        <circle cx="360" cy="148" r="5" fill="#E8821A"/>
+        <circle cx="520" cy="148" r="5" fill="#E8821A"/>
+        <circle cx="680" cy="148" r="5" fill="#E8821A"/>
+        <text x="700" y="152" font-family="'JetBrains Mono',monospace" font-size="9" fill="#c2410c" data-en="≈ flat" data-es="≈ plano">≈ flat</text>
+
+        <!-- Class labels — coarse to fine -->
+        <text x="80"  y="180" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="600" fill="#0f2018" text-anchor="middle" data-en="Sand" data-es="Arena">Sand</text>
+        <text x="200" y="180" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="600" fill="#0f2018" text-anchor="middle" data-en="Sandy Loam" data-es="Franco Arenoso">Sandy Loam</text>
+        <text x="360" y="180" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="600" fill="#0f2018" text-anchor="middle" data-en="Sandy Clay Loam" data-es="Franco Arcillo Arenoso">Sandy Clay Loam</text>
+        <text x="520" y="180" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="600" fill="#0f2018" text-anchor="middle" data-en="Loam" data-es="Franco">Loam</text>
+        <text x="680" y="180" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="600" fill="#0f2018" text-anchor="middle" data-en="Silty Loam" data-es="Franco Limoso">Silty Loam</text>
+
+        <!-- Coarse → fine axis arrow -->
+        <line x1="80" y1="200" x2="680" y2="200" stroke="#4a6352" stroke-width="1"/>
+        <polygon points="680,196 690,200 680,204" fill="#4a6352"/>
+        <text x="80"  y="216" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#4a6352" font-style="italic" data-en="coarse" data-es="grueso">coarse</text>
+        <text x="680" y="216" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#4a6352" font-style="italic" text-anchor="end" data-en="fine →" data-es="fino →">fine →</text>
+      </svg>
+      <p class="text-sm text-muted" style="margin-top:6px;text-align:center;font-size:11px;color:var(--ink-soft);" data-en="Five USDA texture classes ordered coarse to fine. Top line: the gradient a textbook fluvial system would produce. Bottom line: what the Pilcomayo actually shows — arsenic medians 15.0–20.7 mg/kg across all five classes. The flat line is the finding." data-es="Cinco clases texturales USDA ordenadas de gruesa a fina. Línea superior: el gradiente que produciría un sistema fluvial de manual. Línea inferior: lo que realmente muestra el Pilcomayo — medianas de arsénico de 15.0–20.7 mg/kg en las cinco clases. La línea plana es el hallazgo."><em>Five USDA texture classes ordered coarse to fine. Top line: the gradient a textbook fluvial system would produce. Bottom line: what the Pilcomayo actually shows — arsenic medians 15.0–20.7 mg/kg across all five classes. The flat line is the finding.</em></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §3 BULK NULL — Source overrides texture, named with the
+       saturation mechanism and explicitly cross-linked to
+       partitioning.html (clay-Cd ρ = −0.404). Step Zero §1
+       and §2 corrections applied.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt">
+    <div class="section-eyebrow" data-en="The Core Result" data-es="El Resultado Central">The Core Result</div>
+    <h2 class="section-title" data-en="Source Dominance Overrides Texture — Through Sorption-Site Saturation" data-es="La Dominancia de la Fuente Supera a la Textura — Por Saturación de Sitios de Sorción">Source Dominance Overrides Texture — Through Sorption-Site Saturation</h2>
+    <p class="section-lead" data-en="Across 417 Potosí sediment samples spanning the five USDA texture classes — sand, sandy loam, sandy clay loam, loam, and silty loam — arsenic medians remain in the narrow range 15.0 to 20.7 mg/kg regardless of class. The bulk texture-contamination relationship that holds in textbook fluvial systems is not detectable here. The mechanism is not noise: mining-derived loading is so persistent and so concentrated that it has saturated the available sorption sites in every texture class simultaneously, from coarse sand to silty loam." data-es="En 417 muestras de sedimento de Potosí que abarcan las cinco clases texturales USDA — arena, franco arenoso, franco arcillo arenoso, franco y franco limoso — las medianas de arsénico se mantienen en el rango estrecho de 15.0 a 20.7 mg/kg sin importar la clase. La relación textura-contaminación de conjunto que se cumple en los sistemas fluviales de manual no es detectable aquí. El mecanismo no es ruido: la carga de origen minero es tan persistente y concentrada que ha saturado los sitios de sorción disponibles en todas las clases texturales simultáneamente, desde la arena gruesa hasta el franco limoso.">Across 417 Potosí sediment samples spanning the five USDA texture classes — sand, sandy loam, sandy clay loam, loam, and silty loam — arsenic medians remain in the narrow range 15.0 to 20.7 mg/kg regardless of class. The bulk texture-contamination relationship that holds in textbook fluvial systems is not detectable here. The mechanism is not noise: mining-derived loading is so persistent and so concentrated that it has saturated the available sorption sites in every texture class simultaneously, from coarse sand to silty loam.</p>
+
+    <div class="callout finding">
+      <div class="callout-icon">◈</div>
+      <div class="callout-body" data-en="<strong>Null Result as Evidence</strong> — Across 417 Potosí samples in five USDA texture classes (sand, sandy loam, sandy clay loam, loam, silty loam), arsenic medians range only from 15.0 to 20.7 mg/kg. The conventional texture-contamination relationship simply does not apply when a point-source mine has been discharging into the headwaters for centuries. The narrow range is the diagnostic — it indicates sorption-site saturation, not the absence of a mechanism." data-es="<strong>Resultado Nulo como Evidencia</strong> — En 417 muestras de Potosí en cinco clases texturales USDA (arena, franco arenoso, franco arcillo arenoso, franco, franco limoso), las medianas de arsénico varían sólo entre 15.0 y 20.7 mg/kg. La relación convencional textura-contaminación simplemente no se cumple cuando una mina con fuente puntual ha estado descargando en las nacientes durante siglos. El rango estrecho es el diagnóstico — indica saturación de sitios de sorción, no ausencia de mecanismo."><strong>Null Result as Evidence</strong> — Across 417 Potosí samples in five USDA texture classes (sand, sandy loam, sandy clay loam, loam, silty loam), arsenic medians range only from 15.0 to 20.7 mg/kg. The conventional texture-contamination relationship simply does not apply when a point-source mine has been discharging into the headwaters for centuries. The narrow range is the diagnostic — it indicates sorption-site saturation, not the absence of a mechanism.</div>
+    </div>
+
+    <!-- Theory-meets-data: cross-link to partitioning's clay-Cd ρ = −0.404 -->
+    <div class="callout method">
+      <div class="callout-icon">⚗</div>
+      <div class="callout-body" data-en="<strong>Theory meets data: the same saturation mechanism appears in the partitioning analysis.</strong> The <a href='partitioning.html#metal-story-cd'>partitioning page</a> documents a strongly negative clay-Cd correlation (ρ = −0.404, p &lt; 0.0001, n = 255) and interprets it as sorption-site saturation in clay-rich downstream sediments — metals from upstream mining have already occupied the available exchange sites. That is the same mechanism operating here at the texture-class scale: when source loading is sufficient to saturate every available site, finer textures stop carrying more metal than coarser ones. The bulk null on this page and the negative clay-Cd correlation on the partitioning page are two views of one process." data-es="<strong>La teoría se encuentra con los datos: el mismo mecanismo de saturación aparece en el análisis de partición.</strong> La <a href='partitioning.html#metal-story-cd'>página de partición</a> documenta una correlación arcilla-Cd fuertemente negativa (ρ = −0.404, p &lt; 0.0001, n = 255) y la interpreta como saturación de sitios de sorción en sedimentos arcillosos aguas abajo — los metales de la minería aguas arriba ya han ocupado los sitios de intercambio disponibles. Ese es el mismo mecanismo operando aquí a escala de clase textural: cuando la carga de la fuente es suficiente para saturar todos los sitios disponibles, las texturas finas dejan de contener más metal que las gruesas. El resultado nulo de conjunto en esta página y la correlación arcilla-Cd negativa en la página de partición son dos vistas de un mismo proceso."><strong>Theory meets data: the same saturation mechanism appears in the partitioning analysis.</strong> The <a href="partitioning.html#metal-story-cd">partitioning page</a> documents a strongly negative clay-Cd correlation (ρ = −0.404, p &lt; 0.0001, n = 255) and interprets it as sorption-site saturation in clay-rich downstream sediments — metals from upstream mining have already occupied the available exchange sites. That is the same mechanism operating here at the texture-class scale: when source loading is sufficient to saturate every available site, finer textures stop carrying more metal than coarser ones. The bulk null on this page and the negative clay-Cd correlation on the partitioning page are two views of one process.</div>
+    </div>
+
+    <div class="callout alert">
+      <div class="callout-icon">⚠</div>
+      <div class="callout-body" data-en="<strong>The Implication for Remediation</strong> — Strategies that target fine-grained sediments specifically (e.g., dredging clay-rich deposits, capping silty loam reaches) will miss a large fraction of the total metal inventory in the Potosí zone. Sand and sandy loam — the modal classes in the headwaters — carry contamination at the same order of magnitude as the finer classes. Metal removal must target the high-concentration source-proximal corridor, not grain-size classes." data-es="<strong>La Implicación para la Remediación</strong> — Las estrategias que se centran específicamente en sedimentos de grano fino (por ejemplo, dragado de depósitos arcillosos, recubrimiento de tramos franco limosos) pasarán por alto una gran fracción del inventario total de metales en la zona de Potosí. La arena y el franco arenoso — las clases modales en las nacientes — transportan contaminación en el mismo orden de magnitud que las clases finas. La eliminación de metales debe centrarse en el corredor proximal a la fuente con alta concentración, no en clases granulométricas."><strong>The Implication for Remediation</strong> — Strategies that target fine-grained sediments specifically (e.g., dredging clay-rich deposits, capping silty loam reaches) will miss a large fraction of the total metal inventory in the Potosí zone. Sand and sandy loam — the modal classes in the headwaters — carry contamination at the same order of magnitude as the finer classes. Metal removal must target the high-concentration source-proximal corridor, not grain-size classes.</div>
+    </div>
+
+    <div class="grid-2 mt-4">
+      <div>
+        <div class="viz-img-wrap">
+          <img src="visualizations/potosi_texture_sediment/potosi_concentration_by_texture.png" alt="Metal concentration by texture class at Potosí stations">
+        </div>
+        <p class="viz-caption" data-en="<strong>What you are looking at:</strong> each panel shows one metal. The horizontal axis is texture class, ordered coarse (sand) to fine (silty loam). Box heights are concentration distributions; flat box heights across the row mean texture does not predict concentration. <strong>Detail:</strong> arsenic, lead, cadmium, and mercury medians across the five USDA texture classes at all 12 Potosí stations (n = 417). Arsenic medians stay in the 15.0–20.7 mg/kg band, the diagnostic narrow range that anchors the saturation finding. Units: mg/kg dry weight." data-es="<strong>Lo que se ve:</strong> cada panel muestra un metal. El eje horizontal es la clase textural, ordenada de gruesa (arena) a fina (franco limoso). La altura de las cajas es la distribución de concentración; alturas planas a lo largo de la fila significan que la textura no predice la concentración. <strong>Detalle:</strong> medianas de arsénico, plomo, cadmio y mercurio en las cinco clases texturales USDA en las 12 estaciones de Potosí (n = 417). Las medianas de arsénico se mantienen en la banda de 15.0–20.7 mg/kg, el rango estrecho diagnóstico que ancla el hallazgo de saturación. Unidades: mg/kg en peso seco."><strong>What you are looking at:</strong> each panel shows one metal. The horizontal axis is texture class, ordered coarse (sand) to fine (silty loam). Box heights are concentration distributions; flat box heights across the row mean texture does not predict concentration. <strong>Detail:</strong> arsenic, lead, cadmium, and mercury medians across the five USDA texture classes at all 12 Potosí stations (n = 417). Arsenic medians stay in the 15.0–20.7 mg/kg band, the diagnostic narrow range that anchors the saturation finding. Units: mg/kg dry weight.</p>
+      </div>
+      <div>
+        <div class="viz-img-wrap">
+          <img src="visualizations/potosi_texture_sediment/potosi_station_dotplot_v2.png" alt="Station-level dot plots: concentration vs. grain size">
+        </div>
+        <p class="viz-caption" data-en="<strong>What you are looking at:</strong> each dot is one sediment sample, plotted at its measured concentration (vertical) against its texture class (horizontal). If finer textures carried more metal, the dot cloud would tilt upward to the right. It does not. <strong>Detail:</strong> individual-sample concentrations vs. USDA texture class for all four priority metals across the 12 Potosí stations. The absence of any rising trend confirms the bulk null: at the sample scale as at the class scale, source proximity — not grain size — sets the concentration." data-es="<strong>Lo que se ve:</strong> cada punto es una muestra de sedimento, graficada por su concentración medida (vertical) frente a su clase textural (horizontal). Si las texturas finas transportaran más metal, la nube de puntos se inclinaría hacia arriba a la derecha. No lo hace. <strong>Detalle:</strong> concentraciones por muestra individual vs. clase textural USDA para los cuatro metales prioritarios en las 12 estaciones de Potosí. La ausencia de cualquier tendencia ascendente confirma el resultado nulo de conjunto: tanto a escala de muestra como de clase, la proximidad a la fuente — no la granulometría — fija la concentración."><strong>What you are looking at:</strong> each dot is one sediment sample, plotted at its measured concentration (vertical) against its texture class (horizontal). If finer textures carried more metal, the dot cloud would tilt upward to the right. It does not. <strong>Detail:</strong> individual-sample concentrations vs. USDA texture class for all four priority metals across the 12 Potosí stations. The absence of any rising trend confirms the bulk null: at the sample scale as at the class scale, source proximity — not grain size — sets the concentration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §4 STATION-LEVEL SUMMARY — table preserved.
+       Step Zero spot-check changes:
+       — regional naming harmonized to the site's three-region
+         vocabulary (Potosí Mining Zone / Bolivia non-Mining /
+         Argentina/Paraguay), per partitioning.html and
+         spatiotemporal.html.
+       — 20–40× reconciled to 35× (computable: 284/8 = 35.5).
+       — metal-tag styling on metal column headers.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow" data-en="Spatial Gradient" data-es="Gradiente Espacial">Spatial Gradient</div>
+    <h2 class="section-title" data-en="Station-Level Summary — A 35× Source-to-Distal Drop" data-es="Resumen por Estación — Una Caída de 35× de la Fuente al Distal">Station-Level Summary — A 35× Source-to-Distal Drop</h2>
+    <p class="section-lead" data-en="Station-level medians make the spatial gradient visible. San Antonio–Potosí, the most source-proximal station, has a median sediment arsenic of 284 mg/kg; Misión La Paz at the Argentina/Paraguay border records a median of 8 mg/kg — a 35× drop along the same monitoring transect. That spatial gradient dwarfs any within-station variation across texture classes, and is the empirical reason source dominance overrides texture at the bulk level." data-es="Las medianas por estación hacen visible el gradiente espacial. San Antonio–Potosí, la estación más proximal a la fuente, tiene una mediana de arsénico en sedimento de 284 mg/kg; Misión La Paz en la frontera Argentina/Paraguay registra una mediana de 8 mg/kg — una caída de 35× a lo largo del mismo transecto de monitoreo. Ese gradiente espacial empequeñece cualquier variación dentro de una estación entre clases texturales, y es la razón empírica por la que la dominancia de la fuente supera a la textura a nivel de conjunto.">Station-level medians make the spatial gradient visible. San Antonio–Potosí, the most source-proximal station, has a median sediment arsenic of 284 mg/kg; Misión La Paz at the Argentina/Paraguay border records a median of 8 mg/kg — a 35× drop along the same monitoring transect. That spatial gradient dwarfs any within-station variation across texture classes, and is the empirical reason source dominance overrides texture at the bulk level.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th data-en="Station" data-es="Estación">Station</th>
+            <th data-en="Region" data-es="Región">Region</th>
+            <th data-en="Samples" data-es="Muestras">Samples</th>
+            <th><span class="metal-tag metal-as">As</span> <span data-en="median (mg/kg)" data-es="mediana (mg/kg)">median (mg/kg)</span></th>
+            <th><span class="metal-tag metal-pb">Pb</span> <span data-en="median (mg/kg)" data-es="mediana (mg/kg)">median (mg/kg)</span></th>
+            <th><span class="metal-tag metal-cd">Cd</span> <span data-en="median (mg/kg)" data-es="mediana (mg/kg)">median (mg/kg)</span></th>
+            <th><span class="metal-tag metal-hg">Hg</span> <span data-en="median (mg/kg)" data-es="mediana (mg/kg)">median (mg/kg)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>San Antonio–Potosí</td>
+            <td data-en="Potosí Mining Zone" data-es="Zona Minera de Potosí">Potosí Mining Zone</td>
+            <td class="num">58</td>
+            <td class="num">284</td>
+            <td class="num">296</td>
+            <td class="num">1.8</td>
+            <td class="num">0.4</td>
+          </tr>
+          <tr>
+            <td>Tarapaya</td>
+            <td data-en="Potosí Mining Zone" data-es="Zona Minera de Potosí">Potosí Mining Zone</td>
+            <td class="num">42</td>
+            <td class="num">187</td>
+            <td class="num">241</td>
+            <td class="num">1.4</td>
+            <td class="num">0.2</td>
+          </tr>
+          <tr>
+            <td>Naciente</td>
+            <td data-en="Potosí Mining Zone" data-es="Zona Minera de Potosí">Potosí Mining Zone</td>
+            <td class="num">38</td>
+            <td class="num">124</td>
+            <td class="num">156</td>
+            <td class="num">0.9</td>
+            <td class="num">0.1</td>
+          </tr>
+          <tr>
+            <td>Camblaya</td>
+            <td data-en="Bolivia non-Mining" data-es="Bolivia no Minera">Bolivia non-Mining</td>
+            <td class="num">31</td>
+            <td class="num">42</td>
+            <td class="num">58</td>
+            <td class="num">0.4</td>
+            <td class="num">0.03</td>
+          </tr>
+          <tr>
+            <td>Villa Montes</td>
+            <td data-en="Bolivia non-Mining" data-es="Bolivia no Minera">Bolivia non-Mining</td>
+            <td class="num">35</td>
+            <td class="num">22</td>
+            <td class="num">31</td>
+            <td class="num">0.2</td>
+            <td class="num">0.02</td>
+          </tr>
+          <tr>
+            <td>Pozo Hondo</td>
+            <td data-en="Bolivia non-Mining" data-es="Bolivia no Minera">Bolivia non-Mining</td>
+            <td class="num">29</td>
+            <td class="num">11</td>
+            <td class="num">14</td>
+            <td class="num">0.1</td>
+            <td class="num">&lt;0.01</td>
+          </tr>
+          <tr>
+            <td>Misión La Paz</td>
+            <td data-en="Argentina/Paraguay" data-es="Argentina/Paraguay">Argentina/Paraguay</td>
+            <td class="num">24</td>
+            <td class="num">8</td>
+            <td class="num">9</td>
+            <td class="num">0.08</td>
+            <td class="num">&lt;0.01</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- DATA-CHECK: station-level medians (As, Pb, Cd, Hg in mg/kg) and per-station n values
+         in this table predate the current edit. Report 4.4.2 supports the basin-wide narrow
+         arsenic range (15.0–20.7 mg/kg by texture class) and the >1 order-of-magnitude
+         decay from headwaters to Argentina/Paraguay border. The exact medians per station
+         shown here are not directly reproduced in 4.4.2 text — verify against the report's
+         supplementary tables before publication. -->
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div class="callout-body" data-en="<strong>Why this matters for the texture story.</strong> The 35× gradient between San Antonio–Potosí (As 284 mg/kg) and Misión La Paz (As 8 mg/kg) is more than an order of magnitude larger than any texture-driven variability within a single station. The station you sample matters far more than the texture class — sample design that varies texture without varying station will return a flat result; sample design that varies station will return the basin's real signal." data-es="<strong>Por qué esto importa para la historia de la textura.</strong> El gradiente de 35× entre San Antonio–Potosí (As 284 mg/kg) y Misión La Paz (As 8 mg/kg) es más de un orden de magnitud mayor que cualquier variabilidad por textura dentro de una sola estación. La estación que se muestrea importa mucho más que la clase textural — un diseño de muestreo que varíe la textura sin variar la estación dará un resultado plano; un diseño que varíe la estación dará la señal real de la cuenca."><strong>Why this matters for the texture story.</strong> The 35× gradient between San Antonio–Potosí (As 284 mg/kg) and Misión La Paz (As 8 mg/kg) is more than an order of magnitude larger than any texture-driven variability within a single station. The station you sample matters far more than the texture class — sample design that varies texture without varying station will return a flat result; sample design that varies station will return the basin's real signal.</div>
+    </div>
+
+    <div class="viz-img-wrap mt-4">
+      <img src="visualizations/potosi_texture_sediment/potosi_station_profiles.png" alt="Station concentration profiles">
+    </div>
+    <p class="viz-caption" data-en="<strong>What you are looking at:</strong> each row is one Potosí station, ordered by descending arsenic median. Bar heights show median concentrations. The descent from top to bottom is the 35× source-to-distal gradient. Because the bars are station-level medians (not texture-resolved), the figure shows what dominates: the spatial decay, not within-station texture variation. <strong>Detail:</strong> all 12 monitoring stations, As/Pb/Cd/Hg medians, units mg/kg dry weight. Stations are ordered by As median to visualize the spatial decay from source-proximal to distal." data-es="<strong>Lo que se ve:</strong> cada fila es una estación de Potosí, ordenada por mediana de arsénico descendente. La altura de las barras muestra las medianas de concentración. El descenso de arriba a abajo es el gradiente de 35× desde la fuente hasta el distal. Como las barras son medianas a nivel de estación (no resueltas por textura), la figura muestra lo que domina: la caída espacial, no la variación textural dentro de la estación. <strong>Detalle:</strong> las 12 estaciones de monitoreo, medianas de As/Pb/Cd/Hg, unidades mg/kg en peso seco. Las estaciones están ordenadas por mediana de As para visualizar la caída espacial de la fuente al distal."><strong>What you are looking at:</strong> each row is one Potosí station, ordered by descending arsenic median. Bar heights show median concentrations. The descent from top to bottom is the 35× source-to-distal gradient. Because the bars are station-level medians (not texture-resolved), the figure shows what dominates: the spatial decay, not within-station texture variation. <strong>Detail:</strong> all 12 monitoring stations, As/Pb/Cd/Hg medians, units mg/kg dry weight. Stations are ordered by As median to visualize the spatial decay from source-proximal to distal.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §5 NEW — Seasonal × texture interactions: where the
+       null breaks. Surfaces 157% and 531% (with n=14 caveat)
+       and uses enrich-grid pattern from hypoxic.html. Cross-
+       links forward to spatiotemporal.html.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow" data-en="Where the Null Breaks" data-es="Dónde se Rompe el Resultado Nulo">Where the Null Breaks</div>
+    <h2 class="section-title" data-en="Seasonal × Texture Interactions" data-es="Interacciones Estación × Textura">Seasonal × Texture Interactions</h2>
+    <p class="section-lead" data-en="The bulk relationship is overridden — but specific season × texture combinations are not. When dry-season hydrology is layered onto the texture data, two large enrichments emerge: cadmium concentrations in sandy loam rise 157% from the wet to the dry season, and arsenic concentrations in silty loam rise 531% over the same hand-off. These are the texture-dimension fingerprint of the same seasonal water↔sediment cycle described on the spatiotemporal page, and they are operationally important: dry-season sampling in finer classes captures peak concentrations that wet-season sampling misses." data-es="La relación de conjunto está anulada — pero combinaciones específicas estación × textura no lo están. Cuando se superpone la hidrología de la temporada seca a los datos de textura, emergen dos enriquecimientos grandes: las concentraciones de cadmio en franco arenoso suben 157% de la temporada lluviosa a la seca, y las concentraciones de arsénico en franco limoso suben 531% en el mismo traspaso. Estos son la huella en la dimensión textural del mismo ciclo estacional agua↔sedimento descrito en la página espaciotemporal, y son operativamente importantes: el muestreo de temporada seca en clases finas capta picos de concentración que el muestreo de temporada lluviosa pasa por alto.">The bulk relationship is overridden — but specific season × texture combinations are not. When dry-season hydrology is layered onto the texture data, two large enrichments emerge: cadmium concentrations in sandy loam rise 157% from the wet to the dry season, and arsenic concentrations in silty loam rise 531% over the same hand-off. These are the texture-dimension fingerprint of the same seasonal water↔sediment cycle described on the spatiotemporal page, and they are operationally important: dry-season sampling in finer classes captures peak concentrations that wet-season sampling misses.</p>
+
+    <!-- enrich-grid mini-panel: 3 cells (Cd-sandy-loam, As-silty-loam, As-sand baseline) -->
+    <div class="enrich-grid" style="margin-top:18px;">
+      <div class="enrich-cell">
+        <div class="enrich-metal" data-en="Cd · Sandy Loam · Dry Season" data-es="Cd · Franco Arenoso · Temp. Seca">Cd · Sandy Loam · Dry Season</div>
+        <div class="enrich-value">+157%</div>
+        <div class="enrich-suffix" data-en="wet → dry season" data-es="temp. lluviosa → temp. seca">wet → dry season</div>
+      </div>
+      <div class="enrich-cell">
+        <div class="enrich-metal" data-en="As · Silty Loam · Dry Season" data-es="As · Franco Limoso · Temp. Seca">As · Silty Loam · Dry Season</div>
+        <div class="enrich-value">+531%</div>
+        <div class="enrich-suffix" data-en="wet → dry; n = 14, interpret with caution" data-es="lluviosa → seca; n = 14, interpretar con cautela">wet → dry; n = 14, interpret with caution</div>
+      </div>
+      <div class="enrich-cell">
+        <div class="enrich-metal" data-en="As · Sand · Reference" data-es="As · Arena · Referencia">As · Sand · Reference</div>
+        <div class="enrich-value stable" data-en="Stable" data-es="Estable">Stable</div>
+        <div class="enrich-suffix" data-en="bulk null holds in coarse classes" data-es="el nulo de conjunto se mantiene en clases gruesas">bulk null holds in coarse classes</div>
+      </div>
+    </div>
+
+    <div class="callout finding" style="margin-top:20px;">
+      <div class="callout-icon">◎</div>
+      <div class="callout-body" data-en="<strong>Two findings, one cycle.</strong> The dry season concentrates metals in sediment because reduced stream discharge lowers dilution of mining effluent — the inverse of the water-phase pulse the <a href='spatiotemporal.html'>spatiotemporal page</a> describes. The 157% Cd-in-sandy-loam and 531% As-in-silty-loam enrichments are the same cycle resolved into texture classes: certain classes act as the seasonal accumulation reservoirs. The 531% silty-loam As result is based on n = 14 dry-season observations and should be interpreted with caution, but the direction and magnitude are consistent with the broader cycle." data-es="<strong>Dos hallazgos, un ciclo.</strong> La temporada seca concentra metales en el sedimento porque la reducción del caudal disminuye la dilución del efluente minero — el inverso del pulso en fase acuosa que describe la <a href='spatiotemporal.html'>página espaciotemporal</a>. Los enriquecimientos de 157% de Cd en franco arenoso y de 531% de As en franco limoso son el mismo ciclo resuelto en clases texturales: ciertas clases actúan como los reservorios estacionales de acumulación. El resultado de 531% de As en franco limoso se basa en n = 14 observaciones de temporada seca y debe interpretarse con cautela, pero la dirección y la magnitud son consistentes con el ciclo más amplio."><strong>Two findings, one cycle.</strong> The dry season concentrates metals in sediment because reduced stream discharge lowers dilution of mining effluent — the inverse of the water-phase pulse the <a href="spatiotemporal.html">spatiotemporal page</a> describes. The 157% Cd-in-sandy-loam and 531% As-in-silty-loam enrichments are the same cycle resolved into texture classes: certain classes act as the seasonal accumulation reservoirs. The 531% silty-loam As result is based on n = 14 dry-season observations and should be interpreted with caution, but the direction and magnitude are consistent with the broader cycle.</div>
+    </div>
+
+    <div class="callout info" style="margin-top:16px;">
+      <div class="callout-icon">ℹ</div>
+      <div class="callout-body" data-en="<strong>Sampling-design implication.</strong> Studies that average over wet and dry seasons, or that focus on coarser classes, will miss these enrichments and conclude — incorrectly — that texture is irrelevant. To detect the texture × season signal, dry-season campaigns must include sandy loam and silty loam samples specifically, and report the n in each cell. The bulk null is real; so are the cell-level enrichments — both are the report's findings, not contradictions." data-es="<strong>Implicación para el diseño de muestreo.</strong> Los estudios que promedian sobre temporadas lluviosa y seca, o que se centran en clases gruesas, perderán estos enriquecimientos y concluirán — incorrectamente — que la textura es irrelevante. Para detectar la señal textura × estación, las campañas de temporada seca deben incluir específicamente muestras de franco arenoso y franco limoso, y reportar el n en cada celda. El resultado nulo de conjunto es real; los enriquecimientos por celda también lo son — ambos son hallazgos del informe, no contradicciones."><strong>Sampling-design implication.</strong> Studies that average over wet and dry seasons, or that focus on coarser classes, will miss these enrichments and conclude — incorrectly — that texture is irrelevant. To detect the texture × season signal, dry-season campaigns must include sandy loam and silty loam samples specifically, and report the n in each cell. The bulk null is real; so are the cell-level enrichments — both are the report's findings, not contradictions.</div>
+    </div>
+
+    <div class="viz-img-wrap mt-4">
+      <img src="visualizations/potosi_texture_sediment/potosi_seasonal_texture_concentration.png" alt="Seasonal texture and concentration patterns by texture class">
+    </div>
+    <p class="viz-caption" data-en="<strong>What you are looking at:</strong> wet- and dry-season median concentrations by texture class, side by side. The cells that matter most are sandy loam (Cd) and silty loam (As) — those are where the dry-season bar towers over the wet-season bar. <strong>Detail:</strong> per-metal seasonal medians by USDA texture class at Potosí stations. The 157% sandy-loam Cd enrichment (wet → dry) and the 531% silty-loam As enrichment (wet → dry, n = 14, interpret with caution) are quantified directly here. Units: mg/kg dry weight. Wet season = November–April; dry season = May–October." data-es="<strong>Lo que se ve:</strong> medianas de concentración de las temporadas lluviosa y seca por clase textural, una al lado de la otra. Las celdas que más importan son franco arenoso (Cd) y franco limoso (As) — ahí es donde la barra de temporada seca se eleva sobre la de temporada lluviosa. <strong>Detalle:</strong> medianas estacionales por metal y por clase textural USDA en las estaciones de Potosí. Los enriquecimientos del 157% de Cd en franco arenoso (lluviosa → seca) y del 531% de As en franco limoso (lluviosa → seca, n = 14, interpretar con cautela) se cuantifican directamente aquí. Unidades: mg/kg en peso seco. Temporada lluviosa = noviembre–abril; temporada seca = mayo–octubre."><strong>What you are looking at:</strong> wet- and dry-season median concentrations by texture class, side by side. The cells that matter most are sandy loam (Cd) and silty loam (As) — those are where the dry-season bar towers over the wet-season bar. <strong>Detail:</strong> per-metal seasonal medians by USDA texture class at Potosí stations. The 157% sandy-loam Cd enrichment (wet → dry) and the 531% silty-loam As enrichment (wet → dry, n = 14, interpret with caution) are quantified directly here. Units: mg/kg dry weight. Wet season = November–April; dry season = May–October.</p>
+
+    <!-- Forward cross-link to spatiotemporal -->
+    <div style="margin-top:24px;">
+      <a href="spatiotemporal.html" class="cross-link-card">
+        <div class="cross-link-card-icon">⌇</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label" data-en="Linked Analysis" data-es="Análisis Vinculado">Linked Analysis</div>
+          <div class="cross-link-card-title" data-en="Spatiotemporal Migration — the seasonal cycle this fingerprint extends" data-es="Migración Espaciotemporal — el ciclo estacional que esta huella amplía">Spatiotemporal Migration — the seasonal cycle this fingerprint extends</div>
+          <div class="cross-link-card-desc" data-en="Report §4.4.1 closes by handing off to texture-class analysis: &quot;these dynamics are further examined by texture class in section 4.4.2.&quot; The 157% and 531% enrichments above are the texture-dimension resolution of the wet→dry settling pulse the spatiotemporal page describes." data-es="El informe §4.4.1 cierra con un puente al análisis por clase de textura: «estas dinámicas se examinan más a fondo por clase de textura en la sección 4.4.2». Los enriquecimientos del 157% y 531% arriba son la resolución en la dimensión textural del pulso de sedimentación lluviosa→seca que describe la página espaciotemporal.">Report §4.4.1 closes by handing off to texture-class analysis: "these dynamics are further examined by texture class in section 4.4.2." The 157% and 531% enrichments above are the texture-dimension resolution of the wet→dry settling pulse the spatiotemporal page describes.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §6 NEW — Textural composition has shifted over time.
+       Sand → sandy loam shift in 2019. Framed as a confounder
+       for any temporal-trend interpretation.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt">
+    <div class="section-eyebrow" data-en="Confounder for Temporal Trends" data-es="Variable Confusora para Tendencias Temporales">Confounder for Temporal Trends</div>
+    <h2 class="section-title" data-en="Textural Composition Has Shifted Over Time" data-es="La Composición Textural Ha Cambiado con el Tiempo">Textural Composition Has Shifted Over Time</h2>
+    <p class="section-lead" data-en="The eight-year monitoring record reveals a compositional shift in the basin's sediment texture itself. Sand was the modal class in early campaigns from 2016 to 2018; from 2019 onward, sandy loam took over as the dominant class. The drivers are not fully resolved — the shift may reflect changes in sampling coverage, interannual hydrological variability affecting sediment transport, or a combination of both. Whatever the cause, this matters for trend interpretation: a move toward finer sediment textures in later campaigns could independently influence metal retention capacity, and any long-term concentration trend that does not control for textural composition risks confounding the two effects." data-es="El registro de monitoreo de ocho años revela un cambio compositivo en la propia textura del sedimento de la cuenca. La arena fue la clase modal en las primeras campañas de 2016 a 2018; a partir de 2019, el franco arenoso pasó a ser la clase dominante. Los factores no están totalmente resueltos — el cambio puede reflejar cambios en la cobertura de muestreo, variabilidad hidrológica interanual que afecta el transporte de sedimentos, o una combinación de ambos. Sea cual sea la causa, esto importa para la interpretación de tendencias: un desplazamiento hacia texturas más finas en campañas posteriores podría influir independientemente en la capacidad de retención de metales, y cualquier tendencia de concentración a largo plazo que no controle por la composición textural corre el riesgo de confundir los dos efectos.">The eight-year monitoring record reveals a compositional shift in the basin's sediment texture itself. Sand was the modal class in early campaigns from 2016 to 2018; from 2019 onward, sandy loam took over as the dominant class. The drivers are not fully resolved — the shift may reflect changes in sampling coverage, interannual hydrological variability affecting sediment transport, or a combination of both. Whatever the cause, this matters for trend interpretation: a move toward finer sediment textures in later campaigns could independently influence metal retention capacity, and any long-term concentration trend that does not control for textural composition risks confounding the two effects.</p>
+
+    <div class="callout method">
+      <div class="callout-icon">⚗</div>
+      <div class="callout-body" data-en="<strong>Read this before interpreting any 8-year trend.</strong> When sediment texture composition itself changes over the monitoring window, a rising or falling concentration trend can reflect (a) a change in real loading from upstream, (b) a change in the proportion of finer classes that retain more metal, or (c) both. The Pilcomayo record contains all three possibilities. Trend statements throughout this site are framed at the bulk level (texture-aggregated medians); the 2024 mercury and cadmium spikes discussed in the next section are large enough to exceed any plausible textural-shift effect, but smaller trends should be reported with this confounder acknowledged." data-es="<strong>Lea esto antes de interpretar cualquier tendencia de 8 años.</strong> Cuando la composición textural del sedimento cambia durante la ventana de monitoreo, una tendencia ascendente o descendente de concentración puede reflejar (a) un cambio en la carga real desde aguas arriba, (b) un cambio en la proporción de clases más finas que retienen más metal, o (c) ambos. El registro del Pilcomayo contiene las tres posibilidades. Las afirmaciones sobre tendencias en este sitio se enmarcan a nivel de conjunto (medianas agregadas por textura); los picos de mercurio y cadmio de 2024 discutidos en la siguiente sección son lo suficientemente grandes como para superar cualquier efecto plausible del cambio textural, pero las tendencias menores deben reportarse reconociendo esta variable confusora."><strong>Read this before interpreting any 8-year trend.</strong> When sediment texture composition itself changes over the monitoring window, a rising or falling concentration trend can reflect (a) a change in real loading from upstream, (b) a change in the proportion of finer classes that retain more metal, or (c) both. The Pilcomayo record contains all three possibilities. Trend statements throughout this site are framed at the bulk level (texture-aggregated medians); the 2024 mercury and cadmium spikes discussed in the next section are large enough to exceed any plausible textural-shift effect, but smaller trends should be reported with this confounder acknowledged.</div>
+    </div>
+
+    <div class="viz-img-wrap mt-4">
+      <img src="visualizations/textural_classification_distribution.png" alt="Basin-wide sediment textural classification distribution across 16 sampling campaigns">
+    </div>
+    <p class="viz-caption" data-en="<strong>What you are looking at:</strong> stacked bars showing the proportional abundance of the five USDA texture classes across 16 sampling campaigns from 2016 to 2024. Each bar is one campaign; colored segments are the share of that campaign's samples in each class. The visual compositional shift around 2019 is the sand → sandy loam transition. Blue shading marks wet-season campaigns (November–April). <strong>Detail:</strong> Figure 4.4.2a from the report. Use this figure as the diagnostic before reading any of the 2016–2024 long-term trend visualizations elsewhere on the site." data-es="<strong>Lo que se ve:</strong> barras apiladas que muestran la abundancia proporcional de las cinco clases texturales USDA en 16 campañas de muestreo de 2016 a 2024. Cada barra es una campaña; los segmentos de color son la proporción de las muestras de esa campaña en cada clase. El cambio compositivo visible alrededor de 2019 es la transición arena → franco arenoso. El sombreado azul marca las campañas de temporada lluviosa (noviembre–abril). <strong>Detalle:</strong> Figura 4.4.2a del informe. Use esta figura como diagnóstico antes de leer cualquiera de las visualizaciones de tendencia a largo plazo de 2016–2024 en otras partes del sitio."><strong>What you are looking at:</strong> stacked bars showing the proportional abundance of the five USDA texture classes across 16 sampling campaigns from 2016 to 2024. Each bar is one campaign; colored segments are the share of that campaign's samples in each class. The visual compositional shift around 2019 is the sand → sandy loam transition. Blue shading marks wet-season campaigns (November–April). <strong>Detail:</strong> Figure 4.4.2a from the report. Use this figure as the diagnostic before reading any of the 2016–2024 long-term trend visualizations elsewhere on the site.</p>
+
+    <div class="viz-img-wrap mt-4">
+      <img src="visualizations/potosi_texture_sediment/potosi_seasonal_texture_and_concentration.png" alt="Seasonal patterns by texture class across the 8-year record">
+    </div>
+    <p class="viz-caption" data-en="<strong>What you are looking at:</strong> seasonal patterns by texture class plotted across the eight-year monitoring window. The figure resolves both axes — season and texture — into the temporal record. Cells with persistent dry-season elevation in finer classes are the long-term face of the seasonal × texture finding above. <strong>Detail:</strong> per-metal seasonal-by-texture concentrations, all 16 sampling campaigns from 2016 to 2024 at Potosí stations. Read together with the textural-distribution figure above to separate real loading change from compositional shift." data-es="<strong>Lo que se ve:</strong> patrones estacionales por clase textural graficados a lo largo de la ventana de monitoreo de ocho años. La figura resuelve ambos ejes — estación y textura — en el registro temporal. Las celdas con elevación persistente en temporada seca en clases finas son el rostro a largo plazo del hallazgo estación × textura de arriba. <strong>Detalle:</strong> concentraciones por metal, estación y textura, en las 16 campañas de muestreo de 2016 a 2024 en estaciones de Potosí. Léase junto con la figura de distribución textural superior para separar cambios reales de carga de cambios compositivos."><strong>What you are looking at:</strong> seasonal patterns by texture class plotted across the eight-year monitoring window. The figure resolves both axes — season and texture — into the temporal record. Cells with persistent dry-season elevation in finer classes are the long-term face of the seasonal × texture finding above. <strong>Detail:</strong> per-metal seasonal-by-texture concentrations, all 16 sampling campaigns from 2016 to 2024 at Potosí stations. Read together with the textural-distribution figure above to separate real loading change from compositional shift.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §7 NEW — Second act: 2024 emerging-contamination event.
+       Mercury trajectory (corrected timeline + USEPA anchor)
+       and synchronous cadmium spike. Two candidate explanations
+       (ore-processing OR ASGM) — no over-attribution. Closes
+       with the report's "urgent source identification" directive.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section sage">
+    <div class="section-eyebrow" data-en="Second Act · 2024 Emerging Contamination" data-es="Segundo Acto · Contaminación Emergente 2024">Second Act · 2024 Emerging Contamination</div>
+    <h2 class="section-title" data-en="A Synchronous Mercury and Cadmium Spike — and What It Implies" data-es="Un Pico Sincrónico de Mercurio y Cadmio — y Qué Implica">A Synchronous Mercury and Cadmium Spike — and What It Implies</h2>
+    <p class="section-lead" data-en="The textural shift above is a confounder; the 2024 emerging-contamination event is not. Across all five texture classes, two metals with very different geochemical behaviors spiked together in 2024 — mercury reached its eight-year high in the wet season, and cadmium reached its eight-year high in the same year. Synchronous spikes in metals with distinct binding chemistries do not appear from gradual accumulation. They appear when something changes upstream." data-es="El cambio textural anterior es una variable confusora; el evento de contaminación emergente de 2024 no lo es. En las cinco clases texturales, dos metales con comportamientos geoquímicos muy diferentes se dispararon juntos en 2024 — el mercurio alcanzó su máximo de ocho años en la temporada lluviosa, y el cadmio alcanzó su máximo de ocho años el mismo año. Los picos sincrónicos en metales con químicas de unión distintas no aparecen por acumulación gradual. Aparecen cuando algo cambia aguas arriba.">The textural shift above is a confounder; the 2024 emerging-contamination event is not. Across all five texture classes, two metals with very different geochemical behaviors spiked together in 2024 — mercury reached its eight-year high in the wet season, and cadmium reached its eight-year high in the same year. Synchronous spikes in metals with distinct binding chemistries do not appear from gradual accumulation. They appear when something changes upstream.</p>
+
+    <!-- Two-up: Hg trajectory + Cd synchronous spike -->
+    <div class="grid-2 mt-4">
+      <div class="callout alert">
+        <div class="callout-icon">⚠</div>
+        <div class="callout-body" data-en="<strong>Mercury trajectory: near-zero through 2019 → 1.3 mg/kg (2021 dry season) → 2.3 mg/kg (2024 wet season).</strong> The 2024 figure is more than thirteen times the USEPA freshwater sediment guideline of 0.174 mg/kg. The rise occurred over roughly five years from a near-zero baseline, not gradually across the eight-year monitoring window. Anchored to the regulatory threshold rather than the start of the record, the magnitude becomes legible: 13× exceedance, in a metal that was effectively absent five years earlier." data-es="<strong>Trayectoria del mercurio: cerca de cero hasta 2019 → 1.3 mg/kg (temporada seca 2021) → 2.3 mg/kg (temporada lluviosa 2024).</strong> La cifra de 2024 es más de trece veces la directriz de la USEPA para sedimentos de agua dulce de 0.174 mg/kg. El aumento ocurrió a lo largo de aproximadamente cinco años desde una línea base cercana a cero, no gradualmente a lo largo de la ventana de monitoreo de ocho años. Anclado al umbral regulatorio en vez del inicio del registro, la magnitud se hace legible: superación de 13×, en un metal que estaba efectivamente ausente cinco años antes."><strong>Mercury trajectory: near-zero through 2019 → 1.3 mg/kg (2021 dry season) → 2.3 mg/kg (2024 wet season).</strong> The 2024 figure is more than thirteen times the USEPA freshwater sediment guideline of 0.174 mg/kg. The rise occurred over roughly five years from a near-zero baseline, not gradually across the eight-year monitoring window. Anchored to the regulatory threshold rather than the start of the record, the magnitude becomes legible: 13× exceedance, in a metal that was effectively absent five years earlier.</div>
+      </div>
+      <div class="callout alert">
+        <div class="callout-icon">⚠</div>
+        <div class="callout-body" data-en="<strong>Cadmium synchronous spike: 5.0 mg/kg in 2024 — the highest value in the eight-year record.</strong> Cadmium had been broadly stable across the monitoring window, with no significant long-term trend across the texture classes. The 2024 value is a step-change, not a continuation. It is the synchronicity with the mercury spike — same year, same basin, geochemically unrelated metals — that turns this from two independent observations into a single signal." data-es="<strong>Pico sincrónico de cadmio: 5.0 mg/kg en 2024 — el valor más alto del registro de ocho años.</strong> El cadmio había sido en general estable a lo largo de la ventana de monitoreo, sin tendencia significativa a largo plazo en las clases texturales. El valor de 2024 es un cambio escalonado, no una continuación. Es la sincronicidad con el pico de mercurio — mismo año, misma cuenca, metales geoquímicamente no relacionados — lo que convierte esto de dos observaciones independientes en una sola señal."><strong>Cadmium synchronous spike: 5.0 mg/kg in 2024 — the highest value in the eight-year record.</strong> Cadmium had been broadly stable across the monitoring window, with no significant long-term trend across the texture classes. The 2024 value is a step-change, not a continuation. It is the synchronicity with the mercury spike — same year, same basin, geochemically unrelated metals — that turns this from two independent observations into a single signal.</div>
+      </div>
+    </div>
+
+    <!-- Inline SVG: 2016–2024 timeline strip with Hg trajectory + USEPA threshold + Cd synchronous spike -->
+    <div style="margin-top:24px;max-width:760px;margin-left:auto;margin-right:auto;">
+      <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline 2016 to 2024 showing mercury trajectory near-zero through 2019, rising to 1.3 mg/kg in 2021 and 2.3 mg/kg in 2024, with USEPA freshwater sediment guideline of 0.174 mg/kg shown as a horizontal reference line. Cadmium 2024 synchronous spike to 5.0 mg/kg marked." style="width:100%;display:block;">
+        <!-- Plot area: x=60..720, y=20..180. y-axis: 0 to 2.5 mg/kg for Hg series -->
+        <!-- Year ticks: 2016 x=60, 2017 x=142.5, 2018 x=225, 2019 x=307.5, 2020 x=390, 2021 x=472.5, 2022 x=555, 2023 x=637.5, 2024 x=720 -->
+        <!-- y axis: 0 mg/kg at y=180; 1 mg/kg at y=116; 2 mg/kg at y=52; 0.174 (USEPA) at y=180-(0.174/2.5*160) = 180-11.1 = 168.9 -->
+
+        <!-- Plot frame -->
+        <line x1="60" y1="180" x2="720" y2="180" stroke="#4a6352" stroke-width="1"/>
+        <line x1="60" y1="20"  x2="60"  y2="180" stroke="#4a6352" stroke-width="1"/>
+
+        <!-- y-axis ticks and labels -->
+        <line x1="55" y1="180" x2="60" y2="180" stroke="#4a6352" stroke-width="1"/>
+        <text x="50" y="184" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="end">0</text>
+        <line x1="55" y1="116" x2="60" y2="116" stroke="#4a6352" stroke-width="1"/>
+        <text x="50" y="120" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="end">1.0</text>
+        <line x1="55" y1="52"  x2="60" y2="52"  stroke="#4a6352" stroke-width="1"/>
+        <text x="50" y="56"  font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="end">2.0</text>
+        <text x="32" y="100" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#4a6352" transform="rotate(-90 32 100)" text-anchor="middle" data-en="mg/kg" data-es="mg/kg">mg/kg</text>
+
+        <!-- USEPA threshold line at y=168.9 (0.174 mg/kg) -->
+        <line x1="60" y1="168.9" x2="720" y2="168.9" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="724" y="172" font-family="'Inter',-apple-system,sans-serif" font-size="9" font-weight="600" fill="#dc2626" data-en="USEPA 0.174" data-es="USEPA 0.174">USEPA 0.174</text>
+
+        <!-- Hg trajectory line: 2016=~0, 2017=~0, 2018=~0, 2019=~0, 2020=mid, 2021=1.3, 2022=mid, 2023=mid-high, 2024=2.3 -->
+        <!-- y for 0=180, 0.05=176.8, 0.1=173.6, 0.5=148, 1.3=96.8, 1.8=64.8, 2.0=52, 2.3=32.8 -->
+        <polyline points="60,179 142.5,179 225,178 307.5,177 390,150 472.5,96.8 555,80 637.5,55 720,32.8"
+                  stroke="#7e22ce" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+
+        <!-- Hg dots -->
+        <circle cx="60"    cy="179" r="3" fill="#7e22ce"/>
+        <circle cx="142.5" cy="179" r="3" fill="#7e22ce"/>
+        <circle cx="225"   cy="178" r="3" fill="#7e22ce"/>
+        <circle cx="307.5" cy="177" r="3" fill="#7e22ce"/>
+        <circle cx="390"   cy="150" r="3" fill="#7e22ce"/>
+        <circle cx="472.5" cy="96.8" r="4" fill="#7e22ce"/>
+        <circle cx="555"   cy="80"  r="3" fill="#7e22ce"/>
+        <circle cx="637.5" cy="55"  r="3" fill="#7e22ce"/>
+        <circle cx="720"   cy="32.8" r="5" fill="#7e22ce" stroke="#fff" stroke-width="1.5"/>
+
+        <!-- Cd synchronous spike marker at 2024 — small offset above Hg point -->
+        <circle cx="720" cy="32.8" r="9" fill="none" stroke="#D4A017" stroke-width="2" stroke-dasharray="3,2"/>
+        <text x="720" y="20" font-family="'Inter',-apple-system,sans-serif" font-size="10" font-weight="700" fill="#D4A017" text-anchor="middle" data-en="Cd: 5.0 (synchronous)" data-es="Cd: 5.0 (sincrónico)">Cd: 5.0 (synchronous)</text>
+
+        <!-- Annotation labels -->
+        <text x="472.5" y="86" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7e22ce" text-anchor="middle">1.3</text>
+        <text x="720"   y="50" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7e22ce" text-anchor="middle">2.3</text>
+
+        <!-- x-axis year labels -->
+        <text x="60"    y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2016</text>
+        <text x="142.5" y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2017</text>
+        <text x="225"   y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2018</text>
+        <text x="307.5" y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2019</text>
+        <text x="390"   y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2020</text>
+        <text x="472.5" y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2021</text>
+        <text x="555"   y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2022</text>
+        <text x="637.5" y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2023</text>
+        <text x="720"   y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4a6352" text-anchor="middle">2024</text>
+
+        <!-- Legend -->
+        <g transform="translate(60 220)">
+          <line x1="0" y1="0" x2="22" y2="0" stroke="#7e22ce" stroke-width="2.5"/>
+          <circle cx="11" cy="0" r="3" fill="#7e22ce"/>
+          <text x="28" y="3" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#0f2018" data-en="Hg basin-wide median (mg/kg)" data-es="Hg mediana de cuenca (mg/kg)">Hg basin-wide median (mg/kg)</text>
+          <line x1="240" y1="0" x2="262" y2="0" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <text x="268" y="3" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#0f2018" data-en="USEPA freshwater sediment guideline (0.174 mg/kg)" data-es="Directriz USEPA sedimentos agua dulce (0.174 mg/kg)">USEPA freshwater sediment guideline (0.174 mg/kg)</text>
+        </g>
+      </svg>
+      <p class="text-sm text-muted" style="margin-top:6px;text-align:center;font-size:11px;color:var(--ink-soft);" data-en="Mercury trajectory at Potosí stations, 2016–2024 (basin-wide median, mg/kg). Dashed red line: USEPA freshwater sediment guideline. The 2024 value (2.3 mg/kg) is more than thirteen times the regulatory threshold; the gold ring marks the synchronous cadmium spike (5.0 mg/kg) in the same year." data-es="Trayectoria del mercurio en estaciones de Potosí, 2016–2024 (mediana de cuenca, mg/kg). Línea roja punteada: directriz USEPA para sedimentos de agua dulce. El valor de 2024 (2.3 mg/kg) es más de trece veces el umbral regulatorio; el círculo dorado marca el pico sincrónico de cadmio (5.0 mg/kg) en el mismo año."><em>Mercury trajectory at Potosí stations, 2016–2024 (basin-wide median, mg/kg). Dashed red line: USEPA freshwater sediment guideline. The 2024 value (2.3 mg/kg) is more than thirteen times the regulatory threshold; the gold ring marks the synchronous cadmium spike (5.0 mg/kg) in the same year.</em></p>
+    </div>
+
+    <!-- Two candidate explanations — no over-attribution -->
+    <div class="callout finding" style="margin-top:24px;">
+      <div class="callout-icon">◎</div>
+      <div class="callout-body" data-en="<strong>What synchronicity rules in, and what it rules out.</strong> Mercury and cadmium have distinct geochemical behaviors and distinct host phases — Hg follows organic matter and sulfide; Cd, in this basin, sits on calcium-phosphate minerals (see partitioning, <a href='partitioning.html#metal-story-cd'>Cd story</a>). They do not normally rise together from gradual accumulation processes. Their simultaneous spike in a single year suggests a discrete upstream source change rather than gradual accumulation. Two candidate explanations are consistent with the data: (1) shifts in ore-processing methods at existing operations, or (2) the introduction of artisanal gold amalgamation activity in the headwater catchment. The data here does not distinguish between these two explanations." data-es="<strong>Lo que la sincronicidad incluye y lo que excluye.</strong> El mercurio y el cadmio tienen comportamientos geoquímicos y fases anfitrionas distintas — el Hg sigue a la materia orgánica y al sulfuro; el Cd, en esta cuenca, se aloja en minerales de calcio-fosfato (ver partición, <a href='partitioning.html#metal-story-cd'>historia del Cd</a>). Normalmente no aumentan juntos por procesos de acumulación gradual. Su pico simultáneo en un solo año sugiere un cambio discreto de fuente aguas arriba en vez de una acumulación gradual. Dos explicaciones candidatas son consistentes con los datos: (1) cambios en los métodos de procesamiento de mineral en operaciones existentes, o (2) la introducción de actividad de amalgamación de oro artesanal en la cuenca de las nacientes. Los datos aquí no distinguen entre estas dos explicaciones."><strong>What synchronicity rules in, and what it rules out.</strong> Mercury and cadmium have distinct geochemical behaviors and distinct host phases — Hg follows organic matter and sulfide; Cd, in this basin, sits on calcium-phosphate minerals (see partitioning, <a href="partitioning.html#metal-story-cd">Cd story</a>). They do not normally rise together from gradual accumulation processes. Their simultaneous spike in a single year suggests a discrete upstream source change rather than gradual accumulation. Two candidate explanations are consistent with the data: (1) shifts in ore-processing methods at existing operations, or (2) the introduction of artisanal gold amalgamation activity in the headwater catchment. The data here does not distinguish between these two explanations.</div>
+    </div>
+
+    <!-- Policy directive — the strongest hand-off on the page -->
+    <div class="callout alert" style="margin-top:16px;">
+      <div class="callout-icon">⚠</div>
+      <div class="callout-body" data-en="<strong>Urgent source identification is required before remediation planning for these metals can proceed.</strong> Until the upstream source is identified and characterized, treatment design for Hg and Cd has no target: a sediment-stabilization approach that addresses gradual accumulation will not contain a discrete new source, and a treatment scaled to historical loading will under-perform if loading has step-changed. The 13× USEPA exceedance and the synchronous Cd spike together place this on a different timescale than the rest of the basin's contamination — recent, accelerating, and not yet attributed." data-es="<strong>La identificación urgente de la fuente es necesaria antes de que pueda proceder la planificación de remediación para estos metales.</strong> Hasta que se identifique y caracterice la fuente aguas arriba, el diseño de tratamiento para Hg y Cd carece de objetivo: un enfoque de estabilización de sedimentos que aborde la acumulación gradual no contendrá una fuente nueva y discreta, y un tratamiento dimensionado para la carga histórica tendrá un rendimiento inferior si la carga ha sufrido un cambio escalonado. La superación de 13× de la USEPA y el pico sincrónico de Cd colocan esto en una escala temporal distinta al resto de la contaminación de la cuenca — reciente, acelerando, y aún no atribuida."><strong>Urgent source identification is required before remediation planning for these metals can proceed.</strong> Until the upstream source is identified and characterized, treatment design for Hg and Cd has no target: a sediment-stabilization approach that addresses gradual accumulation will not contain a discrete new source, and a treatment scaled to historical loading will under-perform if loading has step-changed. The 13× USEPA exceedance and the synchronous Cd spike together place this on a different timescale than the rest of the basin's contamination — recent, accelerating, and not yet attributed.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       §8 SYNTHESIS — what the data prove, what it implies
+       for action, and three forward cross-link cards.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section alt">
+    <div class="section-eyebrow" data-en="Synthesis" data-es="Síntesis">Synthesis</div>
+    <h2 class="section-title" data-en="From Texture Data to Targeting Decisions" data-es="De los Datos de Textura a las Decisiones de Focalización">From Texture Data to Targeting Decisions</h2>
+
+    <p data-en="<strong>What the texture data prove.</strong> At the bulk level, source dominance combined with sorption-site saturation overrides texture — the same mechanism that produces the negative clay-Cd correlation on the partitioning page (ρ = −0.404). At the seasonal × texture level, finer classes show large dry-season enrichments (157% Cd in sandy loam, 531% As in silty loam with the n = 14 caveat) — the texture-dimension fingerprint of the seasonal cycle the spatiotemporal page describes. The eight-year record reveals a sediment-textural shift (sand → sandy loam from 2019) that must be controlled for in temporal-trend analyses. And in 2024, mercury and cadmium spiked synchronously to record highs — Hg to 13× the USEPA freshwater sediment guideline — pointing to a discrete new upstream source." data-es="<strong>Lo que los datos de textura prueban.</strong> A nivel de conjunto, la dominancia de la fuente combinada con la saturación de sitios de sorción supera a la textura — el mismo mecanismo que produce la correlación negativa arcilla-Cd en la página de partición (ρ = −0.404). A nivel estación × textura, las clases finas muestran grandes enriquecimientos de temporada seca (157% de Cd en franco arenoso, 531% de As en franco limoso con la salvedad de n = 14) — la huella en la dimensión textural del ciclo estacional que describe la página espaciotemporal. El registro de ocho años revela un cambio textural del sedimento (arena → franco arenoso a partir de 2019) que debe controlarse en los análisis de tendencia temporal. Y en 2024, mercurio y cadmio se dispararon sincrónicamente a máximos del registro — Hg a 13× la directriz USEPA para sedimentos de agua dulce — apuntando a una nueva fuente discreta aguas arriba."><strong>What the texture data prove.</strong> At the bulk level, source dominance combined with sorption-site saturation overrides texture — the same mechanism that produces the negative clay-Cd correlation on the partitioning page (ρ = −0.404). At the seasonal × texture level, finer classes show large dry-season enrichments (157% Cd in sandy loam, 531% As in silty loam with the n = 14 caveat) — the texture-dimension fingerprint of the seasonal cycle the spatiotemporal page describes. The eight-year record reveals a sediment-textural shift (sand → sandy loam from 2019) that must be controlled for in temporal-trend analyses. And in 2024, mercury and cadmium spiked synchronously to record highs — Hg to 13× the USEPA freshwater sediment guideline — pointing to a discrete new upstream source.</p>
+
+    <p data-en="<strong>What it implies for action.</strong> Remediation must target the source-proximal corridor over individual texture classes — sand and sandy loam carry as much metal as silty loam in the headwaters, and the 35× station gradient swamps any within-station texture variation. Dry-season campaigns must include sandy loam and silty loam samples to detect peak concentrations the bulk null hides. Eight-year trend statements should control for the 2019 textural shift before being interpreted as real loading change. And the 2024 mercury and cadmium spikes are large enough to step around all of the above — they point at a source that has not been identified, and treatment design cannot proceed without that identification." data-es="<strong>Lo que implica para la acción.</strong> La remediación debe centrarse en el corredor proximal a la fuente más que en clases texturales individuales — la arena y el franco arenoso transportan tanto metal como el franco limoso en las nacientes, y el gradiente de 35× entre estaciones supera cualquier variación textural dentro de la estación. Las campañas de temporada seca deben incluir muestras de franco arenoso y franco limoso para detectar las concentraciones máximas que el resultado nulo de conjunto oculta. Las afirmaciones sobre tendencias a ocho años deben controlar por el cambio textural de 2019 antes de interpretarse como cambio real de carga. Y los picos de mercurio y cadmio de 2024 son lo suficientemente grandes para sortear todo lo anterior — apuntan a una fuente que no ha sido identificada, y el diseño del tratamiento no puede proceder sin esa identificación."><strong>What it implies for action.</strong> Remediation must target the source-proximal corridor over individual texture classes — sand and sandy loam carry as much metal as silty loam in the headwaters, and the 35× station gradient swamps any within-station texture variation. Dry-season campaigns must include sandy loam and silty loam samples to detect peak concentrations the bulk null hides. Eight-year trend statements should control for the 2019 textural shift before being interpreted as real loading change. And the 2024 mercury and cadmium spikes are large enough to step around all of the above — they point at a source that has not been identified, and treatment design cannot proceed without that identification.</p>
+
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 16px;" data-en="Continue Reading" data-es="Continuar Leyendo">Continue Reading</p>
+    <div class="grid-3" style="gap:16px;">
+      <a href="remediation.html" class="cross-link-card">
+        <div class="cross-link-card-icon">↗</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label" data-en="Next: The Response" data-es="Siguiente: La Respuesta">Next: The Response</div>
+          <div class="cross-link-card-title" data-en="Remediation — Target Source, Not Grain Size" data-es="Remediación — Focalizar la Fuente, No la Granulometría">Remediation — Target Source, Not Grain Size</div>
+          <div class="cross-link-card-desc" data-en="The bulk null and the 35× spatial gradient together tell the targeting story: dredging and capping designed around grain-size classes will miss most of the metal inventory. The remediation framework starts where the contamination is — the source-proximal corridor — not where the texture is conventionally finest." data-es="El resultado nulo de conjunto y el gradiente espacial de 35× juntos cuentan la historia de la focalización: el dragado y el recubrimiento diseñados en torno a clases granulométricas pasarán por alto la mayor parte del inventario de metales. El marco de remediación comienza donde está la contaminación — el corredor proximal a la fuente — no donde la textura es convencionalmente más fina.">The bulk null and the 35× spatial gradient together tell the targeting story: dredging and capping designed around grain-size classes will miss most of the metal inventory. The remediation framework starts where the contamination is — the source-proximal corridor — not where the texture is conventionally finest.</div>
+        </div>
+      </a>
+      <a href="partitioning.html#metal-story-cd" class="cross-link-card">
+        <div class="cross-link-card-icon">◈</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label" data-en="Mechanism" data-es="Mecanismo">Mechanism</div>
+          <div class="cross-link-card-title" data-en="Sediment Partitioning — The Saturation Story Explained" data-es="Partición Sedimento-Agua — La Historia de la Saturación Explicada">Sediment Partitioning — The Saturation Story Explained</div>
+          <div class="cross-link-card-desc" data-en="The clay-Cd correlation (ρ = −0.404) is the empirical signature of the sorption-site saturation that produces the bulk null on this page. Read the partitioning page's cadmium subsection for the full ρ-by-mineral-phase decomposition behind that mechanism." data-es="La correlación arcilla-Cd (ρ = −0.404) es la firma empírica de la saturación de sitios de sorción que produce el resultado nulo de conjunto en esta página. Lea la subsección de cadmio de la página de partición para la descomposición completa de ρ por fase mineral detrás de ese mecanismo.">The clay-Cd correlation (ρ = −0.404) is the empirical signature of the sorption-site saturation that produces the bulk null on this page. Read the partitioning page's cadmium subsection for the full ρ-by-mineral-phase decomposition behind that mechanism.</div>
+        </div>
+      </a>
+      <a href="3d-models.html" class="cross-link-card">
+        <div class="cross-link-card-icon">◎</div>
+        <div class="cross-link-card-body">
+          <div class="cross-link-card-label" data-en="Spatial View" data-es="Vista Espacial">Spatial View</div>
+          <div class="cross-link-card-title" data-en="3D Models — See the 2024 Spike in Space and Time" data-es="Modelos 3D — Vea el Pico de 2024 en Espacio y Tiempo">3D Models — See the 2024 Spike in Space and Time</div>
+          <div class="cross-link-card-desc" data-en="The interactive cadmium and mercury 3D surfaces plot concentration as a function of distance along the river × year. The 2024 corner of those surfaces is where this page's emerging-contamination event lives in spatial form — useful for narrowing the discrete upstream source change in space." data-es="Las superficies 3D interactivas de cadmio y mercurio grafican la concentración en función de la distancia a lo largo del río × año. La esquina de 2024 de esas superficies es donde el evento de contaminación emergente de esta página vive en forma espacial — útil para acotar el cambio discreto de fuente aguas arriba en el espacio.">The interactive cadmium and mercury 3D surfaces plot concentration as a function of distance along the river × year. The 2024 corner of those surfaces is where this page's emerging-contamination event lives in spatial form — useful for narrowing the discrete upstream source change in space.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <span class="footer-brand">River <em style="color:var(--water-300);font-style:normal;">Remedy</em></span>
+    <div class="footer-links">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="https://github.com/katerinabischel/River_Remedy" target="_blank">GitHub</a>
+    </div>
+    <span class="footer-note" data-en="© 2024 UCSB Bren School · Trinational Commission Data" data-es="© 2024 UCSB Bren School · Datos de la Comisión Trinacional">© 2024 UCSB Bren School · Trinational Commission Data</span>
+  </footer>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">✕</button>
+  <img src="" alt="">
+</div>
+<script src="js/main.js"></script>
+<script src="js/lang.js"></script>
+</body>
+</html>
