@@ -294,8 +294,16 @@
     <h2 class="section-title" data-en="The Inverse Hand-off, Visualized" data-es="El Intercambio Inverso, Visualizado">The Inverse Hand-off, Visualized</h2>
     <p class="section-lead" data-en="The numbers above describe individual metals at specific regions. The interactive panel below shows the same inverse relationship across <em>all</em> 46 stations and all four metals, in both matrices, simultaneously. Toggle between wet and dry season — the bars in the water-column panel and the sediment panel reverse polarity in lockstep. This is the engine running, viewed in one frame." data-es="Los números anteriores describen metales individuales en regiones específicas. El panel interactivo a continuación muestra la misma relación inversa en <em>todas</em> las 46 estaciones y los cuatro metales, en ambas matrices, simultáneamente. Alterne entre temporada lluviosa y seca — las barras en el panel de columna de agua y el panel de sedimento invierten polaridad al unísono. Este es el motor en funcionamiento, visto en un solo cuadro.">The numbers above describe individual metals at specific regions. The interactive panel below shows the same inverse relationship across <em>all</em> 46 stations and all four metals, in both matrices, simultaneously. Toggle between wet and dry season — the bars in the water-column panel and the sediment panel reverse polarity in lockstep. This is the engine running, viewed in one frame.</p>
 
-    <div class="viz-wrap h-600">
-      <iframe src="visualizations/migration/combined_water_sediment_seasonal_comparison.html" scrolling="no"></iframe>
+    <div class="viz-wrap h-800 viz-expandable">
+      <iframe src="visualizations/migration/combined_water_sediment_seasonal_comparison.html"
+              scrolling="no"
+              title="Wet vs. dry season water-column and sediment concentrations"></iframe>
+      <button type="button" class="viz-expand-btn"
+              data-iframe-src="visualizations/migration/combined_water_sediment_seasonal_comparison.html"
+              data-iframe-title="Wet vs. Dry Season — Water &amp; Sediment Comparison">
+        <span class="viz-expand-icon" aria-hidden="true">⤢</span>
+        <span class="sr-only" data-en="Expand to fullscreen" data-es="Ampliar a pantalla completa">Expand to fullscreen</span>
+      </button>
     </div>
     <p class="viz-caption" data-en="<strong>What you are looking at:</strong> two synchronized panels — water-column concentrations on one side, sediment concentrations on the other. The wet/dry toggle changes both at once. When the water-column bars are tall, the sediment bars are shorter; when the season flips, so does the contrast. <strong>Detail:</strong> all 46 monitoring stations, 2016–2024 medians, the four priority metals (As, Cd, Pb, Zn). Sample sizes per group range n = 21–76 (water) and n = 40–175 (sediment) per Figure 4.4.1a in the report." data-es="<strong>Lo que se ve:</strong> dos paneles sincronizados — concentraciones en columna de agua de un lado, concentraciones en sedimento del otro. El interruptor lluviosa/seca cambia ambos a la vez. Cuando las barras de la columna de agua son altas, las barras de sedimento son más cortas; cuando la temporada se invierte, también lo hace el contraste. <strong>Detalle:</strong> las 46 estaciones de monitoreo, medianas 2016–2024, los cuatro metales prioritarios (As, Cd, Pb, Zn). Los tamaños de muestra por grupo varían n = 21–76 (agua) y n = 40–175 (sedimento) según la Figura 4.4.1a del informe."><strong>What you are looking at:</strong> two synchronized panels — water-column concentrations on one side, sediment concentrations on the other. The wet/dry toggle changes both at once. When the water-column bars are tall, the sediment bars are shorter; when the season flips, so does the contrast. <strong>Detail:</strong> all 46 monitoring stations, 2016–2024 medians, the four priority metals (As, Cd, Pb, Zn). Sample sizes per group range n = 21–76 (water) and n = 40–175 (sediment) per Figure 4.4.1a in the report.</p>
   </section>
@@ -394,6 +402,27 @@
     <span class="footer-note" data-en="© 2024 UCSB Bren School · Trinational Commission Data" data-es="© 2024 UCSB Bren School · Datos de la Comisión Trinacional">© 2024 UCSB Bren School · Datos de la Comisión Trinacional</span>
   </footer>
 </main>
+
+<div class="iframe-modal" id="iframe-modal" role="dialog" aria-modal="true" aria-labelledby="iframe-modal-title" hidden>
+  <div class="iframe-modal-backdrop" data-iframe-modal-close></div>
+  <div class="iframe-modal-content">
+    <div class="iframe-modal-header">
+      <div class="iframe-modal-header-text">
+        <h3 class="iframe-modal-title" id="iframe-modal-title"></h3>
+        <p class="iframe-modal-hint" aria-hidden="true">
+          <span data-en="Hover for values" data-es="Pase el cursor para ver valores">Hover for values</span>
+          <span class="iframe-modal-hint-sep">·</span>
+          <span data-en="Toggle wet vs. dry season" data-es="Alterne temporada lluviosa vs. seca">Toggle wet vs. dry season</span>
+        </p>
+      </div>
+      <button type="button" class="iframe-modal-close" data-iframe-modal-close>
+        <span aria-hidden="true">✕</span>
+        <span class="sr-only" data-en="Close fullscreen view" data-es="Cerrar vista de pantalla completa">Close fullscreen view</span>
+      </button>
+    </div>
+    <iframe class="iframe-modal-frame" src="" title=""></iframe>
+  </div>
+</div>
 
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close">✕</button>
