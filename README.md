@@ -2,7 +2,7 @@
 
 <!-- DOI badge — replace PLACEHOLDER with concept DOI after Zenodo mints it.
      Pattern: https://zenodo.org/badge/DOI/<concept-DOI>.svg → https://doi.org/<concept-DOI> -->
-[![DOI](https://zenodo.org/badge/DOI/PLACEHOLDER.svg)](https://doi.org/PLACEHOLDER)
+[![DOI](https://doi.org/10.5281/zenodo.19929950)](hhttps://doi.org/10.5281/zenodo.19929950)
 
 Static site documenting the **River Remedy** project — a UCSB Bren School Group Project on heavy-metal contamination in the Pilcomayo River Basin, using monitoring data from the Comisión Trinacional para el Desarrollo de la Cuenca del Río Pilcomayo (2016–2024).
 
