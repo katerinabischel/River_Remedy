@@ -144,11 +144,118 @@
     });
   }
 
+  function initGlossaryTooltips() {
+    var terms = document.querySelectorAll('dfn.term');
+    if (!terms.length) return;
+    terms.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = el.getAttribute('data-open') === 'true';
+        document.querySelectorAll('dfn.term[data-open="true"]').forEach(function (o) {
+          if (o !== el) o.removeAttribute('data-open');
+        });
+        if (isOpen) {
+          el.removeAttribute('data-open');
+        } else {
+          el.setAttribute('data-open', 'true');
+        }
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('dfn.term[data-open="true"]').forEach(function (el) {
+        el.removeAttribute('data-open');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('dfn.term[data-open="true"]').forEach(function (el) {
+          el.removeAttribute('data-open');
+        });
+      }
+    });
+  }
+
+  function initMobileNav() {
+    var sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'mobile-nav-toggle';
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'site-sidebar');
+    toggle.innerHTML =
+      '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" ' +
+      'stroke="currentColor" stroke-width="2.2" stroke-linecap="round" ' +
+      'stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+      '<line x1="3" y1="6" x2="21" y2="6"></line>' +
+      '<line x1="3" y1="12" x2="21" y2="12"></line>' +
+      '<line x1="3" y1="18" x2="21" y2="18"></line>' +
+      '</svg>';
+    document.body.appendChild(toggle);
+
+    var backdrop = document.createElement('div');
+    backdrop.className = 'mobile-nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(backdrop);
+
+    if (!sidebar.id) sidebar.id = 'site-sidebar';
+
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'mobile-nav-close';
+    close.setAttribute('aria-label', 'Close navigation menu');
+    close.innerHTML =
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" ' +
+      'stroke="currentColor" stroke-width="2.2" stroke-linecap="round" ' +
+      'stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+      '<line x1="18" y1="6" x2="6" y2="18"></line>' +
+      '<line x1="6" y1="6" x2="18" y2="18"></line>' +
+      '</svg>';
+    sidebar.insertBefore(close, sidebar.firstChild);
+
+    function openDrawer() {
+      document.body.setAttribute('data-mobile-nav', 'open');
+      toggle.setAttribute('aria-expanded', 'true');
+      setTimeout(function () { close.focus(); }, 60);
+    }
+
+    function closeDrawer() {
+      if (document.body.getAttribute('data-mobile-nav') !== 'open') return;
+      document.body.removeAttribute('data-mobile-nav');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', openDrawer);
+    close.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    sidebar.querySelectorAll('.sb-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        closeDrawer();
+      });
+    });
+
+    var mq = window.matchMedia('(min-width: 901px)');
+    if (mq.addEventListener) {
+      mq.addEventListener('change', function (e) { if (e.matches) closeDrawer(); });
+    } else if (mq.addListener) {
+      mq.addListener(function (e) { if (e.matches) closeDrawer(); });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     setActiveLink();
     initLightbox();
     initIframeModal();
     initTabs();
     initMapOverlay();
+    initGlossaryTooltips();
+    initMobileNav();
   });
 }());

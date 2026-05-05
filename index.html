@@ -3,7 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home — River Remedy</title>
+<!-- Description (search engines + screen-reader page summary) -->
+<meta name="description" content="An eight-year study of heavy metal contamination across 850 km of the Pilcomayo River Basin in Bolivia, Argentina, and Paraguay.">
+
+<!-- Open Graph link-preview (Facebook, iMessage, Slack, Discord, etc.) -->
+<meta property="og:site_name" content="River Remedy">
+<meta property="og:title" content="River Remedy">
+<meta property="og:description" content="An eight-year study of heavy metal contamination across 850 km of the Pilcomayo River Basin in Bolivia, Argentina, and Paraguay.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://katerinabischel.github.io/River_Remedy/index.html">
+<meta property="og:image" content="https://katerinabischel.github.io/River_Remedy/link_header.png">
+<meta property="og:image:secure_url" content="https://katerinabischel.github.io/River_Remedy/link_header.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1116">
+<meta property="og:image:height" content="606">
+<meta property="og:image:alt" content="The Pilcomayo River near Potosí showing visible contamination from upstream mining tailings">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="River Remedy">
+<meta name="twitter:description" content="An eight-year study of heavy metal contamination across 850 km of the Pilcomayo River Basin in Bolivia, Argentina, and Paraguay.">
+<meta name="twitter:image" content="https://katerinabischel.github.io/River_Remedy/link_header.png">
+<title data-en="River Remedy" data-es="River Remedy">River Remedy</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 </head>
@@ -115,19 +136,19 @@
     <div class="grid-4">
       <div class="stat-card red">
         <div class="stat-value">1.5M</div>
-        <div class="stat-label">People in the affected basin</div>
+        <div class="stat-label" data-en="People in the affected basin" data-es="Personas en la cuenca afectada">People in the affected basin</div>
       </div>
       <div class="stat-card yellow">
         <div class="stat-value">400+</div>
-        <div class="stat-label">Years of industrial mining</div>
+        <div class="stat-label" data-en="Years of industrial mining" data-es="Años de minería industrial">Years of industrial mining</div>
       </div>
       <div class="stat-card green">
         <div class="stat-value">850 km</div>
-        <div class="stat-label">River corridor monitored</div>
+        <div class="stat-label" data-en="River corridor monitored" data-es="Corredor del río monitoreado">River corridor monitored</div>
       </div>
       <div class="stat-card blue">
         <div class="stat-value">46</div>
-        <div class="stat-label">Active monitoring stations</div>
+        <div class="stat-label" data-en="Active monitoring stations" data-es="Estaciones de monitoreo activas">Active monitoring stations</div>
       </div>
     </div>
   </div>
@@ -175,47 +196,85 @@
     <div class="grid-auto">
 
       <div class="card card-accent green">
-        <div class="card-label">Sediment-Water Partitioning</div>
-        <div class="card-title">Kd Distribution Coefficients</div>
-        <div class="card-body">
+        <div class="card-label"><span data-en="Sediment-Water Partitioning" data-es="Partición Sedimento-Agua">Sediment-Water Partitioning</span></div>
+        <div class="card-title"><dfn class="term" tabindex="0">Kd<span class="term-tip"
+   data-en="The ratio of a metal's concentration on sediment to its concentration in water at equilibrium. A higher Kd means more of the metal is held in the sediment and less is dissolved in the water column."
+   data-es="La razón entre la concentración de un metal en el sedimento y su concentración en el agua, en equilibrio. Un Kd más alto significa que una mayor proporción del metal está fijada al sedimento y menos está disuelta en la columna de agua.">The ratio of a metal's concentration on sediment to its concentration in water at equilibrium. A higher Kd means more of the metal is held in the sediment and less is dissolved in the water column.</span></dfn> <span data-en="Distribution Coefficients" data-es="Coeficientes de Distribución">Distribution Coefficients</span></div>
+        <div class="card-body"
+             data-en="265 matched sample pairs (per metal; 264 for Cd) quantify how strongly each metal binds to sediment. Lead holds 10× tighter than cadmium — a critical difference for remediation."
+             data-es="265 pares de muestras coincidentes (por metal; 264 para Cd) cuantifican la intensidad con que cada metal se fija al sedimento. El plomo se retiene 10× más que el cadmio — una diferencia crítica para la remediación.">
           265 matched sample pairs (per metal; 264 for Cd) quantify how strongly each metal binds to sediment. Lead holds 10× tighter than cadmium — a critical difference for remediation.
-          <a href="partitioning.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+          <a href="partitioning.html" class="btn btn-ghost btn-sm mt-4"
+             data-en="Read analysis →"
+             data-es="Leer el análisis →">Read analysis →</a>
         </div>
       </div>
 
       <div class="card card-accent red">
-        <div class="card-label">Hypoxic Events</div>
-        <div class="card-title">Oxygen Crash & Metal Release</div>
-        <div class="card-body">
-          Three oxygen-crash events (DO &lt; 4 mg/L) caused metals locked in sediment to re-dissolve into the water column. Lead spiked 3× during the best-documented event.
-          <a href="hypoxic.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+        <div class="card-label"><span data-en="Hypoxic Events" data-es="Eventos Hipóxicos">Hypoxic Events</span></div>
+        <div class="card-title"
+             data-en="Oxygen Crash &amp; Metal Release"
+             data-es="Caída de Oxígeno y Liberación de Metales">Oxygen Crash &amp; Metal Release</div>
+        <div class="card-body"
+             data-en="Three oxygen-crash events (DO &lt; 4 mg/L) caused metals locked in sediment to re-dissolve into the water column. Lead spiked 3× during the best-documented event."
+             data-es="Tres eventos de caída de oxígeno (OD &lt; 4 mg/L) provocaron que los metales fijados en el sedimento se volvieran a disolver en la columna de agua. El plomo se disparó 3× durante el evento mejor documentado.">
+          Three oxygen-crash events (<dfn class="term" tabindex="0">DO<span class="term-tip"
+   data-en="The concentration of molecular O₂ dissolved in water. Reported in mg/L. Below ~4 mg/L, anaerobic microbial processes can begin reducing iron- and manganese-oxide minerals in sediment."
+   data-es="Concentración de O₂ molecular disuelto en el agua. Se expresa en mg/L. Por debajo de ~4 mg/L, los procesos microbianos anaerobios pueden comenzar a reducir los minerales de óxido de hierro y manganeso del sedimento.">The concentration of molecular O₂ dissolved in water. Reported in mg/L. Below ~4 mg/L, anaerobic microbial processes can begin reducing iron- and manganese-oxide minerals in sediment.</span></dfn> &lt; 4 mg/L) caused metals locked in sediment to re-dissolve into the water column. Lead spiked 3× during the best-documented event.
+          <a href="hypoxic.html" class="btn btn-ghost btn-sm mt-4"
+             data-en="Read analysis →"
+             data-es="Leer el análisis →">Read analysis →</a>
         </div>
       </div>
 
       <div class="card card-accent blue">
-        <div class="card-label">Spatiotemporal Migration</div>
-        <div class="card-title">Seasonal Metal Hand-off</div>
-        <div class="card-body">
-          Eight years of quarterly sampling reveal a predictable seasonal hand-off: wet-season rainfall flushes metals into the water column; dry-season settling traps them in sediment.
-          <a href="spatiotemporal.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+        <div class="card-label"
+             data-en="Spatiotemporal Migration"
+             data-es="Migración Espaciotemporal">Spatiotemporal Migration</div>
+        <div class="card-title"
+             data-en="Seasonal Metal Hand-off"
+             data-es="Transferencia Estacional de Metales">Seasonal Metal Hand-off</div>
+        <div class="card-body"
+             data-en="Eight years of quarterly sampling reveal a predictable seasonal hand-off: wet-season rainfall flushes metals into the water column; dry-season settling traps them in sediment."
+             data-es="Ocho años de muestreo trimestral revelan una transferencia estacional predecible: las lluvias de la temporada húmeda movilizan metales hacia la columna de agua; la sedimentación de la temporada seca los atrapa en el sedimento.">
+          Eight years of quarterly sampling reveal a predictable seasonal hand-off: <dfn class="term" tabindex="0">wet-season<span class="term-tip" data-en="In the upper Pilcomayo, the wet season runs roughly November through April, the dry season May through October. Quarterly sampling captures both phases of the annual hydrological cycle." data-es="En el alto Pilcomayo, la temporada húmeda transcurre aproximadamente de noviembre a abril, y la seca de mayo a octubre. El muestreo trimestral captura ambas fases del ciclo hidrológico anual.">In the upper Pilcomayo, the wet season runs roughly November through April, the dry season May through October. Quarterly sampling captures both phases of the annual hydrological cycle.</span></dfn> rainfall flushes metals into the water column; dry-season settling traps them in sediment.
+          <a href="spatiotemporal.html" class="btn btn-ghost btn-sm mt-4"
+             data-en="Read analysis →"
+             data-es="Leer el análisis →">Read analysis →</a>
         </div>
       </div>
 
       <div class="card card-accent yellow">
-        <div class="card-label">Sediment Texture</div>
-        <div class="card-title">Grain Size vs. Mining Source</div>
-        <div class="card-body">
+        <div class="card-label"
+             data-en="Sediment Texture"
+             data-es="Textura del Sedimento">Sediment Texture</div>
+        <div class="card-title"
+             data-en="Grain Size vs. Mining Source"
+             data-es="Tamaño de Grano vs. Fuente Minera">Grain Size vs. Mining Source</div>
+        <div class="card-body"
+             data-en="Grain size does not control contamination in the Potosí headwaters. Mining-source dominance is so extreme that it overrides the texture hierarchy entirely."
+             data-es="El tamaño de grano no controla la contaminación en los nacientes de Potosí. La dominancia de la fuente minera es tan extrema que anula por completo la jerarquía textural.">
           Grain size does not control contamination in the Potosí headwaters. Mining-source dominance is so extreme that it overrides the texture hierarchy entirely.
-          <a href="texture.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+          <a href="texture.html" class="btn btn-ghost btn-sm mt-4"
+             data-en="Read analysis →"
+             data-es="Leer el análisis →">Read analysis →</a>
         </div>
       </div>
 
       <div class="card card-accent forest">
-        <div class="card-label">3D Contamination Models</div>
-        <div class="card-title">Interactive 3D Surfaces</div>
-        <div class="card-body">
+        <div class="card-label"
+             data-en="3D Contamination Models"
+             data-es="Modelos 3D de Contaminación">3D Contamination Models</div>
+        <div class="card-title"
+             data-en="Interactive 3D Surfaces"
+             data-es="Superficies 3D Interactivas">Interactive 3D Surfaces</div>
+        <div class="card-body"
+             data-en="Interactive three-dimensional surfaces map As, Cd, Pb, and Zn across the 850 km corridor over 8 years — revealing dilution gradients and transboundary persistence."
+             data-es="Superficies tridimensionales interactivas mapean As, Cd, Pb y Zn a lo largo del corredor de 850 km durante 8 años — revelando gradientes de dilución y persistencia transfronteriza.">
           Interactive three-dimensional surfaces map As, Cd, Pb, and Zn across the 850 km corridor over 8 years — revealing dilution gradients and transboundary persistence.
-          <a href="3d-models.html" class="btn btn-ghost btn-sm mt-4">Read analysis →</a>
+          <a href="3d-models.html" class="btn btn-ghost btn-sm mt-4"
+             data-en="Read analysis →"
+             data-es="Leer el análisis →">Read analysis →</a>
         </div>
       </div>
 
@@ -231,7 +290,7 @@
              data-es="Modalidades de intervención basadas en evidencia sintetizadas a partir de los cuatro capítulos analíticos del proyecto — caracterizando la estabilización in situ, la fitorremediación y el tratamiento ex situ por su química controladora, alcance espacial y base de evidencia.">Evidence-based intervention modalities synthesized from the project's four analytical chapters — characterizing in-situ stabilization, phytoremediation, and ex-situ treatment by their controlling chemistry, spatial scope, and evidence base.
           <a href="remediation.html" class="btn btn-ghost btn-sm mt-4"
              data-en="Read analysis →"
-             data-es="Leer análisis →">Read analysis →</a>
+             data-es="Leer el análisis →">Read analysis →</a>
         </div>
       </div>
 
@@ -262,8 +321,9 @@
       <div class="callout success">
         <div class="callout-icon">🌱</div>
         <div class="callout-body">
-          <strong>Dry Season Settling</strong><br>
-          Reduced flow allows sedimentation. Metals bind to Fe/Al oxides in sediment. Risk shifts to benthic organisms and future resuspension events.
+          <strong data-en="Dry Season Settling" data-es="Sedimentación de Temporada Seca">Dry Season Settling</strong><br>
+          <span data-en="Reduced flow allows sedimentation. Metals bind to Fe/Al oxides in sediment. Risk shifts to benthic organisms and future resuspension events."
+                data-es="El caudal reducido permite la sedimentación. Los metales se fijan a los óxidos de Fe/Al en el sedimento. El riesgo se desplaza hacia los organismos bentónicos y futuros eventos de resuspensión.">Reduced flow allows sedimentation. Metals bind to Fe/Al oxides in sediment. Risk shifts to benthic organisms and future resuspension events.</span>
         </div>
       </div>
     </div>

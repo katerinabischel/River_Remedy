@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>River Remedy — Language Toggle</title>
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--rr-bg);
+    font-family: var(--rr-font-body);
+    color: var(--rr-text-body);
+  }
+
+  /* Generic artboard helpers */
+  .stage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    box-sizing: border-box;
+    background: var(--rr-surface);
+  }
+  .stage--bg-page { background: var(--rr-bg); }
+  .stage--bg-tint { background: var(--rr-green-50); }
+  .stage--bg-dark {
+    background: var(--rr-green-800);
+    color: #eaf3ec;
+  }
+
+  .scene-label {
+    position: absolute;
+    bottom: 12px;
+    left: 16px;
+    font-family: var(--rr-font-mono);
+    font-size: 11px;
+    color: var(--rr-text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── 01 · Segmented control ─── */
+  .seg {
+    display: inline-flex;
+    align-items: center;
+    background: var(--rr-neutral-100);
+    border: 1px solid var(--rr-border);
+    border-radius: 9999px;
+    padding: 4px;
+    gap: 2px;
+    font-family: var(--rr-font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .seg__btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--rr-text-muted);
+    padding: 8px 18px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+    line-height: 1;
+  }
+  .seg__btn[aria-pressed="true"] {
+    background: var(--rr-surface);
+    color: var(--rr-green-700);
+    box-shadow: 0 1px 2px rgba(19,36,22,0.08);
+  }
+  .seg__btn:hover[aria-pressed="false"] {
+    color: var(--rr-text-dark);
+  }
+
+  /* ─── 02 · Sliding pill (with globe) ─── */
+  .pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px 6px 14px;
+    background: var(--rr-surface);
+    border: 1px solid var(--rr-border);
+    border-radius: 9999px;
+    font-family: var(--rr-font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rr-text-muted);
+  }
+  .pill__globe {
+    color: var(--rr-green-600);
+    font-size: 13px;
+    margin-right: 2px;
+  }
+  .pill__track {
+    position: relative;
+    display: flex;
+    background: var(--rr-green-50);
+    border-radius: 9999px;
+    padding: 3px;
+  }
+  .pill__thumb {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    width: calc(50% - 3px);
+    background: var(--rr-green-600);
+    border-radius: 9999px;
+    transition: transform 0.25s cubic-bezier(.4,.1,.2,1);
+    box-shadow: 0 1px 3px rgba(45,106,79,0.25);
+  }
+  .pill[data-lang="es"] .pill__thumb { transform: translateX(100%); }
+  .pill__opt {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    color: var(--rr-text-muted);
+    font: inherit;
+    letter-spacing: 0.04em;
+    transition: color 0.2s ease;
+    line-height: 1;
+  }
+  .pill__opt[aria-pressed="true"] { color: #fff; }
+
+  /* ─── 03 · Dropdown ─── */
+  .dd {
+    position: relative;
+    font-family: var(--rr-font-body);
+  }
+  .dd__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px 9px 14px;
+    background: var(--rr-surface);
+    border: 1px solid var(--rr-border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rr-text-dark);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .dd__btn:hover { border-color: var(--rr-green-300); }
+  .dd__btn[aria-expanded="true"] {
+    border-color: var(--rr-green-400);
+    box-shadow: 0 0 0 3px rgba(45,106,79,0.12);
+  }
+  .dd__btn .fa-globe { color: var(--rr-green-600); }
+  .dd__chev {
+    color: var(--rr-text-muted);
+    font-size: 10px;
+    transition: transform 0.25s ease;
+  }
+  .dd__btn[aria-expanded="true"] .dd__chev { transform: rotate(180deg); }
+  .dd__menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 180px;
+    background: var(--rr-surface);
+    border: 1px solid var(--rr-border);
+    border-radius: 10px;
+    box-shadow: var(--rr-shadow-md);
+    padding: 4px;
+    z-index: 10;
+  }
+  .dd__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 9px 10px;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--rr-text-body);
+    cursor: pointer;
+    text-align: left;
+    line-height: 1.2;
+  }
+  .dd__item:hover { background: var(--rr-green-50); color: var(--rr-text-dark); }
+  .dd__item .fa-check {
+    margin-left: auto;
+    color: var(--rr-green-600);
+    font-size: 11px;
+  }
+  .dd__item-code {
+    font-family: var(--rr-font-mono);
+    font-size: 11px;
+    color: var(--rr-text-muted);
+    background: var(--rr-neutral-100);
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .dd__item-name { font-weight: 500; }
+
+  /* ─── 04 · Inline link toggle ─── */
+  .link-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--rr-font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .link-toggle .fa-globe {
+    color: var(--rr-green-600);
+    margin-right: 2px;
+    font-size: 13px;
+  }
+  .link-toggle__opt {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 2px 0;
+    cursor: pointer;
+    color: var(--rr-text-muted);
+    font: inherit;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    line-height: 1.2;
+  }
+  .link-toggle__opt:hover { color: var(--rr-text-dark); }
+  .link-toggle__opt[aria-current="true"] {
+    color: var(--rr-green-700);
+    font-weight: 700;
+    border-bottom-color: var(--rr-green-600);
+  }
+  .link-toggle__sep {
+    color: var(--rr-border);
+    font-weight: 300;
+    user-select: none;
+  }
+
+  /* ─── 05 · Switch (toggle) ─── */
+  .switch-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--rr-font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .switch-wrap__label {
+    color: var(--rr-text-muted);
+    transition: color 0.2s ease;
+    min-width: 16px;
+  }
+  .switch-wrap__label--active { color: var(--rr-green-700); }
+
+  .switch {
+    position: relative;
+    width: 56px;
+    height: 30px;
+    background: var(--rr-green-50);
+    border: 1px solid var(--rr-border);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .switch__thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: var(--rr-green-600);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s cubic-bezier(.4,.1,.2,1);
+    box-shadow: 0 1px 3px rgba(45,106,79,0.3);
+  }
+  .switch[data-lang="es"] .switch__thumb { transform: translateX(26px); }
+
+  /* ─── 06 · Dark / nav-bar variant ─── */
+  .nav {
+    width: 100%;
+    max-width: 720px;
+    height: 64px;
+    background: var(--rr-green-800);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    box-shadow: var(--rr-shadow-md);
+  }
+  .nav__brand {
+    font-family: var(--rr-font-brand);
+    font-size: 22px;
+    color: #f3f9f4;
+    letter-spacing: 0.04em;
+  }
+  .nav__right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .nav__divider {
+    width: 1px;
+    height: 22px;
+    background: rgba(255,255,255,0.18);
+  }
+  .nav__seg {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 9999px;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .nav__seg__btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: rgba(234,243,236,0.6);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    cursor: pointer;
+    font: inherit;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  .nav__seg__btn[aria-pressed="true"] {
+    background: var(--rr-green-50);
+    color: var(--rr-green-800);
+  }
+  .nav__seg__btn:hover[aria-pressed="false"] {
+    color: #fff;
+  }
+  .nav__icon {
+    color: rgba(234,243,236,0.7);
+    font-size: 13px;
+  }
+
+  /* Specs annotation block */
+  .spec {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--rr-font-mono);
+    font-size: 10px;
+    color: var(--rr-text-muted);
+    letter-spacing: 0.04em;
+    text-align: right;
+    line-height: 1.6;
+  }
+  .spec b { color: var(--rr-text-dark); font-weight: 600; }
+
+  /* Recommendation tag */
+  .rec {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--rr-yellow-100);
+    border: 1px solid var(--rr-yellow-300);
+    color: var(--rr-yellow-900);
+    border-radius: 9999px;
+    font-family: var(--rr-font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── Context preview (in-page demonstration) ─── */
+  .ctx {
+    width: 100%;
+    height: 100%;
+    background: var(--rr-bg);
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+  .ctx__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 36px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--rr-border);
+  }
+  .ctx__brand {
+    font-family: var(--rr-font-brand);
+    font-size: 22px;
+    color: var(--rr-green-800);
+    letter-spacing: 0.04em;
+  }
+  .ctx__nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--rr-text-muted);
+  }
+  .ctx__nav-links span:hover { color: var(--rr-text-dark); cursor: pointer; }
+  .ctx__nav-links span.active { color: var(--rr-green-700); font-weight: 600; }
+  .ctx__body {
+    padding: 48px 56px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .ctx__eyebrow {
+    font-family: var(--rr-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rr-green-600);
+    margin-bottom: 16px;
+  }
+  .ctx__h1 {
+    font-family: var(--rr-font-display);
+    font-size: 38px;
+    line-height: 1.15;
+    color: var(--rr-text-dark);
+    margin: 0 0 18px 0;
+    text-wrap: pretty;
+  }
+  .ctx__p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--rr-text-body);
+    margin: 0 0 14px 0;
+  }
+  .ctx__placeholder {
+    background: repeating-linear-gradient(
+      135deg,
+      var(--rr-green-50) 0 12px,
+      var(--rr-neutral-100) 12px 24px
+    );
+    border: 1px solid var(--rr-border);
+    border-radius: 12px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--rr-font-mono);
+    font-size: 11px;
+    color: var(--rr-text-muted);
+    letter-spacing: 0.08em;
+  }
+</style>
+
+<script type="text/babel" data-presets="env,react" src="design-canvas.jsx"></script>
+<script type="text/babel" data-presets="env,react">
+const { useState, useEffect, useRef } = React;
+
+/* ─────────────────────────────────────────────────────────────
+   STRINGS: bilingual snippets for the in-context preview
+   ───────────────────────────────────────────────────────────── */
+const STRINGS = {
+  en: {
+    eyebrow: "Pilcomayo River Basin · 2016–2024",
+    nav: ["Dashboard", "Migration Cycle", "Action Plan", "History"],
+    title: "Heavy metal contamination across 500 km of the Pilcomayo Basin",
+    body1: "Rainfall in the Potosí mining headwaters triggers mobilization in the water column during the wet season. As flow stabilizes in the dry season, metals adsorb to fine particles and settle into the sediment.",
+    body2: "Basin-wide contamination affects approximately 1.5 million people across Bolivia, Argentina, and Paraguay.",
+    placeholder: "MAP · 46 monitoring stations",
+  },
+  es: {
+    eyebrow: "Cuenca del Río Pilcomayo · 2016–2024",
+    nav: ["Panel", "Ciclo de migración", "Plan de acción", "Historia"],
+    title: "Contaminación por metales pesados en 500 km de la cuenca del Pilcomayo",
+    body1: "Las lluvias en los afluentes mineros de Potosí desencadenan la movilización en la columna de agua durante la temporada húmeda. Cuando el caudal se estabiliza en la temporada seca, los metales se adsorben a partículas finas y se depositan en el sedimento.",
+    body2: "La contaminación a escala de cuenca afecta a aproximadamente 1,5 millones de personas en Bolivia, Argentina y Paraguay.",
+    placeholder: "MAPA · 46 estaciones de monitoreo",
+  },
+};
+
+/* ─────────────────────────────────────────────────────────────
+   01 · Segmented (recommended)
+   ───────────────────────────────────────────────────────────── */
+function Segmented({ lang, setLang }) {
+  return (
+    <div className="seg" role="group" aria-label="Language">
+      <button className="seg__btn" aria-pressed={lang === "en"} onClick={() => setLang("en")}>EN</button>
+      <button className="seg__btn" aria-pressed={lang === "es"} onClick={() => setLang("es")}>ES</button>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   02 · Sliding pill with globe
+   ───────────────────────────────────────────────────────────── */
+function SlidingPill({ lang, setLang }) {
+  return (
+    <div className="pill" data-lang={lang}>
+      <i className="fa-solid fa-globe pill__globe" aria-hidden="true"></i>
+      <div className="pill__track">
+        <div className="pill__thumb" aria-hidden="true"></div>
+        <button className="pill__opt" aria-pressed={lang === "en"} onClick={() => setLang("en")}>EN</button>
+        <button className="pill__opt" aria-pressed={lang === "es"} onClick={() => setLang("es")}>ES</button>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   03 · Dropdown (full names)
+   ───────────────────────────────────────────────────────────── */
+function Dropdown({ lang, setLang }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const onDoc = (e) => { if (!ref.current?.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, []);
+  const labels = { en: "English", es: "Español" };
+  return (
+    <div className="dd" ref={ref}>
+      <button className="dd__btn" aria-expanded={open} onClick={() => setOpen(o => !o)}>
+        <i className="fa-solid fa-globe" aria-hidden="true"></i>
+        <span>{labels[lang]}</span>
+        <i className="fa-solid fa-chevron-down dd__chev" aria-hidden="true"></i>
+      </button>
+      {open && (
+        <div className="dd__menu" role="menu">
+          {[
+            { code: "en", name: "English" },
+            { code: "es", name: "Español" },
+          ].map(o => (
+            <button
+              key={o.code}
+              className="dd__item"
+              role="menuitemradio"
+              aria-checked={lang === o.code}
+              onClick={() => { setLang(o.code); setOpen(false); }}
+            >
+              <span className="dd__item-code">{o.code.toUpperCase()}</span>
+              <span className="dd__item-name">{o.name}</span>
+              {lang === o.code && <i className="fa-solid fa-check" aria-hidden="true"></i>}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   04 · Inline link toggle (lightest weight)
+   ───────────────────────────────────────────────────────────── */
+function LinkToggle({ lang, setLang }) {
+  return (
+    <div className="link-toggle">
+      <i className="fa-solid fa-globe" aria-hidden="true"></i>
+      <button
+        className="link-toggle__opt"
+        aria-current={lang === "en"}
+        onClick={() => setLang("en")}
+      >EN</button>
+      <span className="link-toggle__sep" aria-hidden="true">/</span>
+      <button
+        className="link-toggle__opt"
+        aria-current={lang === "es"}
+        onClick={() => setLang("es")}
+      >ES</button>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   05 · Switch
+   ───────────────────────────────────────────────────────────── */
+function SwitchToggle({ lang, setLang }) {
+  return (
+    <div className="switch-wrap">
+      <span className={`switch-wrap__label ${lang === "en" ? "switch-wrap__label--active" : ""}`}>EN</span>
+      <button
+        className="switch"
+        data-lang={lang}
+        role="switch"
+        aria-checked={lang === "es"}
+        aria-label="Toggle language"
+        onClick={() => setLang(lang === "en" ? "es" : "en")}
+      >
+        <span className="switch__thumb">{lang === "en" ? "EN" : "ES"}</span>
+      </button>
+      <span className={`switch-wrap__label ${lang === "es" ? "switch-wrap__label--active" : ""}`}>ES</span>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   06 · Dark nav-bar (in situ)
+   ───────────────────────────────────────────────────────────── */
+function DarkNav({ lang, setLang }) {
+  return (
+    <div className="nav">
+      <div className="nav__brand">RIVER REMEDY</div>
+      <div className="nav__right">
+        <i className="fa-solid fa-circle-info nav__icon" aria-hidden="true"></i>
+        <i className="fa-solid fa-download nav__icon" aria-hidden="true"></i>
+        <div className="nav__divider"></div>
+        <div className="nav__seg" role="group" aria-label="Language">
+          <button className="nav__seg__btn" aria-pressed={lang === "en"} onClick={() => setLang("en")}>EN</button>
+          <button className="nav__seg__btn" aria-pressed={lang === "es"} onClick={() => setLang("es")}>ES</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   In-context preview (real site moment)
+   ───────────────────────────────────────────────────────────── */
+function ContextPreview({ lang, setLang }) {
+  const t = STRINGS[lang];
+  return (
+    <div className="ctx">
+      <header className="ctx__nav">
+        <div className="ctx__brand">RIVER REMEDY</div>
+        <div className="ctx__nav-links">
+          {t.nav.map((n, i) => (
+            <span key={n} className={i === 0 ? "active" : ""}>{n}</span>
+          ))}
+          <Segmented lang={lang} setLang={setLang} />
+        </div>
+      </header>
+      <div className="ctx__body">
+        <div>
+          <div className="ctx__eyebrow">{t.eyebrow}</div>
+          <h1 className="ctx__h1">{t.title}</h1>
+          <p className="ctx__p">{t.body1}</p>
+          <p className="ctx__p">{t.body2}</p>
+        </div>
+        <div className="ctx__placeholder">{t.placeholder}</div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   App: a single shared lang state across all artboards so a
+   click anywhere updates every preview at once.
+   ───────────────────────────────────────────────────────────── */
+function App() {
+  const [lang, setLang] = useState("en");
+
+  return (
+    <DesignCanvas
+      title="River Remedy — Language Toggle"
+      subtitle="Six EN/ES toggle treatments. Click any toggle — they're all wired to the same shared state, so you can see the relationship between the controls and the live page below."
+    >
+      <DCSection id="controls" title="Toggle treatments">
+        <DCArtboard id="seg" label="01 · Segmented (recommended)" width={520} height={300}>
+          <div className="stage">
+            <span className="rec"><i className="fa-solid fa-star"></i> RECOMMENDED</span>
+            <div className="spec">
+              <b>Pattern:</b> segmented control<br/>
+              <b>Footprint:</b> 88×34<br/>
+              <b>Best for:</b> top nav
+            </div>
+            <Segmented lang={lang} setLang={setLang} />
+          </div>
+        </DCArtboard>
+
+        <DCArtboard id="pill" label="02 · Sliding pill + globe" width={520} height={300}>
+          <div className="stage stage--bg-tint">
+            <div className="spec">
+              <b>Pattern:</b> animated thumb<br/>
+              <b>Footprint:</b> 142×40<br/>
+              <b>Best for:</b> playful surface
+            </div>
+            <SlidingPill lang={lang} setLang={setLang} />
+          </div>
+        </DCArtboard>
+
+        <DCArtboard id="dropdown" label="03 · Dropdown (full names)" width={520} height={300}>
+          <div className="stage">
+            <div className="spec">
+              <b>Pattern:</b> menu<br/>
+              <b>Scales to:</b> 3+ langs<br/>
+              <b>Best for:</b> footer / future-proof
+            </div>
+            <Dropdown lang={lang} setLang={setLang} />
+          </div>
+        </DCArtboard>
+
+        <DCArtboard id="link" label="04 · Inline links" width={520} height={300}>
+          <div className="stage">
+            <div className="spec">
+              <b>Pattern:</b> text-only<br/>
+              <b>Footprint:</b> minimal<br/>
+              <b>Best for:</b> footer / utility nav
+            </div>
+            <LinkToggle lang={lang} setLang={setLang} />
+          </div>
+        </DCArtboard>
+
+        <DCArtboard id="switch" label="05 · Two-side switch" width={520} height={300}>
+          <div className="stage">
+            <div className="spec">
+              <b>Pattern:</b> switch<br/>
+              <b>Footprint:</b> 130×30<br/>
+              <b>Caveat:</b> non-standard for langs
+            </div>
+            <SwitchToggle lang={lang} setLang={setLang} />
+          </div>
+        </DCArtboard>
+
+        <DCArtboard id="darknav" label="06 · In dark nav (in situ)" width={760} height={300}>
+          <div className="stage stage--bg-page">
+            <div className="spec">
+              <b>Pattern:</b> seg on dark<br/>
+              <b>Use:</b> hero / dashboard header
+            </div>
+            <DarkNav lang={lang} setLang={setLang} />
+          </div>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection id="states" title="States — segmented control (recommended)">
+        <DCArtboard id="state-default" label="Default · EN selected" width={400} height={220}>
+          <div className="stage">
+            <Segmented lang="en" setLang={() => {}} />
+            <span className="scene-label">aria-pressed=true on EN</span>
+          </div>
+        </DCArtboard>
+        <DCArtboard id="state-other" label="Default · ES selected" width={400} height={220}>
+          <div className="stage">
+            <Segmented lang="es" setLang={() => {}} />
+            <span className="scene-label">aria-pressed=true on ES</span>
+          </div>
+        </DCArtboard>
+        <DCArtboard id="state-hover" label="Hover · idle option" width={400} height={220}>
+          <div className="stage">
+            <div className="seg" role="group">
+              <button className="seg__btn" aria-pressed="true">EN</button>
+              <button className="seg__btn" aria-pressed="false" style={{color:'var(--rr-text-dark)', background:'rgba(45,106,79,0.06)'}}>ES</button>
+            </div>
+            <span className="scene-label">cursor over ES</span>
+          </div>
+        </DCArtboard>
+        <DCArtboard id="state-focus" label="Keyboard focus" width={400} height={220}>
+          <div className="stage">
+            <div className="seg" role="group">
+              <button className="seg__btn" aria-pressed="true">EN</button>
+              <button
+                className="seg__btn"
+                aria-pressed="false"
+                style={{
+                  outline: '2px solid var(--rr-green-500)',
+                  outlineOffset: '2px',
+                  color:'var(--rr-text-dark)'
+                }}
+              >ES</button>
+            </div>
+            <span className="scene-label">:focus-visible ring</span>
+          </div>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection id="context" title="In context — live preview">
+        <DCArtboard id="ctx-live" label="Header + content swap with selection" width={1200} height={620}>
+          <ContextPreview lang={lang} setLang={setLang} />
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+</html>

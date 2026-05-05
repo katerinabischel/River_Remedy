@@ -623,49 +623,140 @@ img { max-width: 100%; height: auto; display: block; }
 .pro-list li::before { content: '✓'; color: var(--bol-green); font-weight: 700; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
 .con-list li::before { content: '!'; color: var(--bol-orange); font-weight: 700; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
 
-/* ── LANGUAGE TOGGLE WIDGET ── */
-.lang-toggle-widget {
-  padding: 8px 14px 2px;
+/* ──────────────────────────────────────────
+   Language toggle — sliding pill (design 02)
+   ────────────────────────────────────────── */
+
+.lang-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px 5px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  user-select: none;
 }
-.lang-toggle-widget .toggle-group {
-  width: 100%;
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.12);
+
+.lang-pill__globe {
+  color: var(--forest-500);
+  flex-shrink: 0;
 }
-.lang-toggle-widget .toggle-btn {
-  flex: 1;
-  text-align: center;
-  color: rgba(255,255,255,0.5);
-  font-size: 11px;
+
+.lang-pill__track {
+  position: relative;
+  display: flex;
+  background: var(--sage-100);
+  border-radius: 9999px;
+  padding: 3px;
 }
-.lang-toggle-widget .toggle-btn.active {
-  background: var(--forest-400);
+
+.lang-pill__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  background: var(--forest-500);
+  border-radius: 9999px;
+  transition: transform 0.25s cubic-bezier(.4,.1,.2,1);
+  box-shadow: 0 1px 3px rgba(45,106,79,0.25);
+}
+
+.lang-pill[data-lang="es"] .lang-pill__thumb {
+  transform: translateX(100%);
+}
+
+.lang-pill__opt {
+  position: relative;
+  z-index: 1;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  color: var(--ink-soft);
+  font: inherit;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.lang-pill__opt[aria-pressed="true"] {
   color: #fff;
 }
 
-/* Mobile fallback — shown when sidebar is hidden */
-.lang-toggle-mobile {
-  display: none;
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 200;
+.lang-pill__opt:focus-visible {
+  outline: 2px solid var(--water-500);
+  outline-offset: 2px;
 }
-.lang-toggle-mobile .toggle-group {
-  background: var(--surface);
-  border-color: var(--border);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+
+/* ── Sidebar (dark) variant ── */
+.lang-toggle-widget {
+  padding: 8px 14px 4px;
 }
-.lang-toggle-mobile .toggle-btn {
-  color: var(--ink-soft);
+.lang-toggle-widget .lang-pill {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.65);
+  justify-content: space-between;
+  padding: 5px 8px 5px 12px;
+}
+.lang-toggle-widget .lang-pill__globe {
+  color: rgba(255, 255, 255, 0.72);
+}
+.lang-toggle-widget .lang-pill__track {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.22);
+}
+.lang-toggle-widget .lang-pill__thumb {
+  background: var(--forest-400);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.lang-toggle-widget .lang-pill__opt {
+  flex: 1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
   font-size: 11px;
+  padding: 5px 0;
 }
-.lang-toggle-mobile .toggle-btn.active {
-  background: var(--forest-500);
+.lang-toggle-widget .lang-pill__opt[aria-pressed="true"] {
   color: #fff;
 }
-@media (max-width: 900px) {
-  .lang-toggle-mobile { display: block; }
+
+/* ── Mobile fixed variant (light) ── */
+.lang-toggle-mobile {
+  display: none;
+}
+@media (max-width: 880px) {
+  .lang-toggle-mobile {
+    display: block;
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 200;
+  }
+  .lang-toggle-mobile .lang-pill {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .lang-pill__thumb {
+    transition: none;
+  }
+  .lang-pill__opt {
+    transition: none;
+  }
 }
 
 /* ── SIDEBAR REPORT CTA ── */
@@ -793,7 +884,18 @@ p:last-child { margin-bottom: 0; }
 }
 @media (max-width: 900px) {
   :root { --sidebar-w: 0px; }
-  .sidebar { display: none; }
+  /* Sidebar becomes a slide-in drawer on mobile.
+     Replaces: .sidebar { display: none; } */
+  .sidebar {
+    width: min(280px, 78vw);
+    transform: translateX(-100%);
+    transition: transform 280ms cubic-bezier(.4,.1,.2,1);
+    z-index: 260;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.18);
+  }
+  body[data-mobile-nav="open"] .sidebar {
+    transform: translateX(0);
+  }
   .main { margin-left: 0; }
   .page-hero { padding: 36px 28px 52px; }
   .hero-title { font-size: 34px; }
@@ -1279,4 +1381,184 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 768px) {
   .author-block { grid-template-columns: 1fr; }
   .author-photo img { max-width: 160px; }
+}
+
+/* ── PLAIN-LANGUAGE HEADLINE CALLOUT ── */
+.plain-headline {
+  background: var(--pastel-blue);
+  border-left: 3px solid var(--water-700);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.5rem;
+  max-width: 760px;
+}
+.plain-headline-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--water-700);
+  margin-bottom: 0.5rem;
+}
+.plain-headline p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-mid);
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .plain-headline { padding: 0.85rem 1rem; }
+  .plain-headline p { font-size: 0.95rem; }
+}
+
+/* ── GLOSSARY TOOLTIPS ── */
+dfn.term {
+  font-style: normal;
+  border-bottom: 1px dotted var(--water-700);
+  cursor: help;
+  position: relative;
+  outline: none;
+}
+dfn.term:focus-visible {
+  outline: 2px solid var(--water-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+dfn.term .term-tip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: max-content;
+  max-width: 320px;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 140ms ease, transform 140ms ease, visibility 140ms;
+  z-index: 50;
+  pointer-events: none;
+  white-space: normal;
+}
+dfn.term:hover .term-tip,
+dfn.term:focus .term-tip,
+dfn.term:focus-within .term-tip,
+dfn.term[data-open="true"] .term-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+@media (max-width: 720px) {
+  dfn.term .term-tip {
+    max-width: min(280px, calc(100vw - 2rem));
+    left: 0;
+  }
+}
+
+/* ──────────────────────────────────────────
+   Mobile nav drawer
+   ────────────────────────────────────────── */
+
+/* Default (desktop): drawer chrome is invisible. */
+.mobile-nav-toggle,
+.mobile-nav-backdrop,
+.mobile-nav-close {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* Hamburger button — fixed top-left, visible when drawer is closed. */
+  .mobile-nav-toggle {
+    display: flex;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 200;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+    color: var(--ink);
+    padding: 0;
+    transition: opacity 180ms ease, visibility 180ms ease;
+  }
+  .mobile-nav-toggle:focus-visible {
+    outline: 2px solid var(--water-500);
+    outline-offset: 2px;
+  }
+  body[data-mobile-nav="open"] .mobile-nav-toggle {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Backdrop — covers everything behind the drawer when it's open. */
+  .mobile-nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 32, 24, 0);
+    z-index: 250;
+    pointer-events: none;
+    transition: background 280ms ease;
+  }
+  body[data-mobile-nav="open"] .mobile-nav-backdrop {
+    background: rgba(15, 32, 24, 0.55);
+    pointer-events: auto;
+  }
+
+  /* Close button inside the drawer (top-right of the sidebar on mobile). */
+  .mobile-nav-close {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0;
+    z-index: 5;
+  }
+  .mobile-nav-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .mobile-nav-close:focus-visible {
+    outline: 2px solid var(--water-300);
+    outline-offset: 2px;
+  }
+
+  /* Lock body scroll while drawer is open. */
+  body[data-mobile-nav="open"] {
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .mobile-nav-backdrop,
+  .mobile-nav-toggle {
+    transition: none;
+  }
 }
